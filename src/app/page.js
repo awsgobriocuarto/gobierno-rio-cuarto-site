@@ -1,21 +1,42 @@
+import Image from "next/image";
 import Slides from "./ui/home/Slides";
+import CardNews from "./ui/news/CardNews";
+import CardFormalities from "./ui/formalities/CardFormalities";
+import { formalities } from "./ui/formalities/formalities";
+import { news } from "./ui/news/news";
+import CardEvents from "./ui/destiny/CardEvents";
+import CardAreas from "./ui/areas/CardAreas";
+import ListFormalities from "./ui/formalities/ListFormalities";
+import ListNews from "./ui/news/ListNews";
 
 export default function Home() {
   return (
     <div>
-
       <main>
         <Slides />
-        <div className="mb-5 text-primary">
-          Gobierno Rio Cuarto
+        <div className="container mt-5">
+          <div className="mb-5 text-primary">Gobierno Rio Cuarto</div>
         </div>
-        <div className="card">
-          <div className="card-body">
-            <h3 className="card-title">Lorem ipsum dolor sit amet.</h3>
-            <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ex culpa officia animi fugiat vel perferendis consequatur, quisquam at sit.</p>
-            <a href="" className="btn btn-primary text-white">warning</a>
-          </div>
+        <ListFormalities></ListFormalities>
+        {/* <h2 className="mb-5 text-center">Tramites</h2>
+        <div className="row justify-content-center">
+          {formalities.map((item) => (
+            <CardAreas key={item.id} post={item} />
+          ))}
         </div>
+        <h2 className="mb-5 text-center">Areas</h2>
+        <div className="row justify-content-center">
+          {formalities.map((item) => (
+            <CardFormalities key={item.id} post={item} />
+          ))}
+        </div> */}
+        <h2 className="mb-5 text-center">Eventos</h2>
+        <div className="row justify-content-center gap-3">
+          {news.map((item) => (
+            <CardEvents key={item.id} post={item} />
+          ))}
+        </div>
+        <ListNews></ListNews>
       </main>
     </div>
   );
