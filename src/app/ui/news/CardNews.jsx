@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CardNews({ post }) {
   return (
@@ -12,7 +13,9 @@ export default function CardNews({ post }) {
           className="card-img-top"
         />
         <div className="card-body">
-          <h5 className="card-title">{post.title}</h5>
+          <Link className="card-title" href={`/news/${post.slug}`}>
+            {post.title}
+          </Link>
           <p className="card-text">{post.description}</p>
         </div>
       </div>
