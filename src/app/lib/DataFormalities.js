@@ -54,6 +54,7 @@ export async function fetchFormalities(params = "") {
 
   return res.json();
 }
+
 export async function fetchFormalitiesBySlug(slug = "") {
   const res = await fetch(`${API_URL}/tramites/${slug}`, API_OPTIONS);
   if (!res.ok) {

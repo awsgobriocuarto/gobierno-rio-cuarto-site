@@ -36,13 +36,16 @@ export default async function NewsDetailPage({ params }) {
           <article>
             <h1 className="mb-4">{newsDetail.title}</h1>
             {newsDetail.image && (
-              <img
-                src={newsDetail.image}
-                alt={newsDetail.title}
-                width={400}
-                height={400}
-                className="card-img-top"
-              />
+              <>
+                {/* eslint-disable-next-line */}{" "}
+                <img
+                  src={newsDetail.image}
+                  alt={newsDetail.title}
+                  width={400}
+                  height={400}
+                  className="card-img-top"
+                />{" "}
+              </>
             )}
             <div
               className="mt-4"
@@ -74,13 +77,16 @@ export default async function NewsDetailPage({ params }) {
                         className="text-decoration-none"
                       >
                         {news.image && (
-                          <img
-                            src={news.image}
-                            alt={news.title}
-                            width={200}
-                            height={200}
-                            className="card-img-top"
-                          />
+                          <>
+                            {/* eslint-disable-next-line */}
+                            <img
+                              src={news.image}
+                              alt={news.title}
+                              width={200}
+                              height={200}
+                              className="card-img-top"
+                            />
+                          </>
                         )}
                         {news.title}
                       </Link>

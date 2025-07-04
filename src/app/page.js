@@ -1,7 +1,9 @@
 import Slides from "./ui/home/Slides";
-import ListFormalities from "./ui/formalities/ListFormalities";
 import ListNews from "./ui/news/ListNews";
 import ListEvents from "./ui/destiny/ListEvents";
+
+import ButtonFormalities from "./ui/formalities/ButtonFormalities";
+import ListCategories from "./ui/formalities/ListCategories";
 
 export default function Home() {
   return (
@@ -11,10 +13,10 @@ export default function Home() {
         <div className="container mt-5">
           <div className="mb-5 text-primary">Gobierno Rio Cuarto</div>
         </div>
-        <ListFormalities></ListFormalities>
 
+        <ListCategories></ListCategories>
+        <ButtonFormalities></ButtonFormalities>
         <ListEvents></ListEvents>
-
         <ListNews></ListNews>
       </main>
     </div>
