@@ -9,8 +9,8 @@ export default async function ListCategories() {
       <h2 className="mb-5 text-center">Tramites</h2>
       <div className="row justify-content-center">
         <Suspense fallback={<div>Cargando...</div>}>
-          {categories.map((post) => (
-            <CardCategories key={post.id} post={post} />
+          {categories.map((category) => (
+            <CardCategories key={category.id} category={category} />
           ))}
         </Suspense>
       </div>

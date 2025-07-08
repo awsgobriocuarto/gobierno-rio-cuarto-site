@@ -1,5 +1,6 @@
 "use client";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
+
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
 const WAIT_BETWEEN_CHANGE = 500;

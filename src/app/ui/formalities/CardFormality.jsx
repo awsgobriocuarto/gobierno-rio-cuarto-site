@@ -1,9 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-export default function CardFormalities({ formality }) {
-  console.log("CardFormalities:", formality);
-
+export default function FormalitiesCard({ formality }) {
   return (
     <div className="card">
       <div className="card-body">

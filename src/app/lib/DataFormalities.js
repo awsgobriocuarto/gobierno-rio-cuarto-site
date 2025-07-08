@@ -5,13 +5,12 @@ const API_TOKEN = process.env.API_TOKEN_TRAMITES;
 console.log("API_BASE_URL:", API_BASE_URL);
 console.log("API_VERSION:", API_VERSION);
 console.log("API_TOKEN:", API_TOKEN);
-
 if (!API_BASE_URL || !API_TOKEN) {
   throw new Error("API_BASE_URL o API_TOKEN no están definidas en el entorno");
 }
 
 const API_URL = `${API_BASE_URL}/api${API_VERSION ? `/${API_VERSION}` : ""}`;
-console.log("API_URL:", API_URL);
+
 const API_OPTIONS = {
   headers: {
     Authorization: API_TOKEN,
@@ -54,7 +53,6 @@ export async function fetchFormalities(params = "") {
 
   return res.json();
 }
-
 export async function fetchFormalitiesBySlug(slug = "") {
   const res = await fetch(`${API_URL}/tramites/${slug}`, API_OPTIONS);
   if (!res.ok) {

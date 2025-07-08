@@ -2,7 +2,7 @@ import {
   fetchAreasById,
   fetchFormalitiesBySlug,
 } from "@/app/lib/DataFormalities";
-import Banners from "@/app/ui/formalities/banners";
+import Banners from "@/app/ui/home/banners";
 import AreaDetail from "@/app/ui/formality/area-detail";
 import FormalityInfo from "@/app/ui/formality/formality-info";
 import FormalityMedia from "@/app/ui/formality/formality-media";
