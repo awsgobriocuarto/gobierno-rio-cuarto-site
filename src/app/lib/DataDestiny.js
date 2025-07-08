@@ -15,9 +15,10 @@ export function fromApiResponseToPosts(apiResponse) {
   return apiResponse.data.map((post) => ({
     id: post.id,
     title: post.title,
-    summary: post.summary,
-    image: post.image.mediumUrl,
+    description: post.description,
+    image: post.main_picture.medium,
     slug: post.slug,
     createdAt: post.created_at,
+    body: post.body,
   }));
 }

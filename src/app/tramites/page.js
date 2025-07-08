@@ -3,6 +3,9 @@ import FormalitiesList from "../ui/formalities/formalities-list";
 import FormalitiesFilters from "../ui/formalities/formalities-filters";
 
 export default function Formalities({ searchParams }) {
+  console.log("Formalities page loaded with searchParams:", searchParams);
+
+  // Asegúrate de que searchParams sea un objeto plano de strings
   const cleanedSearchParams = Object.fromEntries(
     Object.entries(searchParams).map(([key, value]) => [
       key,
@@ -11,7 +14,7 @@ export default function Formalities({ searchParams }) {
   );
 
   const urlParams = new URLSearchParams(cleanedSearchParams);
-  const params = `?${urlParams.toString()}`;
+  const params = `?${urlParams}`;
 
   return (
     <Suspense>
