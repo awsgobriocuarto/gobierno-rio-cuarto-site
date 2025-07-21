@@ -31,7 +31,7 @@ function BasicExample() {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Nav.Link href="#action1">Home</Nav.Link>
+              <Nav.Link href={`/tramites/`}>Tramites</Nav.Link>
               <Nav.Link href="#action2">Link</Nav.Link>
               <NavDropdown
                 title="Dropdown"
