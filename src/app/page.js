@@ -14,9 +14,9 @@ export default function Home() {
         <div className="container mt-5">
           <div className="mb-5 text-primary">Gobierno Rio Cuarto</div>
         </div>
-        <ListAreas></ListAreas>
         <ListCategories></ListCategories>
         <ButtonFormalities></ButtonFormalities>
+        <ListAreas></ListAreas>
         <ListEvents></ListEvents>
         <ListNews></ListNews>
       </main>

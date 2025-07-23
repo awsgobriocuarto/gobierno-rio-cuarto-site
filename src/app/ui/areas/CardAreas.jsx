@@ -3,7 +3,7 @@ import Link from "next/link"; // Importa el componente Link
 
 export default function CardAreas({ post }) {
   // Genera el slug a partir del título, igual que en la página de detalle
-  const slug = post.title.toLowerCase().replace(/\s+/g, "-");
+  const slug = post.slug;
 
   return (
     // col-12 col-md-5: La tarjeta ocupa todo el ancho en móviles y 5 columnas en pantallas medianas.
