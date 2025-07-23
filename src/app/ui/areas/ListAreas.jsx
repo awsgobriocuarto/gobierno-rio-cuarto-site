@@ -4,6 +4,8 @@ import { areas } from "@/app/lib/DataAreas"; // Asegúrate de que esta ruta sea 
 export default function ListAreas() {
   return (
     <div className="container">
+      <h2 className="mb-5 text-center">Areas de Gobierno</h2>
+
       <div className="row justify-content-center">
         {areas.map((area) => (
           <CardAreas key={area.id} post={area} />

@@ -8,9 +8,7 @@ import FormalitiesList from "@/app/ui/formalities/ListFormalities"; // Asumo que
 export default function AreaDetailPage({ params }) {
   const { slug } = params;
 
-  const area = areas.find(
-    (a) => a.title.toLowerCase().replace(/\s+/g, "-") === slug
-  );
+  const area = areas.find((a) => a.slug === slug);
 
   if (!area) {
     return (
@@ -73,12 +71,8 @@ export default function AreaDetailPage({ params }) {
           {/* Sección de Trámites del Área */}
           <div className="mb-4">
             <h3 className="mb-3">TRÁMITES DEL ÁREA</h3>
-            {/* Aquí pasamos los trámites específicos de esta área a FormalitiesList */}
-            {area.formalities && area.formalities.length > 0 ? (
-              <FormalitiesList formalities={area.formalities} />
-            ) : (
-              <p>No hay trámites disponibles para esta área.</p>
-            )}
+            <FormalitiesList /> : (
+            <p>No hay trámites disponibles para esta área.</p>)
           </div>
 
           {/* Botón de volver */}

@@ -20,7 +20,7 @@ export async function fetchNews({ page = 1, limit = 9 } = {}) {
   try {
     const res = await fetch(apiURL, {
       headers: {
-        "Portal-Id": 8,
+        "Portal-Id": 3,
       },
     });
     if (!res.ok) {

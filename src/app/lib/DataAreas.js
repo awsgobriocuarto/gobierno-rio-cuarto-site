@@ -4,12 +4,13 @@ export const areas = [
   {
     id: 1,
     title: "Secretaria de Economía e Innovación",
-    description: "las cabras y los cabros",
+    slug: "secretaria-economia-e-innovacion",
+    description: "Soporte y desarrollo de proyectos web para el gobierno.",
     image: "/images/area.svg", // Asegúrate de que esta imagen exista
     basicInfo: [
       "Horario de atención: Lunes a Viernes, 9:00 - 17:00",
       "Ubicación: Edificio Central, Oficina 101",
-      "Contacto: desarrolloweb@ejemplo.com",
+      "Contacto: ejemplo@ejemplo.com",
       "Teléfono: +54 9 11 1234-5678",
     ],
     formalities: [
@@ -39,11 +40,12 @@ export const areas = [
     title: "Secretaria de Deporte y Turismo",
     description:
       "Promoción y desarrollo de actividades deportivas y turísticas en la ciudad.",
+    slug: "secretaria-deporte-y-turismo",
     image: "/images/area.svg",
     basicInfo: [
       "Horario de atención: Lunes a Viernes, 10:00 - 18:00",
       "Ubicación: Edificio Anexo, Oficina 203",
-      "Contacto: diseno@ejemplo.com",
+      "Contacto: ejemplo@ejemplo.com",
       "Teléfono: +54 9 11 9876-5432",
     ],
     formalities: [
@@ -66,11 +68,12 @@ export const areas = [
     title: "Secretaria de Salud",
     description:
       "Gestión de trámites relacionados con la salud pública y servicios médicos.",
+    slug: "secretaria-salud",
     image: "/images/area.svg",
     basicInfo: [
       "Horario de atención: Lunes a Viernes, 8:30 - 16:30",
       "Ubicación: Edificio Comercial, Planta Baja",
-      "Contacto: marketing@ejemplo.com",
+      "Contacto: ejemplo@ejemplo.com",
       "Teléfono: +54 9 11 5555-1111",
     ],
     formalities: [
@@ -85,6 +88,75 @@ export const areas = [
         title: "Análisis SEO",
         text: "Pide un análisis de optimización para motores de búsqueda.",
         loguito: "/icons/seo.svg",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "Secretaria de Desarrollo humano",
+    slug: "secretaria-desarrollo-humano",
+    description: "Desarrollo y gestión de proyectos sociales y comunitarios.",
+    image: "/images/area.svg", // Asegúrate de que esta imagen exista
+    basicInfo: [
+      "Horario de atención: Lunes a Viernes, 9:00 - 17:00",
+      "Ubicación: Edificio Central, Oficina 101",
+      "Contacto: ejemplo@ejemplo.com",
+      "Teléfono: +54 9 11 1234-5678",
+    ],
+    formalities: [
+      // Datos de ejemplo para trámites
+      {
+        id: 1,
+        title: "Registro de Proyectos",
+        text: "Proceso para inscribir nuevos proyectos web.",
+        loguito: "/icons/servicio-de-.png",
+      },
+      {
+        id: 2,
+        title: "Soporte Técnico Web",
+        text: "Solicitud de asistencia técnica para plataformas existentes.",
+        loguito: "/icons/area.jpg",
+      },
+      {
+        id: 3,
+        title: "Consulta de Avance",
+        text: "Verificación del estado de proyectos en curso.",
+        loguito: "/icons/tap.png",
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "Secretaria de Prevencion y Convivencia Ciudadana",
+    slug: "secretaria-prevencion-y-convivencia-ciudadana",
+    description:
+      "Gestión de trámites relacionados con la seguridad y convivencia ciudadana.",
+    image: "/images/area.svg", // Asegúrate de que esta imagen exista
+    basicInfo: [
+      "Horario de atención: Lunes a Viernes, 9:00 - 17:00",
+      "Ubicación: Edificio Central, Oficina 101",
+      "Contacto: ejemplo@ejemplo.com",
+      "Teléfono: +54 9 11 1234-5678",
+    ],
+    formalities: [
+      // Datos de ejemplo para trámites
+      {
+        id: 1,
+        title: "Registro de Proyectos",
+        text: "Proceso para inscribir nuevos proyectos web.",
+        loguito: "/icons/servicio-de-.png",
+      },
+      {
+        id: 2,
+        title: "Soporte Técnico Web",
+        text: "Solicitud de asistencia técnica para plataformas existentes.",
+        loguito: "/icons/area.jpg",
+      },
+      {
+        id: 3,
+        title: "Consulta de Avance",
+        text: "Verificación del estado de proyectos en curso.",
+        loguito: "/icons/tap.png",
       },
     ],
   },

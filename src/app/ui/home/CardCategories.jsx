@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function CardCategories({ category }) {
   return (
-    <div className="col-md-5 mb-5">
+    <div className="col-md-4 mb-3">
       <div className="card ">
         <Link
           className="text-decoration-none"
