@@ -8,6 +8,7 @@ export function fromApiResponseToPosts(apiResponse) {
     slug: post.slug,
     createdAt: post.created_at,
     body: post.body,
+    iframe: post.iframe || "", // Aseguramos que iframe sea una cadena vacía si no existe
   }));
 }
 
@@ -19,7 +20,7 @@ export async function fetchNews({ page = 1, limit = 9 } = {}) {
   try {
     const res = await fetch(apiURL, {
       headers: {
-        "Portal-Id": 3,
+        "Portal-Id": 8,
       },
     });
     if (!res.ok) {

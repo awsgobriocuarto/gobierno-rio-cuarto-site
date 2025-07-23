@@ -6,7 +6,7 @@ export default async function ListEvents() {
   console.log("Eventos:", data);
   return (
     <>
-      <div className="container mt-5">
+      <div className="container mt-5 ">
         <h2 className="mb-4 text-center">Eventos</h2>
         <div className="row justify-content-center">
           <Suspense fallback={<div>Cargando...</div>}>

@@ -3,10 +3,9 @@
 export const areas = [
   {
     id: 1,
-    title: "Desarrollo Web",
-    description:
-      "Creación de sitios y aplicaciones web modernas y escalables, enfocadas en la experiencia de usuario y el rendimiento. Incluye frontend con React/Next.js y backend con Node.js/Python.",
-    image: "/images/bug.png", // Asegúrate de que esta imagen exista
+    title: "Secretaria de Economía e Innovación",
+    description: "las cabras y los cabros",
+    image: "/images/area.svg", // Asegúrate de que esta imagen exista
     basicInfo: [
       "Horario de atención: Lunes a Viernes, 9:00 - 17:00",
       "Ubicación: Edificio Central, Oficina 101",
@@ -19,13 +18,13 @@ export const areas = [
         id: 1,
         title: "Registro de Proyectos",
         text: "Proceso para inscribir nuevos proyectos web.",
-        loguito: "/icons/servicio-de-auto.png",
+        loguito: "/icons/servicio-de-.png",
       },
       {
         id: 2,
         title: "Soporte Técnico Web",
         text: "Solicitud de asistencia técnica para plataformas existentes.",
-        loguito: "/icons/shiber.jpg",
+        loguito: "/icons/area.jpg",
       },
       {
         id: 3,
@@ -37,10 +36,10 @@ export const areas = [
   },
   {
     id: 2,
-    title: "Diseño UX/UI",
+    title: "Secretaria de Deporte y Turismo",
     description:
-      "Diseño de experiencias de usuario intuitivas y atractivas, centrado en la usabilidad y la estética visual de interfaces digitales.",
-    image: "/images/tap.png",
+      "Promoción y desarrollo de actividades deportivas y turísticas en la ciudad.",
+    image: "/images/area.svg",
     basicInfo: [
       "Horario de atención: Lunes a Viernes, 10:00 - 18:00",
       "Ubicación: Edificio Anexo, Oficina 203",
@@ -64,10 +63,10 @@ export const areas = [
   },
   {
     id: 3,
-    title: "Marketing Digital",
+    title: "Secretaria de Salud",
     description:
-      "Estrategias integrales para posicionar tu marca, aumentar la visibilidad online y generar leads a través de canales digitales.",
-    image: "/images/shiber.jpg",
+      "Gestión de trámites relacionados con la salud pública y servicios médicos.",
+    image: "/images/area.svg",
     basicInfo: [
       "Horario de atención: Lunes a Viernes, 8:30 - 16:30",
       "Ubicación: Edificio Comercial, Planta Baja",
@@ -96,35 +95,35 @@ export const teamMembers = [
     id: 1,
     name: "Juan Pérez",
     role: "Jefe de Área",
-    photo: "/images/persona.jpg",
+    photo: "/images/person.jpg",
     areaId: 1, // Asocia a Desarrollo Web
   },
   {
     id: 2,
     name: "Ana Gómez",
     role: "Coordinadora",
-    photo: "/images/persona2.jpg",
+    photo: "/images/person.jpg",
     areaId: 1,
   },
   {
     id: 3,
     name: "Carlos Ruiz",
     role: "Diseñador Senior",
-    photo: "/images/pogba.jpeg",
+    photo: "/images/person.jpg",
     areaId: 2,
   },
   {
     id: 4,
     name: "Sofía López",
     role: "Especialista SEO",
-    photo: "/images/persona.jpg",
+    photo: "/images/person.jpg",
     areaId: 3,
   },
   {
     id: 5,
     name: "Pedro Martínez",
     role: "Especialista SEM",
-    photo: "/images/persona2.jpg",
+    photo: "/images/person.jpg",
     areaId: 3,
   },
 ];

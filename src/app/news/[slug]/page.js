@@ -60,6 +60,10 @@ export default async function NewsDetailPage({ params }) {
                 day: "numeric",
               })}
             </p>
+            <div
+              className="mt-4"
+              dangerouslySetInnerHTML={{ __html: newsDetail.iframe }}
+            ></div>
           </article>
         </div>
 
