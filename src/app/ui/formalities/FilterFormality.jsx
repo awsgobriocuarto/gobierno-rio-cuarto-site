@@ -1,6 +1,6 @@
 import { fetchAreas, fetchCategories } from "@/app/lib/DataFormalities";
-import Search from "./search";
-import Select from "./select";
+import Search from "./Search";
+import Select from "./Select";
 
 export default async function FormalitiesFilters() {
   const categories = await fetchCategories();
