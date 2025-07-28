@@ -2,11 +2,11 @@ import {
   fetchAreasById,
   fetchFormalitiesBySlug,
 } from "@/app/lib/DataFormalities";
-import Banners from "@/app/ui/home/banners";
-import AreaDetail from "@/app/ui/formality/area-detail";
-import FormalityInfo from "@/app/ui/formality/formality-info";
-import FormalityMedia from "@/app/ui/formality/formality-media";
-import LinkToBack from "@/app/ui/link-to-back";
+import AreaDetail from "@/app/ui/formality/AreaDetail";
+import FormalityInfo from "@/app/ui/formality/FormalityInfo";
+import FormalityMedia from "@/app/ui/formality/FormalityMedia";
+import Banners from "@/app/ui/home/Banners";
+import LinkToBack from "@/app/ui/LinkToBack";
 
 import Link from "next/link";
 
