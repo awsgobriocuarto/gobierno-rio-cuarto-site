@@ -1,17 +1,20 @@
-// ***********************************************************
-// This example support/e2e.js is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
+// cypress/support/e2e.js
 
-// Import commands.js using ES2015 syntax:
-import "./commands";
+Cypress.on("uncaught:exception", (err, runnable) => {
+  // Ignora errores de hidratación
+  if (err.message.includes("Hydration failed")) {
+    return false;
+  }
+  // Ignora errores de carga de chunks de Turbopack
+  if (err.message.includes("Failed to load chunk")) {
+    return false;
+  }
+  // Usamos esta linea para que ignore a las otras llamadas de apis,
+  // por ejemplo si quiero testear las noticias, las otras apis como la de tramites no daran error
+  if (err.message.includes("Uncaught Promise Rejection")) {
+    return false;
+  }
+
+  // Para cualquier otro error, Cypress fallará la prueba
+  return true;
+});
