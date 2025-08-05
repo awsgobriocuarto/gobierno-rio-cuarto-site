@@ -4,9 +4,19 @@ import Header from "./ui/layout/Header";
 import Footer from "./ui/layout/Footer";
 import Script from "next/script";
 
+// thin:        100
+// extra light: 200
+// light:       300
+// regular:     400 
+// medium:      500
+// semi bold:   600
+// bold:        700
+// black:       800
+// ultra black: 900
+
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "600"],
+  weight: ["100", "200", "300", "500", "400", "600", "700", "800", "900"],
   variable: "--font-inter",
   display: "swap",
 });
