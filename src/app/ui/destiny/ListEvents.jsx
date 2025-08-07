@@ -1,13 +1,15 @@
 import React, { Suspense } from "react";
 import { fetchDestiny } from "@/app/lib/DataDestiny";
 import CardEvents from "./CardEvents";
+import HeaderSection from "../layout/HeaderSection";
+
 export default async function ListEvents() {
   const { data } = await fetchDestiny({ paginate: 5 });
   console.log("Eventos:", data);
   return (
-    <>
-      <div className="container mt-5 ">
-        <h2 className="mb-4 text-center">Eventos</h2>
+    <section className="section">
+      <div className="container">
+        <HeaderSection title="Eventos" />
         <div className="row justify-content-center">
           <Suspense fallback={<div>Cargando...</div>}>
             {data.map((item) => (
@@ -16,6 +18,6 @@ export default async function ListEvents() {
           </Suspense>
         </div>
       </div>
-    </>
+    </section>
   );
 }
