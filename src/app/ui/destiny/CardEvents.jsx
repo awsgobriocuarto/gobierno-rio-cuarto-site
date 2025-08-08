@@ -21,7 +21,6 @@ export default function CardEvents({ post }) {
           </div>
 
           <div className="card-body d-flex flex-column p-4 border-top border-primary border-5">
-            <h6 className="text-uppercase text-primary fw-bold mb-2">Evento</h6>
             <h5 className="card-title fw-bold text-dark mb-3">{post.title}</h5>
             <p className="card-text text-muted flex-grow-1 mb-3">
               {post.summary}

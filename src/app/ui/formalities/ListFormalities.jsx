@@ -16,9 +16,9 @@ export default async function FormalitiesList({ params }) {
           </h2>
         </div>
 
-        {/* {formalities.map((formality) => (
+        {formalities.map((formality) => (
           <FormalitiesCard key={formality.id} formality={formality} />
-        ))} */}
+        ))}
       </div>
     </div>
   );

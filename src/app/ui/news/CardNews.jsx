@@ -20,11 +20,19 @@ export default function CardNews({ post }) {
             />
           </div>
           <div className="card-body d-flex flex-column p-4 border-top border-primary border-5">
-            <p className="text-uppercase text-primary fw-bold mb-2">Noticia</p>
             <h5 className="card-title fw-bold text-dark mb-3">{post.title}</h5>
             <p className="card-text text-muted flex-grow-1 mb-3">
               {post.description}
             </p>
+            <p className="text-muted mt-3">
+              Publicado el:{" "}
+              {new Date(post.publication_date).toLocaleDateString("es-AR", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </p>
+
             <div className="mt-auto pt-3 border-top border-light-subtle">
               <span className="text-primary fw-bold">Ver más</span>
             </div>
