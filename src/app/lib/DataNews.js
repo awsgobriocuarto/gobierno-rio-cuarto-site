@@ -7,6 +7,7 @@ export function fromApiResponseToPosts(apiResponse) {
     image: post.main_picture.medium,
     slug: post.slug,
     createdAt: post.created_at,
+    publication_date: post.publication_date,
     body: post.body,
     iframe: post.iframe || "", // Aseguramos que iframe sea una cadena vacía si no existe
   }));
