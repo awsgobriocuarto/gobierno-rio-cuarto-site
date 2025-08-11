@@ -6,7 +6,7 @@ export default function CardNews({ post }) {
     <div className="col-md-4 mb-4">
       <div className="card h-100 border-0 shadow-sm rounded-3">
         <Link
-          href={`/news/${post.slug}`}
+          href={`/noticias/${post.slug}`}
           className="text-decoration-none text-black d-flex flex-column h-100"
         >
           <div className="card-img-top-container overflow-hidden rounded-top">

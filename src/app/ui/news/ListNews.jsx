@@ -2,8 +2,9 @@ import React, { Suspense } from "react";
 import { fetchNews } from "@/app/lib/DataNews";
 import CardNews from "./CardNews";
 import HeaderSection from "../layout/HeaderSection";
-export default async function ListNews() {
-  const noticias = await fetchNews({ limit: 6 });
+export default async function ListNews({ page = 1, limit = 6 }) {
+  const noticias = await fetchNews({ page, limit });
+
   console.log("Noticias:", noticias);
   return (
     <section className="section">
@@ -20,4 +21,5 @@ export default async function ListNews() {
     </section>
   );
 }
+
 // <HeaderSection title="Eventos" />
