@@ -1,10 +1,10 @@
-import React from "react";
-import ListAreas from "../ui/areas/ListAreas";
+import ListAreas from '@/app/ui/areas/ListAreas'
+import React from 'react'
 
-export default function page() {
+export default function Area() {
   return (
     <main>
       <ListAreas />
     </main>
-  );
+  )
 }
