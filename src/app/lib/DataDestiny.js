@@ -1,3 +1,4 @@
+// app/lib/DataDestiny.js
 const API_URL = process.env.API_BASE_URL_DESTINO;
 
 export function fetchDestiny({ paginate = 9, query = null, page = null } = {}) {

@@ -21,16 +21,22 @@ export default function Menu() {
       className="bg-primary"
     >
       <Container>
-        <Navbar.Brand href="./">
+        <Navbar.Brand href="/">
           <Image src={LogoMobile} className="mobile" alt="logo gobierno" />
           <Image src={LogoDesktop} className="desktop" alt="logo gobierno" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="justify-content-end flex-grow-1 pe-3">
-            <Nav.Link href={`/tramites/`}>Tramites</Nav.Link>
-            <Nav.Link href={`/tramites/`}>Areas</Nav.Link>
-            <Nav.Link href={`/noticias/`}>Noticias</Nav.Link>
+            <Link className="nav-link text-white" href={`/tramites/`}>
+              Tramites
+            </Link>
+            <Link className="nav-link" href={`/areas/`}>
+              Areas
+            </Link>
+            <Link className="nav-link" href={`/noticias/`}>
+              Noticias
+            </Link>
             <NavDropdown
               title="Recursos"
               id={`offcanvasNavbarDropdown-expand-${expand}`}
