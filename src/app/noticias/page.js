@@ -7,9 +7,15 @@ export default function News({ searchParams }) {
   const limit = 12;
 
   return (
-    <main>
-      <ListNews page={page} limit={limit} />
-      <Pagination currentPage={page} totalNews={200} limit={limit} />
-    </main>
+    <Suspense>
+      <article className="container mt-5">
+        <main className="row justify-content-center">
+          <Suspense fallback={<div>Cargando noticias</div>}>
+            <ListNews page={page} limit={limit} />
+            <Pagination currentPage={page} totalNews={200} limit={limit} />
+          </Suspense>
+        </main>
+      </article>
+    </Suspense>
   );
 }

@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function CardEvents({ post }) {
   return (
-    <div className="col-12 col-md-4 mb-4">
-      <div className="card h-100 border-0 shadow-sm rounded-3">
+    <article className="col-12 col-md-4 mb-4">
+      <section className="card h-100 border-0 shadow-sm rounded-3">
         <Link
           href={`https://destinoriocuarto.gob.ar/evento/${post.id}/${post.slug}`}
           className="text-decoration-none text-black d-flex flex-column h-100"
@@ -30,7 +30,7 @@ export default function CardEvents({ post }) {
             </div>
           </div>
         </Link>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 }
