@@ -1,0 +1,23 @@
+section {
+  &.section {
+  }
+
+  .header {
+    text-align: left;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+      color: $primary;
+    }
+
+    .lead {
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  section {
+  }
+}

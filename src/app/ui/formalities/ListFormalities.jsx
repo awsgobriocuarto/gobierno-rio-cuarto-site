@@ -4,9 +4,11 @@ import FormalitiesCard from "./CardFormality";
 
 export default async function FormalitiesList({ params }) {
   const formalities = await fetchFormalities(params);
+  //console.log(formalities.length);
+
   return (
-    <div className="formalities-list">
-      <div className="container">
+    <article className="formalities-list">
+      <section className="container">
         <div className="headers">
           <h2>
             <span>{formalities?.length}</span>{" "}
@@ -17,7 +19,7 @@ export default async function FormalitiesList({ params }) {
         {formalities.map((formality) => (
           <FormalitiesCard key={formality.id} formality={formality} />
         ))}
-      </div>
-    </div>
+      </section>
+    </article>
   );
 }

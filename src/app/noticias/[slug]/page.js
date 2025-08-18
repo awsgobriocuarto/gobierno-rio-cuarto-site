@@ -54,11 +54,14 @@ export default async function NewsDetailPage({ params }) {
 
             <p className="text-muted mt-3">
               Publicado el:{" "}
-              {new Date(newsDetail.createdAt).toLocaleDateString("es-AR", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+              {new Date(newsDetail.publication_date).toLocaleDateString(
+                "es-AR",
+                {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                }
+              )}
             </p>
             <div
               className="mt-4"

@@ -1,13 +1,15 @@
 import React, { Suspense } from "react";
 import { fetchNews } from "@/app/lib/DataNews";
 import CardNews from "./CardNews";
-export default async function ListNews() {
-  const noticias = await fetchNews({ limit: 6 });
+import HeaderSection from "../layout/HeaderSection";
+export default async function ListNews({ page = 1, limit = 6 }) {
+  const noticias = await fetchNews({ page, limit });
+
   console.log("Noticias:", noticias);
   return (
-    <>
-      <div className="container mt-5">
-        <h2 className="mb-4 text-center">Noticias</h2>
+    <section className="section">
+      <div className="container">
+        <HeaderSection title="Noticias" />
         <div className="row justify-content-center">
           <Suspense fallback={<div>Cargando...</div>}>
             {noticias.map((item) => (
@@ -16,6 +18,8 @@ export default async function ListNews() {
           </Suspense>
         </div>
       </div>
-    </>
+    </section>
   );
 }
+
+// <HeaderSection title="Eventos" />

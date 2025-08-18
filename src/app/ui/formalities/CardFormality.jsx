@@ -3,24 +3,24 @@ import React from "react";
 
 export default function FormalitiesCard({ formality }) {
   return (
-    <div className="card">
-      <div className="card-body">
+    <article className="card">
+      <section className="card-body">
         <div className="row justify-content-between">
           <div className="col-md-9">
             <h5 className="card-title">{formality.title}</h5>
             <p className="card-text">{formality.summary}</p>
-            <div className="card-detail">
-              <div>
+            <dl className="card-detail">
+              <dd>
                 <span>Responsable:</span> {formality.area.name}
-              </div>
-              <div>
+              </dd>
+              <dd>
                 <span>Categoría:</span> {formality.category.name}
-              </div>
-              <div>
+              </dd>
+              <dd>
                 <span>Modalidad:</span>{" "}
                 {formality.online == 1 ? "Online" : "Presencial"}
-              </div>
-            </div>
+              </dd>
+            </dl>
           </div>
           <div className="col-md-3">
             <div className="card-cta">
@@ -42,7 +42,7 @@ export default function FormalitiesCard({ formality }) {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 }

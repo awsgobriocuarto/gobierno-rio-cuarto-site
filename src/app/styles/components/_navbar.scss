@@ -1,0 +1,67 @@
+.offcanvas {
+  &-header {
+    background-color: $gray-200;
+
+    .logo {
+      width: 140px;
+      height: auto;
+    }
+  }
+
+  &-body {
+    text-align: center;
+  }
+}
+
+.navbar {
+  padding: 20px 0;
+  //background-color: $primary;
+
+
+
+  .navbar-brand {
+    .mobile {
+      width: 140px;
+      height: auto;
+      display: none;
+    }
+
+    .desktop {
+      width: 400px;
+      height: auto;
+      display: block;
+    }
+
+
+    @media (max-width: 767px) {
+      .mobile {
+        display: block;
+      }
+
+      .desktop {
+        display: none;
+      }
+    }
+  }
+
+  .navbar-nav {
+    gap: 16px;
+
+    .nav-link {
+      text-transform: uppercase;
+      //font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.02rem;
+      color: white;
+    }
+
+    .dropdown {
+      &-menu {}
+
+      &-item {
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
