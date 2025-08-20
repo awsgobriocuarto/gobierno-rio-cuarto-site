@@ -1,4 +1,3 @@
-// app/[slug]/page.js
 import Link from "next/link"; // Para el botón de "Volver"
 import { areas } from "@/app/lib/DataAreas"; // Importa Areas
 import HeroAreas from "@/app/ui/areas/HeroAreas";
@@ -6,7 +5,6 @@ import FormalitiesAreas from "@/app/ui/areas/FormalitiesAreas";
 import ProgramsAreas from "@/app/ui/areas/ProgramsAreas";
 import IntitutionalAreas from "@/app/ui/areas/IntitutionalAreas";
 import NewsAreas from "@/app/ui/areas/NewsAreas";
-// No necesitas ListNews si su contenido es manejado por FormalitiesList o no se muestra en esta página.
 
 export default function AreaDetailPage({ params }) {
   const { slug } = params;
