@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Area() {
   return (
-    <main>
+    <main className='area'>
       <ListAreas />
     </main>
   )

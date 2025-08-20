@@ -1,6 +1,7 @@
 @import "custom";
 @import "~bootstrap";
 
+@import "./components/area";
 @import "./components/base";
 @import "./components/header";
 @import "./components/footer";
@@ -9,6 +10,7 @@
 @import "./components/navbar";
 @import "./components/section";
 @import "./components/card";
+
 .icons {
   display: flex;
   flex-direction: column;
