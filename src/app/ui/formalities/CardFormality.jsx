@@ -3,8 +3,8 @@ import React from "react";
 
 export default function FormalitiesCard({ formality }) {
   return (
-    <article className="card">
-      <section className="card-body">
+    <div className="card">
+      <div className="card-body">
         <div className="row justify-content-between">
           <div className="col-md-9">
             <h5 className="card-title">{formality.title}</h5>
@@ -42,7 +42,7 @@ export default function FormalitiesCard({ formality }) {
             </div>
           </div>
         </div>
-      </section>
-    </article>
+      </div>
+    </div>
   );
 }
