@@ -198,6 +198,20 @@ export const teamMembers = [
     photo: "/images/person.jpg",
     areaId: 3,
   },
+  {
+    id: 6,
+    name: "Sofía López",
+    role: "Especialista SEO",
+    photo: "/images/person.jpg",
+    areaId: 3,
+  },
+  {
+    id: 7,
+    name: "Pedro Martínez",
+    role: "Especialista SEM",
+    photo: "/images/person.jpg",
+    areaId: 3,
+  },
 ];
 
 // Asegúrate de tener estas imágenes de ejemplo en tu carpeta `public/images/team/`
