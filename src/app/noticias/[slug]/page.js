@@ -32,7 +32,7 @@ export default async function NewsDetailPage({ params }) {
     <div className="container my-5">
       <div className="row">
         {/* Sección de Detalle de la Noticia Principal */}
-        <div className="col-lg-8">
+        <section className="col-lg-8">
           <article>
             <h1 className="mb-4">{newsDetail.title}</h1>
             {newsDetail.image && (
@@ -68,10 +68,10 @@ export default async function NewsDetailPage({ params }) {
               dangerouslySetInnerHTML={{ __html: newsDetail.iframe }}
             ></div>
           </article>
-        </div>
+        </section>
 
         {/* Sección de Noticias Relacionadas */}
-        <div className="col-lg-4">
+        <section className="col-lg-4">
           <div className="card my-4">
             <h5 className="card-header">Noticias Relacionadas</h5>
             <div className="card-body">
@@ -105,7 +105,7 @@ export default async function NewsDetailPage({ params }) {
               </ul>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );

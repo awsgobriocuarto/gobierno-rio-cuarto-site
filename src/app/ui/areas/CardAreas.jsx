@@ -7,13 +7,13 @@ export default function CardAreas({ post }) {
 
   return (
     // col-12 col-md-5: La tarjeta ocupa todo el ancho en móviles y 5 columnas en pantallas medianas.
-    <article className="col-12 col-md-4 mb-4">
+    <div className="col-12 col-md-4 mb-4">
       {" "}
       <Link
         href={`/areas/${slug}`}
         className="text-decoration-none text-dark w-100"
       >
-        <section className="card d-flex flex-row overflow-hidden ">
+        <div className="card d-flex flex-row overflow-hidden ">
           <div
             className="col-4 col-lg-3 p-0 d-flex align-items-center justify-content-center"
             style={{ minHeight: "120px" }} // Ajusta esta altura según tus necesidades y el tamaño de tus imágenes
@@ -32,8 +32,8 @@ export default function CardAreas({ post }) {
             <h5 className="card-title ">{post.title}</h5>
             {/* <p className="card-text">{post.description}</p> */}
           </div>
-        </section>
+        </div>
       </Link>
-    </article>
+    </div>
   );
 }
