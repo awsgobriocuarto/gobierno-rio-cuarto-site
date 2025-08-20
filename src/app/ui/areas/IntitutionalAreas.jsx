@@ -1,4 +1,4 @@
-import { areas, teamMembers } from "@/app/lib/DataAreas"; // Importa teamMembers
+import { teamMembers } from "@/app/lib/DataAreas"; // Importa teamMembers
 import Image from "next/image";
 
 export default function IntitutionalAreas({ area }) {

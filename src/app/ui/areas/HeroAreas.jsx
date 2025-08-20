@@ -1,5 +1,3 @@
-import { areas, teamMembers } from "@/app/lib/DataAreas"; // Importa teamMembers
-import Image from "next/image";
 
 
 export default function HeroAreas({ area }) {
@@ -11,17 +9,15 @@ export default function HeroAreas({ area }) {
   return (
     <section className='area-hero'>
       <div className="container">
-        <div className="area-hero-info">
-          <h2>{area ? area.title : "no hay area"}</h2>
-          <p className='lead mb-4'>{area ? area.description : "no hay area"}</p>
-          <h4 className="mb-3">Información Básica</h4>
-          <div>
-            Direccion: {area.address ? area.address : "no hay direcciopn"}<br />
-            Telefono: {area.phone ? area.phone : "no hay telefono"}<br />
-            Email: {area.email ? area.email : "no hay email"}<br />
-            Web: {area.web ? area.web : "no hay web"}<br />
-            Horario: {area.schedule ? area.schedule : "no hay horario"}<br />
-          </div>
+        <h2>{area ? area.title : "no hay area"}</h2>
+        <p className='lead mb-4'>{area ? area.description : "no hay area"}</p>
+        <h4 className="mb-3">Información Básica</h4>
+        <div>
+          Direccion: {area.address ? area.address : "no hay direcciopn"}<br />
+          Telefono: {area.phone ? area.phone : "no hay telefono"}<br />
+          Email: {area.email ? area.email : "no hay email"}<br />
+          Web: {area.web ? area.web : "no hay web"}<br />
+          Horario: {area.schedule ? area.schedule : "no hay horario"}<br />
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 section {
-  padding: 100px 0;
 
   &.section {
+    padding: 100px 0;
   }
 
   .header {
@@ -14,12 +14,10 @@ section {
       color: $primary;
     }
 
-    .lead {
-    }
+    .lead {}
   }
 }
 
 @media (max-width: 767px) {
-  section {
-  }
+  section {}
 }
