@@ -1,4 +1,5 @@
 import React from 'react'
+import ListFormalitiesBySlug from '../formalities/ListFormalitiesBySlug'
 
 export default function FormalitiesAreas({ area }) {
 
@@ -9,6 +10,8 @@ export default function FormalitiesAreas({ area }) {
       <div className="container">
         <h2>FormalitiesAreas</h2>
         <p>{area ? area.title : "no hay area"}</p>
+        <ListFormalitiesBySlug area={area} />
+
       </div>
     </section>
   )

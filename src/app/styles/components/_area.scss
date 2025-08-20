@@ -1,18 +1,14 @@
 .area {
   position: relative;
+  padding: 50px 0;
 
   &-list {}
 
   &-detail {}
 
   &-hero {
-    background-color: $gray-200;
-
-    // padding: 100px 0;
-    &-info {
-      padding: 100px 0;
-    }
-
+    //background-color: $gray-200;
+    margin-bottom: 30px;
 
   }
 
@@ -20,7 +16,7 @@
     background: $dark;
     padding: 30px 30px;
     color: white;
-    position: sticky;
+    margin-bottom: 30px;
 
     h4 {
       text-align: center;
