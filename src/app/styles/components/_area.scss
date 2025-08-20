@@ -1,3 +1,73 @@
 .area {
-  background-color: red;
+  position: relative;
+
+  &-list {}
+
+  &-detail {}
+
+  &-hero {
+    background-color: $gray-200;
+
+    // padding: 100px 0;
+    &-info {
+      padding: 100px 0;
+    }
+
+
+  }
+
+  &-institutional {
+    background: $dark;
+    padding: 30px 30px;
+    color: white;
+    position: sticky;
+
+    h4 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background-color: transparent;
+      border-radius: 0;
+      border: none;
+
+      &-img-top {
+        text-align: center;
+        border-radius: 0;
+
+        img {
+          border-radius: 100px;
+          object-fit: cover;
+        }
+      }
+
+      &-body {
+        color: white;
+        text-align: center;
+      }
+
+      &-title {
+        font-size: 1.1rem;
+      }
+
+      &-subtitle {
+        font-size: 1rem;
+        color: $gray-400;
+      }
+
+    }
+  }
+
+  &-formalities {
+    background-color: $gray-200;
+    margin-bottom: 30px;
+    min-height: 800px;
+  }
+
+  &-programs {
+    background-color: $gray-200;
+    margin-bottom: 30px;
+    min-height: 800px;
+  }
 }
