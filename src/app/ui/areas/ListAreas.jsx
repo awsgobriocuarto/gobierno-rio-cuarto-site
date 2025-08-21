@@ -1,16 +1,21 @@
 // En tu componente listAreas o la página donde lo renderices
+import { Suspense } from "react";
 import HeaderSection from "../layout/HeaderSection";
 import CardAreas from "./CardAreas"; // Ajusta la ruta si es necesario
-import { areas } from "@/app/lib/DataAreas"; // Asegúrate de que esta ruta sea correcta
-export default function ListAreas() {
+import { fetchAreas } from "@/app/lib/DataFormalities"; // Importa la función para obtener las áreas
+export default async function ListAreas() {
+  const areas = await fetchAreas();
+
   return (
     <section className="section">
       <div className="container">
-        <HeaderSection title="Areas de Gobierno" />
+        <HeaderSection title="Tramites" />
         <div className="row justify-content-center">
-          {areas.map((area) => (
-            <CardAreas key={area.id} post={area} />
-          ))}
+          <Suspense fallback={<div>Cargando...</div>}>
+            {areas.map((area) => (
+              <CardAreas key={area.id} area={area} />
+            ))}
+          </Suspense>
         </div>
       </div>
     </section>

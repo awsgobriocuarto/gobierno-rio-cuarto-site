@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link"; // Para el botón de "Volver"
 import { areas, teamMembers } from "@/app/lib/DataAreas"; // Importa teamMembers
 import FormalitiesList from "@/app/ui/formalities/ListFormalities"; // Asumo que este componente ya maneja un array de trámites
+import { fetchFormalities } from "@/app/lib/DataFormalities";
 // No necesitas ListNews si su contenido es manejado por FormalitiesList o no se muestra en esta página.
 
 export default function AreaDetailPage({ params }) {
