@@ -7,7 +7,7 @@ import ListAreas from "./ui/areas/ListAreas";
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <main>
         <Slides />
         <ListCategories></ListCategories>
@@ -15,6 +15,6 @@ export default function Home() {
         <ListEvents></ListEvents>
         <ListNews></ListNews>
       </main>
-    </div>
+    </main>
   );
 }
