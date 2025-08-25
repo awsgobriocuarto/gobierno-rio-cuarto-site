@@ -17,7 +17,7 @@ export default async function FormalitiesFilters() {
           <div className="col-md-4">
             <h5>Area</h5>
             <Select
-              data={areas.data}
+              data={areas}
               collection="area"
               placeholder="Todas las áreas"
             />

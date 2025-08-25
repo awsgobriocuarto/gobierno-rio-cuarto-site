@@ -1,6 +1,6 @@
 import React from "react";
 import { fetchFormalities } from "@/app/lib/DataFormalities";
-import FormalitiesCard from "./CardFormality";
+import FormalitiesCardBySlug from "./CardFormalityBySlug";
 
 export default async function ListFormalitiesBySlug({ area }) {
   if (!area) return null;
@@ -16,8 +16,8 @@ export default async function ListFormalitiesBySlug({ area }) {
       ) : (
         <div className="row">
           {formalities.map((formality) => (
-            <div className="col-12 mb-4" key={formality.id}>
-              <FormalitiesCard formality={formality} />
+            <div className="col-12 col-lg-6 mb-4" key={formality.id}>
+              <FormalitiesCardBySlug formality={formality} />
             </div>
           ))}
         </div>
