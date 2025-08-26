@@ -10,7 +10,7 @@ export default async function ListFormalitiesBySlug({ area }) {
 
   return (
     <div>
-      <h2>Trámites de {area.title}</h2>
+      <h2>Trámites de {area.name}</h2>
       {formalities.length === 0 ? (
         <p>No hay trámites para esta área.</p>
       ) : (
