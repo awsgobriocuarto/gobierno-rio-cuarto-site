@@ -1,0 +1,113 @@
+.test {
+  $border-radius: 15px;
+
+  .news {
+    .card {
+
+
+      margin-bottom: 30px;
+      border-radius: $border-radius;
+      // border: none;
+      // box-shadow: $gray-400 0px 0px 16px;
+
+      &-img-top {
+        border-radius: $border-radius $border-radius 0 0;
+        //border-bottom: 5px $primary solid;
+
+        img {
+          height: 240px;
+          width: 100%;
+          object-fit: cover;
+          border-radius: $border-radius $border-radius 0 0;
+        }
+      }
+
+      &-body {
+        min-height: 250px;
+        padding: 32px 16px;
+      }
+
+      &-title {
+        margin-bottom: 8px;
+      }
+
+      &-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+        color: #000
+      }
+
+      &-footer {
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 0 0 $border-radius $border-radius;
+        font-size: 0.9rem;
+
+        &.bg {
+          background-color: lighten($primary, 52%);
+        }
+
+        &.bg-2 {
+          background-color: darken($primary, 5%);
+          border: 0;
+        }
+
+      }
+    }
+  }
+
+  .buttons {
+
+    $card-height: 110px;
+
+    .card {
+      border-radius: $border-radius;
+
+      &-img {
+        width: 100%;
+        min-height: $card-height;
+        border-radius: $border-radius 0 0 $border-radius;
+
+
+        img {
+          width: 100%;
+          height: $card-height;
+          object-fit: cover;
+          border-radius: $border-radius 0 0 $border-radius;
+          ;
+        }
+      }
+
+      &-icon {
+        background-color: $gray-200;
+        width: 100%;
+        min-height: $card-height;
+        border-radius: $border-radius 0 0 $border-radius;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          width: 50%;
+          height: 50%;
+          //color: white;
+        }
+      }
+
+      &-body {
+        display: flex;
+        align-items: center;
+        //background: green;
+        min-height: $card-height;
+      }
+
+      &-title {
+        margin-bottom: 0;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+}

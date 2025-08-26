@@ -5,7 +5,7 @@ export default function ListIcons({ icons }) {
   return (
     <div className="icons">
       {icons.map((icon) => (
-        <Icon icon={icon} />
+        <Icon icon={icon} key={icon.name} />
       ))}
     </div>
   );
