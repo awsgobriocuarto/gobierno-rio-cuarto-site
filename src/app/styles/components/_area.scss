@@ -2,14 +2,15 @@
   position: relative;
   padding: 50px 0;
 
-  &-list {}
+  &-list {
+  }
 
-  &-detail {}
+  &-detail {
+  }
 
   &-hero {
     //background-color: $gray-200;
     margin-bottom: 30px;
-
   }
 
   &-institutional {
@@ -51,14 +52,37 @@
         font-size: 1rem;
         color: $gray-400;
       }
-
     }
   }
 
   &-formalities {
-    background-color: $gray-200;
     margin-bottom: 30px;
     min-height: 800px;
+
+    .card {
+      background-color: $gray-200;
+      &:hover {
+        background-color: darken($gray-200, 5%);
+        p {
+          color: $primary;
+        }
+      }
+
+      &-body {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        // justify-content: center;
+        // text-align: center;
+      }
+    }
+    @media (max-width: 991px) {
+      .card {
+        &-body {
+          height: auto;
+        }
+      }
+    }
   }
 
   &-programs {
