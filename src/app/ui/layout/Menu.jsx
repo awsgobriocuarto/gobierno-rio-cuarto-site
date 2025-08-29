@@ -1,17 +1,18 @@
 "use client";
+import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
+import { usePathname } from 'next/navigation';
 import Link from "next/link";
 import Image from "next/image";
-
 import LogoMobile from "../../../../public/images/logos/logo-gobierno-white.webp";
 import LogoDesktop from "../../../../public/images/logos/logo-gobierno-slogan-white.webp";
-import { useState } from "react";
+
 
 export default function Menu() {
+  const pathname = usePathname();
   const [expanded, setExpanded] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const handleLinkClick = () => {
@@ -22,34 +23,35 @@ export default function Menu() {
     setDropdownOpen(false);
   };
 
+  console.log(pathname);
+
+
   return (
     <Navbar
       collapseOnSelect
       expand="lg"
       sticky="top"
       variant="dark"
-      className="bg-primary"
       expanded={expanded}
       onToggle={() => setExpanded(!expanded)}
     >
       <Container>
-        <Navbar.Brand href="/">
-          <Link href="/" className="nav-link" onClick={handleLinkClick}>
-            <Image src={LogoMobile} className="mobile" alt="logo gobierno" />
-            <Image src={LogoDesktop} className="desktop" alt="logo gobierno" />
-          </Link>
-
+        <Navbar.Brand as={Link} href="/" onClick={handleLinkClick}>
+          <Image src={LogoMobile} className="mobile" alt="logo gobierno" />
+          <Image src={LogoDesktop} className="desktop" alt="logo gobierno" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="toggle">
+          <i className="fas fa-bars"></i>
+        </Navbar.Toggle>
+        <Navbar.Collapse id="toggle">
           <Nav className="justify-content-end flex-grow-1 pe-3">
-            <Link href="/tramites/" className="nav-link" onClick={handleLinkClick}>
+            <Link href="/tramites" className={`nav-link ${pathname === "/tramites" ? "active" : ""}`} onClick={handleLinkClick}>
               Tramites
             </Link>
-            <Link href="/areas/" className="nav-link" onClick={handleLinkClick}>
+            <Link href="/areas" className={`nav-link ${pathname === "/areas" ? "active" : ""}`} onClick={handleLinkClick}>
               Áreas
             </Link>
-            <Link href="/noticias/" className="nav-link" onClick={handleLinkClick}>
+            <Link href="/noticias" className={`nav-link ${pathname === "/noticias" ? "active" : ""}`} onClick={handleLinkClick}>
               Noticias
             </Link>
             <NavDropdown
@@ -66,14 +68,14 @@ export default function Menu() {
               </NavDropdown.Item>
               <NavDropdown.Item href="/design">Design</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href={`#`} className="px-0">
-              <i className={`fab fa-facebook`}></i>
+            <Nav.Link href="https://facebook.com" target="_blank" className="">
+              <i className={`fab fa-facebook`}></i> <span className="d-md-none">Facebook</span>
             </Nav.Link>
-            <Nav.Link href={`#`} className="px-0">
-              <i className={`fab fa-instagram`}></i>
+            <Nav.Link href="https://instagram.com" target="_blank" className="">
+              <i className={`fab fa-instagram`}></i> <span className="d-md-none">Facebook</span>
             </Nav.Link>
-            <Nav.Link href={`#`} className="px-0">
-              <i className={`fab fa-youtube`}></i>
+            <Nav.Link href="https://youtube.com" target="_blank" className="">
+              <i className={`fab fa-youtube`}></i> <span className="d-md-none">Facebook</span>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
