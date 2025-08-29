@@ -1,6 +1,7 @@
 * {
   font-family: var(--font-inter), sans-serif;
   font-weight: 400;
+  letter-spacing: -0.01rem;
 }
 
 // estilos generales para todos los titulos
@@ -10,15 +11,21 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
+  font-weight: 600;
+  //color: $primary;
 }
 
 // estilos personalizados para los titulos
-h1 {
+h1,
+h2,
+h3,
+h4 {
   //color: $primary;
+  font-weight: 800;
 }
 
 
 .lead {
   font-weight: 400;
+  font-size: $font-size-base * 1.5;
 }

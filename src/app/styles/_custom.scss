@@ -1,8 +1,8 @@
 // colores
 $primary: #009de0;
-// $secondary: $gray-600 !default;
+$secondary: #FF7D00;
 $success: #00C96B;
-// $info: $cyan !default;
+$info: #FF3CB2;
 $warning: #F2C100;
 // $danger: $red !default;
 // $light: $gray-100 !default;
@@ -15,3 +15,7 @@ $enable-caret: true !default;
 $enable-rounded: true !default;
 $enable-shadows: true !default;
 $enable-button-pointers: true !default;
+
+$font-size-base: 1rem !default;
+
+// $enable-rounded:              true !default;

@@ -9,45 +9,61 @@ import Image from "next/image";
 
 import LogoMobile from "../../../../public/images/logos/logo-gobierno-white.webp";
 import LogoDesktop from "../../../../public/images/logos/logo-gobierno-slogan-white.webp";
+import { useState } from "react";
 
 export default function Menu() {
-  const expand = "lg";
+  const [expanded, setExpanded] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const handleLinkClick = () => {
+    setExpanded(false);
+  };
+  const handleDropdownItemClick = () => {
+    setExpanded(false);
+    setDropdownOpen(false);
+  };
+
   return (
     <Navbar
-      key={expand}
-      expand={expand}
+      collapseOnSelect
+      expand="lg"
       sticky="top"
       variant="dark"
       className="bg-primary"
+      expanded={expanded}
+      onToggle={() => setExpanded(!expanded)}
     >
       <Container>
         <Navbar.Brand href="/">
-          <Image src={LogoMobile} className="mobile" alt="logo gobierno" />
-          <Image src={LogoDesktop} className="desktop" alt="logo gobierno" />
+          <Link href="/" className="nav-link" onClick={handleLinkClick}>
+            <Image src={LogoMobile} className="mobile" alt="logo gobierno" />
+            <Image src={LogoDesktop} className="desktop" alt="logo gobierno" />
+          </Link>
+
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="justify-content-end flex-grow-1 pe-3">
-            <Link className="nav-link text-white" href={`/tramites/`}>
+            <Link href="/tramites/" className="nav-link" onClick={handleLinkClick}>
               Tramites
             </Link>
-            <Link className="nav-link" href={`/areas/`}>
-              Areas
+            <Link href="/areas/" className="nav-link" onClick={handleLinkClick}>
+              Áreas
             </Link>
-            <Link className="nav-link" href={`/noticias/`}>
+            <Link href="/noticias/" className="nav-link" onClick={handleLinkClick}>
               Noticias
             </Link>
             <NavDropdown
               title="Recursos"
-              id={`offcanvasNavbarDropdown-expand-${expand}`}
+              show={dropdownOpen}
+              onToggle={() => setDropdownOpen(!dropdownOpen)}
             >
-              <NavDropdown.Item href="#action3">Mapas</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Turnos</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Pagos y Deudas
+              <NavDropdown.Item as={Link} href="/mapas/" onClick={handleDropdownItemClick}>
+                Mapas
               </NavDropdown.Item>
-              <NavDropdown.Item href="/test">Test</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} href="/test/" onClick={handleDropdownItemClick}>
+                Test
+              </NavDropdown.Item>
               <NavDropdown.Item href="/design">Design</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href={`#`} className="px-0">

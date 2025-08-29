@@ -33,8 +33,9 @@ export async function fetchAreas() {
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
-
-  return res.json();
+  const data = await res.json();
+  // Se retorna el array 'data' dentro del objeto de la respuesta
+  return data.data;
 }
 export async function fetchAreasById(id) {
   const res = await fetch(`${API_URL}/areas/${id}`, API_OPTIONS);
