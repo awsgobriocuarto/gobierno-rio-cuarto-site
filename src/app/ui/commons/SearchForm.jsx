@@ -26,12 +26,13 @@ export default function SearchForm({ onSearchComplete }) {
     <Form className="search-form" onSubmit={handleSearch}>
       <FormControl
         type="search"
+        size='lg'
         placeholder="¡En que te podemos ayudar?"
         aria-label="Search"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Button variant="primary" type="submit" className='text-white'>
+      <Button variant="primary" type="submit" className='text-white' size='lg'>
         Buscar
       </Button>
     </Form>
