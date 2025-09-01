@@ -4,7 +4,7 @@ import CardCategories from "./CardCategories";
 import HeaderSection from "../layout/HeaderSection";
 export default async function ListCategories() {
   const categories = await fetchCategories();
-  console.log("Categories:", categories);
+  //console.log("Categories:", categories);
   return (
     <section className="section">
       <div className="container">

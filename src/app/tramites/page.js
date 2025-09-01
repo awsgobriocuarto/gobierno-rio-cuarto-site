@@ -3,7 +3,7 @@ import FormalitiesList from "../ui/formalities/ListFormalities";
 import FormalitiesFilters from "../ui/formalities/FilterFormality";
 
 export default function Formalities({ searchParams }) {
-  console.log("Formalities page loaded with searchParams:", searchParams);
+  //console.log("Formalities page loaded with searchParams:", searchParams);
 
   // Asegúrate de que searchParams sea un objeto plano de strings
   const cleanedSearchParams = Object.fromEntries(

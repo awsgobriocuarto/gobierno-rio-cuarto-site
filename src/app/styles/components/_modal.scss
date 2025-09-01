@@ -1,0 +1,17 @@
+.modal {
+  background-color: rgba($gray-900, 0.5);
+
+  &-header {
+    background: white;
+
+    h4 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: $primary;
+    }
+  }
+
+  &-body {
+    padding: 20px;
+  }
+}

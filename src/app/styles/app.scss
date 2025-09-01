@@ -1,16 +1,20 @@
+// sass-lint:disable-all
 @import "custom";
 @import "~bootstrap";
 
 @import "./components/area";
 @import "./components/base";
-@import "./components/header";
-@import "./components/footer";
-@import "./components/carousel";
-@import "./components/typography";
-@import "./components/navbar";
-@import "./components/section";
 @import "./components/card";
+@import "./components/carousel";
+@import "./components/footer";
+@import "./components/header";
+@import "./components/hero";
+@import "./components/modal";
+@import "./components/navbar";
+@import "./components/search-form";
+@import "./components/section";
 @import "./components/test";
+@import "./components/typography";
 
 .icons {
   display: flex;

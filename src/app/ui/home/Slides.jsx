@@ -3,7 +3,7 @@ import Carousel from "react-bootstrap/Carousel";
 
 export default function Slides() {
   return (
-    <Carousel>
+    <Carousel controls={false} fade={true} indicators={false}>
       <Carousel.Item>
         <img src="/images/14.jpg" alt="" />
         <Carousel.Caption></Carousel.Caption>

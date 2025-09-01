@@ -2,9 +2,9 @@ const API_BASE_URL = process.env.API_BASE_URL_TRAMITES;
 const API_VERSION = process.env.API_VERSION_TRAMITES;
 const API_TOKEN = process.env.API_TOKEN_TRAMITES;
 
-console.log("API_BASE_URL:", API_BASE_URL);
-console.log("API_VERSION:", API_VERSION);
-console.log("API_TOKEN:", API_TOKEN);
+// console.log("API_BASE_URL:", API_BASE_URL);
+// console.log("API_VERSION:", API_VERSION);
+// console.log("API_TOKEN:", API_TOKEN);
 if (!API_BASE_URL || !API_TOKEN) {
   throw new Error("API_BASE_URL o API_TOKEN no están definidas en el entorno");
 }
@@ -37,6 +37,7 @@ export async function fetchAreas() {
   // Se retorna el array 'data' dentro del objeto de la respuesta
   return data.data;
 }
+
 export async function fetchAreasById(id) {
   const res = await fetch(`${API_URL}/areas/${id}`, API_OPTIONS);
   if (!res.ok) {
