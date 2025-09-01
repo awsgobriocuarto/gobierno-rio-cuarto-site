@@ -5,7 +5,7 @@ import HeaderSection from "../layout/HeaderSection";
 export default async function ListNews({ page = 1, limit = 6 }) {
   const noticias = await fetchNews({ page, limit });
 
-  console.log("Noticias:", noticias);
+  //console.log("Noticias:", noticias);
   return (
     <section className="section">
       <div className="container">
