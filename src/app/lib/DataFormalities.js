@@ -34,7 +34,6 @@ export async function fetchAreas() {
     throw new Error("Failed to fetch data");
   }
   const data = await res.json();
-  // Se retorna el array 'data' dentro del objeto de la respuesta
   return data.data;
 }
 

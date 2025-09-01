@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { fetchAreasById, fetchAreas } from "@/app/lib/DataFormalities";
+import { fetchAreas } from "@/app/lib/DataFormalities";
 import HeroAreas from "@/app/ui/areas/HeroAreas";
 import FormalitiesAreas from "@/app/ui/areas/FormalitiesAreas";
 import ProgramsAreas from "@/app/ui/areas/ProgramsAreas";
