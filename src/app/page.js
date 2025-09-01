@@ -1,13 +1,14 @@
-import Slides from "./ui/home/Slides";
+
 import ListNews from "./ui/news/ListNews";
 import ListEvents from "./ui/destiny/ListEvents";
 import ListCategories from "./ui/home/ListCategories";
 import ListAreas from "./ui/areas/ListAreas";
+import Hero from "./ui/home/Hero";
 
 export default function Home() {
   return (
     <main>
-      <Slides />
+      <Hero />
       <ListCategories />
       <ListAreas />
       <ListEvents />
