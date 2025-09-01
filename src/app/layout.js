@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import Header from "./ui/layout/Header";
 import Footer from "./ui/layout/Footer";
 import Script from "next/script";
+import { AccessibilityProvider } from "./providers/AccessibilityProvider";
+import AccessibilityFloatingMenu from "./ui/accessibility/AccessibilityFloatingMenu";
 
 // thin:        100
 // extra light: 200
@@ -32,9 +34,12 @@ export default function RootLayout({ children }) {
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" />
 
       <body className={`${inter.variable}`}>
-        <Header />
-        {children}
-        <Footer />
+        <AccessibilityProvider>
+          <Header />
+          {children}
+          <Footer />
+          <AccessibilityFloatingMenu />
+        </AccessibilityProvider>
       </body>
     </html>
   );
