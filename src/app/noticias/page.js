@@ -8,7 +8,7 @@ export default function News({ searchParams }) {
 
   return (
     <Suspense>
-      <article className="container mt-5">
+      <article className="container mt-5" data-read>
         <main className="row justify-content-center">
           <Suspense fallback={<div>Cargando noticias</div>}>
             <ListNews page={page} limit={limit} />

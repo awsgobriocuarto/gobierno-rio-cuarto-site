@@ -7,7 +7,7 @@ export default function Icon({ icon }) {
   const size = icon.size ? icon.size : '50';
   return (
     <>
-      <Image src={`/images/icons/${name}-${color}.webp`} width={size} height={size} />
+      <Image src={`/images/icons/${name}-${color}.webp`} width={size} height={size} alt='icon' />
     </>
   )
 }

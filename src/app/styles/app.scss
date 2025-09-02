@@ -2,11 +2,14 @@
 @import "custom";
 @import "~bootstrap";
 
+@import "accessibility";
+
 @import "./components/area";
 @import "./components/base";
 @import "./components/card";
 @import "./components/carousel";
 @import "./components/footer";
+@import "./components/fonts";
 @import "./components/header";
 @import "./components/hero";
 @import "./components/modal";
@@ -15,8 +18,3 @@
 @import "./components/section";
 @import "./components/test";
 @import "./components/typography";
-
-.icons {
-  display: flex;
-  flex-direction: column;
-}

@@ -6,9 +6,9 @@ export default async function ListCategories() {
   const categories = await fetchCategories();
   //console.log("Categories:", categories);
   return (
-    <section className="section">
+    <section className="section" data-read>
       <div className="container">
-        <HeaderSection title="Tramites" />
+        <HeaderSection title="Trámites" />
         <div className="row justify-content-center">
           <Suspense fallback={<div>Cargando...</div>}>
             {categories.map((category) => (
