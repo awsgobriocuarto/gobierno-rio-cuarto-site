@@ -5,7 +5,7 @@ import SearchForm from '../commons/SearchForm'
 
 export default function Hero() {
   return (
-    <section className='hero'>
+    <section className='hero' data-read>
       <div className="hero-slides">
         <Slides />
       </div>

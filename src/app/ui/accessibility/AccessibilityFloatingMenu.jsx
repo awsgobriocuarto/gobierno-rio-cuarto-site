@@ -17,9 +17,9 @@ export default function AccessibilityFloatingMenu() {
   };
 
   return (
-    <>
+    <div className="accessibilityFloatingMenu">
       <AccessibilityButton toggleMenu={toggleMenu} menuOpen={menuOpen} />
       <AccessibilityMenu menuOpen={menuOpen} />
-    </>
+    </div>
   );
 }

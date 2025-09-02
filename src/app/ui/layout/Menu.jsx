@@ -42,19 +42,24 @@ export default function Menu() {
         variant="dark"
         expanded={expanded}
         onToggle={() => setExpanded(!expanded)}
+        data-read
       >
         <Container>
           <Navbar.Brand as={Link} href="/" onClick={handleLinkClick}>
             <Image src={LogoMobile} className="mobile" alt="logo gobierno" />
             <Image src={LogoDesktop} className="desktop" alt="logo gobierno" />
+            <span className="sr-only">Gobierno de Río Cuarto</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="toggle">
             <i className="fas fa-bars"></i>
           </Navbar.Toggle>
           <Navbar.Collapse id="toggle">
             <Nav className="justify-content-end flex-grow-1 pe-3">
+              <Link href="/tramites" className="rs-only">
+                Menu Principal
+              </Link>
               <Link href="/tramites" className={`nav-link ${pathname === "/tramites" ? "active" : ""}`} onClick={handleLinkClick}>
-                Tramites
+                Trámites
               </Link>
               <Link href="/areas" className={`nav-link ${pathname === "/areas" ? "active" : ""}`} onClick={handleLinkClick}>
                 Áreas
@@ -76,17 +81,25 @@ export default function Menu() {
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/design">Design</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="https://facebook.com" target="_blank" className="">
-                <i className={`fab fa-fw fa-facebook`}></i> <span className="d-md-none">Facebook</span>
+              <Nav.Link
+                href="https://facebook.com"
+                target="_blank"
+              >
+                <i className={`fab fa-fw fa-facebook`}></i>
+                <span className="d-lg-none">Facebook</span>
+                <span className="sr-only">Facebook</span>
               </Nav.Link>
               <Nav.Link href="https://instagram.com" target="_blank" className="">
-                <i className={`fab fa-fw fa-instagram`}></i> <span className="d-md-none">Instagram</span>
+                <i className={`fab fa-fw fa-instagram`}></i> <span className="d-lg-none">Instagram</span>
+                <span className="sr-only">Instagram</span>
               </Nav.Link>
               <Nav.Link href="https://youtube.com" target="_blank" className="">
-                <i className={`fab fa-fw fa-youtube`}></i> <span className="d-md-none">Youtube</span>
+                <i className={`fab fa-fw fa-youtube`}></i> <span className="d-lg-none">Youtube</span>
+                <span className="sr-only">Youtube</span>
               </Nav.Link>
               <Nav.Link onClick={handleSearchModalShow}>
-                <i className="fa fa-fw fa-search"></i> <span className="d-md-none">Buscar</span>
+                <i className="fa fa-fw fa-search"></i> <span className="d-lg-none">Buscar</span>
+                <span className="sr-only">Buscar</span>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

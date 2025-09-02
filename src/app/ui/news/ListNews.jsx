@@ -7,7 +7,7 @@ export default async function ListNews({ page = 1, limit = 6 }) {
 
   //console.log("Noticias:", noticias);
   return (
-    <section className="section">
+    <section className="section" data-read>
       <div className="container">
         <HeaderSection title="Noticias" />
         <div className="row justify-content-center">
