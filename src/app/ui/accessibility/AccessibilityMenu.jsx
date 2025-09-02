@@ -1,15 +1,11 @@
 'use client';
-
 import { useAccessibility } from "@/app/providers/AccessibilityProvider";
-
-
 
 export default function AccessibilityMenu({ menuOpen }) {
   const {
     highContrast,
     toggleHighContrast,
     cycleFontSize,
-    textSpacing,
     cycleTextSpacing,
     isReading,
     toggleReading,

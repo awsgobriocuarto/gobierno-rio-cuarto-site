@@ -8,9 +8,6 @@ import AccessibilityMenu from './AccessibilityMenu';
 export default function AccessibilityFloatingMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  console.log(menuOpen);
-
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
 
