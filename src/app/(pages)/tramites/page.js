@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
-import FormalitiesList from "../ui/formalities/ListFormalities";
-import FormalitiesFilters from "../ui/formalities/FilterFormality";
+import FormalitiesList from "@/app/ui/formalities/ListFormalities";
+import FormalitiesFilters from "@/app/ui/formalities/FilterFormality";
 
 export default function Formalities({ searchParams }) {
   //console.log("Formalities page loaded with searchParams:", searchParams);

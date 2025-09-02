@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
-import ListNews from "../ui/news/ListNews";
-import Pagination from "../ui/news/Pagination";
+import ListNews from "@/app/ui/news/ListNews";
+import Pagination from "@/app/ui/news/Pagination";
 
 export default function News({ searchParams }) {
   const page = Number(searchParams?.page) || 1;
