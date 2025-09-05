@@ -1,8 +1,13 @@
-import { Suspense } from 'react';
-import SearchForm from '@/app/ui/commons/SearchForm';
-import SearchResults from '@/app/ui/search/SearchResults';
+import { Suspense } from "react";
+import SearchForm from "@/app/ui/commons/SearchForm";
+import SearchResults from "@/app/ui/search/SearchResults";
+import { fetchSearch } from "@/app/lib/DataSearch";
 
-export default function BuscarPage() {
+export default async function BuscarPage({ searchParams }) {
+  const searchQuery = (await searchParams.q) || "";
+
+  const results = await fetchSearch(searchQuery);
+  console.log("searchQuery:", searchQuery);
   return (
     <main>
       <div className="container py-5 text-center">
@@ -11,7 +16,7 @@ export default function BuscarPage() {
         </div>
 
         <Suspense fallback={<div>Cargando resultados...</div>}>
-          <SearchResults />
+          <SearchResults results={results} />
         </Suspense>
       </div>
     </main>
