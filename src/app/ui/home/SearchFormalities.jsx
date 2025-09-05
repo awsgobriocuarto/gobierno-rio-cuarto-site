@@ -4,16 +4,6 @@ import { useMemo, useState, useRef } from "react";
 import Link from "next/link";
 import { createAutocomplete } from "@algolia/autocomplete-core";
 
-const API_URL = "https://admin.tramites.riocuarto.gob.ar";
-const API_TOKEN = "Bearer 1|xpFQgyeplpi1fYFNmEJLhiValUN3uRIlKIqUWML67fc87507";
-
-const API_OPTIONS = {
-  headers: {
-    Authorization: API_TOKEN,
-  },
-  cache: "no-store",
-};
-
 const AutocompleteItem = ({ title, slug }) => {
   return (
     <li>

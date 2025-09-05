@@ -1,13 +1,13 @@
 // components/Search.jsx
 "use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Form, FormControl, Button } from 'react-bootstrap';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Form, FormControl, Button } from "react-bootstrap";
 
 // Añade `onSearchComplete` como una prop
 export default function SearchForm({ onSearchComplete }) {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
 
   const handleSearch = (e) => {
@@ -18,7 +18,7 @@ export default function SearchForm({ onSearchComplete }) {
       if (onSearchComplete) {
         onSearchComplete();
       }
-      setSearchTerm('');
+      setSearchTerm("");
     }
   };
 
@@ -26,13 +26,13 @@ export default function SearchForm({ onSearchComplete }) {
     <Form className="search-form" onSubmit={handleSearch}>
       <FormControl
         type="search"
-        size='lg'
+        size="lg"
         placeholder="¡En que te podemos ayudar?"
         aria-label="Search"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Button variant="primary" type="submit" className='text-white' size='lg'>
+      <Button variant="primary" type="submit" className="text-white" size="lg">
         Buscar
       </Button>
     </Form>
