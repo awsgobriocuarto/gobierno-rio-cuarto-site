@@ -28,7 +28,7 @@
   bottom: 90px;
   right: 20px;
   z-index: 999;
-  width: 400px;
+  max-width: 400px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -95,6 +95,10 @@ body.high-contrast {
   }
 }
 
+// ## Pasar todo el texto a mayúsculas
+body.uppercase-text {
+  text-transform: uppercase !important;
+}
 
 // ## Estilos para el espaciado de texto
 

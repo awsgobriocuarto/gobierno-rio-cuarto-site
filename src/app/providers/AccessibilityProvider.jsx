@@ -13,6 +13,8 @@ const AccessibilityContext = createContext();
 
 export const AccessibilityProvider = ({ children }) => {
 
+  // ## ESTADOS ## //
+
   // # Estado para el tamaño de la fuente
   const [fontSize, setFontSize] = useState(0);
 
@@ -29,11 +31,18 @@ export const AccessibilityProvider = ({ children }) => {
   // # Estado para la fuente de dislexia
   const [isDyslexiaFriendlyFontEnabled, setIsDyslexiaFriendlyFontEnabled] = useState(false);
 
+  // # Estado para el modo de mayúsculas
+  const [isUpperCase, setIsUpperCase] = useState(false);
+
+  // ## OPCIONES ## //
+
   // $ Opciones de tamaño de fuente
   const fontSizes = ['16px', '18px', '20px', '22px', '24px'];
 
   // $ Opciones de espaciado de texto
   const textSpacings = ['normal', 'medium', 'large', 'extra-large', 'super-large'];
+
+  // ## FUNCIONES ## //
 
   // & Función para ciclar el tamaño de la fuente
   const cycleFontSize = () => {
@@ -96,6 +105,13 @@ export const AccessibilityProvider = ({ children }) => {
     setIsDyslexiaFriendlyFontEnabled(prev => !prev);
   };
 
+  // & Función para alternar el modo de mayúsculas
+  const toggleUpperCase = () => {
+    setIsUpperCase(prev => !prev);
+  };
+
+  // ## EFECTOS ## //
+
   // Efecto para aplicar el estilo al DOM
   // Se ejecuta cada vez que 'fontSize' cambia
   useEffect(() => {
@@ -128,7 +144,17 @@ export const AccessibilityProvider = ({ children }) => {
     }
   }, [isDyslexiaFriendlyFontEnabled]);
 
-  // Actualiza el 'value' del contexto
+  // Efecto para el modo de mayúsculas
+  useEffect(() => {
+    if (isUpperCase) {
+      document.body.classList.add('uppercase-text');
+    } else {
+      document.body.classList.remove('uppercase-text');
+    }
+  }, [isUpperCase]);
+
+
+  // ## Actualiza el 'value' del contexto
   const value = useMemo(() => ({
     highContrast,
     toggleHighContrast,
@@ -140,7 +166,9 @@ export const AccessibilityProvider = ({ children }) => {
     toggleReading,
     isDyslexiaFriendlyFontEnabled,
     toggleDyslexiaFriendlyFont,
-  }), [highContrast, fontSize, textSpacing, isReading, isDyslexiaFriendlyFontEnabled]);
+    isUpperCase,
+    toggleUpperCase,
+  }), [highContrast, fontSize, textSpacing, isReading, isDyslexiaFriendlyFontEnabled, isUpperCase]);
 
   return (
     <AccessibilityContext.Provider value={value}>
