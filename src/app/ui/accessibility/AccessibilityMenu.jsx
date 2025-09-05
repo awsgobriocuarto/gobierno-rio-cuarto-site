@@ -11,6 +11,8 @@ export default function AccessibilityMenu({ menuOpen }) {
     toggleReading,
     isDyslexiaFriendlyFontEnabled,
     toggleDyslexiaFriendlyFont,
+    isUpperCase,
+    toggleUpperCase,
   } = useAccessibility();
 
 
@@ -29,8 +31,13 @@ export default function AccessibilityMenu({ menuOpen }) {
           <i className="fa-solid fa-text-height"></i>
           <span>Aumentar Fuente</span>
         </button>
+        {/* Botón para el modo de mayúsculas */}
+        <button className="optionButton" onClick={toggleUpperCase}>
+          <i className="fa-solid fa-a"></i>
+          <span>Mayúsculas: {isUpperCase ? 'ON' : 'OFF'}</span>
+        </button>
         {/* Boton para Activar/Desactivar el Alto Contraste */}
-        <button className="optionButton d-none" onClick={toggleHighContrast}>
+        <button className="optionButton" onClick={toggleHighContrast}>
           <i className="fa-solid fa-circle-half-stroke"></i>
           <span>Alto Contraste: {highContrast ? 'ON' : 'OFF'}</span>
         </button>

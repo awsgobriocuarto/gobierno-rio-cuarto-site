@@ -7,12 +7,9 @@
 
       margin-bottom: 30px;
       border-radius: $border-radius;
-      // border: none;
-      // box-shadow: $gray-400 0px 0px 16px;
 
       &-img-top {
         border-radius: $border-radius $border-radius 0 0;
-        //border-bottom: 5px $primary solid;
 
         img {
           height: 240px;
@@ -62,8 +59,16 @@
 
     $card-height: 110px;
 
+    a:hover {
+      .card {
+        border-color: rgba($gray-900, 0.5);
+
+      }
+    }
+
     .card {
       border-radius: $border-radius;
+      border-color: rgba($gray-900, 0.2);
 
       &-img {
         width: 100%;
@@ -97,10 +102,11 @@
       }
 
       &-body {
+        //background-color: $gray-100;
         display: flex;
         align-items: center;
-        //background: green;
         min-height: $card-height;
+        //border-radius: 0 $border-radius $border-radius 0;
       }
 
       &-title {

@@ -10,14 +10,15 @@ export default async function ListAreas() {
     : areasResponse?.data || [];
 
   return (
-    <section className="section" data-read>
+    <section className="section test" data-read>
       <div className="container">
         <HeaderSection title="Áreas" />
-        <div className="row justify-content-center">
+        <div className="row justify-content-center buttons">
           <Suspense fallback={<div>Cargando...</div>}>
             {areas.map((area) => (
-              <CardAreas key={area.id} area={area} />
-            ))}
+              <div className="col-md-4" key={area.id}>
+                <CardAreas area={area} />
+              </div>))}
           </Suspense>
         </div>
       </div>
