@@ -4,7 +4,8 @@ import SearchResults from "@/app/ui/search/SearchResults";
 import { fetchSearch } from "@/app/lib/DataSearch";
 
 export default async function BuscarPage({ searchParams }) {
-  const searchQuery = searchParams.q || "";
+  const searchQuery = (await searchParams.q) || "";
+
   const results = await fetchSearch(searchQuery);
   console.log("searchQuery:", searchQuery);
   return (
