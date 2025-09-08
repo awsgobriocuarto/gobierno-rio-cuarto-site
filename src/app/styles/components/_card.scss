@@ -1,13 +1,146 @@
-.card-img-top-container {
-  position: relative;
-  width: 100%;
-  height: 200px; /* Altura fija para todas las imágenes */
-  overflow: hidden; /* Oculta cualquier parte de la imagen que se salga */
+.buttons {
+
+  $card-height: 110px;
+
+  a:hover {
+    .card {
+      border-color: rgba($gray-900, 0.5);
+
+    }
+  }
+
+  .card {
+    //border-radius: $border-radius;
+    border-color: rgba($gray-900, 0.2);
+    margin-bottom: 20px;
+
+    &-img {
+      width: 100%;
+      min-height: $card-height;
+      border-radius: $border-radius 0 0 $border-radius;
+
+
+      img {
+        width: 100%;
+        height: $card-height;
+        object-fit: cover;
+        border-radius: $border-radius 0 0 $border-radius;
+        ;
+      }
+    }
+
+    &-icon {
+      background-color: $gray-200;
+      width: 100%;
+      min-height: $card-height;
+      border-radius: $border-radius 0 0 $border-radius;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 50%;
+        height: 50%;
+        //color: white;
+      }
+    }
+
+    &-body {
+      //background-color: $gray-100;
+      display: flex;
+      align-items: center;
+      min-height: $card-height;
+      //border-radius: 0 $border-radius $border-radius 0;
+    }
+
+    &-title {
+      margin-bottom: 0;
+      font-size: 1.2rem;
+    }
+  }
 }
 
-.card-img-top-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Recorta la imagen para que cubra todo el espacio */
-  object-position: center; /* Centra la imagen */
-}
+// .card {
+//   border-radius: $border-radius;
+//   margin-bottom: 20px;
+
+//   &-img-top {
+//     border-radius: $border-radius $border-radius 0 0;
+
+//     img {
+//       height: 240px;
+//       width: 100%;
+//       object-fit: cover;
+//       border-radius: $border-radius $border-radius 0 0;
+//     }
+//   }
+
+//   &-body {
+//     min-height: 260px;
+//     padding: 18px 16px;
+//   }
+
+//   &-title {
+//     margin-bottom: 12px;
+//     font-size: 1.6rem;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     display: -webkit-box;
+//     -webkit-line-clamp: 3;
+//     -webkit-box-orient: vertical;
+//   }
+
+//   &-subtitle {
+//     font-size: 1.2rem;
+//     margin-bottom: 8px;
+//     color: #000;
+//   }
+
+//   &-text {
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     display: -webkit-box;
+//     -webkit-line-clamp: 3;
+//     -webkit-box-orient: vertical;
+//   }
+
+//   &-footer {
+//     min-height: 50px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     border-radius: 0 0 $border-radius $border-radius;
+//     font-size: 1rem;
+//     color: $gray-800;
+//     background: $gray-200;
+
+//     &.bg {
+//       background-color: lighten($primary, 52%);
+//     }
+
+//     &.bg-2 {
+//       background-color: darken($primary, 5%);
+//       border: 0;
+//     }
+
+//   }
+
+// }
+
+// // .card-img-top-container {
+// //   position: relative;
+// //   width: 100%;
+// //   height: 200px;
+// //   /* Altura fija para todas las imágenes */
+// //   overflow: hidden;
+// //   /* Oculta cualquier parte de la imagen que se salga */
+// // }
+
+// // .card-img-top-container img {
+// //   width: 100%;
+// //   height: 100%;
+// //   object-fit: cover;
+// //   /* Recorta la imagen para que cubra todo el espacio */
+// //   object-position: center;
+// //   /* Centra la imagen */
+// // }

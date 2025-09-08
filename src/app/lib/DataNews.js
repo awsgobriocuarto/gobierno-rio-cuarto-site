@@ -3,7 +3,7 @@ export function fromApiResponseToPosts(apiResponse) {
   return apiResponse.data.map((post) => ({
     id: post.id,
     title: post.title,
-    description: post.description,
+    description: post.excerpt,
     image: post.main_picture.medium,
     slug: post.slug,
     createdAt: post.created_at,

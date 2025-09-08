@@ -29,7 +29,7 @@ export default function Menu() {
 
   const handleSearchModalShow = () => setShowSearchModal(true);
   const handleSearchModalClose = () => setShowSearchModal(false);
-
+  Navbar
   //console.log(pathname);
 
 

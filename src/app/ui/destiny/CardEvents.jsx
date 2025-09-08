@@ -1,35 +1,43 @@
-"use client";
-import Image from "next/image";
 import Link from "next/link";
 
-export default function CardEvents({ post }) {
+export default function CardNews({ post }) {
   return (
-    <div className="col-12 col-md-4 mb-4">
-      <div className="card h-100 border-0 shadow-sm rounded-3">
-        <Link
-          href={`https://destinoriocuarto.gob.ar/evento/${post.id}/${post.slug}`}
-          className="text-decoration-none text-black d-flex flex-column h-100"
-          target="_blank"
-        >
-          <div className="card-img-top-container overflow-hidden rounded-top">
+    <div className="col-md-4 mb-4">
+      <div className="card">
+        <div className="card-img-top">
+          <Link
+            href={`https://destinoriocuarto.gob.ar/evento/${post.id}/${post.slug}`}
+            className=""
+          >
             <img
               src={post.image.mediumUrl}
               alt={post.title}
               className="card-img-top"
               style={{ objectFit: "cover" }}
             />
-          </div>
-
-          <div className="card-body d-flex flex-column p-4 border-top border-primary border-5">
-            <h5 className="card-title fw-bold text-dark mb-3">{post.title}</h5>
-            <p className="card-text text-muted flex-grow-1 mb-3">
-              {post.summary}
-            </p>
-            <div className="mt-auto pt-3 border-top border-light-subtle">
-              <span className="text-primary fw-bold">Ver más</span>
-            </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
+        <div className="card-body">
+          <h3 className="card-title text-primary">{post.title}</h3>
+          <p className="card-text">{post.summary}</p>
+        </div>
+        <div className="card-footer border-0 bg-white">
+          <span>
+            {new Date(post.publication_date).toLocaleDateString("es-AR", {
+              year: "numeric",
+              month: "numeric",
+              day: "numeric",
+            })}
+          </span>
+          <span>
+            <a
+              href={`https://destinoriocuarto.gob.ar/evento/${post.id}/${post.slug}`}
+              className=""
+              target="_blank"
+              rel="noopener noreferrer"
+            >Ver más</a>
+          </span>
+        </div>
       </div>
     </div>
   );
