@@ -1,4 +1,14 @@
 export default function SearchResults({ results, query }) {
+
+  //console.log("results:", results);
+  const { entries, procedures, posts } = results
+
+  console.log("entries:", entries);
+  console.log("procedures:", procedures);
+  console.log("posts:", posts);
+
+
+
   if (!results) {
     return (
       <div>
@@ -14,13 +24,39 @@ export default function SearchResults({ results, query }) {
       <h2 className="text-primary fw-bold text-uppercase mt-3 display-4">
         {query}
       </h2>
-      {/* Aquí iría tu lógica para mostrar los resultados */}
-      {results.length}
-      <ul>
-        {results.map((result) => (
-          <li key={result.id}>{result.title}</li>
-        ))}
-      </ul>
+      <div className="row">
+        <div className="col-md-4">
+          <h5>Posts {posts.data.length}</h5>
+          {posts.data.length > 0 && (
+            <ul className="">
+              {posts.data.map((result) => (
+                <li key={result.id}>{result.title}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <div className="col-md-4">
+          <h5>Procedures {procedures.data.length}</h5>
+          {procedures.data.length > 0 && (
+            <ul className="">
+              {procedures.data.map((result) => (
+                <li key={result.id}>{result.title}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <div className="col-md-4">
+          <h5>Entries {entries.data.length}</h5>
+          {entries.data.length > 0 && (
+            <ul className="">
+              {entries.data.map((result) => (
+                <li key={result.id}>{result.title}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+
     </div>
   );
 }
