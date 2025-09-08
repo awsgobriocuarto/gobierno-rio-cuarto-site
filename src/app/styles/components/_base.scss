@@ -3,9 +3,37 @@ html {
   position: relative;
 }
 
-body {}
+body {
+  //background-color: rgba(pink, 0.8);
+  padding-bottom: 100px;
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+    background-color: orange;
+
+  }
+}
+
+// footer {
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+
+// }
 
 .icons {
   display: flex;
   flex-direction: column;
+}
+
+.button-card {
+  background-color: orange;
 }

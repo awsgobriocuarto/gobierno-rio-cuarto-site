@@ -22,6 +22,7 @@ export default function Test() {
       <TestCardNews />
       <hr className="my-5" />
       <TestCardButtons />
+      <hr className="my-5" />
     </div>
   );
 }

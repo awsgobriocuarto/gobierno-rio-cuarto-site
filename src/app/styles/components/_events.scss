@@ -1,10 +1,10 @@
-.test {
-  //$border-radius: 15px;
+.events {
+  //background-color: blue;
 
-  .news {
+  &-list {
+    margin-bottom: 30px;
+
     .card {
-
-      margin-bottom: 30px;
       border-radius: $border-radius;
 
       &-img-top {
@@ -68,66 +68,4 @@
       }
     }
   }
-
-  .buttons {
-
-    $card-height: 110px;
-
-    a:hover {
-      .card {
-        border-color: rgba($gray-900, 0.5);
-
-      }
-    }
-
-    .card {
-      //border-radius: $border-radius;
-      border-color: rgba($gray-900, 0.2);
-
-      &-img {
-        width: 100%;
-        min-height: $card-height;
-        border-radius: $border-radius 0 0 $border-radius;
-
-
-        img {
-          width: 100%;
-          height: $card-height;
-          object-fit: cover;
-          border-radius: $border-radius 0 0 $border-radius;
-          ;
-        }
-      }
-
-      &-icon {
-        background-color: $gray-200;
-        width: 100%;
-        min-height: $card-height;
-        border-radius: $border-radius 0 0 $border-radius;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        svg {
-          width: 50%;
-          height: 50%;
-          //color: white;
-        }
-      }
-
-      &-body {
-        //background-color: $gray-100;
-        display: flex;
-        align-items: center;
-        min-height: $card-height;
-        //border-radius: 0 $border-radius $border-radius 0;
-      }
-
-      &-title {
-        margin-bottom: 0;
-        font-size: 1.2rem;
-      }
-    }
-  }
-
 }
