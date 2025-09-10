@@ -21,7 +21,10 @@ const API_OPTIONS = {
 
 export async function fetchSearch(query = "") {
   //const res = await fetch(`${API_URL}/tramites?search=${query}`, API_OPTIONS);
-  const res = await fetch(`http://192.168.1.88/gestweb/public/api/v1/search3?search=${query}`, API_OPTIONS);
+  const res = await fetch(
+    `http://192.168.1.88/gestweb/public/api/v1/search?search=${query}`,
+    API_OPTIONS
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");

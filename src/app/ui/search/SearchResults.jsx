@@ -1,13 +1,10 @@
 export default function SearchResults({ results, query }) {
-
   //console.log("results:", results);
-  const { entries, procedures, posts } = results
+  const { entries, procedures, posts } = results;
 
   console.log("entries:", entries);
   console.log("procedures:", procedures);
   console.log("posts:", posts);
-
-
 
   if (!results) {
     return (
@@ -56,7 +53,6 @@ export default function SearchResults({ results, query }) {
           )}
         </div>
       </div>
-
     </div>
   );
 }
