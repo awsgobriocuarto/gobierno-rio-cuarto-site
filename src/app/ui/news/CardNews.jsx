@@ -18,7 +18,10 @@ export default function CardNews({ post }) {
           </Link>
         </div>
         <div className="card-body">
-          <h3 className="card-title text-primary">{post.title}</h3>
+          <Link
+            href={`/noticias/${post.slug}?id=${post.id}`}
+            className=""
+          ><h3 className="card-title text-primary">{post.title}</h3></Link>
           <p className="card-text">{post.description}</p>
         </div>
         <div className="card-footer border-0 bg-white">
