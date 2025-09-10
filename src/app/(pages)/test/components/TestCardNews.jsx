@@ -7,6 +7,7 @@ export default function TestCardNews() {
         <div className="col-md-4">
           <div className="card">
             <div className="card-img-top">
+              {/* eslint-disable-next-line */}
               <img src="http://www.riocuarto.gov.ar/files/noticias/1756146883_Presentaci%C3%B3n_Mundo_Franquicias_21.jpg" alt="" className="img-fluid" />
             </div>
             <div className="card-body">
@@ -23,6 +24,7 @@ export default function TestCardNews() {
         <div className="col-md-4">
           <div className="card">
             <div className="card-img-top">
+              {/* eslint-disable-next-line */}
               <img src="http://www.riocuarto.gov.ar/files/noticias/1756146883_Presentaci%C3%B3n_Mundo_Franquicias_21.jpg" alt="" className="img-fluid" />
             </div>
             <div className="card-body">
@@ -39,6 +41,7 @@ export default function TestCardNews() {
         <div className="col-md-4">
           <div className="card">
             <div className="card-img-top">
+              {/* eslint-disable-next-line */}
               <img src="http://www.riocuarto.gov.ar/files/noticias/1756146883_Presentaci%C3%B3n_Mundo_Franquicias_21.jpg" alt="" className="img-fluid" />
             </div>
             <div className="card-body bg-primary">

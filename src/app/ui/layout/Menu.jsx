@@ -85,16 +85,16 @@ export default function Menu() {
                 href="https://facebook.com"
                 target="_blank"
               >
-                <i className={`fab fa-fw fa-facebook`}></i>
+                <i className={`fa-brands fa-fw fa-facebook`}></i>
                 <span className="d-lg-none">Facebook</span>
                 <span className="sr-only">Facebook</span>
               </Nav.Link>
               <Nav.Link href="https://instagram.com" target="_blank" className="">
-                <i className={`fab fa-fw fa-instagram`}></i> <span className="d-lg-none">Instagram</span>
+                <i className={`fa-brands fa-fw fa-instagram`}></i> <span className="d-lg-none">Instagram</span>
                 <span className="sr-only">Instagram</span>
               </Nav.Link>
               <Nav.Link href="https://youtube.com" target="_blank" className="">
-                <i className={`fab fa-fw fa-youtube`}></i> <span className="d-lg-none">Youtube</span>
+                <i className={`fa-brands fa-fw fa-youtube`}></i> <span className="d-lg-none">Youtube</span>
                 <span className="sr-only">Youtube</span>
               </Nav.Link>
               <Nav.Link onClick={handleSearchModalShow}>

@@ -29,9 +29,8 @@ export default async function NewsDetailPage({ params, searchParams }) {
 
   return (
     <main className='news news-detail' data-read>
-      <div className="container my-5">
+      <div className="container">
         <span className="sr-only">Detalle de la Noticia</span>
-        <p>slug: {slug} | id: {id}</p>
         <div className="row">
           <div className="col-md-8">
             <DetailNews detailNews={detailNews} />
