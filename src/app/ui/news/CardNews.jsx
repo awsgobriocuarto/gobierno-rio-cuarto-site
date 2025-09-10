@@ -6,7 +6,7 @@ export default function CardNews({ post }) {
       <div className="card">
         <div className="card-img-top">
           <Link
-            href={`/noticias/${post.slug}`}
+            href={`/noticias/${post.slug}?id=${post.id}`}
             className=""
           >
             <img
@@ -31,7 +31,7 @@ export default function CardNews({ post }) {
           </span>
           <span>
             <Link
-              href={`/noticias/${post.slug}`}
+              href={`/noticias/${post.slug}?id=${post.id}`}
               className=""
             >Ver más</Link>
           </span>
