@@ -9,6 +9,7 @@ export default function TestCardButtons() {
             <div className="row g-0">
               <div className="col-3">
                 <div className="card-img">
+                  {/* eslint-disable-next-line */}
                   <img
                     src="http://www.riocuarto.gov.ar/files/noticias/1756146883_Presentaci%C3%B3n_Mundo_Franquicias_21.jpg"
                     alt="..."

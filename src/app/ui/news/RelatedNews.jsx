@@ -18,6 +18,7 @@ export default async function RelatedNews({ detailNews, page = 1, limit = 6, tex
           <div className="card mb-3">
             <div className="row g-0">
               <div className="col-md-4">
+                {/* eslint-disable-next-line */}
                 <img src={post.image} className="img-fluid" alt="..." />
               </div>
               <div className="col-md-8">

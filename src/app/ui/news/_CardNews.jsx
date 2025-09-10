@@ -10,6 +10,7 @@ export default function CardNews({ post }) {
           className="text-decoration-none text-black d-flex flex-column h-100"
         >
           <div className="card-img-top-container overflow-hidden rounded-top m-0">
+            {/* eslint-disable-next-line */}
             <img
               src={post.image}
               alt={post.title}

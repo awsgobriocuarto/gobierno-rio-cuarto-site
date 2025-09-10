@@ -9,6 +9,7 @@ export default function CardNews({ post }) {
             href={`https://destinoriocuarto.gob.ar/evento/${post.id}/${post.slug}`}
             className=""
           >
+            {/* eslint-disable-next-line */}
             <img
               src={post.image.mediumUrl}
               alt={post.title}

@@ -9,6 +9,7 @@ export default function CardNews({ post }) {
             href={`/noticias/${post.slug}?id=${post.id}`}
             className=""
           >
+            {/* eslint-disable-next-line */}
             <img
               src={post.image}
               alt={post.title}

@@ -44,7 +44,7 @@ export default function DetailNews({ detailNews }) {
         </span>
       </div>
       <h1 className='news-detail--title'>{title}</h1>
-      {/* Muestra la imagen principal si existe */}
+      {/* eslint-disable-next-line */}
       {image && <img src={image} alt={title} className="news-detail--image" />}
 
       <p className="news-detail--description">

@@ -12,6 +12,7 @@ export default function CardEvents({ post }) {
           target="_blank"
         >
           <div className="card-img-top-container overflow-hidden rounded-top">
+            {/* eslint-disable-next-line */}
             <img
               src={post.image.mediumUrl}
               alt={post.title}
