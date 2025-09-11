@@ -1,11 +1,9 @@
 .buttons {
-
   $card-height: 110px;
 
   a:hover {
     .card {
       border-color: rgba($gray-900, 0.5);
-
     }
   }
 
@@ -19,13 +17,11 @@
       min-height: $card-height;
       border-radius: $border-radius 0 0 $border-radius;
 
-
       img {
         width: 100%;
         height: $card-height;
         object-fit: cover;
         border-radius: $border-radius 0 0 $border-radius;
-        ;
       }
     }
 

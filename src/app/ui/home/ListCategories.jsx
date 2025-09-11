@@ -12,7 +12,7 @@ export default async function ListCategories() {
         <div className="row justify-content-center buttons">
           <Suspense fallback={<div>Cargando...</div>}>
             {categories.map((category) => (
-              <div className="col-md-4" key={category.id} >
+              <div className="col-md-4" key={category.id}>
                 <CardCategories category={category} />
               </div>
             ))}

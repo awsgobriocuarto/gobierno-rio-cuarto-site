@@ -9,7 +9,7 @@ export default function CardCategories({ category }) {
       <div className="card">
         <div className="row g-0">
           <div className="col-3">
-            <div className="card-icon">
+            <div className="card-icon bg-primary text-white ">
               <i className={`fas fa-fw fa-2xl ${category.image}`}></i>
             </div>
           </div>

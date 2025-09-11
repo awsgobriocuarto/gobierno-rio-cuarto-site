@@ -1,6 +1,6 @@
 export default function SearchResults({ results, query }) {
   //console.log("results:", results);
-  const { entries, procedures, posts } = results;
+  const { entries, procedures, posts, areas, categories } = results;
 
   console.log("entries:", entries);
   console.log("procedures:", procedures);
@@ -47,6 +47,26 @@ export default function SearchResults({ results, query }) {
           {entries.data.length > 0 && (
             <ul className="">
               {entries.data.map((result) => (
+                <li key={result.id}>{result.title}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <div className="col-md-4">
+          <h5>Area {areas.data.length}</h5>
+          {areas.data.length > 0 && (
+            <ul className="">
+              {areas.data.map((result) => (
+                <li key={result.id}>{result.title}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <div className="col-md-4">
+          <h5>Category {categories.data.length}</h5>
+          {categories.data.length > 0 && (
+            <ul className="">
+              {categories.data.map((result) => (
                 <li key={result.id}>{result.title}</li>
               ))}
             </ul>

@@ -1,6 +1,6 @@
 const API_BASE_URL = process.env.API_BASE_URL_TRAMITES;
 const API_VERSION = process.env.API_VERSION_TRAMITES;
-const API_TOKEN = process.env.API_TOKEN_TRAMITES;
+const API_TOKEN = process.env.API_TOKEN_SEARCH;
 
 // console.log("API_BASE_URL:", API_BASE_URL);
 // console.log("API_VERSION:", API_VERSION);
@@ -22,7 +22,7 @@ const API_OPTIONS = {
 export async function fetchSearch(query = "") {
   //const res = await fetch(`${API_URL}/tramites?search=${query}`, API_OPTIONS);
   const res = await fetch(
-    `http://192.168.1.88/gestweb/public/api/v1/search?search=${query}`,
+    `https://gestionwebdev.gobiernoriocuarto.gob.ar/api/v1/search?search=${query}`,
     API_OPTIONS
   );
 
