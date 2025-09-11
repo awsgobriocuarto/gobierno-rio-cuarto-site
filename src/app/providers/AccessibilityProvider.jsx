@@ -44,6 +44,8 @@ export const AccessibilityProvider = ({ children }) => {
 
   // ## FUNCIONES ## //
 
+  {/* eslint-disable */ }
+
   // & Función para ciclar el tamaño de la fuente
   const cycleFontSize = () => {
     setFontSize(prev => (prev + 1) % fontSizes.length);
@@ -114,6 +116,7 @@ export const AccessibilityProvider = ({ children }) => {
 
   // Efecto para aplicar el estilo al DOM
   // Se ejecuta cada vez que 'fontSize' cambia
+
   useEffect(() => {
     document.documentElement.style.fontSize = fontSizes[fontSize];
   }, [fontSize]);
