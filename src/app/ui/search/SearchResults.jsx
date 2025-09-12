@@ -1,10 +1,14 @@
-export default function SearchResults({ results, query }) {
+export default async function SearchResults({ results, query }) {
   //console.log("results:", results);
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
   const { entries, procedures, posts, areas, categories } = results;
 
-  console.log("entries:", entries);
-  console.log("procedures:", procedures);
-  console.log("posts:", posts);
+  // console.log("entries:", entries);
+  // console.log("procedures:", procedures);
+  // console.log("posts:", posts);
+  // console.log("results", results);
+  // console.log("query:", query);
 
   if (!results) {
     return (
