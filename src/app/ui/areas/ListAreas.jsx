@@ -10,7 +10,7 @@ export default async function ListAreas() {
     : areasResponse?.data || [];
 
   return (
-    <section className="section test" data-read>
+    <section className="section test bg-prueba" data-read>
       <div className="container">
         <HeaderSection title="Áreas" />
         <div className="row justify-content-center buttons">
@@ -18,7 +18,8 @@ export default async function ListAreas() {
             {areas.map((area) => (
               <div className="col-md-4" key={area.id}>
                 <CardAreas area={area} />
-              </div>))}
+              </div>
+            ))}
           </Suspense>
         </div>
       </div>

@@ -1,14 +1,18 @@
 // colores
 $primary: #009de0;
-$secondary: #FF7D00;
-$success: #00C96B;
-$info: #FF3CB2;
-$warning: #F2C100;
+$secondary: #ff7d00;
+$success: #00c96b;
+$info: #ff3cb2;
+$warning: #f2c100;
 // $danger: $red !default;
 // $light: $gray-100 !default;
 // $dark: $gray-900 !default;
-$orange: #FF7D00;
-$pink: #FF3CB2;
+$orange: #ff7d00;
+$pink: #ff3cb2;
+
+// Prueba de bg en list areas
+$prueba: #e9f7fd;
+$gray: #f3f6f9;
 
 // options
 $enable-caret: true !default;
@@ -22,3 +26,11 @@ $font-size-base: 1.1rem !default;
 $border-radius-card: 15px !default;
 
 // $enable-rounded:              true !default;
+
+// No sabia donde crear estas clases, las cree aca.
+.bg-gray {
+  background-color: $gray !important;
+}
+.bg-prueba {
+  background-color: $prueba !important;
+}

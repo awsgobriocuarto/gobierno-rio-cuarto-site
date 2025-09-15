@@ -11,7 +11,7 @@ export default async function ListCategories() {
         <HeaderSection title="Trámites" />
         <div className="row justify-content-center buttons">
           <Suspense fallback={<div>Cargando...</div>}>
-            {categories.map((category) => (
+            {categories.slice(0, 9).map((category) => (
               <div className="col-md-4" key={category.id}>
                 <CardCategories category={category} />
               </div>

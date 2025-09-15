@@ -1,4 +1,3 @@
-
 import ListNews from "./ui/news/ListNews";
 import ListEvents from "./ui/destiny/ListEvents";
 import ListCategories from "./ui/home/ListCategories";
@@ -22,10 +21,16 @@ export default function Home() {
         <div className="container">
           <HeaderSection title="Próximos Eventos" />
           <ListEvents />
-          <a href="https://destinoriocuarto.gob.ar/" target="_blank" rel="noopener noreferrer" className="btn btn-primary text-white">Ver más eventos</a>
+          <a
+            href="https://destinoriocuarto.gob.ar/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary text-white"
+          >
+            Ver más eventos
+          </a>
         </div>
       </section>
-
     </main>
   );
 }
