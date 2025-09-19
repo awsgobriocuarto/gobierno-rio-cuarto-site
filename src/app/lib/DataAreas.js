@@ -1,4 +1,76 @@
-// app/lib/DataAreas.js
+const API_BASE_URL = process.env.API_BASE_URL_SEARCH;
+const API_VERSION = process.env.API_VERSION_TRAMITES;
+const API_TOKEN = process.env.API_TOKEN_SEARCH;
+
+// console.log("API_BASE_URL:", API_BASE_URL);
+// console.log("API_VERSION:", API_VERSION);
+// console.log("API_TOKEN:", API_TOKEN);
+
+if (!API_BASE_URL || !API_TOKEN) {
+  throw new Error("API_BASE_URL o API_TOKEN no están definidas en el entorno");
+}
+
+const API_URL = `${API_BASE_URL}/api${API_VERSION ? `/${API_VERSION}` : ""}`;
+
+const API_OPTIONS = {
+  headers: {
+    Authorization: API_TOKEN,
+  },
+  cache: "no-store",
+};
+
+export async function fetchPrograms(areaId = "") {
+  try {
+    const queryParam = areaId
+      ? `?type=program&area_id=${areaId}`
+      : "?type=program";
+
+    console.log("Fetching URL:", `${API_URL}/entries${queryParam}`);
+    const res = await fetch(`${API_URL}/entries${queryParam}`, API_OPTIONS);
+
+    if (!res.ok) {
+      throw new Error(`Error HTTP: ${res.status}`);
+    }
+
+    const response = await res.json();
+    console.log("API Response:", response);
+
+    // Verificamos si tenemos datos y los devolvemos
+    if (response && response.data) {
+      return response.data;
+    }
+
+    return [];
+  } catch (error) {
+    console.error("Error fetching programs:", error);
+    return [];
+  }
+}
+export async function fetchOther(areaId = "") {
+  try {
+    const queryParam = areaId ? `?type=other&area_id=${areaId}` : "?type=other";
+
+    console.log("Fetching URL:", `${API_URL}/entries${queryParam}`);
+    const res = await fetch(`${API_URL}/entries${queryParam}`, API_OPTIONS);
+
+    if (!res.ok) {
+      throw new Error(`Error HTTP: ${res.status}`);
+    }
+
+    const response = await res.json();
+    console.log("API Response:", response);
+
+    // Verificamos si tenemos datos y los devolvemos
+    if (response && response.data) {
+      return response.data;
+    }
+
+    return [];
+  } catch (error) {
+    console.error("Error fetching programs:", error);
+    return [];
+  }
+}
 
 export const areas = [
   {

@@ -11,26 +11,15 @@ export default function Home() {
       <Hero />
       <ListCategories />
       <ListAreas />
-      <section className="mb-5">
+      {/* <section className="mb-5">
         <div className="container">
           <HeaderSection title="Últimas Noticias" />
           <ListNews limit={6} />
         </div>
-      </section>
-      <section>
-        <div className="container">
-          <HeaderSection title="Próximos Eventos" />
-          <ListEvents />
-          <a
-            href="https://destinoriocuarto.gob.ar/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary text-white"
-          >
-            Ver más eventos
-          </a>
-        </div>
-      </section>
+      </section> */}
+      <ListNews />
+
+      <ListEvents />
     </main>
   );
 }

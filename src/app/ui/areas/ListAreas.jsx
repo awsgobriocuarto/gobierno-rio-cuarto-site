@@ -8,9 +8,8 @@ export default async function ListAreas() {
   const areas = Array.isArray(areasResponse)
     ? areasResponse
     : areasResponse?.data || [];
-
   return (
-    <section className="section test bg-prueba" data-read>
+    <section className="section test bg-prueba " data-read>
       <div className="container">
         <HeaderSection title="Áreas" />
         <div className="row justify-content-center buttons">
