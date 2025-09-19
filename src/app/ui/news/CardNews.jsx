@@ -2,13 +2,10 @@ import Link from "next/link";
 
 export default function CardNews({ post }) {
   return (
-    <div className="col-md-4 mb-4">
+    <div className="col-md-4 mb-4 bg-info">
       <div className="card">
         <div className="card-img-top">
-          <Link
-            href={`/noticias/${post.slug}?id=${post.id}`}
-            className=""
-          >
+          <Link href={`/noticias/${post.slug}?id=${post.id}`} className="">
             {/* eslint-disable-next-line */}
             <img
               src={post.image}
@@ -19,10 +16,9 @@ export default function CardNews({ post }) {
           </Link>
         </div>
         <div className="card-body">
-          <Link
-            href={`/noticias/${post.slug}?id=${post.id}`}
-            className=""
-          ><h3 className="card-title text-primary">{post.title}</h3></Link>
+          <Link href={`/noticias/${post.slug}?id=${post.id}`} className="">
+            <h3 className="card-title text-primary">{post.title}</h3>
+          </Link>
           <p className="card-text">{post.description}</p>
         </div>
         <div className="card-footer border-0 bg-white">
@@ -34,10 +30,9 @@ export default function CardNews({ post }) {
             })}
           </span>
           <span>
-            <Link
-              href={`/noticias/${post.slug}?id=${post.id}`}
-              className=""
-            >Ver más</Link>
+            <Link href={`/noticias/${post.slug}?id=${post.id}`} className="">
+              Ver más
+            </Link>
           </span>
         </div>
       </div>

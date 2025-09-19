@@ -1,0 +1,38 @@
+// En tu archivo SCSS
+.other-card {
+  .card-body {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+
+    .other-image {
+      width: 100px;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+
+    // Nuevo estilo para el contenedor de texto
+    .text-content {
+      flex: 1; // Ocupa el espacio restante
+    }
+
+    .card-subtitle {
+      font-size: 0.8rem;
+      color: #cccccc;
+      margin-top: 5px; // Pequeño margen entre el título y el subtítulo
+    }
+  }
+  .placeholder-icon-container {
+    height: 100px;
+    width: 100px;
+    background-color: #f8f9fa; // bg-light
+    border-radius: 0.25rem; // rounded
+    margin-right: 1rem; // Añade margen para separar del texto
+
+    // Propiedades para centrar el contenido
+    display: flex;
+    justify-content: center; // Centra horizontalmente
+    align-items: center; // Centra verticalmente
+  }
+}

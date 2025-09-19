@@ -3,7 +3,7 @@ import Icon from "./Icon";
 
 export default function ListIcons({ icons }) {
   return (
-    <div className="icons">
+    <div className="d-inline-flex icons">
       {icons.map((icon) => (
         <Icon icon={icon} key={icon.name} />
       ))}

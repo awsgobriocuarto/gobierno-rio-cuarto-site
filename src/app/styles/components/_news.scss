@@ -1,6 +1,6 @@
 .news {
   //background: orange;
-
+  margin-top: 20px;
 
   &-page {
     padding: 100px 0;
@@ -73,7 +73,6 @@
           background-color: darken($primary, 5%);
           border: 0;
         }
-
       }
     }
   }
@@ -123,11 +122,11 @@
       margin-bottom: 50px;
     }
 
-    &--gallery {}
+    &--gallery {
+    }
   }
 
   &-related {
-
     &--subtitle {
       margin-bottom: 20px;
       font-size: 1.2rem;
@@ -149,7 +148,6 @@
 
           &-title {
             color: white;
-
           }
         }
       }

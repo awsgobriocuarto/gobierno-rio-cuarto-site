@@ -5,13 +5,14 @@ import FormalitiesAreas from "@/app/ui/areas/FormalitiesAreas";
 import ProgramsAreas from "@/app/ui/areas/ProgramsAreas";
 import IntitutionalAreas from "@/app/ui/areas/IntitutionalAreas";
 import NewsAreas from "@/app/ui/areas/NewsAreas";
+import OtherAreas from "@/app/ui/areas/OtherAreas";
 
 export async function generateStaticParams() {
   const areasResponse = await fetchAreas();
   const areas = Array.isArray(areasResponse)
     ? areasResponse
     : areasResponse?.data || [];
-
+  console.log("Areas for static params:", areas);
   return areas.map((area) => ({
     slug: area.slug,
   }));
@@ -48,6 +49,7 @@ export default async function AreaDetailPage({ params }) {
             <HeroAreas area={area} />
             <FormalitiesAreas area={area} />
             <ProgramsAreas area={area} />
+            <OtherAreas area={area} />
           </div>
           <div className="col-md-4">
             <IntitutionalAreas area={area} />

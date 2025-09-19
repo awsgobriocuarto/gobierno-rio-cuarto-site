@@ -1,13 +1,14 @@
-export default function SearchResults({ results, query }) {
-
+export default async function SearchResults({ results, query }) {
   //console.log("results:", results);
-  const { entries, procedures, posts } = results
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  console.log("entries:", entries);
-  console.log("procedures:", procedures);
-  console.log("posts:", posts);
+  const { entries, procedures, posts, areas, categories } = results;
 
-
+  // console.log("entries:", entries);
+  // console.log("procedures:", procedures);
+  // console.log("posts:", posts);
+  // console.log("results", results);
+  // console.log("query:", query);
 
   if (!results) {
     return (
@@ -55,8 +56,27 @@ export default function SearchResults({ results, query }) {
             </ul>
           )}
         </div>
+        <div className="col-md-4">
+          <h5>Area {areas.data.length}</h5>
+          {areas.data.length > 0 && (
+            <ul className="">
+              {areas.data.map((result) => (
+                <li key={result.id}>{result.title}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <div className="col-md-4">
+          <h5>Category {categories.data.length}</h5>
+          {categories.data.length > 0 && (
+            <ul className="">
+              {categories.data.map((result) => (
+                <li key={result.id}>{result.title}</li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
-
     </div>
   );
 }

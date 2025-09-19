@@ -14,11 +14,25 @@ export default async function BuscarPage({ searchParams }) {
         <div className="mb-4">
           <SearchForm />
         </div>
-
-        <Suspense fallback={<div>Cargando resultados...</div>}>
-          <SearchResults results={results} />
+        <Suspense
+          key={searchQuery}
+          fallback={
+            <div className="d-flex justify-content-center align-items-center mt-4">
+              <div className="spinner-border text-primary" role="status">
+                <span className="visually-hidden">Buscando...</span>
+              </div>
+              <span className="ms-2">Buscando resultados...</span>
+            </div>
+          }
+        >
+          <AsyncSearchResults query={searchQuery} />
         </Suspense>
       </div>
     </main>
   );
+}
+async function AsyncSearchResults({ query }) {
+  if (!query) return null;
+  const results = await fetchSearch(query);
+  return <SearchResults results={results} query={query} />;
 }
