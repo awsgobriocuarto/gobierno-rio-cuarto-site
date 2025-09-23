@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function CardNews({ post }) {
   return (
-    <div className="col-md-4 mb-4 bg-info">
+    <div className="col-md-4 mb-4 ">
       <div className="card">
         <div className="card-img-top">
           <Link href={`/noticias/${post.slug}?id=${post.id}`} className="">
