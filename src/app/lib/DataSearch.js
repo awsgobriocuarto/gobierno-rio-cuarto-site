@@ -1,6 +1,6 @@
-const API_BASE_URL = process.env.API_BASE_URL_TRAMITES;
-const API_VERSION = process.env.API_VERSION_TRAMITES;
-const API_TOKEN = process.env.API_TOKEN_SEARCH;
+const API_BASE_URL = process.env.API_BASE_URL;
+const API_VERSION = process.env.API_VERSION;
+const API_TOKEN = process.env.API_TOKEN;
 
 // console.log("API_BASE_URL:", API_BASE_URL);
 // console.log("API_VERSION:", API_VERSION);

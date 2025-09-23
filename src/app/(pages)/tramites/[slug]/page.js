@@ -37,7 +37,7 @@ export default async function Formality({ params }) {
           <div className="col-md-7">
             <h4>
               <i className="fa-solid fa-layer-group"></i>{" "}
-              {formality.category.name}
+              {formality.categories[0]?.name}
             </h4>
             <h3>{formality.title}</h3>
             <p
