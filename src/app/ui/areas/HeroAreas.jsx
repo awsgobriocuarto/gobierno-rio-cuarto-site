@@ -5,18 +5,9 @@ export default function HeroAreas({ area }) {
     return "No hay área para mostrar.";
   }
 
-  const contactInfo = area.contactInfo || [
-    { type: "address", value: "una direccion" },
-    { type: "address", value: "otra direccion" },
-    { type: "phone", value: "123456789" },
-    { type: "phone", value: "987654321" },
-    { type: "schedules", value: "06:00 - 14:00" },
-    { type: "web", value: "https://uiverse.io/forms" },
-    { type: "web", value: "https://uiverse.io/forms" },
-    { type: "email", value: "prueba@gmail.com" },
-  ];
+  const contact = area.contact || [];
 
-  const groupedInfo = contactInfo.reduce((acc, item) => {
+  const groupedInfo = contact.reduce((acc, item) => {
     if (!acc[item.type]) {
       acc[item.type] = [];
     }
@@ -24,7 +15,6 @@ export default function HeroAreas({ area }) {
     return acc;
   }, {});
 
-  // Relaciona cada tipo con su icono
   const ICONS = {
     address: <i className="fas fa-location-dot"></i>,
     phone: <i className="fas fa-phone"></i>,
@@ -36,9 +26,11 @@ export default function HeroAreas({ area }) {
   return (
     <section className="area-hero">
       <div className="container">
-        <h2>{area.name || "No hay área"}</h2>
-        <p className="lead mb-4">{area.description || "No hay descripción"}</p>
-        <h4 className="mb-3">Información Básica</h4>
+        <h2>{area.name || "Área sin nombre"}</h2>
+        <p className="lead mb-4">
+          {area.propouse || "No hay descripción o propósito."}
+        </p>
+        <h4 className="mb-3">Información de Contacto</h4>
 
         <div className="info-list">
           {Object.entries(groupedInfo).map(([type, values]) => {

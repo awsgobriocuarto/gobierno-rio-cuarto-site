@@ -1,40 +1,58 @@
-import { teamMembers } from "@/app/lib/DataAreas"; // Importa teamMembers
+// app/ui/areas/IntitutionalAreas.jsx
 import Image from "next/image";
 
 export default function IntitutionalAreas({ area }) {
-  const areaTeam = teamMembers.filter((member) => member.areaId === area.id);
+  const persons = area.persons;
+
+  if (!persons || persons.length === 0) {
+    return (
+      <div className="area-institutional">
+        <h4>Institucional</h4>
+        <div className="row">
+          <div className="col-12 text-center">
+            <p>No hay contactos institucionales para esta área.</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const sortedPersons = persons.sort((a, b) => a.order - b.order);
 
   return (
     <div className="area-institutional">
       <h4>Institucional</h4>
       <div className="row">
-        {areaTeam.length > 0 ? (
-          areaTeam.map((member) => (
-            <div key={member.id} className="col-6 mb-4">
-              <div className="card">
-                <div className="card-img-top">
-                  {member.photo && (
-                    <Image
-                      src={member.photo}
-                      alt={member.name}
-                      width={80}
-                      height={80}
-                    />
-                  )}
-                </div>
-                <div className="card-body">
-                  <h3 className="card-title">{member.name}</h3>
-                  <h4 className="card-subtitle">{member.role}</h4>
-                </div>
+        {sortedPersons.map((p) => (
+          <div key={p.id} className="col-12 mb-4">
+            <div className="card">
+              <div className="card-img-top">
+                {p.image_url && (
+                  <img
+                    src={p.image_url}
+                    alt={p.name}
+                    className="rounded intitutional-image"
+                  />
+                )}
+              </div>
+              <div className="card-body">
+                <h3 className="card-title">{p.name}</h3>
+                <h4 className="card-subtitle">{p.position}</h4>
+                {p.curriculum && (
+                  <a
+                    href={p.curriculum}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary mt-2"
+                  >
+                    Ver CV
+                  </a>
+                )}
               </div>
             </div>
-          ))
-        ) : (
-          <div className="col-12 text-center">
-            <p>No hay contactos institucionales para esta área.</p>
           </div>
-        )}
+        ))}
       </div>
     </div>
-  )
+  );
 }
