@@ -2,6 +2,8 @@ import Link from "next/link";
 import React from "react";
 
 export default function FormalitiesCard({ formality }) {
+  const categoryName = formality.categories[0]?.name || "Sin categoría";
+
   return (
     <div className="card">
       <div className="card-body">
@@ -14,11 +16,11 @@ export default function FormalitiesCard({ formality }) {
                 <span>Responsable:</span> {formality.area.name}
               </dd>
               <dd>
-                <span>Categoría:</span> {formality.category.name}
+                <span>Categoría:</span> {categoryName}
               </dd>
               <dd>
                 <span>Modalidad:</span>{" "}
-                {formality.online == 1 ? "Online" : "Presencial"}
+                {formality.online === 1 ? "Online" : "Presencial"}
               </dd>
             </dl>
           </div>
@@ -33,9 +35,10 @@ export default function FormalitiesCard({ formality }) {
               <a
                 href={formality.url}
                 className={`btn btn-primary text-white ${
-                  !formality.online == 1 && "disabled opacity-25"
+                  formality.online !== 1 && "disabled opacity-25"
                 }`}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Iniciar trámite online
               </a>

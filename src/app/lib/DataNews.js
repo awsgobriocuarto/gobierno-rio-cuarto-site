@@ -2,7 +2,7 @@ export function fromApiResponseToPosts(apiResponse) {
   let posts = [];
 
   // Check if the API response contains a top-level `data` key.
-  if (apiResponse && 'data' in apiResponse) {
+  if (apiResponse && "data" in apiResponse) {
     const apiData = apiResponse.data;
 
     // Case 1: `data` is an array (for a list of news).
@@ -10,7 +10,7 @@ export function fromApiResponseToPosts(apiResponse) {
       posts = apiData;
     }
     // Case 2: `data` is a single object (for a single news item).
-    else if (typeof apiData === 'object' && apiData !== null) {
+    else if (typeof apiData === "object" && apiData !== null) {
       posts = [apiData];
     }
   }
@@ -23,7 +23,8 @@ export function fromApiResponseToPosts(apiResponse) {
   // Map and transform the data to a consistent format.
   return posts.map((post) => {
     // The image can be in `main_picture` or `media.main_picture`.
-    const mainPicture = post.main_picture || (post.media && post.media.main_picture);
+    const mainPicture =
+      post.main_picture || (post.media && post.media.main_picture);
 
     return {
       id: post.id,
@@ -51,7 +52,7 @@ export async function fetchNews({ page = 1, limit = 9 } = {}) {
   try {
     const res = await fetch(apiURL, {
       headers: { "Portal-Id": 3 },
-      next: { revalidate: 600 }
+      next: { revalidate: 600 },
     });
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
@@ -70,7 +71,7 @@ export async function getNewsById(id) {
   try {
     const res = await fetch(apiURL, {
       headers: { "Portal-Id": 3 },
-      next: { revalidate: 3600 }
+      next: { revalidate: 3600 },
     });
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
@@ -87,7 +88,6 @@ export async function getNewsById(id) {
   }
 }
 
-
 export async function getNewsBySlug(slug) {
   // Solución permanente y eficiente: Llamada directa a la API para buscar por slug
   const apiURL = `https://contenidos.gobiernoriocuarto.gob.ar/api/v1/posts?slug=${slug}`;
@@ -95,7 +95,7 @@ export async function getNewsBySlug(slug) {
   try {
     const res = await fetch(apiURL, {
       headers: { "Portal-Id": 3 },
-      next: { revalidate: 3600 }
+      next: { revalidate: 3600 },
     });
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);

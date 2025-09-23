@@ -1,19 +1,26 @@
 import React, { Suspense } from "react";
 import { fetchDestiny } from "@/app/lib/DataDestiny";
 import CardEvents from "./CardEvents";
+import HeaderSection from "../layout/HeaderSection";
 
 export default async function ListEvents() {
   const { data } = await fetchDestiny({ paginate: 6 });
   //console.log("Eventos:", data);
   return (
-    <div className="events events-list" data-read>
-      <div className="row justify-content-center">
-        <Suspense fallback={<div>Cargando...</div>}>
-          {data.map((item) => (
-            <CardEvents key={item.id} post={item} />
-          ))}
-        </Suspense>
+    <section className="section   " data-read>
+      <div className="container events events-list" data-read>
+
+        <HeaderSection title="Eventos" />
+
+
+        <div className="row justify-content-center">
+          <Suspense fallback={<div>Cargando...</div>}>
+            {data.map((item) => (
+              <CardEvents key={item.id} post={item} />
+            ))}
+          </Suspense>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
