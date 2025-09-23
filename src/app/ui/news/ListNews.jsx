@@ -8,8 +8,8 @@ export default async function ListNews({ page = 1, limit = 6, area = null }) {
   //console.log("Noticias:", posts);
 
   return (
-    <section className="section test  " data-read>
-      <div className="container">
+    <section className="section test " data-read>
+      <div className="container ">
         <HeaderSection title="Últimas Noticias" />
         <div className="news news-list ">
           <p>{area ? "filtrar noticias por area" : "todas las noticias"}</p>
