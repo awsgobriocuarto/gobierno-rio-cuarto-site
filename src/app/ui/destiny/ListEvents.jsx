@@ -9,7 +9,9 @@ export default async function ListEvents() {
   return (
     <section className="section   " data-read>
       <div className="container events events-list" data-read>
-        <HeaderSection title="Últimas Noticias" />
+
+        <HeaderSection title="Eventos" />
+
 
         <div className="row justify-content-center">
           <Suspense fallback={<div>Cargando...</div>}>
