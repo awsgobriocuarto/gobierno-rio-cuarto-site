@@ -13,6 +13,7 @@ export default function CardOther({ other }) {
         <div className="card-body d-flex align-items-center">
           {hasThumbnail ? (
             <div>
+              {/* eslint-disable-next-line */}
               <img
                 src={other.thumbnail}
                 alt=""

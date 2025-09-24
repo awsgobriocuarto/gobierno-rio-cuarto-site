@@ -28,11 +28,15 @@ export default function IntitutionalAreas({ area }) {
             <div className="card">
               <div className="card-img-top">
                 {p.image_url && (
-                  <img
-                    src={p.image_url}
-                    alt={p.name}
-                    className="rounded intitutional-image"
-                  />
+                  <>
+                    {/* eslint-disable-next-line */}
+                    <img
+                      src={p.image_url}
+                      alt={p.name}
+                      className="rounded intitutional-image"
+                    />
+                  </>
+
                 )}
               </div>
               <div className="card-body">

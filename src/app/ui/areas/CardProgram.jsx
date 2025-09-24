@@ -10,6 +10,7 @@ export default function CardProgram({ program }) {
         <div className="card-body">
           {program.thumbnail && (
             <div>
+              {/* eslint-disable-next-line */}
               <img
                 src={program.thumbnail}
                 alt=""
