@@ -13,15 +13,19 @@ const LIST_OF_ICONS = [
 export default function HeaderSection({
   title = "Titulo de la Seccion",
   subtitle = "",
+  border = false
 }) {
   return (
-    <div className="header">
-      <div>
-        <h2>
-          <ListIcons icons={LIST_OF_ICONS}></ListIcons>
-          {title}
-        </h2>
-        {subtitle ? <p className="lead">{subtitle}</p> : ""}
+    <div className={`header ${border ? "header-border" : ""}`}>
+      <div className="header-icons">
+        <ListIcons icons={LIST_OF_ICONS}></ListIcons>
+      </div>
+      <div className="header-text">
+        <h2>{title}</h2>
+        {subtitle ? <p>{subtitle}</p> : ""}
+      </div>
+      <div className="header-form">
+
       </div>
     </div>
   );

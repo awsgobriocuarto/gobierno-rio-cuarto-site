@@ -14,7 +14,7 @@ export default async function RelatedNews({ detailNews, page = 1, limit = 6, tex
       <p className='d-none'><small>{id}. {title}</small></p>
 
       {relatedPosts.map((post) => (
-        <Link href={`/noticias/${post.slug}?id=${post.id}`} key={post.id}>
+        <Link href={`/noticias/${post.slug}`} key={post.id}>
           <div className="card mb-3">
             <div className="row g-0">
               <div className="col-md-4">

@@ -19,6 +19,31 @@ const API_OPTIONS = {
   cache: "no-store",
 };
 
+export async function fetchAreas() {
+  const res = await fetch(`${API_URL}/areas`, API_OPTIONS);
+  if (!res.ok) {
+    throw new Error("Failed to fetch areas data");
+  }
+  const data = await res.json();
+  return data.data;
+}
+
+export async function fetchAreaBySlug(slug) {
+
+  if (!slug) {
+    return null;
+  }
+
+
+  const res = await fetch(`${API_URL}/areas/${slug}`, API_OPTIONS);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch area details for: ${slug}`);
+  }
+  const data = await res.json();
+
+  return data;
+}
+
 export async function fetchPrograms(areaId = "") {
   try {
     const queryParam = areaId
