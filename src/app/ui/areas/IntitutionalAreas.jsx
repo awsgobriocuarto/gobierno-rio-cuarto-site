@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function IntitutionalAreas({ area }) {
   const persons = area.persons;
 
