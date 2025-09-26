@@ -10,16 +10,6 @@ import NewsAreas from "@/app/ui/areas/NewsAreas";
 import OtherAreas from "@/app/ui/areas/OtherAreas";
 import { fetchAreaBySlug, fetchAreas } from "@/app/lib/DataAreas";
 
-export async function generateStaticParams() {
-  const areasResponse = await fetchAreas();
-  const areas = Array.isArray(areasResponse)
-    ? areasResponse
-    : areasResponse?.data || [];
-  return areas.map((area) => ({
-    slug: area.slug,
-  }));
-}
-
 export default async function AreaDetailPage({ params }) {
   const { slug } = params;
 

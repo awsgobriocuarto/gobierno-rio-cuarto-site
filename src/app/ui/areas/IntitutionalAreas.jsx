@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function IntitutionalAreas({ area }) {
   const persons = area.persons;
 
@@ -18,14 +16,12 @@ export default function IntitutionalAreas({ area }) {
             <div className="card  ">
               <div className="">
                 {p.image_url && (
-                  <>
-                    {/* eslint-disable-next-line */}
-                    <img
-                      src={p.image_url}
-                      alt={p.name}
-                      className="rounded intitutional-image"
-                    />
-                  </>
+                  //eslint-disable-next-line 
+                  <img
+                    src={p.image_url}
+                    alt={p.name}
+                    className="card-img-top "
+                  />
                 )}
               </div>
               <div className="card-body d-flex flex-column">
