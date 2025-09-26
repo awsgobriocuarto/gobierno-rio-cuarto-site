@@ -1,4 +1,3 @@
-// app/ui/areas/IntitutionalAreas.jsx
 import Image from "next/image";
 
 export default function IntitutionalAreas({ area }) {
@@ -21,31 +20,33 @@ export default function IntitutionalAreas({ area }) {
 
   return (
     <div className="area-institutional">
-      <h4>Institucional</h4>
+      <h3 className="news-related--subtitle">Institucional</h3>
       <div className="row">
         {sortedPersons.map((p) => (
-          <div key={p.id} className="col-12 mb-4">
-            <div className="card">
-              <div className="card-img-top">
+          <div key={p.id} className="col-12 col-md-6 mb-4 d-flex">
+            <div className="card  ">
+              <div className="">
                 {p.image_url && (
                   <img
                     src={p.image_url}
                     alt={p.name}
-                    className="rounded intitutional-image"
+                    className="card-img-top "
                   />
                 )}
               </div>
-              <div className="card-body">
+              <div className="card-body d-flex flex-column">
                 <h3 className="card-title">{p.name}</h3>
                 <h4 className="card-subtitle">{p.position}</h4>
+              </div>
+              <div className="card-footer">
                 {p.curriculum && (
                   <a
                     href={p.curriculum}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-primary mt-2"
+                    className="cv-link "
                   >
-                    Ver CV
+                    CV
                   </a>
                 )}
               </div>
