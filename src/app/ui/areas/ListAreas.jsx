@@ -9,9 +9,9 @@ export default async function ListAreas() {
     ? areasResponse
     : areasResponse?.data || [];
   return (
-    <section className="section test bg-prueba " data-read>
+    <section className="area area-home" data-read>
       <div className="container">
-        <HeaderSection title="Áreas" />
+        <HeaderSection title="Áreas de Gobierno" subtitle="" border />
         <div className="row justify-content-center buttons">
           <Suspense fallback={<div>Cargando...</div>}>
             {areas.map((area) => (

@@ -55,7 +55,7 @@ export default function Menu() {
           </Navbar.Toggle>
           <Navbar.Collapse id="toggle">
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Link href="/tramites" className="rs-only">
+              <Link href="/tramites" className="sr-only">
                 Menu Principal
               </Link>
               <Link href="/tramites" className={`nav-link ${pathname === "/tramites" ? "active" : ""}`} onClick={handleLinkClick}>

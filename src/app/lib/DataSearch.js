@@ -22,7 +22,7 @@ const API_OPTIONS = {
 export async function fetchSearch(query = "") {
   //const res = await fetch(`${API_URL}/tramites?search=${query}`, API_OPTIONS);
   const res = await fetch(
-    `https://gestionwebdev.gobiernoriocuarto.gob.ar/api/v1/search?search=${query}`,
+    `${API_URL}/search?search=${query}`,
     API_OPTIONS
   );
 

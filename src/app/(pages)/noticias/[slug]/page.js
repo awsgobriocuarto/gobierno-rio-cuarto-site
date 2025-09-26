@@ -1,26 +1,29 @@
-import { getNewsById, getNewsBySlug } from '@/app/lib/DataNews';
+import { getNewsBySlug } from '@/app/lib/DataNews';
+import { createPageMetadata } from '@/app/lib/metadata';
 import DetailNews from '@/app/ui/news/DetailNews';
 import RelatedNews from '@/app/ui/news/RelatedNews';
-import { notFound } from 'next/navigation';
 
-export default async function NewsDetailPage({ params, searchParams }) {
-  const { slug } = params;
-  const { id } = searchParams;
-  let detailNews = null;
+export async function generateMetadata({ params }) {
+  const noticia = await getNewsBySlug(params.slug);
 
-  // Lógica de fetching
-  if (id) {
-    // Si la URL tiene un `id` en los searchParams, usamos ese para la consulta
-    console.log('Fetching por ID:', id);
-    detailNews = await getNewsById(id);
-  } else {
-    // Si no hay `id`, intentamos usar el `slug` como fallback (cuando la API esté lista)
-    console.log('Fetching por Slug:', slug);
-    detailNews = await getNewsBySlug(slug);
+  if (!noticia) {
+    return { title: 'Noticia no encontrada' };
   }
 
-  //console.log(detailNews);
+  // ¡Así de simple! Llamas a tu función reutilizable.
+  return createPageMetadata({
+    title: noticia.title,
+    description: noticia.excerpt,
+    imageUrl: noticia.image,
+  });
+}
 
+
+export default async function NewsDetailPage({ params }) {
+  const { slug } = params;
+  let detailNews = null;
+
+  detailNews = await getNewsBySlug(slug);
 
   // Si la noticia no se encuentra con ninguno de los dos métodos, mostramos 404
   if (!detailNews) {

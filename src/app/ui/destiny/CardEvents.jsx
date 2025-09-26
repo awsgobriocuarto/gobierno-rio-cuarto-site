@@ -5,9 +5,11 @@ export default function CardNews({ post }) {
     <div className="col-md-4 mb-4">
       <div className="card">
         <div className="card-img-top">
-          <Link
-            href={`https://destinoriocuarto.gob.ar/evento/${post.id}/${post.slug}`}
+          <a
+            href={`https://destinoriocuarto.gob.ar/evento/${post.id}/${post.slug}&utm_source=web_gobierno&utm_medium=home&utm_campaign=next_events`}
             className=""
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {/* eslint-disable-next-line */}
             <img
@@ -16,7 +18,7 @@ export default function CardNews({ post }) {
               className="card-img-top"
               style={{ objectFit: "cover" }}
             />
-          </Link>
+          </a>
         </div>
         <div className="card-body">
           <h3 className="card-title text-primary">{post.title}</h3>
