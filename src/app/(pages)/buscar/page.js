@@ -3,6 +3,11 @@ import SearchForm from "@/app/ui/commons/SearchForm";
 import SearchResults from "@/app/ui/search/SearchResults";
 import { fetchSearch } from "@/app/lib/DataSearch";
 
+export const metadata = {
+  title: 'Buscador',
+  description: 'Buscador de contenidos del Gobierno de Río Cuarto',
+};
+
 export default async function BuscarPage({ searchParams }) {
   const searchQuery = (await searchParams.q) || "";
 

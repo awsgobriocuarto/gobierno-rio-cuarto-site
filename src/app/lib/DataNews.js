@@ -1,111 +1,49 @@
-export function fromApiResponseToPosts(apiResponse) {
-  let posts = [];
+const API_BASE_URL = process.env.API_BASE_URL;
+const API_VERSION = process.env.API_VERSION;
+const API_TOKEN = process.env.API_TOKEN;
 
-  // Check if the API response contains a top-level `data` key.
-  if (apiResponse && "data" in apiResponse) {
-    const apiData = apiResponse.data;
-
-    // Case 1: `data` is an array (for a list of news).
-    if (Array.isArray(apiData)) {
-      posts = apiData;
-    }
-    // Case 2: `data` is a single object (for a single news item).
-    else if (typeof apiData === "object" && apiData !== null) {
-      posts = [apiData];
-    }
-  }
-
-  // If no data was found or the response was not as expected, return an empty array.
-  if (posts.length === 0) {
-    return [];
-  }
-
-  // Map and transform the data to a consistent format.
-  return posts.map((post) => {
-    // The image can be in `main_picture` or `media.main_picture`.
-    const mainPicture =
-      post.main_picture || (post.media && post.media.main_picture);
-
-    return {
-      id: post.id,
-      title: post.title,
-      description: post.excerpt,
-      image: mainPicture ? mainPicture.medium : null,
-      slug: post.slug,
-      createdAt: post.created_at,
-      publication_date: post.publication_date,
-      body: post.body,
-      iframe: post.iframe || "",
-      media: post.media || {},
-      category_name: post.category_name,
-      category_slug: post.category_slug,
-      category_id: post.category_id,
-    };
-  });
+if (!API_BASE_URL || !API_TOKEN) {
+  throw new Error("API_BASE_URL o API_TOKEN no están definidas en el entorno");
 }
 
-export async function fetchNews({ page = 1, limit = 9 } = {}) {
-  const apiURL = page
-    ? `https://contenidos.gobiernoriocuarto.gob.ar/api/v1/posts?limit=${limit}&page=${page}`
-    : `https://contenidos.gobiernoriocuarto.gob.ar/api/v1/posts?limit=${limit}`;
+const API_URL = `${API_BASE_URL}/api${API_VERSION ? `/${API_VERSION}` : ""}`;
+const API_OPTIONS = {
+  headers: {
+    Authorization: API_TOKEN,
+  },
+  cache: "no-store",
+};
 
-  try {
-    const res = await fetch(apiURL, {
-      headers: { "Portal-Id": 3 },
-      next: { revalidate: 600 },
-    });
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-    const apiResponse = await res.json();
-    return fromApiResponseToPosts(apiResponse);
-  } catch (error) {
-    console.error("Error fetching news: ", error);
-    return [];
+export async function fetchNews({ page = 1, limit = 9, area = "" } = {}) {
+
+  const res = await fetch(`${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&sort_by=published_at&sort_order=desc&status=published`, API_OPTIONS);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch areas data");
   }
+  const data = await res.json();
+  return data.data;
 }
 
-export async function getNewsById(id) {
-  const apiURL = `https://contenidos.gobiernoriocuarto.gob.ar/api/v1/posts/${id}`;
+export async function fetchPosts({ page = 1, limit = 9, area = "" } = {}) {
 
-  try {
-    const res = await fetch(apiURL, {
-      headers: { "Portal-Id": 3 },
-      next: { revalidate: 3600 },
-    });
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-    const apiResponse = await res.json();
+  const res = await fetch(`${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&sort_by=published_at&sort_order=desc&status=published`, API_OPTIONS);
 
-    // Corregido: Llamamos a la función de formateo con el objeto directamente, sin envolverlo en un array
-    return fromApiResponseToPosts(apiResponse)[0];
-
-    //return apiResponse;
-  } catch (error) {
-    console.error("Error fetching news by ID: ", error);
-    return null;
+  if (!res.ok) {
+    throw new Error("Failed to fetch areas data");
   }
+  const data = await res.json();
+  return data;
 }
 
 export async function getNewsBySlug(slug) {
-  // Solución permanente y eficiente: Llamada directa a la API para buscar por slug
-  const apiURL = `https://contenidos.gobiernoriocuarto.gob.ar/api/v1/posts?slug=${slug}`;
 
-  try {
-    const res = await fetch(apiURL, {
-      headers: { "Portal-Id": 3 },
-      next: { revalidate: 3600 },
-    });
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-    const apiResponse = await res.json();
+  const res = await fetch(`${API_URL}/posts/${slug}`, API_OPTIONS);
 
-    // Asumimos que la API retorna una lista con un solo elemento
-    return fromApiResponseToPosts(apiResponse)[0] || null;
-  } catch (error) {
-    console.error("Error fetching news by slug: ", error);
-    return null;
+  if (!res.ok) {
+    throw new Error(`Failed to fetch area details for: ${slug}`);
   }
+  const data = await res.json();
+
+  return data;
 }

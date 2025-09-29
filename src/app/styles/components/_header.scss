@@ -1,8 +1,36 @@
-h2 {
+.header {
+  text-align: left;
+  margin-bottom: 60px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  position: relative;
-  gap: 10px;
-  // Contenedor de iconos
+
+  &-border {
+    border-top: 2px dotted rgba($primary, 0.3);
+    padding-top: 40px;
+  }
+
+  &-icons {
+    margin-inline-end: 16px;
+  }
+
+  &-text {
+    h2 {
+      //color: $primary;
+      margin-bottom: 0px;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-bottom: 0;
+      font-size: 1.1rem;
+      color: $gray-600;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    margin-bottom: 30px;
+  }
 }

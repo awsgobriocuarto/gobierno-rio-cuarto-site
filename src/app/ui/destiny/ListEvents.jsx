@@ -7,10 +7,10 @@ export default async function ListEvents() {
   const { data } = await fetchDestiny({ paginate: 6 });
   //console.log("Eventos:", data);
   return (
-    <section className="section   " data-read>
-      <div className="container events events-list" data-read>
+    <section className="events events-list" data-read>
+      <div className="container">
 
-        <HeaderSection title="Eventos" />
+        <HeaderSection title="Eventos" subtitle="Destino Río Cuarto" border />
 
 
         <div className="row justify-content-center">
