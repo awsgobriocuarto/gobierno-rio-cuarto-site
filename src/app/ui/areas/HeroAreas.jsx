@@ -16,6 +16,9 @@ export default function HeroAreas({ area }) {
     return acc;
   }, {});
 
+  const infoEntries = Object.entries(groupedInfo);
+  const hasContactInfo = infoEntries.length > 0;
+
   const ICONS = {
     address: <i className="fas fa-location-dot"></i>,
     phone: <i className="fas fa-phone"></i>,
@@ -31,28 +34,32 @@ export default function HeroAreas({ area }) {
         <p
           className="mb-4"
           dangerouslySetInnerHTML={{
-            __html: area.propouse || "No hay descripción o propósito.",
+            __html: area.propouse || null,
           }}
         ></p>
 
-        <h4 className="mb-3">Información de Contacto</h4>
+        {hasContactInfo && (
+          <>
+            <h4 className="mb-3">Información de Contacto</h4>
 
-        <div className="info-list">
-          {Object.entries(groupedInfo).map(([type, values]) => {
-            const formattedValues = values.join(", ");
-            const icon = ICONS[type] || null;
+            <div className="info-list">
+              {infoEntries.map(([type, values]) => {
+                const formattedValues = values.join(", ");
+                const icon = ICONS[type] || null;
 
-            return (
-              <div
-                className="p-2 border-start border-3 border-primary bg-light"
-                key={type}
-              >
-                {icon && <span className="me-2 text-primary">{icon}</span>}
-                <span>{formattedValues}</span>
-              </div>
-            );
-          })}
-        </div>
+                return (
+                  <div
+                    className="p-2 border-start border-3 border-primary bg-light"
+                    key={type}
+                  >
+                    {icon && <span className="me-2 text-primary">{icon}</span>}
+                    <span>{formattedValues}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
