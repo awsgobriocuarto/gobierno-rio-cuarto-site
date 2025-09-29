@@ -1,5 +1,3 @@
-// En tu archivo app/areas/[slug]/page.jsx
-
 import Link from "next/link";
 import { fetchAreas, fetchAreaBySlug } from "@/app/lib/DataFormalities"; // Importa la nueva función
 import HeroAreas from "@/app/ui/areas/HeroAreas";
@@ -8,16 +6,6 @@ import ProgramsAreas from "@/app/ui/areas/ProgramsAreas";
 import IntitutionalAreas from "@/app/ui/areas/IntitutionalAreas";
 import NewsAreas from "@/app/ui/areas/NewsAreas";
 import OtherAreas from "@/app/ui/areas/OtherAreas";
-
-export async function generateStaticParams() {
-  const areasResponse = await fetchAreas();
-  const areas = Array.isArray(areasResponse)
-    ? areasResponse
-    : areasResponse?.data || [];
-  return areas.map((area) => ({
-    slug: area.slug,
-  }));
-}
 
 export default async function AreaDetailPage({ params }) {
   const { slug } = params;
