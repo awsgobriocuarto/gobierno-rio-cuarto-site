@@ -41,6 +41,7 @@ export async function fetchAreaBySlug(slug) {
 
   return data;
 }
+
 export async function fetchAreasById(id) {
   const res = await fetch(`${API_URL}/areas/${id}`, API_OPTIONS);
   if (!res.ok) {

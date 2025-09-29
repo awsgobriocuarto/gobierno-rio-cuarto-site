@@ -1,5 +1,6 @@
 import {
   fetchAreasById,
+  fetchFormalities,
   fetchFormalitiesBySlug,
 } from "@/app/lib/DataFormalities";
 import AreaDetail from "@/app/ui/formality/AreaDetail";
@@ -9,6 +10,16 @@ import Banners from "@/app/ui/home/Banners";
 import LinkToBack from "@/app/ui/LinkToBack";
 
 import Link from "next/link";
+
+export async function generateStaticParams() {
+  const formalitysResponse = await fetchFormalities();
+  const formalitys = Array.isArray(formalitysResponse)
+    ? formalitysResponse
+    : formalitysResponse?.data || [];
+  return formalitys.map((formality) => ({
+    slug: formality.slug,
+  }));
+}
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
