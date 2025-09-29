@@ -12,7 +12,7 @@ export default async function ListNews({ page = 1, limit = 6, area = null }) {
       <div className="container ">
         <HeaderSection title="Últimas Noticias" />
         <div className="news news-list ">
-          <p>{area ? "filtrar noticias por area" : "todas las noticias"}</p>
+          <p>{area ? "filtrar noticias por area" : "Todas las noticias"}</p>
           <div className="row justify-content-center">
             <Suspense fallback={<div>Cargando...</div>}>
               {posts.map((post) => (

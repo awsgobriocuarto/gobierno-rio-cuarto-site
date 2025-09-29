@@ -4,16 +4,7 @@ export default function IntitutionalAreas({ area }) {
   const persons = area.persons;
 
   if (!persons || persons.length === 0) {
-    return (
-      <div className="area-institutional">
-        <h4>Institucional</h4>
-        <div className="row">
-          <div className="col-12 text-center">
-            <p>No hay contactos institucionales para esta área.</p>
-          </div>
-        </div>
-      </div>
-    );
+    return null;
   }
 
   const sortedPersons = persons.sort((a, b) => a.order - b.order);
