@@ -1,4 +1,5 @@
-import { fetchAreas, fetchCategories } from "@/app/lib/DataFormalities";
+import { fetchCategories } from "@/app/lib/DataFormalities";
+import { fetchAreas } from "@/app/lib/DataAreas";
 import Search from "./Search";
 import Select from "./Select";
 
@@ -7,29 +8,26 @@ export default async function FormalitiesFilters() {
   const areas = await fetchAreas();
   return (
     <div className="formalities-filters">
-      <div className="container">
-        <div className="row">
-          <h4>Búsqueda Avanzada</h4>
-          <div className="col-md-4">
-            <h5>Buscar</h5>
-            <Search placeholder={`Buscar...`} />
-          </div>
-          <div className="col-md-4">
-            <h5>Area</h5>
-            <Select
-              data={areas}
-              collection="area"
-              placeholder="Todas las áreas"
-            />
-          </div>
-          <div className="col-md-4">
-            <h5>Categoria</h5>
-            <Select
-              data={categories}
-              collection="category"
-              placeholder="Todas las categorías"
-            />
-          </div>
+      <div className="row">
+        <div className="col-md-4">
+          <h5>Búsqueda Avanzada</h5>
+          <Search placeholder={`Buscar...`} />
+        </div>
+        <div className="col-md-4">
+          <h5>Áreas</h5>
+          <Select
+            data={areas}
+            collection="area"
+            placeholder="Todas las áreas"
+          />
+        </div>
+        <div className="col-md-4">
+          <h5>Categorías</h5>
+          <Select
+            data={categories}
+            collection="category"
+            placeholder="Todas las categorías"
+          />
         </div>
       </div>
     </div>

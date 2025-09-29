@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import HeaderSection from "../layout/HeaderSection";
 import CardAreas from "./CardAreas";
-import { fetchAreas } from "@/app/lib/DataFormalities";
+import { fetchAreas } from "@/app/lib/DataAreas";
 
 export default async function ListAreas() {
   const areasResponse = await fetchAreas();
