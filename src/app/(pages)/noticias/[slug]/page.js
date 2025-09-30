@@ -4,14 +4,14 @@ import DetailNews from '@/app/ui/news/DetailNews';
 import RelatedNews from '@/app/ui/news/RelatedNews';
 
 export async function generateMetadata({ params }) {
-  const noticia = await getNewsBySlug(params.slug);
-  if (!noticia) {
+  const post = await getNewsBySlug(params.slug);
+  if (!post) {
     return { title: 'Noticia no encontrada' };
   }
   return createPageMetadata({
-    title: noticia.title,
-    description: noticia.excerpt,
-    imageUrl: noticia.image,
+    title: post.title,
+    description: post.excerpt,
+    imageUrl: post.image,
   });
 }
 
