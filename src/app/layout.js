@@ -23,27 +23,17 @@ const inter = Inter({
   display: "swap",
 });
 
-// export const metadata = {
-//   title: "Gobierno Río cuarto",
-//   description: "GSitio web oficial del Gobierno de Río Cuarto",
-// };
-
 export const metadata = {
-  // Metadatos para compartir en redes sociales (Open Graph)
   openGraph: {
     title: 'Gobierno de Río Cuarto',
     description: 'Portal oficial del Gobierno de Río Cuarto. Encuentra noticias, trámites, programas y más.',
-    images: ['/og-image.png'], // Debes crear una imagen para esto en tu carpeta /public
+    images: ['images/og-image.png'],
   },
-
-  // Plantilla de título para todo el sitio
   title: {
     default: 'Gobierno de Río Cuarto | Portal Oficial',
     template: '%s | Gobierno de Río Cuarto', // %s se reemplazará por el título de cada página
   },
   description: 'Portal oficial del Gobierno de Río Cuarto. Encuentra noticias, trámites, programas y más.',
-
-  // Palabras clave generales (opcional, Google le da poca importancia)
   keywords: ['gobierno', 'municipalidad', 'trámites', 'noticias', 'programas', 'eventos', 'servicios'],
 };
 

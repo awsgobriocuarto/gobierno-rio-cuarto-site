@@ -6,15 +6,15 @@ import FormalityMedia from "@/app/ui/formality/FormalityMedia";
 import Banners from "@/app/ui/home/Banners";
 import LinkToBack from "@/app/ui/LinkToBack";
 
-export async function generateStaticParams() {
-  const formalitysResponse = await fetchFormalities();
-  const formalitys = Array.isArray(formalitysResponse)
-    ? formalitysResponse
-    : formalitysResponse?.data || [];
-  return formalitys.map((formality) => ({
-    slug: formality.slug,
-  }));
-}
+// export async function generateStaticParams() {
+//   const formalitysResponse = await fetchFormalities();
+//   const formalitys = Array.isArray(formalitysResponse)
+//     ? formalitysResponse
+//     : formalitysResponse?.data || [];
+//   return formalitys.map((formality) => ({
+//     slug: formality.slug,
+//   }));
+// }
 
 export async function generateMetadata({ params }) {
   // read route params
@@ -35,7 +35,7 @@ export default async function Formality({ params }) {
   const area = await fetchAreaBySlug(formality.area.slug);
   //console.log(area);
 
-  console.log(formality);
+  //console.log(formality);
 
   if (!formality) {
     return "nada por aqui";

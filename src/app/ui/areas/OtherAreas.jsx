@@ -3,7 +3,7 @@ import CardOther from "./CardOther";
 
 export default async function OtherAreas({ area }) {
   const others = await fetchOther(area?.id);
-  console.log("otheras", others);
+  //console.log("otheras", others);
   if (!others || others.length == 0) {
     return null;
   }

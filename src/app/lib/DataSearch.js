@@ -16,7 +16,6 @@ const API_OPTIONS = {
   headers: {
     Authorization: API_TOKEN,
   },
-  cache: "no-store",
 };
 
 export async function fetchSearch(query = "") {
