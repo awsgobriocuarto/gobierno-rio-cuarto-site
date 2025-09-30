@@ -5,12 +5,9 @@ import RelatedNews from '@/app/ui/news/RelatedNews';
 
 export async function generateMetadata({ params }) {
   const noticia = await getNewsBySlug(params.slug);
-
   if (!noticia) {
     return { title: 'Noticia no encontrada' };
   }
-
-  // ¡Así de simple! Llamas a tu función reutilizable.
   return createPageMetadata({
     title: noticia.title,
     description: noticia.excerpt,

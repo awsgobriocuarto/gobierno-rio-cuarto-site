@@ -6,7 +6,6 @@ import { fetchFormalities } from "@/app/lib/DataFormalities";
 
 export default async function Formalities({ searchParams }) {
 
-
   // Asegúrate de que searchParams sea un objeto plano de strings
   const cleanedSearchParams = Object.fromEntries(
     Object.entries(searchParams).map(([key, value]) => [
