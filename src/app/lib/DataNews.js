@@ -11,7 +11,6 @@ const API_OPTIONS = {
   headers: {
     Authorization: API_TOKEN,
   },
-  cache: "no-store",
 };
 
 export async function fetchNews({ page = 1, limit = 9, area = "" } = {}) {

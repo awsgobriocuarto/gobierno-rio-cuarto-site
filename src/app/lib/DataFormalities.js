@@ -12,7 +12,6 @@ const API_OPTIONS = {
   headers: {
     Authorization: API_TOKEN,
   },
-  revalidate: 60
 };
 
 export async function fetchCategories() {
