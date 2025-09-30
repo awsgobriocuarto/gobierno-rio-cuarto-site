@@ -11,10 +11,7 @@ const API_URL = `${API_BASE_URL}/api${API_VERSION ? `/${API_VERSION}` : ""}`;
 const API_OPTIONS = {
   headers: {
     Authorization: API_TOKEN,
-  },
-  next: {
-    revalidate: 60,
-  },
+  }
 };
 
 export async function fetchAreas() {
