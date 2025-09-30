@@ -1,25 +1,29 @@
-import { fetchFormalities } from "@/app/lib/DataFormalities";
 import React from "react";
 import FormalitiesCard from "./CardFormality";
 
-export default async function FormalitiesList({ params }) {
-  const formalities = await fetchFormalities(params);
-  //console.log(formalities.length);
+export default async function FormalitiesList({ formalities }) {
+
+  if (!formalities || formalities.length === 0) {
+    return (<section className="formalities-list">
+      <div className="row">
+        <div className="col-md-12">
+          <div className="alert alert-warning">
+            No se encontraron trámites.
+          </div>
+        </div>
+      </div>
+    </section>)
+  }
 
   return (
-    <article className="formalities-list">
-      <section className="container">
-        <div className="headers">
-          <h2>
-            <span>{formalities?.length}</span>{" "}
-            {formalities.length == 1 ? "Trámite" : "Trámites"}
-          </h2>
-        </div>
-
+    <section className="formalities-list">
+      <div className="row">
         {formalities.map((formality) => (
-          <FormalitiesCard key={formality.id} formality={formality} />
+          <div key={formality.id} className="col-md-4">
+            <FormalitiesCard formality={formality} />
+          </div>
         ))}
-      </section>
-    </article>
+      </div>
+    </section>
   );
 }

@@ -1,12 +1,11 @@
 export default function AreaDetail({ area, formality }) {
-  //console.log(area.parent.name);
   return (
-    <section className="formality-area">
+    <section>
       <div className="card">
         <div className="card-header">
-          <h4>Area responsable</h4>
+          <h6 className="mb-0">Entidad Responsable</h6>
         </div>
-        <div className="card-body">
+        {/* <div className="card-body">
           <h5 className="card-title">{area.name}</h5>
           {area.parent ? (
             <p className="card-pretitle">{area.parent.name}</p>
@@ -54,6 +53,17 @@ export default function AreaDetail({ area, formality }) {
           ) : (
             ""
           )}
+        </div> */}
+        <div className="card-body">
+          <h5 className="text-primary">{area.name}</h5>
+          {area.contact.map(item => (
+            <p key={item.value} className="mb-0">{item.value}</p>
+          ))}
+          <hr />
+          <div><b>{area.parent.name}</b></div>
+          {area.parent.contact.map(item => (
+            <p key={item.value} className="mb-0">{item.value}</p>
+          ))}
         </div>
       </div>
     </section>

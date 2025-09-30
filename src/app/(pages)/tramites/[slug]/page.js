@@ -1,16 +1,22 @@
-import {
-  fetchAreasById,
-  fetchFormalitiesBySlug,
-} from "@/app/lib/DataFormalities";
+import { fetchAreaBySlug } from "@/app/lib/DataAreas";
+import { fetchFormalities, fetchFormalitiesBySlug } from "@/app/lib/DataFormalities";
 import AreaDetail from "@/app/ui/formality/AreaDetail";
 import FormalityInfo from "@/app/ui/formality/FormalityInfo";
 import FormalityMedia from "@/app/ui/formality/FormalityMedia";
 import Banners from "@/app/ui/home/Banners";
 import LinkToBack from "@/app/ui/LinkToBack";
 
-import Link from "next/link";
+export async function generateStaticParams() {
+  const formalitysResponse = await fetchFormalities();
+  const formalitys = Array.isArray(formalitysResponse)
+    ? formalitysResponse
+    : formalitysResponse?.data || [];
+  return formalitys.map((formality) => ({
+    slug: formality.slug,
+  }));
+}
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata({ params }) {
   // read route params
   const { slug } = await params;
 
@@ -22,48 +28,59 @@ export async function generateMetadata({ params, searchParams }, parent) {
   };
 }
 
+
 export default async function Formality({ params }) {
   const slug = params.slug;
   const formality = await fetchFormalitiesBySlug(slug);
-  const area = await fetchAreasById(formality.area_id);
+  const area = await fetchAreaBySlug(formality.area.slug);
   //console.log(area);
+
+  console.log(formality);
+
   if (!formality) {
     return "nada por aqui";
   }
   return (
-    <main className="formality">
+    <main className="formalities formalities-page formalities-detail">
       <div className="container">
         <div className="row justify-content-between">
-          <div className="col-md-7">
-            <h4>
-              <i className="fa-solid fa-layer-group"></i>{" "}
-              {formality.categories[0]?.name}
-            </h4>
-            <h3>{formality.title}</h3>
-            <p
-              className="lead"
-              dangerouslySetInnerHTML={{ __html: formality.summary }}
-            ></p>
-            {formality.online == 1 ? (
-              <>
-                <p className="text-primary mt-4 mb-3">
-                  Este trámite se puede realizar de manera online
-                </p>
-                <div className="d-flex justify-content-between">
-                  <a
-                    href={formality.url}
-                    className="btn btn-lg btn-primary text-white"
-                    target="_blank"
-                  >
-                    Iniciar trámite online
-                  </a>
-                  <LinkToBack variant="btn-link" />
-                </div>
-              </>
-            ) : (
-              <LinkToBack variant="btn-link p-0" />
-            )}
-            <hr />
+          <div className="col-md-8">
+
+            <div className="formalities-detail--header">
+
+              <div className="formalities-detail--categories">
+                {formality.categories.map(category => (
+                  <span key={category.id} ><i className={`fa-solid fa-fw ${category.image}`}></i>{category.name}</span>
+                ))}
+              </div>
+
+              <h3 className="formalities-detail--title">{formality.title}</h3>
+              <p
+                className="formalities-detail--subtitle"
+                dangerouslySetInnerHTML={{ __html: formality.summary }}
+              ></p>
+              {formality.online == 1 ? (
+                <>
+                  <p className="text-primary mt-4 mb-3">
+                    Este trámite se puede realizar de manera online
+                  </p>
+                  <div className="d-flex justify-content-between">
+                    <a
+                      href={formality.url}
+                      className="btn btn-lg btn-primary text-white"
+                      target="_blank"
+                    >
+                      Iniciar trámite online
+                    </a>
+                    <LinkToBack variant="btn-link" />
+                  </div>
+                </>
+              ) : (
+                <LinkToBack variant="btn-link p-0" />
+              )}
+            </div>
+
+
 
             {/* procedure */}
             {formality.procedure ? (
@@ -144,7 +161,14 @@ export default async function Formality({ params }) {
           </div>
           <div className="col-md-4">
             <AreaDetail area={area} formality={formality} />
-            <Banners type={"box"} />
+            <Banners
+              title="Requisitos para hacer trámites Online"
+              text="Para poder realizar los trámites de manera online necesitas tener CiDinivel 2"
+              buttonColor="primary"
+              buttonUrl="https://prensa.cba.gov.ar/informacion-general/ciudadano-digital-el-paso-a-paso-para-obtener-cidi-nivel-2/"
+              buttonText="Obtener CiDI Nivel 2"
+              variant=""
+            />
           </div>
         </div>
       </div>

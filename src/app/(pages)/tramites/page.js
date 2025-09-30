@@ -1,9 +1,11 @@
 import React, { Suspense } from "react";
 import FormalitiesList from "@/app/ui/formalities/ListFormalities";
 import FormalitiesFilters from "@/app/ui/formalities/FilterFormality";
+import HeaderSection from "@/app/ui/layout/HeaderSection";
+import { fetchFormalities } from "@/app/lib/DataFormalities";
 
-export default function Formalities({ searchParams }) {
-  //console.log("Formalities page loaded with searchParams:", searchParams);
+export default async function Formalities({ searchParams }) {
+
 
   // Asegúrate de que searchParams sea un objeto plano de strings
   const cleanedSearchParams = Object.fromEntries(
@@ -13,21 +15,29 @@ export default function Formalities({ searchParams }) {
     ])
   );
 
+
   const urlParams = new URLSearchParams(cleanedSearchParams);
   const params = `?${urlParams}`;
 
+  const formalities = await fetchFormalities(params);
+
+  const subtitle = `${formalities.length} trámites encontrados`;
+
+
   return (
     <Suspense>
-      <div className="container mt-5">
-        <h2 className="mb-4 text-center">Trámites</h2>
-        <div className="row justify-content-center">
-          <Suspense fallback={<div>Cargando trámites...</div>}>
-            <FormalitiesFilters />
-            {/* Suspense is used to handle loading states */}
-            <FormalitiesList params={params} />
-          </Suspense>
+      <main className="formalities formalities-page" data-read>
+        <div className="container">
+          <HeaderSection title="Tramites" subtitle={subtitle} />
+          <div className="row justify-content-center">
+            <Suspense fallback={<div>Cargando trámites...</div>}>
+              <FormalitiesFilters />
+              <FormalitiesList params={params} formalities={formalities} />
+            </Suspense>
+          </div>
         </div>
-      </div>
+
+      </main>
     </Suspense>
   );
 }
