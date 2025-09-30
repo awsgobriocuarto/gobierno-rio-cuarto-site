@@ -6,7 +6,7 @@ export default function CardOther({ other }) {
 
   return (
     <Link
-      href={`/otros/${other.slug}`}
+      href={`/seccion/${other.slug}`}
       className="text-decoration-none text-dark w-100"
     >
       <div className="card bg-primary other-card">

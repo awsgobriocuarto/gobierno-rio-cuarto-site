@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function CardProgram({ program }) {
   return (
     <Link
-      href={`/programas/${program.slug}`}
+      href={`/seccion/${program.slug}`}
       className="text-decoration-none text-dark w-100"
     >
       <div className="card bg-primary program-card">
