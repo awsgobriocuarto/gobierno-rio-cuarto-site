@@ -1,5 +1,4 @@
 import React from "react";
-import HeaderSection from "../layout/HeaderSection";
 
 export default function HeroAreas({ area }) {
   if (!area) {
