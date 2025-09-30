@@ -1,14 +1,11 @@
-// En tu archivo app/areas/[slug]/page.jsx
-
 import Link from "next/link";
-
 import HeroAreas from "@/app/ui/areas/HeroAreas";
 import FormalitiesAreas from "@/app/ui/areas/FormalitiesAreas";
 import ProgramsAreas from "@/app/ui/areas/ProgramsAreas";
 import IntitutionalAreas from "@/app/ui/areas/IntitutionalAreas";
 import NewsAreas from "@/app/ui/areas/NewsAreas";
 import OtherAreas from "@/app/ui/areas/OtherAreas";
-import { fetchAreaBySlug, fetchAreas } from "@/app/lib/DataAreas";
+import { fetchAreaBySlug } from "@/app/lib/DataAreas";
 
 export default async function AreaDetailPage({ params }) {
   const { slug } = params;
