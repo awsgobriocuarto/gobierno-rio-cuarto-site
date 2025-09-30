@@ -1,12 +1,14 @@
 .area {
   position: relative;
+  margin-top: 60px;
   //background: pink;
 
   &-home {
     padding-bottom: 60px;
   }
 
-  &-detail {}
+  &-detail {
+  }
 
   &-hero {
     margin-bottom: 30px;
@@ -30,7 +32,7 @@
         border-radius: 0;
         object-fit: cover;
         width: 100%;
-        height: 150px;
+        height: 160px;
       }
 
       &-body {
