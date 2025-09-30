@@ -5,6 +5,9 @@ import CardProgram from "./CardProgram";
 export default async function ProgramsAreas({ area }) {
   const programs = await fetchPrograms(area?.id);
   console.log(programs);
+  if (!programs || programs.length == 0) {
+    return null;
+  }
 
   return (
     <section className="section test" data-read>
@@ -14,19 +17,11 @@ export default async function ProgramsAreas({ area }) {
         </h2>
 
         <div className="row g-4">
-          {programs && programs.length > 0 ? (
-            programs.map((program) => (
-              <div className="col-md-6" key={program.id}>
-                <CardProgram program={program} />
-              </div>
-            ))
-          ) : (
-            <div className="col">
-              <p className="text-center">
-                No hay programas o servicios disponibles para esta área.
-              </p>
+          {programs.map((program) => (
+            <div className="col-md-6" key={program.id}>
+              <CardProgram program={program} />
             </div>
-          )}
+          ))}
         </div>
       </div>
     </section>

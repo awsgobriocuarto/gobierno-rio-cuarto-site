@@ -1,4 +1,5 @@
 import React from "react";
+import HeaderSection from "../layout/HeaderSection";
 
 export default function HeroAreas({ area }) {
   if (!area) {
@@ -15,6 +16,9 @@ export default function HeroAreas({ area }) {
     return acc;
   }, {});
 
+  const infoEntries = Object.entries(groupedInfo);
+  const hasContactInfo = infoEntries.length > 0;
+
   const ICONS = {
     address: <i className="fas fa-location-dot"></i>,
     phone: <i className="fas fa-phone"></i>,
@@ -26,25 +30,36 @@ export default function HeroAreas({ area }) {
   return (
     <section className="area-hero">
       <div className="container">
-        <h2>{area.name || "Área sin nombre"}</h2>
-        <p className="lead mb-4">
-          {area.propouse || "No hay descripción o propósito."}
-        </p>
-        <h4 className="mb-3">Información de Contacto</h4>
+        <h1>{area.name || "Área sin nombre"}</h1>
+        <p
+          className="mb-4"
+          dangerouslySetInnerHTML={{
+            __html: area.propouse || null,
+          }}
+        ></p>
 
-        <div className="info-list">
-          {Object.entries(groupedInfo).map(([type, values]) => {
-            const formattedValues = values.join(", ");
-            const icon = ICONS[type] || null;
+        {hasContactInfo && (
+          <>
+            <h4 className="mb-3">Información de Contacto</h4>
 
-            return (
-              <div className="info-item mb-3" key={type}>
-                {icon && <span className="me-2">{icon}</span>}
-                <span>{formattedValues}</span>
-              </div>
-            );
-          })}
-        </div>
+            <div className="info-list">
+              {infoEntries.map(([type, values]) => {
+                const formattedValues = values.join(", ");
+                const icon = ICONS[type] || null;
+
+                return (
+                  <div
+                    className="p-2 border-start border-3 border-primary bg-light"
+                    key={type}
+                  >
+                    {icon && <span className="me-2 text-primary">{icon}</span>}
+                    <span>{formattedValues}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
