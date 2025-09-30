@@ -15,19 +15,17 @@ export default function IntitutionalAreas({ area }) {
       <div className="row">
         {sortedPersons.map((p) => (
           <div key={p.id} className="col-12 col-md-6 mb-4 d-flex">
-            <div className="card  ">
-              <div className="">
-                {p.image_url && (
-                  <>
-                    {/* eslint-disable-next-line */}
-                    <img
-                      src={p.image_url}
-                      alt={p.name}
-                      className="rounded intitutional-image"
-                    />
-                  </>
-                )}
-              </div>
+            <div className="card p-0  ">
+              {p.image_url && (
+                <>
+                  {/* eslint-disable-next-line */}
+                  <img
+                    src={p.image_url}
+                    alt={p.name}
+                    className="card-img-top "
+                  />
+                </>
+              )}
               <div className="card-body d-flex flex-column">
                 <h3 className="card-title">{p.name}</h3>
                 <h4 className="card-subtitle">{p.position}</h4>
