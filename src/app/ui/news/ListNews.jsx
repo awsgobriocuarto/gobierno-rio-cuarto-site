@@ -1,25 +1,21 @@
 import React, { Suspense } from "react";
 import { fetchNews } from "@/app/lib/DataNews";
 import CardNews from "./CardNews";
-import HeaderSection from "../layout/HeaderSection";
-export default async function ListNews({ page = 1, limit = 6 }) {
-  const noticias = await fetchNews({ page, limit });
 
-  console.log("Noticias:", noticias);
+export default async function ListNews({ page = 1, limit = 6, area = "" }) {
+  const posts = await fetchNews({ page, limit, area });
+
+  //console.log(posts);
+
   return (
-    <section className="section">
-      <div className="container">
-        <HeaderSection title="Noticias" />
-        <div className="row justify-content-center">
-          <Suspense fallback={<div>Cargando...</div>}>
-            {noticias.map((item) => (
-              <CardNews key={item.id} post={item} />
-            ))}
-          </Suspense>
-        </div>
+    <section data-read className="news-list ">
+      <div className="row">
+        <Suspense fallback={<div>Cargando...</div>}>
+          {posts.map((post) => (
+            <CardNews key={post.id} post={post} />
+          ))}
+        </Suspense>
       </div>
     </section>
   );
 }
-
-// <HeaderSection title="Eventos" />

@@ -1,0 +1,140 @@
+//
+// button
+.floatingButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--bs-primary);
+  color: white;
+  border: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  font-size: 24px;
+}
+
+.floatingButton:hover {
+  transform: scale(1.1);
+}
+
+//
+// menu
+.accessibilityMenu {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  z-index: 999;
+  max-width: 400px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuHeader {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.menuOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.optionButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.optionButton:hover {
+  background-color: #e0e0e0;
+}
+
+.accessibilityFloatingMenu {
+  position: absolute;
+  background-color: red;
+  bottom: 0;
+  right: 0;
+}
+
+//
+// functions
+
+// ## Estilos para el contraste
+
+body.high-contrast {
+  filter: contrast(1.5);
+  background-color: #000 !important;
+  color: #fff !important;
+
+  // Cambia el color de los enlaces a un tono visible
+  a {
+    color: #ffff00 !important;
+  }
+
+  // Desactiva cualquier sombra o borde que pueda interferir
+  *,
+  *::before,
+  *::after {
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+}
+
+// ## Pasar todo el texto a mayúsculas
+body.uppercase-text {
+  text-transform: uppercase !important;
+}
+
+// ## Estilos para el espaciado de texto
+
+body.text-spacing-medium {
+  letter-spacing: 1.5px;
+  word-spacing: 2px;
+  line-height: 1.5;
+}
+
+body.text-spacing-large {
+  letter-spacing: 2px;
+  word-spacing: 3px;
+  line-height: 1.7;
+}
+
+body.text-spacing-extra-large {
+  letter-spacing: 2.5px;
+  word-spacing: 4px;
+  line-height: 1.9;
+}
+
+body.text-spacing-super-large {
+  letter-spacing: 3px;
+  word-spacing: 5px;
+  line-height: 2.1;
+}
+
+// ## Estilos para cambiar la fuente
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('/fonts/OpenDyslexic-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body.dyslexia-friendly-font {
+  font-family: 'OpenDyslexic', sans-serif !important;
+}

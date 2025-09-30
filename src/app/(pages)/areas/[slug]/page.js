@@ -1,32 +1,16 @@
 import Link from "next/link";
-import { fetchAreasById, fetchAreas } from "@/app/lib/DataFormalities";
 import HeroAreas from "@/app/ui/areas/HeroAreas";
 import FormalitiesAreas from "@/app/ui/areas/FormalitiesAreas";
 import ProgramsAreas from "@/app/ui/areas/ProgramsAreas";
 import IntitutionalAreas from "@/app/ui/areas/IntitutionalAreas";
 import NewsAreas from "@/app/ui/areas/NewsAreas";
-
-export async function generateStaticParams() {
-  const areasResponse = await fetchAreas();
-  const areas = Array.isArray(areasResponse)
-    ? areasResponse
-    : areasResponse?.data || [];
-
-  return areas.map((area) => ({
-    slug: area.slug,
-  }));
-}
+import OtherAreas from "@/app/ui/areas/OtherAreas";
+import { fetchAreaBySlug } from "@/app/lib/DataAreas";
 
 export default async function AreaDetailPage({ params }) {
   const { slug } = params;
 
-  // Asegura que allAreas sea un array
-  const allAreasResponse = await fetchAreas();
-  const allAreas = Array.isArray(allAreasResponse)
-    ? allAreasResponse
-    : allAreasResponse?.data || [];
-
-  const area = allAreas.find((a) => a.slug === slug);
+  const area = await fetchAreaBySlug(slug);
 
   if (!area) {
     return (
@@ -48,6 +32,7 @@ export default async function AreaDetailPage({ params }) {
             <HeroAreas area={area} />
             <FormalitiesAreas area={area} />
             <ProgramsAreas area={area} />
+            <OtherAreas area={area} />
           </div>
           <div className="col-md-4">
             <IntitutionalAreas area={area} />

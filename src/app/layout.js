@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import Header from "./ui/layout/Header";
 import Footer from "./ui/layout/Footer";
 import Script from "next/script";
+import { AccessibilityProvider } from "./providers/AccessibilityProvider";
+import AccessibilityFloatingMenu from "./ui/accessibility/AccessibilityFloatingMenu";
 
 // thin:        100
 // extra light: 200
@@ -22,19 +24,31 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Gobierno Río cuarto",
-  description: "GSitio web oficial del Gobierno de Río Cuarto",
+  openGraph: {
+    title: 'Gobierno de Río Cuarto',
+    description: 'Portal oficial del Gobierno de Río Cuarto. Encuentra noticias, trámites, programas y más.',
+    images: ['images/og-image.png'],
+  },
+  title: {
+    default: 'Gobierno de Río Cuarto | Portal Oficial',
+    template: '%s | Gobierno de Río Cuarto', // %s se reemplazará por el título de cada página
+  },
+  description: 'Portal oficial del Gobierno de Río Cuarto. Encuentra noticias, trámites, programas y más.',
+  keywords: ['gobierno', 'municipalidad', 'trámites', 'noticias', 'programas', 'eventos', 'servicios'],
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es">
+    <html lang="es"  >
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" />
 
       <body className={`${inter.variable}`}>
-        <Header />
-        {children}
-        <Footer />
+        <AccessibilityProvider>
+          <Header />
+          {children}
+          <Footer />
+          <AccessibilityFloatingMenu />
+        </AccessibilityProvider>
       </body>
     </html>
   );

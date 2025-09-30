@@ -29,7 +29,7 @@ export default function Select({
         defaultValue={searchParams.get(collection)?.toString()}
       >
         <option value="">{placeholder}</option>
-        {data?.map((item) => (
+        {data.map((item) => (
           <option value={item.slug} key={item.id}>
             {item.name}
           </option>

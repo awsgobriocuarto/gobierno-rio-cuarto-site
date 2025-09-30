@@ -1,20 +1,21 @@
-import Slides from "./ui/home/Slides";
 import ListNews from "./ui/news/ListNews";
 import ListEvents from "./ui/destiny/ListEvents";
-import ButtonFormalities from "./ui/formalities/ButtonFormalities";
-import ListCategories from "./ui/home/ListCategories";
 import ListAreas from "./ui/areas/ListAreas";
+import Hero from "./ui/home/Hero";
+import HeaderSection from "./ui/layout/HeaderSection";
+import ListFormalityCategories from "./ui/home/ListCategories";
 
 export default function Home() {
   return (
     <main>
-      <main>
-        <Slides />
-        <ListCategories></ListCategories>
-        <ListAreas></ListAreas>
-        <ListEvents></ListEvents>
-        <ListNews></ListNews>
-      </main>
+      <Hero />
+      <ListFormalityCategories />
+      <ListAreas />
+      <div className="container">
+        <HeaderSection title="Últimas Noticias" border />
+        <ListNews limit={6} />
+      </div>
+      <ListEvents />
     </main>
   );
 }

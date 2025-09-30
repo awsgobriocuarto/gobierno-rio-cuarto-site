@@ -1,0 +1,115 @@
+.formalities {
+
+  &-page {
+    //background-color: blue;
+    padding: 60px 0;
+  }
+
+  &-categories {
+    //background-color: green;
+    padding: 60px;
+  }
+
+  &-filters {
+
+    h5 {
+      font-weight: 600;
+      color: $primary;
+    }
+
+    .form-control,
+    .form-select {
+      margin-bottom: 30px;
+    }
+
+  }
+
+  &-list {
+
+    a {
+      text-decoration: none;
+      //color: white;
+
+      &:hover {
+        .card {
+          background-color: rgba($primary, 0.04);
+          border-color: rgba($primary, 0.8);
+        }
+      }
+    }
+
+    .card {
+      //background-color: orange;
+      margin-bottom: 30px;
+      border: 1px solid rgba($primary, 0.4);
+
+      &-header {
+        font-size: 0.8rem;
+        border-bottom: none;
+      }
+
+      &-body {
+        min-height: 100px;
+        padding-top: 8px;
+      }
+
+      &-title {
+        font-size: 1.25rem;
+        color: $primary;
+      }
+
+      &-footer {
+        font-size: 0.8rem;
+        border-top: none;
+
+
+      }
+    }
+  }
+
+  &-detail {
+
+    &--header {
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid $primary;
+    }
+
+    &--categories {
+      //background-color: green;
+      margin-bottom: 20px;
+
+      span {
+        padding-right: 20px;
+      }
+    }
+
+    &--title {
+      color: $primary;
+      margin-bottom: 20px;
+    }
+
+    &--subtitle {
+      font-size: 1.3rem;
+
+    }
+
+    .card {
+      //border: none;
+      margin-bottom: 30px;
+
+      &-header {
+        //padding: 0;
+      }
+
+      &-body {
+        //padding: 15px 0;
+      }
+
+      &-title {
+        color: $primary;
+      }
+    }
+  }
+
+}

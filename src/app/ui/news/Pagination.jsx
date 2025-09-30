@@ -8,8 +8,8 @@ export default function Pagination({ currentPage, totalNews, limit }) {
   const totalPages = Math.ceil(totalNews / limit);
   const maxPageDisplay = 5;
 
-  // Formatea el número con ceros a la izquierda (001, 002, etc.)
-  const padNumber = (num) => String(num).padStart(3, "0");
+  // Formatea el número con ceros a la izquierda (1, 002, etc.)
+  const padNumber = (num) => String(num).padStart(1, "0");
 
   const getPageNumbers = () => {
     const pages = [];

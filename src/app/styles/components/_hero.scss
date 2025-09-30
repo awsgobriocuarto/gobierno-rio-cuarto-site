@@ -1,0 +1,36 @@
+.hero {
+  position: relative;
+  background-color: darken($primary, 35%);
+
+  &-slides {
+    opacity: 0.5;
+  }
+
+  &-title {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: #000 0px 0px 10px;
+    font-weight: 800;
+  }
+
+  &-search {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+}
+
+@media (max-width:767px) {
+  .hero {
+    &-title {
+      font-size: 1.4rem;
+    }
+  }
+}

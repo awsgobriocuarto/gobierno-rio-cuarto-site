@@ -1,0 +1,71 @@
+.events {
+  //background-color: blue;
+
+  &-list {
+    margin-bottom: 30px;
+
+    .card {
+      border-radius: $border-radius;
+
+      &-img-top {
+        border-radius: $border-radius $border-radius 0 0;
+
+        img {
+          height: 240px;
+          width: 100%;
+          object-fit: cover;
+          border-radius: $border-radius $border-radius 0 0;
+        }
+      }
+
+      &-body {
+        min-height: 250px;
+        padding: 32px 16px;
+      }
+
+      &-title {
+        margin-bottom: 16px;
+        font-size: 1.6rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+      &-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+        color: #000;
+      }
+
+      &-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+      &-footer {
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 0 0 $border-radius $border-radius;
+        font-size: 1rem;
+        color: $gray-800;
+
+        &.bg {
+          background-color: lighten($primary, 52%);
+        }
+
+        &.bg-2 {
+          background-color: darken($primary, 5%);
+          border: 0;
+        }
+
+      }
+    }
+  }
+}

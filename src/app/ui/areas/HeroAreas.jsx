@@ -1,25 +1,65 @@
-
+import React from "react";
 
 export default function HeroAreas({ area }) {
+  if (!area) {
+    return "No hay área para mostrar.";
+  }
 
-  // Filtra los miembros del equipo que pertenecen a esta área
+  const contact = area.contact || [];
 
-  if (!area) return ('no hay area')
+  const groupedInfo = contact.reduce((acc, item) => {
+    if (!acc[item.type]) {
+      acc[item.type] = [];
+    }
+    acc[item.type].push(item.value);
+    return acc;
+  }, {});
+
+  const infoEntries = Object.entries(groupedInfo);
+  const hasContactInfo = infoEntries.length > 0;
+
+  const ICONS = {
+    address: <i className="fas fa-location-dot"></i>,
+    phone: <i className="fas fa-phone"></i>,
+    schedules: <i className="fas fa-clock"></i>,
+    web: <i className="fas fa-globe"></i>,
+    email: <i className="fas fa-envelope"></i>,
+  };
 
   return (
-    <section className='area-hero'>
+    <section className="area-hero">
       <div className="container">
-        <h2>{area ? area.title : "no hay area"}</h2>
-        <p className='lead mb-4'>{area ? area.description : "no hay area"}</p>
-        <h4 className="mb-3">Información Básica</h4>
-        <div>
-          Direccion: {area.address ? area.address : "no hay direcciopn"}<br />
-          Telefono: {area.phone ? area.phone : "no hay telefono"}<br />
-          Email: {area.email ? area.email : "no hay email"}<br />
-          Web: {area.web ? area.web : "no hay web"}<br />
-          Horario: {area.schedule ? area.schedule : "no hay horario"}<br />
-        </div>
+        <h1>{area.name || "Área sin nombre"}</h1>
+        <p
+          className="mb-4"
+          dangerouslySetInnerHTML={{
+            __html: area.propouse || null,
+          }}
+        ></p>
+
+        {hasContactInfo && (
+          <>
+            <h4 className="mb-3">Información de Contacto</h4>
+
+            <div className="info-list">
+              {infoEntries.map(([type, values]) => {
+                const formattedValues = values.join(", ");
+                const icon = ICONS[type] || null;
+
+                return (
+                  <div
+                    className="p-2 border-start border-3 border-primary bg-light"
+                    key={type}
+                  >
+                    {icon && <span className="me-2 text-primary">{icon}</span>}
+                    <span>{formattedValues}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
       </div>
     </section>
-  )
+  );
 }

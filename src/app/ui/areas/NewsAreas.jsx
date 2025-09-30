@@ -1,10 +1,11 @@
 import React from 'react'
+import RelatedNews from '../news/RelatedNews';
 
 export default function NewsAreas({ area }) {
+  //console.log(area);
   return (
     <div>
-      <h3>NewsAreas</h3>
-      <p>{area ? area.title : "no hay area"}</p>
+      <RelatedNews detailNews={area} text="Ultimas Noticas" />
     </div>
   )
 }

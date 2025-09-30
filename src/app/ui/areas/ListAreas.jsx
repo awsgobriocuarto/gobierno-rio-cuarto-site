@@ -1,22 +1,29 @@
 import { Suspense } from "react";
 import HeaderSection from "../layout/HeaderSection";
 import CardAreas from "./CardAreas";
-import { fetchAreas } from "@/app/lib/DataFormalities";
+import { fetchAreas } from "@/app/lib/DataAreas";
 
 export default async function ListAreas() {
-  const areasResponse = await fetchAreas();
-  const areas = Array.isArray(areasResponse)
-    ? areasResponse
-    : areasResponse?.data || [];
+  const areas = await fetchAreas();
+
+  // este codigo creo que es innecesario
+  // const areas = Array.isArray(areasResponse)
+  //   ? areasResponse
+  //   : areasResponse?.data || [];
+
+  // console.log(areas);
+
 
   return (
-    <section className="section">
+    <section className="area area-home" data-read>
       <div className="container">
-        <HeaderSection title="Areas" />
-        <div className="row justify-content-center">
+        <HeaderSection title="Áreas de Gobierno" subtitle="" border />
+        <div className="row justify-content-center buttons">
           <Suspense fallback={<div>Cargando...</div>}>
             {areas.map((area) => (
-              <CardAreas key={area.id} area={area} />
+              <div className="col-md-4" key={area.id}>
+                <CardAreas area={area} />
+              </div>
             ))}
           </Suspense>
         </div>

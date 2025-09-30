@@ -1,40 +1,49 @@
-import { teamMembers } from "@/app/lib/DataAreas"; // Importa teamMembers
-import Image from "next/image";
-
 export default function IntitutionalAreas({ area }) {
-  const areaTeam = teamMembers.filter((member) => member.areaId === area.id);
+  const persons = area.persons;
+
+  if (!persons || persons.length === 0) {
+    return null;
+  }
+
+  const sortedPersons = persons.sort((a, b) => a.order - b.order);
 
   return (
     <div className="area-institutional">
-      <h4>Institucional</h4>
+      <h3 className="news-related--subtitle">Institucional</h3>
       <div className="row">
-        {areaTeam.length > 0 ? (
-          areaTeam.map((member) => (
-            <div key={member.id} className="col-6 mb-4">
-              <div className="card">
-                <div className="card-img-top">
-                  {member.photo && (
-                    <Image
-                      src={member.photo}
-                      alt={member.name}
-                      width={80}
-                      height={80}
-                    />
-                  )}
-                </div>
-                <div className="card-body">
-                  <h3 className="card-title">{member.name}</h3>
-                  <h4 className="card-subtitle">{member.role}</h4>
-                </div>
+        {sortedPersons.map((p) => (
+          <div key={p.id} className="col-12 col-md-6 mb-4 d-flex">
+            <div className="card p-0  ">
+              {p.image_url && (
+                <>
+                  {/* eslint-disable-next-line */}
+                  <img
+                    src={p.image_url}
+                    alt={p.name}
+                    className="card-img-top "
+                  />
+                </>
+              )}
+              <div className="card-body d-flex flex-column">
+                <h3 className="card-title">{p.name}</h3>
+                <h4 className="card-subtitle">{p.position}</h4>
+              </div>
+              <div className="card-footer">
+                {p.curriculum && (
+                  <a
+                    href={p.curriculum}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cv-link "
+                  >
+                    CV
+                  </a>
+                )}
               </div>
             </div>
-          ))
-        ) : (
-          <div className="col-12 text-center">
-            <p>No hay contactos institucionales para esta área.</p>
           </div>
-        )}
+        ))}
       </div>
     </div>
-  )
+  );
 }

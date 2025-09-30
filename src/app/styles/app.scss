@@ -1,18 +1,28 @@
+// sass-lint:disable-all
 @import "custom";
 @import "~bootstrap";
 
+@import "accessibility";
+
 @import "./components/area";
 @import "./components/base";
-@import "./components/header";
-@import "./components/footer";
-@import "./components/carousel";
-@import "./components/typography";
-@import "./components/navbar";
-@import "./components/section";
+@import "./components/banner";
 @import "./components/card";
+@import "./components/carousel";
+@import "./components/events";
+@import "./components/footer";
+@import "./components/fonts";
+@import "./components/formalities";
+@import "./components/gallery";
+@import "./components/header";
+@import "./components/hero";
+@import "./components/modal";
+@import "./components/news";
+@import "./components/navbar";
+@import "./components/share-social";
+@import "./components/search-form";
+@import "./components/section";
 @import "./components/test";
-
-.icons {
-  display: flex;
-  flex-direction: column;
-}
+@import "./components/typography";
+@import "components/program";
+@import "components/other";
