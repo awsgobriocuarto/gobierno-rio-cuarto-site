@@ -4,10 +4,16 @@ import CardAreas from "./CardAreas";
 import { fetchAreas } from "@/app/lib/DataAreas";
 
 export default async function ListAreas() {
-  const areasResponse = await fetchAreas();
-  const areas = Array.isArray(areasResponse)
-    ? areasResponse
-    : areasResponse?.data || [];
+  const areas = await fetchAreas();
+
+  // este codigo creo que es innecesario
+  // const areas = Array.isArray(areasResponse)
+  //   ? areasResponse
+  //   : areasResponse?.data || [];
+
+  // console.log(areas);
+
+
   return (
     <section className="area area-home" data-read>
       <div className="container">

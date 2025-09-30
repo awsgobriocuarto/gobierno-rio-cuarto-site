@@ -4,7 +4,7 @@ import CardProgram from "./CardProgram";
 
 export default async function ProgramsAreas({ area }) {
   const programs = await fetchPrograms(area?.id);
-  console.log(programs);
+  //console.log(programs);
   if (!programs || programs.length == 0) {
     return null;
   }
