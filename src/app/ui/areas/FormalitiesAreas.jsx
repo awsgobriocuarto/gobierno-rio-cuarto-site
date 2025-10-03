@@ -7,7 +7,6 @@ export default function FormalitiesAreas({ area }) {
   return (
     <section className="area-formalities">
       <div className="container">
-        <p>{area ? area.title : "no hay area"}</p>
         <ListFormalitiesBySlug area={area} />
       </div>
     </section>

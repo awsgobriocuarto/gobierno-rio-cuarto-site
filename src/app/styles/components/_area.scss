@@ -7,8 +7,7 @@
     padding-bottom: 60px;
   }
 
-  &-detail {
-  }
+  &-detail {}
 
   &-hero {
     margin-bottom: 30px;
@@ -26,6 +25,7 @@
       background-color: #ffffff;
       border-radius: 5px;
       text-align: center;
+      margin-bottom: 20px;
 
       &-img-top {
         text-align: center;
@@ -38,20 +38,21 @@
       &-body {
         color: black;
         text-align: center;
-        min-height: 100px;
+        min-height: 130px;
+        padding: 10px;
       }
 
       &-title {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         font-weight: 600;
         margin-top: 10px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
       }
 
       &-subtitle {
-        font-size: 1rem;
-        color: gray;
-        margin-bottom: 15px;
+        font-size: 0.9rem;
+        color: $gray-600;
+        margin-bottom: 4px;
         font-weight: 400;
       }
 
@@ -71,33 +72,33 @@
   }
 
   &-formalities {
-    margin-bottom: 30px;
+    //margin-bottom: 30px;
 
-    .card {
-      background-color: $gray-200;
+    // .card {
+    //   background-color: $gray-200;
 
-      &:hover {
-        background-color: darken($gray-200, 5%);
+    //   &:hover {
+    //     background-color: darken($gray-200, 5%);
 
-        p {
-          color: $primary;
-        }
-      }
+    //     p {
+    //       color: $primary;
+    //     }
+    //   }
 
-      &-body {
-        height: 100px;
-        display: flex;
-        align-items: center;
-      }
-    }
+    //   &-body {
+    //     height: 100px;
+    //     display: flex;
+    //     align-items: center;
+    //   }
+    // }
 
-    @media (max-width: 991px) {
-      .card {
-        &-body {
-          height: auto;
-        }
-      }
-    }
+    // @media (max-width: 991px) {
+    //   .card {
+    //     &-body {
+    //       height: auto;
+    //     }
+    //   }
+    // }
   }
 
   &-programs {

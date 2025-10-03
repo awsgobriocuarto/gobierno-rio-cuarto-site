@@ -12,8 +12,8 @@ export default function IntitutionalAreas({ area }) {
       <h3 className="news-related--subtitle">Institucional</h3>
       <div className="row">
         {sortedPersons.map((p) => (
-          <div key={p.id} className="col-12 col-md-6 mb-4 d-flex">
-            <div className="card p-0  ">
+          <div key={p.id} className="col-12 col-md-6">
+            <div className="card">
               {p.image_url && (
                 <>
                   {/* eslint-disable-next-line */}
@@ -24,6 +24,12 @@ export default function IntitutionalAreas({ area }) {
                   />
                 </>
               )}
+              {/* eslint-disable-next-line */}
+              <img
+                src={p.image_url ? p.image_url : '/images/no-image.jpg'}
+                alt={p.name}
+                className="card-img-top "
+              />
               <div className="card-body d-flex flex-column">
                 <h3 className="card-title">{p.name}</h3>
                 <h4 className="card-subtitle">{p.position}</h4>

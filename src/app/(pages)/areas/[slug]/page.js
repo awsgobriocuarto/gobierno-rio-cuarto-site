@@ -6,11 +6,27 @@ import IntitutionalAreas from "@/app/ui/areas/IntitutionalAreas";
 import NewsAreas from "@/app/ui/areas/NewsAreas";
 import OtherAreas from "@/app/ui/areas/OtherAreas";
 import { fetchAreaBySlug } from "@/app/lib/DataAreas";
+import { createPageMetadata } from "@/app/lib/metadata";
+
+
+export async function generateMetadata({ params }) {
+  const area = await fetchAreaBySlug(params.slug);
+  if (!area) {
+    return { title: 'Noticia no encontrada' };
+  }
+  return createPageMetadata({
+    title: area.name,
+    description: area.propouse,
+  });
+}
 
 export default async function AreaDetailPage({ params }) {
   const { slug } = params;
 
   const area = await fetchAreaBySlug(slug);
+
+  console.log(area.name);
+
 
   if (!area) {
     return (

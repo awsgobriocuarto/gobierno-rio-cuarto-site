@@ -1,26 +1,38 @@
 import React from "react";
 import { fetchFormalities } from "@/app/lib/DataFormalities";
-import FormalitiesCardBySlug from "./CardFormalityBySlug";
+import FormalitiesCard from "./CardFormality";
+import Link from "next/link";
+
 
 export default async function ListFormalitiesBySlug({ area }) {
   if (!area) return null;
 
   const params = `?area=${area.slug}`;
-  const formalities = await fetchFormalities(params);
+  const allFormalities = await fetchFormalities(params);
+  const formalities = allFormalities.slice(0, 6);
 
   return (
     <div>
-      <h2>Trámites de {area.name}</h2>
+      <h3 className="mb-3">Trámites ({allFormalities.length})</h3>
       {formalities.length === 0 ? (
         <p>No hay trámites para esta área.</p>
       ) : (
-        <div className="row">
-          {formalities.map((formality) => (
-            <div className="col-12 col-lg-6 mb-4" key={formality.id}>
-              <FormalitiesCardBySlug formality={formality} />
-            </div>
-          ))}
-        </div>
+
+        <>
+          <div className="row formalities-list">
+            {formalities.map((formality) => (
+              <div className="col-12 col-lg-6" key={formality.id}>
+                <FormalitiesCard formality={formality} />
+              </div>
+            ))}
+          </div>
+          {allFormalities.length > 6 && (
+            <Link href={`/tramites?area=${area.slug}`} className="btn btn-info text-white">Ver mas</Link>
+          )}
+
+        </>
+
+
       )}
     </div>
   );
