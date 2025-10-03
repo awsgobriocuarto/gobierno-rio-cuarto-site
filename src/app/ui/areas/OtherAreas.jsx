@@ -1,8 +1,8 @@
-import { fetchOther } from "@/app/lib/DataAreas";
+// import { fetchOther } from "@/app/lib/DataAreas";
 import CardOther from "./CardOther";
-
+import { fetchEntries } from "@/app/lib/DataEntries";
 export default async function OtherAreas({ area }) {
-  const others = await fetchOther(area?.id);
+  const others = await fetchEntries("other", area?.id);
   //console.log("otheras", others);
   if (!others || others.length == 0) {
     return null;

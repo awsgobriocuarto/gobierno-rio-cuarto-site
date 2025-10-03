@@ -1,9 +1,11 @@
 import React from "react";
-import { fetchPrograms } from "@/app/lib/DataAreas";
+import { fetchEntries } from "@/app/lib/DataEntries";
 import CardProgram from "./CardProgram";
-
+import { fetchPrograms } from "@/app/lib/DataAreas";
 export default async function ProgramsAreas({ area }) {
-  const programs = await fetchPrograms(area?.id);
+  //const programs = await fetchEntries("program", area?.id);
+
+  const programs = await fetchEntries("program", area?.id);
   //console.log(programs);
   if (!programs || programs.length == 0) {
     return null;
