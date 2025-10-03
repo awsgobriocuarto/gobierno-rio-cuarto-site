@@ -31,7 +31,6 @@ export async function fetchEntries(type, areaId = "") {
     // console.log("Fetching URL:", url);
     const res = await fetch(url, {
       ...API_OPTIONS,
-      cache: "no-store",
     });
 
     if (!res.ok) {
@@ -61,7 +60,6 @@ export async function getEntryBySlug(type, slug) {
 
     const options = {
       ...API_OPTIONS,
-      cache: "no-store",
       next: { revalidate: 0 },
     };
 
