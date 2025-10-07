@@ -31,6 +31,7 @@ export async function fetchEntries(type, areaId = "") {
     // console.log("Fetching URL:", url);
     const res = await fetch(url, {
       ...API_OPTIONS,
+      next: { revalidate: 0 },
     });
 
     if (!res.ok) {

@@ -4,14 +4,13 @@ import ListIcons from "../icons/ListIcons";
 
 const LIST_OF_ICONS = [
   {
-    name: 'waves',
-    color: 'lightblue',
-    size: '20'
-  }
-]
+    name: "waves",
+    color: "lightblue",
+    size: "20",
+  },
+];
 
 export default function DetailNews({ detailNews }) {
-  // Asegúrate de que detailNews no sea null para evitar errores
   if (!detailNews) {
     return <div>No se pudo cargar la noticia.</div>;
   }
@@ -33,32 +32,29 @@ export default function DetailNews({ detailNews }) {
         <ListIcons icons={LIST_OF_ICONS} />
         <span className="news-detail--category">{category_name}</span>
 
-        <span>{new Date(publication_date).toLocaleDateString(
-          "es-AR",
-          {
+        <span>
+          {new Date(publication_date).toLocaleDateString("es-AR", {
             year: "numeric",
             month: "long",
             day: "numeric",
-          }
-        )}
+          })}
         </span>
       </div>
-      <h1 className='news-detail--title'>{title}</h1>
+      <h1 className="news-detail--title">{title}</h1>
       {/* eslint-disable-next-line */}
       {image && <img src={image} alt={title} className="news-detail--image" />}
 
-      <p className="news-detail--description">
-        {description}
-      </p>
+      <p className="news-detail--description">{description}</p>
 
       <ShareSocial />
 
       <hr />
 
-      {/* Renderiza el cuerpo de la noticia como HTML */}
-      <div className="news-detail--body" dangerouslySetInnerHTML={{ __html: body }} />
+      <div
+        className="news-detail--body"
+        dangerouslySetInnerHTML={{ __html: body }}
+      />
 
-      {/* Muestra el iframe si existe */}
       {iframe && (
         <div className="news-detail--iframe">
           <h3 className="news-detail--subtitle">Video</h3>
@@ -66,7 +62,6 @@ export default function DetailNews({ detailNews }) {
         </div>
       )}
 
-      {/* Renderiza la galería si existe y tiene elementos */}
       {media && media.gallery && media.gallery.length > 0 && (
         <div className="news-detail--gallery">
           <h3 className="news-detail--subtitle">Galería de Imágenes</h3>

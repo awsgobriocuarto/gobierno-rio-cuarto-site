@@ -1,11 +1,13 @@
 import Link from "next/link";
 
 export default function CardMaps({ map }) {
+  const mapUrl = `/mapas/${map.slug}`;
+
   return (
-    <Link href={`/mapas/${map.slug}`} className="">
-      <div className="col-lg-6 col-xl-4 mb-4 ">
-        <div className="card">
-          <div className="card-img-top">
+    <div className="col-lg-6 col-xl-4 mb-4 ">
+      <div className="card">
+        <div className="card-img-top">
+          <Link href={mapUrl} className="">
             {/* eslint-disable-next-line */}
             <img
               src={map.thumbnail}
@@ -13,13 +15,24 @@ export default function CardMaps({ map }) {
               className="card-img-top"
               style={{ objectFit: "cover" }}
             />
-          </div>
-          <div className="card-body">
-            <p className="card-text">{map.summary}</p>
-          </div>
-          <div className="card-footer border-0 bg-white"></div>
+          </Link>
+        </div>
+
+        <div className="card-body">
+          <Link href={mapUrl} className="">
+            <h3 className="card-title text-primary">{map.title}</h3>
+          </Link>
+          <p className="card-text">{map.summary}</p>
+        </div>
+
+        <div className="card-footer border-0 bg-white">
+          <span>
+            <Link href={mapUrl} className="">
+              Ver más
+            </Link>
+          </span>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
