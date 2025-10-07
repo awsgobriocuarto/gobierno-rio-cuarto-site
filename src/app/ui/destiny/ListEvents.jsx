@@ -5,7 +5,7 @@ import HeaderSection from "../layout/HeaderSection";
 
 export default async function ListEvents() {
   const { data } = await fetchDestiny({ paginate: 6 });
-  console.log("Eventos:", data);
+  //console.log("Eventos:", data);
   return (
     <section className="events events-list" data-read>
       <div className="container">
