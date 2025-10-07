@@ -11,8 +11,6 @@ export const metadata = {
 export default async function BuscarPage({ searchParams }) {
   const searchQuery = (await searchParams.q) || "";
 
-  const results = await fetchSearch(searchQuery);
-  //console.log("searchQuery:", searchQuery);
   return (
     <main>
       <div className="container py-5 text-center">
