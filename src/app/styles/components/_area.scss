@@ -1,24 +1,38 @@
 .area {
   position: relative;
   margin-top: 60px;
-  //background: pink;
 
   &-home {
     padding-bottom: 60px;
   }
 
   &-detail {
+    // h1 {
+    //   color: $primary;
+    //   text-transform: uppercase;
+    // }
+
+    h3,
+    h4 {
+      color: $primary;
+      margin-bottom: 24px;
+    }
+  }
+
+  &-section {
+    //background-color: orange;
+    margin-bottom: 60px;
   }
 
   &-hero {
-    margin-bottom: 30px;
+    margin-bottom: 60px;
   }
 
   &-institutional {
     margin-bottom: 30px;
 
     h4 {
-      text-align: center;
+      //text-align: center;
       margin-bottom: 30px;
     }
 
@@ -26,6 +40,7 @@
       background-color: #ffffff;
       border-radius: 5px;
       text-align: center;
+      margin-bottom: 20px;
 
       &-img-top {
         text-align: center;
@@ -38,64 +53,37 @@
       &-body {
         color: black;
         text-align: center;
-        min-height: 100px;
+        min-height: 140px;
+        padding: 10px;
       }
 
       &-title {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         font-weight: 600;
         margin-top: 10px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
+        color: #000;
       }
 
       &-subtitle {
-        font-size: 1rem;
-        color: gray;
-        margin-bottom: 15px;
-        font-weight: 400;
+        font-size: 0.86rem;
+        color: $gray-900;
+        margin-bottom: 0px;
+        font-weight: 300;
       }
 
       &-footer {
         border: none;
-        min-height: 40px;
-        background-color: #ffffff;
+        min-height: 20px;
+        background-color: white;
+        padding-top: 0;
       }
 
       .cv-link {
         font-weight: 600;
         color: $primary;
         text-decoration: underline;
-        font-size: 15px;
-      }
-    }
-  }
-
-  &-formalities {
-    margin-bottom: 30px;
-
-    .card {
-      background-color: $gray-200;
-
-      &:hover {
-        background-color: darken($gray-200, 5%);
-
-        p {
-          color: $primary;
-        }
-      }
-
-      &-body {
-        height: 100px;
-        display: flex;
-        align-items: center;
-      }
-    }
-
-    @media (max-width: 991px) {
-      .card {
-        &-body {
-          height: auto;
-        }
+        font-size: 0.9rem;
       }
     }
   }

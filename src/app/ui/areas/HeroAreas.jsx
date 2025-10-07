@@ -28,7 +28,7 @@ export default function HeroAreas({ area }) {
 
   return (
     <section className="area-hero">
-      <div className="container">
+      <div className="">
         <h1>{area.name || "Área sin nombre"}</h1>
         <p
           className="mb-4"
@@ -37,9 +37,11 @@ export default function HeroAreas({ area }) {
           }}
         ></p>
 
+        <a href="#" className="btn btn-sm btn-primary text-white">Ver más</a>
+
         {hasContactInfo && (
           <>
-            <h4 className="mb-3">Información de Contacto</h4>
+            <h5 className="mt-4 mb-3">Información de Contacto</h5>
 
             <div className="info-list">
               {infoEntries.map(([type, values]) => {

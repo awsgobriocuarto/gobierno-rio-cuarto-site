@@ -11,7 +11,7 @@ const API_URL = `${API_BASE_URL}/api${API_VERSION ? `/${API_VERSION}` : ""}`;
 const API_OPTIONS = {
   headers: {
     Authorization: API_TOKEN,
-  }
+  },
 };
 
 export async function fetchAreas() {
@@ -24,11 +24,9 @@ export async function fetchAreas() {
 }
 
 export async function fetchAreaBySlug(slug) {
-
   if (!slug) {
     return null;
   }
-
 
   const res = await fetch(`${API_URL}/areas/${slug}`, API_OPTIONS);
   if (!res.ok) {
@@ -39,55 +37,56 @@ export async function fetchAreaBySlug(slug) {
   return data;
 }
 
-export async function fetchPrograms(areaId = "") {
-  try {
-    const queryParam = areaId
-      ? `?type=program&area_id=${areaId}`
-      : "?type=program";
+// export async function fetchPrograms(areaId = "") {
+//   try {
+//     const queryParam = areaId
+//       ? `?type=program&area_id=${areaId}`
+//       : "?type=program";
 
-    //console.log("Fetching URL:", `${API_URL}/entries${queryParam}`);
-    const res = await fetch(`${API_URL}/entries${queryParam}`, API_OPTIONS);
+//     //console.log("Fetching URL:", `${API_URL}/entries${queryParam}`);
+//     const res = await fetch(`${API_URL}/entries${queryParam}`, API_OPTIONS);
 
-    if (!res.ok) {
-      throw new Error(`Error HTTP: ${res.status}`);
-    }
+//     if (!res.ok) {
+//       throw new Error(`Error HTTP: ${res.status}`);
+//     }
 
-    const response = await res.json();
-    // console.log("API Response:", response);
+//     const response = await res.json();
+//     // console.log("API Response:", response);
 
-    // Verificamos si tenemos datos y los devolvemos
-    if (response && response.data) {
-      return response.data;
-    }
+//     // Verificamos si tenemos datos y los devolvemos
+//     if (response && response.data) {
+//       return response.data;
+//     }
 
-    return [];
-  } catch (error) {
-    console.error("Error fetching programs:", error);
-    return [];
-  }
-}
-export async function fetchOther(areaId = "") {
-  try {
-    const queryParam = areaId ? `?type=other&area_id=${areaId}` : "?type=other";
+//     return [];
+//   } catch (error) {
+//     console.error("Error fetching programs:", error);
+//     return [];
+//   }
+// }
 
-    // console.log("Fetching URL:", `${API_URL}/entries${queryParam}`);
-    const res = await fetch(`${API_URL}/entries${queryParam}`, API_OPTIONS);
+// export async function fetchOther(areaId = "") {
+//   try {
+//     const queryParam = areaId ? `?type=other&area_id=${areaId}` : "?type=other";
 
-    if (!res.ok) {
-      throw new Error(`Error HTTP: ${res.status}`);
-    }
+//     // console.log("Fetching URL:", `${API_URL}/entries${queryParam}`);
+//     const res = await fetch(`${API_URL}/entries${queryParam}`, API_OPTIONS);
 
-    const response = await res.json();
-    // console.log("API Response:", response);
+//     if (!res.ok) {
+//       throw new Error(`Error HTTP: ${res.status}`);
+//     }
 
-    // Verificamos si tenemos datos y los devolvemos
-    if (response && response.data) {
-      return response.data;
-    }
+//     const response = await res.json();
+//     // console.log("API Response:", response);
 
-    return [];
-  } catch (error) {
-    console.error("Error fetching programs:", error);
-    return [];
-  }
-}
+//     // Verificamos si tenemos datos y los devolvemos
+//     if (response && response.data) {
+//       return response.data;
+//     }
+
+//     return [];
+//   } catch (error) {
+//     console.error("Error fetching programs:", error);
+//     return [];
+//   }
+// }

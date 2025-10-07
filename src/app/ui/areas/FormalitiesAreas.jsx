@@ -5,11 +5,8 @@ export default function FormalitiesAreas({ area }) {
   if (!area) return "no hay area";
 
   return (
-    <section className="area-formalities">
-      <div className="container">
-        <p>{area ? area.title : "no hay area"}</p>
-        <ListFormalitiesBySlug area={area} />
-      </div>
+    <section className="area-section">
+      <ListFormalitiesBySlug area={area} />
     </section>
   );
 }

@@ -9,21 +9,17 @@ export default function IntitutionalAreas({ area }) {
 
   return (
     <div className="area-institutional">
-      <h3 className="news-related--subtitle">Institucional</h3>
+      <h4>Organigrama</h4>
       <div className="row">
         {sortedPersons.map((p) => (
-          <div key={p.id} className="col-12 col-md-6 mb-4 d-flex">
-            <div className="card p-0  ">
-              {p.image_url && (
-                <>
-                  {/* eslint-disable-next-line */}
-                  <img
-                    src={p.image_url}
-                    alt={p.name}
-                    className="card-img-top "
-                  />
-                </>
-              )}
+          <div key={p.id} className="col-12 col-md-6">
+            <div className="card">
+              {/* eslint-disable-next-line */}
+              <img
+                src={p.image_url ? p.image_url : '/images/no-image.jpg'}
+                alt={p.name}
+                className="card-img-top "
+              />
               <div className="card-body d-flex flex-column">
                 <h3 className="card-title">{p.name}</h3>
                 <h4 className="card-subtitle">{p.position}</h4>

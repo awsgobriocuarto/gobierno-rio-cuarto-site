@@ -55,15 +55,18 @@
 
       &-title {
         font-size: 1.25rem;
-        color: $primary;
+        color: $gray-900;
+
+        &:hover {
+          color: $primary;
+        }
       }
 
       &-footer {
         font-size: 0.8rem;
         border-top: none;
-
-
       }
+
     }
   }
 

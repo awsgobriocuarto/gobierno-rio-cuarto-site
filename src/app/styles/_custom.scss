@@ -21,6 +21,12 @@ $enable-shadows: true !default;
 $enable-button-pointers: true !default;
 
 $font-size-base: 1.1rem !default;
+$h1-font-size: $font-size-base * 2.15 !default;
+$h2-font-size: $font-size-base * 1.9 !default;
+$h3-font-size: $font-size-base * 1.65 !default;
+$h4-font-size: $font-size-base * 1.4 !default;
+$h5-font-size: $font-size-base * 1.15 !default;
+$h6-font-size: $font-size-base !default;
 
 //$border-radius: 15px;
 $border-radius-card: 15px !default;
@@ -31,6 +37,7 @@ $border-radius-card: 15px !default;
 .bg-gray {
   background-color: $gray !important;
 }
+
 .bg-prueba {
   background-color: $prueba !important;
 }

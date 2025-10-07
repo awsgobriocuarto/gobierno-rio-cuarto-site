@@ -15,7 +15,6 @@
     display: flex;
     align-items: center;
 
-
     .form-control {
       font-size: 0.9rem;
       text-transform: uppercase;
@@ -23,7 +22,6 @@
   }
 
   &-not-found {
-    //background-color: red;
     text-align: center;
     font-size: 1.4rem;
 
@@ -36,7 +34,7 @@
   }
 
   &-list {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 
     .card {
       border-radius: $border-radius;
@@ -159,9 +157,9 @@
   &-related {
     &--subtitle {
       margin-bottom: 20px;
-      font-size: 1.2rem;
+      //font-size: 1.2rem;
       line-height: 2rem;
-      color: $primary;
+      //color: $primary;
     }
 
     //background-color: orange;
