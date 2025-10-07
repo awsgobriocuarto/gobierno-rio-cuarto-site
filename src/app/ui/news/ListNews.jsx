@@ -8,7 +8,7 @@ export default async function ListNews({ page = 1, limit = 6, area = "" }) {
   //console.log(posts);
 
   return (
-    <section data-read className="news-list ">
+    <section data-read className="news-list">
       <div className="row">
         <Suspense fallback={<div>Cargando...</div>}>
           {posts.map((post) => (

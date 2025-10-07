@@ -23,7 +23,6 @@ export default function CardNews({ post }) {
         </div>
         <div className="card-footer border-0 bg-white">
           <span>
-            {post.published_at} |
             {new Date(post.published_at).toLocaleDateString("es-AR", {
               year: "numeric",
               month: "numeric",

@@ -21,15 +21,22 @@ export default function CardNews({ post }) {
           </a>
         </div>
         <div className="card-body">
-          <h3 className="card-title text-primary">{post.title}</h3>
+          <a
+            href={`https://destinoriocuarto.gob.ar/evento/${post.id}/${post.slug}&utm_source=web_gobierno&utm_medium=home&utm_campaign=next_events`}
+            className=""
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3 className="card-title text-primary">{post.title}</h3>
+          </a>
           <p className="card-text">{post.summary}</p>
         </div>
         <div className="card-footer border-0 bg-white">
           <span>
-            {new Date(post.publication_date).toLocaleDateString("es-AR", {
+            {new Date(post.calendars[0].end_date).toLocaleDateString("es-AR", {
               year: "numeric",
               month: "numeric",
-              day: "numeric",
+              day: "numeric"
             })}
           </span>
           <span>

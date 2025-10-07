@@ -10,7 +10,7 @@ export default async function ListEvents() {
     <section className="events events-list" data-read>
       <div className="container">
 
-        <HeaderSection title="Eventos" subtitle="Destino Río Cuarto" border />
+        <HeaderSection title="Eventos" subtitle="Destino Río Cuarto" />
 
 
         <div className="row justify-content-center">
@@ -20,6 +20,7 @@ export default async function ListEvents() {
             ))}
           </Suspense>
         </div>
+        <a href="https://destinoriocuarto.gob.ar" target="_blank" rel="noopener noreferrer" className="btn btn-dark">Ver más</a>
       </div>
     </section>
   );

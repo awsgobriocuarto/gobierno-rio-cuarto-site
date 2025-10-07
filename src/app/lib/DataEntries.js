@@ -14,7 +14,7 @@ const API_OPTIONS = {
   },
 };
 
-export async function fetchEntries(type, areaId = "") {
+export async function fetchEntries(type, area = "") {
   if (!type) {
     console.error("fetchEntries requiere un 'type'.");
     return [];
@@ -22,13 +22,16 @@ export async function fetchEntries(type, areaId = "") {
 
   try {
     const queryParams = new URLSearchParams({ type });
-    // console.log("query", queryParams);
-    if (areaId) {
-      queryParams.append("area_id", areaId);
+
+    if (area) {
+      queryParams.append("area", area);
     }
 
+    //console.log("query", queryParams);
+
     const url = `${API_URL}/entries?${queryParams.toString()}`;
-    // console.log("Fetching URL:", url);
+    console.log("Fetching URL:", url);
+
     const res = await fetch(url, {
       ...API_OPTIONS,
     });
@@ -40,6 +43,9 @@ export async function fetchEntries(type, areaId = "") {
     }
 
     const response = await res.json();
+
+    //console.log(response);
+
 
     return response?.data || [];
   } catch (error) {
