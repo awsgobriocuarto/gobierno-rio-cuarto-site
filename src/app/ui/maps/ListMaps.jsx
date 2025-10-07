@@ -8,7 +8,7 @@ export default async function ListMaps({ area }) {
   console.log("MAPAS", maps);
 
   return (
-    <section data-read className="news-list ">
+    <section data-read className="map-list">
       <div className="row">
         <Suspense fallback={<div>Cargando...</div>}>
           {maps.map((mapa) => (

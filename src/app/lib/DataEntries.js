@@ -34,6 +34,7 @@ export async function fetchEntries(type, area = "") {
 
     const res = await fetch(url, {
       ...API_OPTIONS,
+      next: { revalidate: 0 },
     });
 
     if (!res.ok) {

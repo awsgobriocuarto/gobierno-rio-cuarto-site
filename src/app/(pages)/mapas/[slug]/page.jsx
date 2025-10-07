@@ -8,7 +8,7 @@ export default async function MapDetailPage({ params }) {
   if (!detailMap) {
     return (
       <main className="map-not-found container py-5">
-        <h1>Mapa no encontrado (Error de Data)</h1>
+        <h1>Mapa no encontrado </h1>
       </main>
     );
   }
@@ -16,7 +16,6 @@ export default async function MapDetailPage({ params }) {
   return (
     <main className="map map-detail" data-read>
       <div className="container py-5">
-        <h1>{detailMap.title}</h1>
         <DetailMap detailMap={detailMap} />
       </div>
     </main>
