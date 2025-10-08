@@ -10,7 +10,7 @@ export default async function RelatedNews({ detailNews, page = 1, limit = 6, tex
 
   return (
     <div className='news-related'>
-      <h3 className='news-related--subtitle'>{text}</h3>
+      <h4 className='news-related--subtitle'>{text}</h4>
       <p className='d-none'><small>{id}. {title}</small></p>
 
       {relatedPosts.map((post) => (
@@ -25,7 +25,7 @@ export default async function RelatedNews({ detailNews, page = 1, limit = 6, tex
                 <div className="card-body">
                   <p className="card-date">
                     <small>
-                      {new Date(post.publication_date).toLocaleDateString("es-AR", {
+                      {new Date(post.published_at).toLocaleDateString("es-AR", {
                         year: "numeric",
                         month: "numeric",
                         day: "numeric",

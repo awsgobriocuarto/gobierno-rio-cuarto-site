@@ -13,7 +13,7 @@ export default async function ListFormalitiesBySlug({ area }) {
 
   return (
     <div>
-      <h3 className="mb-3">Trámites ({allFormalities.length})</h3>
+      <h3>Trámites ({allFormalities.length})</h3>
       {formalities.length === 0 ? (
         <p>No hay trámites para esta área.</p>
       ) : (
@@ -27,7 +27,7 @@ export default async function ListFormalitiesBySlug({ area }) {
             ))}
           </div>
           {allFormalities.length > 6 && (
-            <Link href={`/tramites?area=${area.slug}`} className="btn btn-info text-white">Ver mas</Link>
+            <Link href={`/tramites?area=${area.slug}`} className="btn btn-dark text-white">Ver mas</Link>
           )}
 
         </>
