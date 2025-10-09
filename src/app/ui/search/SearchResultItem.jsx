@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 
 export default function SearchResultItem({ result, url }) {
-  console.log(result);
+  //console.log(result);
 
   return (
     <li className="search-item">

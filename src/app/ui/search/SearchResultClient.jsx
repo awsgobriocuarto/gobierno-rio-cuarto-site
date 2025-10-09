@@ -5,7 +5,6 @@ import SearchResults from "./SearchResults";
 
 export default function SearchResultClient() {
   const urlParams = new URLSearchParams(cleanedSearchParams);
-  const params = `?${urlParams}`;
 
   //   const searchParams = useSearchParams();
   //   const searchTerm = searchParams.get("q");

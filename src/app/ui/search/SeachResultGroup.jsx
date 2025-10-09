@@ -2,7 +2,7 @@ import React from 'react'
 import SearchResultItem from './SearchResultItem';
 
 export default function SeachResultGroup({ url, title, results }) {
-  console.log(results.length);
+  //console.log(results.length);
 
   return (
     <div className="search-group">
