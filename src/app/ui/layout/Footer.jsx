@@ -30,7 +30,7 @@ export default function Footer() {
               <li>
                 <i className="fa fa-clock fa-fw me-2"></i>
                 <span className="footer-text">
-                  Lunes a Viernes, 8:00 a 20:00 hs.
+                  Lunes a Viernes de 7:00 a 13:00 hs.
                 </span>
               </li>
             </ul>
@@ -41,7 +41,7 @@ export default function Footer() {
             <ul className="list-unstyled">
               <li>
                 <Link href="/tramites" className="footer-link">
-                  Trámites online
+                  Trámites
                 </Link>
               </li>
               <li>
@@ -71,7 +71,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="social-link me-3"
               >
-                <i className={`fa-brands fa-2x fa-facebook-f`}></i>
+                <i className={`fa-brands fa-fw fa-facebook`}></i>
                 <span className="sr-only">Facebook</span>
               </a>
               <a
@@ -80,7 +80,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="social-link me-3"
               >
-                <i className={`fa-brands fa-2x fa-instagram`}></i>
+                <i className={`fa-brands fa-1x fa-instagram`}></i>
                 <span className="sr-only">Instagram</span>
               </a>
               <a
@@ -89,7 +89,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="social-link"
               >
-                <i className={`fa-brands fa-2x fa-youtube`}></i>
+                <i className={`fa-brands fa-fw fa-youtube`}></i>
                 <span className="sr-only">Youtube</span>
               </a>
             </div>
@@ -99,8 +99,8 @@ export default function Footer() {
         <div className="row mt-4 pt-3 footer-copyright-row">
           <div className="col text-center text-md-start">
             <p className="footer-copyright mb-0">
-              &copy; {currentYear} Gobierno de Río Cuarto. Todos los derechos
-              reservados a Salvador Sanchez y al area de innovación.
+              &copy; {currentYear} Gobierno de Río Cuarto. Desarrollado por la
+              Subsecretaria de Innovación.
             </p>
           </div>
         </div>
