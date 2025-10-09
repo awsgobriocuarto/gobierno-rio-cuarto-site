@@ -36,7 +36,7 @@ export default async function NewsDetailPage({ params }) {
             <DetailNews detailNews={detailNews} />
           </div>
           <div className="col-md-4">
-            <RelatedNews detailNews={detailNews} />
+            <RelatedNews id={detailNews.id} title="Noticias Relacionadas" />
           </div>
         </div>
       </div>

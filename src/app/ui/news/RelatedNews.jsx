@@ -2,16 +2,15 @@ import { fetchNews } from '@/app/lib/DataNews';
 import Link from 'next/link';
 import React from 'react'
 
-export default async function RelatedNews({ detailNews, page = 1, limit = 6, text = "Noticias Relacionadas" }) {
-  const { id, title, } = detailNews;
+export default async function RelatedNews({ id = "", page = 1, limit = 6, title = "Noticias Relacionadas" }) {
+
   const posts = await fetchNews({ page, limit });
   const relatedPosts = posts.filter(post => post.id !== id);
 
 
   return (
     <div className='news-related'>
-      <h4 className='news-related--subtitle'>{text}</h4>
-      <p className='d-none'><small>{id}. {title}</small></p>
+      <h4 className='news-related--subtitle'>{title}</h4>
 
       {relatedPosts.map((post) => (
         <Link href={`/noticias/${post.slug}`} key={post.id}>

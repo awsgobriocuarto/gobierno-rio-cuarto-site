@@ -1,0 +1,44 @@
+.search {
+  &-page {
+    //background-color: orange;
+    padding: 60px 0;
+  }
+
+  &-content {
+    //background-color: blue;
+  }
+
+  &-header {
+    //background-color: red;
+    margin-bottom: 30px;
+
+    h4 {
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    span {
+      color: $secondary;
+      font-weight: 700;
+    }
+  }
+
+  &-results {
+    //background-color: green;
+  }
+
+  &-group {
+    //background-color: red;
+    margin-bottom: 30px;
+
+    h5 {
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+  }
+
+  &-item {
+    //background-color: blue;
+  }
+}
