@@ -5,14 +5,20 @@ import { fetchAreas } from "@/app/lib/DataAreas";
 
 export default async function ListAreas() {
   const areas = await fetchAreas();
-
+  // console.log("AREAS SIN ORDENAR", areas);
+  areas.map((area) => {
+    if (area.order == -1) {
+      area.order = 9999;
+    }
+  });
+  areas.sort((a, b) => a.order - b.order);
+  // console.log("AREAS ORDENADAS", areas);
   // este codigo creo que es innecesario
   // const areas = Array.isArray(areasResponse)
   //   ? areasResponse
   //   : areasResponse?.data || [];
 
   // console.log(areas);
-
 
   return (
     <section className="area area-home" data-read>
