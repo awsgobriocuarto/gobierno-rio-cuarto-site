@@ -1,0 +1,79 @@
+$card-height: 110px;
+
+.entries {
+  //background-color: rgba(orange, 0.2);
+  //padding: 20px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .card {
+    //border-radius: $border-radius;
+    border-color: rgba($primary, 1);
+
+    &-img {
+      width: 100%;
+      min-height: $card-height;
+      border-radius: $border-radius 0 0 $border-radius;
+      background-color: white;
+
+
+      img {
+        width: 100%;
+        height: $card-height;
+        object-fit: cover;
+        border-radius: $border-radius 0 0 $border-radius;
+        ;
+      }
+    }
+
+    &-icon {
+      background-color: white;
+      width: 100%;
+      min-height: $card-height;
+      border-radius: $border-radius 0 0 $border-radius;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 50%;
+        height: 50%;
+        //color: white;
+      }
+    }
+
+    &-body {
+      background-color: $primary;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      min-height: $card-height;
+      border-radius: 0 $border-radius $border-radius 0;
+      color: white;
+
+      &:hover {
+        background-color: darken($primary, 5%);
+      }
+    }
+
+    &-pretitle {
+      font-size: 0.86rem;
+      margin-bottom: 6px;
+      font-weight: 400;
+    }
+
+    &-title {
+      margin-bottom: 0;
+      font-size: 1.1rem;
+      line-height: 1.3rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+}

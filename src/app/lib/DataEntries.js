@@ -30,7 +30,6 @@ export async function fetchEntries(type, area = "") {
     //console.log("query", queryParams);
 
     const url = `${API_URL}/entries?${queryParams.toString()}`;
-    console.log("Fetching URL:", url);
 
     const res = await fetch(url, {
       ...API_OPTIONS,
