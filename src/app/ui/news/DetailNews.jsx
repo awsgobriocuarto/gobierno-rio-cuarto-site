@@ -34,7 +34,15 @@ export default function DetailNews({ detailNews }) {
       <div className="news-detail--pretitle ">
         <ListIcons icons={LIST_OF_ICONS} />
         <span>
+<<<<<<< HEAD
           {new Date(published_at).toLocaleDateString()}
+=======
+          {new Date(published_at).toLocaleDateString("es-AR", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+>>>>>>> feat/programs
         </span>
         {`>`}
         <span>{owner_area.name}</span>
