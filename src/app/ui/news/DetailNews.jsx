@@ -19,7 +19,7 @@ export default function DetailNews({ detailNews }) {
     title,
     description,
     image,
-    publication_date,
+    published_at,
     body,
     iframe,
     category_name,
@@ -33,7 +33,7 @@ export default function DetailNews({ detailNews }) {
         <span className="news-detail--category">{category_name}</span>
 
         <span>
-          {new Date(publication_date).toLocaleDateString("es-AR", {
+          {new Date(published_at).toLocaleDateString("es-AR", {
             year: "numeric",
             month: "long",
             day: "numeric",
