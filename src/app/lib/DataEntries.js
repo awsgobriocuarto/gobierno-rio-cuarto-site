@@ -55,7 +55,7 @@ export async function fetchEntries(type, area = "") {
   }
 }
 
-export async function getEntryBySlug(slug) {
+export async function getEntryBySlug(type, slug) {
   if (!slug) {
     console.error("getEntryBySlug requiere 'type' y 'slug'.");
     return null;

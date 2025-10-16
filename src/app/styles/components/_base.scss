@@ -7,6 +7,7 @@ body {
   //background-color: rgba(pink, 0.8);
   // Teniamos esto por alguna razon, no lo borro por las dudas
   // padding-bottom: 100px;
+  margin-bottom: 400px;
 
   .sr-only {
     position: absolute;
@@ -28,4 +29,10 @@ body {
 
 .button-card {
   background-color: orange;
+}
+
+@media (max-width:767px) {
+  body {
+    margin-bottom: 500px;
+  }
 }
