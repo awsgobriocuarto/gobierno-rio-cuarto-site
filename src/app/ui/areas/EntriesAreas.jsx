@@ -10,7 +10,7 @@ export default async function EntriesAreas({ type = "", area = "", title = "Titu
   }
 
   return (
-    <section className="area-section entries" data-read>
+    <section className="entries-list" data-read>
       <h3 className="mb-4">{title} ({entries.length})</h3>
       <div className="row">
         {entries.map((entry) => (

@@ -36,7 +36,12 @@ export default async function NewsDetailPage({ params }) {
             <DetailNews detailNews={detailNews} />
           </div>
           <div className="col-md-4">
-            <RelatedNews id={detailNews.id} title="Noticias Relacionadas" />
+            <RelatedNews
+              limit={6}
+              postId={detailNews.id}
+              area={detailNews.owner_area.id}
+              title="Noticias Relacionadas"
+            />
           </div>
         </div>
       </div>

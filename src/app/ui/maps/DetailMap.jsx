@@ -12,13 +12,11 @@ export default function DetailMap({ detailMap }) {
       <h1 className="map-detail--title news-detail--title">{title}</h1>
 
       {/* eslint-disable-next-line */}
-      {thumbnail && (
-        <img
-          src={thumbnail}
-          alt={title}
-          className="map-detail--image news-detail--image"
-        />
-      )}
+      <img
+        src={thumbnail ? thumbnail : '/images/no-image.jpg'}
+        alt={title}
+        className="map-detail--image news-detail--image"
+      />
 
       <ShareSocial />
 

@@ -5,7 +5,12 @@ export default function NewsAreas({ area }) {
   //console.log(area);
   return (
     <div>
-      <RelatedNews detailNews={area} text="Últimas Noticias" />
+      <RelatedNews
+        areaId={area.id}
+        page={1}
+        limit={6}
+        title="Últimas Noticias"
+      />
     </div>
   )
 }

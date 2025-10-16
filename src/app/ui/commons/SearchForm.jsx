@@ -12,10 +12,12 @@ export default function SearchForm({ onSearchComplete }) {
   const [searchTerm, setSearchTerm] = useState(currentQuery);
   const router = useRouter();
 
+
   useEffect(() => {
     if (searchTerm !== currentQuery) {
       setSearchTerm(currentQuery);
     }
+    // eslint-disable-next-line
   }, [currentQuery]);
 
   const handleSubmit = (e) => {

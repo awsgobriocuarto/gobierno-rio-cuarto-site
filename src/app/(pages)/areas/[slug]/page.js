@@ -6,6 +6,7 @@ import NewsAreas from "@/app/ui/areas/NewsAreas";
 import { fetchAreaBySlug } from "@/app/lib/DataAreas";
 import { createPageMetadata } from "@/app/lib/metadata";
 import EntriesAreas from "@/app/ui/areas/EntriesAreas";
+import RelatedNews from "@/app/ui/news/RelatedNews";
 // import ProgramsAreas from "@/app/ui/areas/ProgramsAreas";
 // import OtherAreas from "@/app/ui/areas/OtherAreas";
 
@@ -55,7 +56,12 @@ export default async function AreaDetailPage({ params }) {
           </div>
           <div className="col-md-4">
             <IntitutionalAreas area={area} />
-            <NewsAreas area={area} />
+            <RelatedNews
+              area={area.id}
+              limit={6}
+              title="Noticias Relacionadas"
+            />
+
           </div>
         </div>
       </div>

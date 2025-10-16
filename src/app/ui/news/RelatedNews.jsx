@@ -1,17 +1,20 @@
-import { fetchNews } from '@/app/lib/DataNews';
+import { fetchNews, fetchPosts } from '@/app/lib/DataNews';
 import Link from 'next/link';
 import React from 'react'
 
-export default async function RelatedNews({ id = "", page = 1, limit = 6, title = "Noticias Relacionadas" }) {
+export default async function RelatedNews({ postId = "", area = "", page = 1, limit = 6, title = "Noticias Relacionadas" }) {
 
-  const posts = await fetchNews({ page, limit });
-  const relatedPosts = posts.filter(post => post.id !== id);
+  const posts = await fetchPosts({ page, limit, area });
+
+  const relatedPosts = posts.filter(post => post.id !== postId);
+
+  //console.log(posts.length);
+
 
 
   return (
     <div className='news-related'>
       <h4 className='news-related--subtitle'>{title}</h4>
-
       {relatedPosts.map((post) => (
         <Link href={`/noticias/${post.slug}`} key={post.id}>
           <div className="card mb-3">
@@ -32,7 +35,7 @@ export default async function RelatedNews({ id = "", page = 1, limit = 6, title 
                     </small>
                   </p>
                   <p className="card-title">{post.title}</p>
-
+                  <p className='card-subtitle'><small>{post.owner_area.name}</small></p>
                 </div>
               </div>
             </div>
