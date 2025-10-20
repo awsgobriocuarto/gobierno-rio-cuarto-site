@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Slides from './Slides'
 import SearchForm from '../commons/SearchForm'
 
@@ -14,7 +14,9 @@ export default function Hero() {
           <div className="row justify-content-center">
             <div className="col-11 col-md-8">
               <h1 className='hero-title'>Bienvenido a Río Cuarto</h1>
-              <SearchForm />
+              <Suspense>
+                <SearchForm />
+              </Suspense>
             </div>
           </div>
         </div>

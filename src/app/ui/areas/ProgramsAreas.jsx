@@ -5,11 +5,11 @@ export default async function ProgramsAreas({ area }) {
 
   //console.log(area.slug);
 
-  const programs = await fetchEntries("program", area.id);
+  const programs = await fetchEntries("program", area?.id);
 
-  const filteredPrograms = programs.filter(program => program.area_id === area.id);
+  //const filteredPrograms = programs.filter(program => program.area_id === area.id);
 
-  console.log(programs.length);
+  //console.log(programs);
 
 
   if (!programs || programs.length == 0) {
@@ -22,7 +22,7 @@ export default async function ProgramsAreas({ area }) {
         Programas y Servicios ({programs.length})
       </h3>
 
-      <div className="row g-4">
+      <div className="row">
         {programs.map((program) => (
           <div className="col-md-6" key={program.id}>
             <CardProgram program={program} />

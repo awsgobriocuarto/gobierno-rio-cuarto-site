@@ -7,7 +7,6 @@ export default function CardOther({ other }) {
   return (
     <Link
       href={`/seccion/${other.slug}`}
-      className="text-decoration-none text-dark w-100"
     >
       <div className="card bg-primary other-card">
         <div className="card-body d-flex align-items-center">

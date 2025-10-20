@@ -1,12 +1,14 @@
 import Link from "next/link";
 import HeroAreas from "@/app/ui/areas/HeroAreas";
 import FormalitiesAreas from "@/app/ui/areas/FormalitiesAreas";
-import ProgramsAreas from "@/app/ui/areas/ProgramsAreas";
 import IntitutionalAreas from "@/app/ui/areas/IntitutionalAreas";
 import NewsAreas from "@/app/ui/areas/NewsAreas";
-import OtherAreas from "@/app/ui/areas/OtherAreas";
 import { fetchAreaBySlug } from "@/app/lib/DataAreas";
 import { createPageMetadata } from "@/app/lib/metadata";
+import EntriesAreas from "@/app/ui/areas/EntriesAreas";
+import RelatedNews from "@/app/ui/news/RelatedNews";
+// import ProgramsAreas from "@/app/ui/areas/ProgramsAreas";
+// import OtherAreas from "@/app/ui/areas/OtherAreas";
 
 
 export async function generateMetadata({ params }) {
@@ -25,7 +27,7 @@ export default async function AreaDetailPage({ params }) {
 
   const area = await fetchAreaBySlug(slug);
 
-  console.log(area.name);
+  //console.log(area.name);
 
 
   if (!area) {
@@ -47,12 +49,17 @@ export default async function AreaDetailPage({ params }) {
           <div className="col-md-8">
             <HeroAreas area={area} />
             <FormalitiesAreas area={area} />
-            <ProgramsAreas area={area} />
-            <OtherAreas area={area} />
+            <EntriesAreas type="program" area={area} title="Programas y Servicios" />
+            <EntriesAreas type="other" area={area} title="Otros Servicios" />
           </div>
           <div className="col-md-4">
             <IntitutionalAreas area={area} />
-            <NewsAreas area={area} />
+            {/* <RelatedNews
+              area={area.id}
+              limit={6}
+              title="Noticias Relacionadas"
+            /> */}
+
           </div>
         </div>
       </div>

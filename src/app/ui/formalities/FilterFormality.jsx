@@ -6,6 +6,12 @@ import Select from "./Select";
 export default async function FormalitiesFilters() {
   const categories = await fetchCategories();
   const areas = await fetchAreas();
+  areas.map((area) => {
+    if (area.order == -1) {
+      area.order = 9999;
+    }
+  });
+  areas.sort((a, b) => a.order - b.order);
   return (
     <div className="formalities-filters">
       <div className="row">

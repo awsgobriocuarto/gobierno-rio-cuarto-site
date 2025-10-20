@@ -19,9 +19,8 @@ const API_OPTIONS = {
 };
 
 export async function fetchSearch(query = "") {
-  //const res = await fetch(`${API_URL}/tramites?search=${query}`, API_OPTIONS);
   const res = await fetch(
-    `${API_URL}/search?search=${query}`,
+    `${API_URL}/search?search=${query}&perPage=8`,
     API_OPTIONS
   );
 

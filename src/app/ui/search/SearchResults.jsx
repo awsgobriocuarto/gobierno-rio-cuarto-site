@@ -1,14 +1,11 @@
+import SeachResultGroup from "./SeachResultGroup";
+
 export default async function SearchResults({ results, query }) {
   //console.log("results:", results);
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   const { entries, procedures, posts, areas, categories } = results;
 
-  // console.log("entries:", entries);
-  // console.log("procedures:", procedures);
-  // console.log("posts:", posts);
-  // console.log("results", results);
-  // console.log("query:", query);
 
   if (!results) {
     return (
@@ -20,63 +17,33 @@ export default async function SearchResults({ results, query }) {
 
   // Lógica para mostrar resultados de búsqueda
   return (
-    <div>
-      <h1>Resultados de búsqueda para:</h1>
-      <h2 className="text-primary fw-bold text-uppercase mt-3 display-4">
-        {query}
-      </h2>
-      <div className="row">
-        <div className="col-md-4">
-          <h5>Posts {posts.data.length}</h5>
-          {posts.data.length > 0 && (
-            <ul className="">
-              {posts.data.map((result) => (
-                <li key={result.id}>{result.title}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-        <div className="col-md-4">
-          <h5>Procedures {procedures.data.length}</h5>
-          {procedures.data.length > 0 && (
-            <ul className="">
-              {procedures.data.map((result) => (
-                <li key={result.id}>{result.title}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-        <div className="col-md-4">
-          <h5>Entries {entries.data.length}</h5>
-          {entries.data.length > 0 && (
-            <ul className="">
-              {entries.data.map((result) => (
-                <li key={result.id}>{result.title}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-        <div className="col-md-4">
-          <h5>Area {areas.data.length}</h5>
-          {areas.data.length > 0 && (
-            <ul className="">
-              {areas.data.map((result) => (
-                <li key={result.id}>{result.title}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-        <div className="col-md-4">
-          <h5>Category {categories.data.length}</h5>
-          {categories.data.length > 0 && (
-            <ul className="">
-              {categories.data.map((result) => (
-                <li key={result.id}>{result.title}</li>
-              ))}
-            </ul>
-          )}
-        </div>
+    <div className="search-content">
+      <div className="search-header">
+        <h4>Término de búsqueda: <span>{`"${query}"`}</span></h4>
+      </div>
+      <div className="search-results">
+
+        {/* Trámites */}
+        {procedures.data.length && procedures.data.length > 0 ? (
+          <SeachResultGroup url="/tramites/" title="Trámites" results={procedures.data} />
+        ) : ("")}
+
+        {/* Noticias */}
+        {posts.data.length && posts.data.length > 0 ? (
+          <SeachResultGroup url="/noticias/" title="Noticias" results={posts.data} />
+        ) : ("")}
+
+        {/* Categorias de Tramites */}
+        {categories.data.length && categories.data.length > 0 ? (
+          <SeachResultGroup url="/tramites?category=" title="Categorias de Tramites" results={categories.data} />
+        ) : ("")}
+
+        {/* Entry */}
+        {entries.data.length && entries.data.length > 0 ? (
+          <SeachResultGroup url="/seccion/" title="Programas y Servicios" results={entries.data} />
+        ) : ("")}
       </div>
     </div>
+
   );
 }

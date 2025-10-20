@@ -23,7 +23,11 @@ const inter = Inter({
   display: "swap",
 });
 
+const SITE_URL = 'https://riocuarto.gob.ar';
+
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
+
   openGraph: {
     title: 'Gobierno de Río Cuarto',
     description: 'Portal oficial del Gobierno de Río Cuarto. Encuentra noticias, trámites, programas y más.',
