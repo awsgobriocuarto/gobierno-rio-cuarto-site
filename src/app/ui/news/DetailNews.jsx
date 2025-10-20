@@ -19,26 +19,24 @@ export default function DetailNews({ detailNews }) {
     title,
     description,
     image,
-    publication_date,
+    published_at,
     body,
-    iframe,
-    category_name,
+    embedded,
     media,
+    owner_area
   } = detailNews;
 
   return (
     <article>
       <div className="news-detail--pretitle ">
         <ListIcons icons={LIST_OF_ICONS} />
-        <span className="news-detail--category">{category_name}</span>
-
         <span>
-          {new Date(publication_date).toLocaleDateString("es-AR", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
+          {new Date(published_at).toLocaleDateString()}
         </span>
+        {`>`}
+        <span>{owner_area.name}</span>
+
+
       </div>
       <h1 className="news-detail--title">{title}</h1>
       {/* eslint-disable-next-line */}
@@ -55,10 +53,10 @@ export default function DetailNews({ detailNews }) {
         dangerouslySetInnerHTML={{ __html: body }}
       />
 
-      {iframe && (
-        <div className="news-detail--iframe">
-          <h3 className="news-detail--subtitle">Video</h3>
-          <div dangerouslySetInnerHTML={{ __html: iframe }} />
+      {embedded && (
+        <div className="news-detail--embedded">
+          <h3 className="news-detail--subtitle">Multimedia</h3>
+          <div dangerouslySetInnerHTML={{ __html: embedded }} />
         </div>
       )}
 

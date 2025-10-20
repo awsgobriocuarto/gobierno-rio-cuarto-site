@@ -114,7 +114,13 @@
       color: $gray-800;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 4px;
+      font-size: 0.9rem;
+    }
+
+    &--area {
+      margin-bottom: 16px;
+      color: $primary;
     }
 
     &--category {
@@ -123,8 +129,6 @@
 
     &--title {
       margin-bottom: 30px;
-      font-size: 2.4rem;
-      line-height: 2.6rem;
     }
 
     &--subtitle {
@@ -141,6 +145,12 @@
       margin-bottom: 30px;
     }
 
+    @media (max-width: 767px) {
+      &--image {
+        height: 250px;
+      }
+    }
+
     &--description {
       font-size: 1.2rem;
       margin-bottom: 20px;
@@ -155,11 +165,12 @@
   }
 
   &-related {
+    // position: sticky;
+    // top: 160px;
+
     &--subtitle {
       margin-bottom: 20px;
-      //font-size: 1.2rem;
       line-height: 2rem;
-      //color: $primary;
     }
 
     //background-color: orange;
@@ -176,6 +187,10 @@
 
           &-title {
             color: white;
+          }
+
+          &-subtitle {
+            color: $gray-300;
           }
         }
       }
@@ -203,7 +218,14 @@
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
-        line-height: 1.5rem;
+        line-height: 1.4rem;
+        color: #000;
+      }
+
+      &-subtitle {
+        margin-bottom: 0px;
+        font-size: 1rem;
+        color: $primary;
       }
     }
   }
