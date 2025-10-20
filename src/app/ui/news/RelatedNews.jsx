@@ -4,18 +4,16 @@ import React from 'react'
 
 export default async function RelatedNews({ postId = "", area = "", page = 1, limit = 6, title = "Noticias Relacionadas" }) {
 
-  const posts = await fetchPosts({ page, limit, area });
+  const { data } = await fetchPosts({ page, limit, area });
 
-  const relatedPosts = posts.filter(post => post.id !== postId);
+  const posts = data.filter(post => post.id !== postId);
 
   //console.log(posts.length);
-
-
 
   return (
     <div className='news-related'>
       <h4 className='news-related--subtitle'>{title}</h4>
-      {relatedPosts.map((post) => (
+      {posts.map((post) => (
         <Link href={`/noticias/${post.slug}`} key={post.id}>
           <div className="card mb-3">
             <div className="row g-0">

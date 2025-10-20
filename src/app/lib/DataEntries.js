@@ -27,8 +27,6 @@ export async function fetchEntries(type, area = "") {
       queryParams.append("area", area);
     }
 
-    //console.log("query", queryParams);
-
     const url = `${API_URL}/entries?${queryParams.toString()}`;
 
     const res = await fetch(url, {
@@ -44,9 +42,6 @@ export async function fetchEntries(type, area = "") {
 
     const response = await res.json();
 
-    //console.log(response);
-
-
     return response?.data || [];
   } catch (error) {
     console.error(`Error al obtener entries de tipo '${type}':`, error);
@@ -55,7 +50,7 @@ export async function fetchEntries(type, area = "") {
   }
 }
 
-export async function getEntryBySlug(type, slug) {
+export async function getEntryBySlug(slug) {
   if (!slug) {
     console.error("getEntryBySlug requiere 'type' y 'slug'.");
     return null;
@@ -69,7 +64,7 @@ export async function getEntryBySlug(type, slug) {
       next: { revalidate: 0 },
     };
 
-    console.log("Fetching SLUG URL (CORREGIDO):", url);
+    //console.log("Fetching SLUG URL (CORREGIDO):", url);
 
     const res = await fetch(url, options);
 

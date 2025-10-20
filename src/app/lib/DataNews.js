@@ -27,15 +27,13 @@ export async function fetchNews({ page = 1, limit = 9, area = "" } = {}) {
 
 export async function fetchPosts({ page = 1, limit = 9, area = "" } = {}) {
 
-  console.log(area);
-
   const res = await fetch(`${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&sort_by=published_at&sort_order=desc&status=published`, API_OPTIONS);
 
   if (!res.ok) {
     throw new Error("Failed to fetch areas data");
   }
   const data = await res.json();
-  return data.data;
+  return data;
 }
 
 export async function getNewsBySlug(slug) {

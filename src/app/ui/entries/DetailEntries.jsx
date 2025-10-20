@@ -1,6 +1,7 @@
 import ImageGallery from "../commons/ImageGallery";
 import ShareSocial from "../commons/ShareSocial";
 import ListIcons from "../icons/ListIcons";
+import LinkToBack from "../LinkToBack";
 
 const LIST_OF_ICONS = [
   {
@@ -48,7 +49,7 @@ export default function DetailEntries({ detailEntry }) {
           <div className="entries-detail--content">
             <div className="entries-detail--pretitle">
               <ListIcons icons={LIST_OF_ICONS} />
-              <span className="entries-detail--area">{area.name} | {type}</span>
+              <span className="entries-detail--area">{area.name}</span>
             </div>
             <h1 className="entries-detail--title">{title}</h1>
             <p className="entries-detail--subtitle">{summary}</p>
@@ -56,21 +57,10 @@ export default function DetailEntries({ detailEntry }) {
               className="news-detail--body"
               dangerouslySetInnerHTML={{ __html: body }}
             />
+            <LinkToBack variant="btn-outline-dark" />
           </div>
         </div>
       </div>
-
-      {/* <ul>
-        <li>{id}</li>
-        <li>{status}</li>
-        <li>{type}</li>
-        <li>{pretitle}</li>
-        <li>{title}</li>
-        <li>{thumbnail}</li>
-        <li>{summary}</li>
-        <li>{body}</li>
-        <li>{area.id}</li>
-      </ul> */}
     </article>
   );
 }

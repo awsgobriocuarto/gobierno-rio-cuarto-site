@@ -51,16 +51,14 @@ export default async function AreaDetailPage({ params }) {
             <FormalitiesAreas area={area} />
             <EntriesAreas type="program" area={area} title="Programas y Servicios" />
             <EntriesAreas type="other" area={area} title="Otros Servicios" />
-            {/* <ProgramsAreas area={area} />
-            <OtherAreas area={area} /> */}
           </div>
           <div className="col-md-4">
             <IntitutionalAreas area={area} />
-            <RelatedNews
+            {/* <RelatedNews
               area={area.id}
               limit={6}
               title="Noticias Relacionadas"
-            />
+            /> */}
 
           </div>
         </div>

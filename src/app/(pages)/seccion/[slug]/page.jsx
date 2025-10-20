@@ -3,9 +3,15 @@ import { createPageMetadata } from '@/app/lib/metadata';
 import { getEntryBySlug } from "@/app/lib/DataEntries";
 import DetailEntries from "@/app/ui/entries/DetailEntries";
 import EntriesAreas from "@/app/ui/areas/EntriesAreas";
+import NotFound from "@/app/ui/commons/NotFound";
 
 export async function generateMetadata({ params }) {
-  const entry = await getEntryBySlug(params.slug);
+
+  const { slug } = params
+
+  const entry = await getEntryBySlug(slug);
+
+
   if (!entry) {
     return { title: 'Entrada no encontrada' };
   }
@@ -22,10 +28,10 @@ export default async function SeccionDetail({ params }) {
   const detailEntry = await getEntryBySlug(slug);
 
   if (!detailEntry) {
-    return <p>Entrada no encontrada</p>
+    return <NotFound />
   }
 
-  console.log(detailEntry);
+  //console.log(detailEntry);
 
 
   return (

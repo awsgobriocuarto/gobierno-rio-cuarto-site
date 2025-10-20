@@ -26,9 +26,6 @@ export default function DetailNews({ detailNews }) {
     owner_area
   } = detailNews;
 
-  console.log(detailNews);
-
-
   return (
     <article>
       <div className="news-detail--pretitle ">

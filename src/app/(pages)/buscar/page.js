@@ -9,14 +9,8 @@ export const metadata = {
   description: 'Buscador de contenidos del Gobierno de Río Cuarto',
 };
 
-
-async function AsyncSearchResults({ query }) {
-  if (!query) return null;
-  const results = await fetchSearch(query);
-  return <SearchResults results={results} query={query} />;
-}
-
 export default async function BuscarPage({ searchParams }) {
+
   const searchQuery = (await searchParams.q) || "";
 
   return (
@@ -48,4 +42,10 @@ export default async function BuscarPage({ searchParams }) {
       </div>
     </main>
   );
+}
+
+async function AsyncSearchResults({ query }) {
+  if (!query) return null;
+  const results = await fetchSearch(query);
+  return <SearchResults results={results} query={query} />;
 }
