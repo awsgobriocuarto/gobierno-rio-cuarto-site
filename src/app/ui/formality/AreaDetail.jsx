@@ -55,14 +55,20 @@ export default function AreaDetail({ area, formality }) {
           )}
         </div> */}
         <div className="card-body">
-          <h5 className="text-primary">{area.name}</h5>
-          {area.contact.map(item => (
-            <p key={item.value} className="mb-0">{item.value}</p>
+          <h5>{area.name}</h5>
+          {area.contact.map((item) => (
+            <p key={item.value} className="mb-0">
+              {item.value}
+            </p>
           ))}
           <hr />
-          <div><b>{area.parent.name}</b></div>
-          {area.parent.contact.map(item => (
-            <p key={item.value} className="mb-0">{item.value}</p>
+          <div>
+            <b>{area.parent.name}</b>
+          </div>
+          {area.parent.contact.map((item) => (
+            <p key={item.value} className="mb-0">
+              {item.value}
+            </p>
           ))}
         </div>
       </div>

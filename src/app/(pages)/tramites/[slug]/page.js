@@ -1,5 +1,8 @@
 import { fetchAreaBySlug } from "@/app/lib/DataAreas";
-import { fetchFormalities, fetchFormalitiesBySlug } from "@/app/lib/DataFormalities";
+import {
+  fetchFormalities,
+  fetchFormalitiesBySlug,
+} from "@/app/lib/DataFormalities";
 import AreaDetail from "@/app/ui/formality/AreaDetail";
 import FormalityInfo from "@/app/ui/formality/FormalityInfo";
 import FormalityMedia from "@/app/ui/formality/FormalityMedia";
@@ -28,7 +31,6 @@ export async function generateMetadata({ params }) {
   };
 }
 
-
 export default async function Formality({ params }) {
   const slug = params.slug;
   const formality = await fetchFormalitiesBySlug(slug);
@@ -45,23 +47,24 @@ export default async function Formality({ params }) {
       <div className="container">
         <div className="row justify-content-between">
           <div className="col-md-8">
-
             <div className="formalities-detail--header">
-
               <div className="formalities-detail--categories">
-                {formality.categories.map(category => (
-                  <span key={category.id} ><i className={`fa-solid fa-fw ${category.image}`}></i>{category.name}</span>
+                {formality.categories.map((category) => (
+                  <span key={category.id}>
+                    <i className={`fa-solid fa-fw ${category.image}`}></i>
+                    {category.name}
+                  </span>
                 ))}
               </div>
 
-              <h3 className="formalities-detail--title">{formality.title}</h3>
+              <h3 className="title">{formality.title}</h3>
               <p
                 className="formalities-detail--subtitle"
                 dangerouslySetInnerHTML={{ __html: formality.summary }}
               ></p>
               {formality.online == 1 ? (
                 <>
-                  <p className="text-primary mt-4 mb-3">
+                  <p className="formalities-detail--subtitle mt-4 mb-3">
                     Este trámite se puede realizar de manera online
                   </p>
                   <div className="d-flex justify-content-between">
@@ -79,8 +82,6 @@ export default async function Formality({ params }) {
                 <LinkToBack variant="btn-link p-0" />
               )}
             </div>
-
-
 
             {/* procedure */}
             {formality.procedure ? (
