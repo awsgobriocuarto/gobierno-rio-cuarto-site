@@ -3,12 +3,12 @@
 .floatingButton {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  left: 20px;
   z-index: 1000;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: var(--bs-primary);
+  background-color: var(--bs-info);
   color: white;
   border: none;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -26,34 +26,40 @@
 .accessibilityMenu {
   position: fixed;
   bottom: 90px;
-  right: 20px;
+  left: 20px;
   z-index: 999;
   max-width: 400px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 15px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
 }
 
 .menuHeader {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
+  background-color: var(--bs-info);
+  color: white;
   margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 8px 8px 0 0;
+
+  h5 {
+    margin-bottom: 0;
+  }
 }
 
 .menuOptions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 4px;
 }
 
 .optionButton {
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: #f0f0f0;
+  background-color: white;
   border: none;
   border-radius: 4px;
   padding: 10px;
@@ -61,12 +67,11 @@
 }
 
 .optionButton:hover {
-  background-color: #e0e0e0;
+  background-color: rgba($info, 0.14);
 }
 
 .accessibilityFloatingMenu {
   position: absolute;
-  background-color: red;
   bottom: 0;
   right: 0;
 }
