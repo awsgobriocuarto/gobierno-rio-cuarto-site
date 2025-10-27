@@ -6,7 +6,6 @@ import Script from "next/script";
 import { AccessibilityProvider } from "./providers/AccessibilityProvider";
 import AccessibilityFloatingMenu from "./ui/accessibility/AccessibilityFloatingMenu";
 import Chat from "./ui/chat/Chat";
-import { Chatn8n } from "./ui/chat/Chatn8n";
 
 // thin:        100
 // extra light: 200
@@ -54,8 +53,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
           <AccessibilityFloatingMenu />
-          {/* <Chat /> */}
-          <Chatn8n />
+          <Chat />
         </AccessibilityProvider>
       </body>
     </html>

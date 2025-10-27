@@ -6,7 +6,7 @@ import {
 import AreaDetail from "@/app/ui/formality/AreaDetail";
 import FormalityInfo from "@/app/ui/formality/FormalityInfo";
 import FormalityMedia from "@/app/ui/formality/FormalityMedia";
-import Banners from "@/app/ui/home/Banners";
+import Banners from "@/app/ui/commons/Banners";
 import LinkToBack from "@/app/ui/LinkToBack";
 
 // export async function generateStaticParams() {
