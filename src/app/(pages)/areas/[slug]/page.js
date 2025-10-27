@@ -54,12 +54,11 @@ export default async function AreaDetailPage({ params }) {
           </div>
           <div className="col-md-4">
             <IntitutionalAreas area={area} />
-            {/* <RelatedNews
+            <RelatedNews
               area={area.id}
               limit={6}
               title="Noticias Relacionadas"
-            /> */}
-
+            />
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import DetailMap from "@/app/ui/maps/DetailMap";
 export default async function MapDetailPage({ params }) {
   const { slug } = params;
 
-  const detailMap = await getEntryBySlug("map", slug);
+  const detailMap = await getEntryBySlug(slug);
 
   if (!detailMap) {
     return (

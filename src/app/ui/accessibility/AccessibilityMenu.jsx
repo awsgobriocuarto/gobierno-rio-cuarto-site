@@ -16,12 +16,20 @@ export default function AccessibilityMenu({ menuOpen }) {
   } = useAccessibility();
 
 
-  if (!menuOpen) {
-    return null;
-  }
+  // if (!menuOpen) {
+  //   return null;
+  // }
 
   return (
-    <div className="accessibilityMenu">
+    <div
+      className="accessibilityMenu"
+      style={{
+        transition: 'all 0.3s ease-in-out',
+        opacity: menuOpen ? 1 : 0,
+        transform: menuOpen ? 'translateY(0)' : 'translateY(1rem)',
+        pointerEvents: menuOpen ? 'auto' : 'none',
+      }}
+    >
       <div className="menuHeader">
         <h5>Accesibilidad</h5>
       </div>

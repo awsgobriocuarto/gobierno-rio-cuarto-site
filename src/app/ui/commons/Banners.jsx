@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Banners({
   variant = "",
   title = "banner title",
@@ -26,8 +24,6 @@ export default function Banners({
             </div>
           )}
         </div>
-
-
       </div>
     </div>
   );

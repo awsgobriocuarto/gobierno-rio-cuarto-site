@@ -1,5 +1,76 @@
-.banner {
+.banners {
+  padding-top: 60px;
+  padding-bottom: 20px;
+
+  $card-height: 110px;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    .card {
+      border-color: rgba($gray-900, 0.5);
+
+    }
+  }
+
   .card {
-    //background-color: orange;
+    //border-radius: $border-radius;
+    border-color: rgba($gray-900, 0.2);
+
+    &-img {
+      width: 100%;
+      min-height: $card-height;
+      border-radius: $border-radius 0 0 $border-radius;
+
+
+      img {
+        width: 100%;
+        height: $card-height;
+        object-fit: cover;
+        border-radius: $border-radius 0 0 $border-radius;
+        ;
+      }
+    }
+
+    &-icon {
+      background-color: $gray-200;
+      width: 100%;
+      min-height: $card-height;
+      border-radius: $border-radius 0 0 $border-radius;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 1.4rem;
+
+      // svg {
+      //   //width: 50%;
+      //   height: 50%;
+      //   //color: white;
+      // }
+    }
+
+    &-body {
+      //background-color: $gray-100;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      min-height: $card-height;
+      //border-radius: 0 $border-radius $border-radius 0;
+    }
+
+    &-title {
+      margin-bottom: 0;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    &-text {
+      margin-bottom: 0;
+    }
   }
 }
