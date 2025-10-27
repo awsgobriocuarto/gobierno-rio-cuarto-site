@@ -1,11 +1,8 @@
-// En tu archivo SCSS (ej. _footer.scss)
-
 .footer-app {
-  // 🛑 Fondo Negro (Similar al nav que es dark)
   background-color: #000000;
   color: #ffffff;
-  width: 100%; // Asegura que ocupe todo el ancho
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); // Sutil sombra si el nav la tiene
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
   margin-top: 60px;
   position: absolute;
   bottom: 0;
@@ -14,7 +11,7 @@
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: $white; // Blanco para que contraste bien con el fondo
+    color: $white;
     text-transform: uppercase;
   }
 
@@ -29,11 +26,10 @@
     text-decoration: none;
 
     &:hover {
-      color: $primary; // Usa tu color primario al pasar el ratón para un toque de color
+      color: $primary;
     }
   }
 
-  // Estilos de iconos sociales
   .social-icons {
     .social-link {
       color: #ffffff;
@@ -42,14 +38,13 @@
 
       &:hover {
         opacity: 1;
-        color: $primary; // Resalta al hacer hover
+        color: $primary;
       }
     }
   }
 
-  // Estilo del texto de copyright
   .footer-copyright-row {
-    border-top: 1px solid rgba(255, 255, 255, 0.1); // Línea divisoria sutil
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin-top: 1rem !important;
     padding-top: 1rem !important;
   }
