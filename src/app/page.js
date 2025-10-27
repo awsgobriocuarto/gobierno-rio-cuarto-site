@@ -5,11 +5,13 @@ import Hero from "./ui/home/Hero";
 import HeaderSection from "./ui/layout/HeaderSection";
 import ListFormalityCategories from "./ui/home/ListCategories";
 import Link from "next/link";
+import BannerList from "./ui/home/BannerList";
 
 export default function Home() {
   return (
     <main>
       <Hero />
+      <BannerList />
       <ListFormalityCategories />
       <ListAreas />
       <div className="container mb-4">
