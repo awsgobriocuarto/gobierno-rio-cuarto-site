@@ -15,7 +15,7 @@ export default async function MapDetailPage({ params }) {
 
   return (
     <main className="map map-detail" data-read>
-      <div className="container py-5">
+      <div className="container py-2">
         <DetailMap detailMap={detailMap} />
       </div>
     </main>
