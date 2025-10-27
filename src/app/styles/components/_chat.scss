@@ -45,4 +45,23 @@
     padding: 12px;
     border-radius: 8px 8px 0 0;
   }
+
+  &-message {
+    &--user {
+      background-color: rgba($primary, 0.14);
+    }
+
+    &--agent {
+      background-color: rgba($info, 0.14);
+    }
+  }
+
+  &-input {
+    display: flex;
+
+    .btn {
+      margin-left: 8px;
+      color: white;
+    }
+  }
 }
