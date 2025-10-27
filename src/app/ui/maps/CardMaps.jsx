@@ -10,7 +10,7 @@ export default function CardMaps({ map }) {
           <Link href={mapUrl} className="">
             {/* eslint-disable-next-line */}
             <img
-              src={map.thumbnail}
+              src={map.thumbnail ? map.thumbnail : "/images/no-image.jpg"}
               alt={map.title}
               className="card-img-top"
               style={{ objectFit: "cover" }}
