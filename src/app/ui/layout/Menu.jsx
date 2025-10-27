@@ -58,16 +58,22 @@ export default function Menu() {
               <Link href="/tramites" className="sr-only">
                 Menu Principal
               </Link>
+              <Link href="/noticias" className={`nav-link ${pathname === "/noticias" ? "active" : ""}`} onClick={handleLinkClick}>
+                Noticias
+              </Link>
               <Link href="/tramites" className={`nav-link ${pathname === "/tramites" ? "active" : ""}`} onClick={handleLinkClick}>
                 Trámites
               </Link>
               <Link href="/areas" className={`nav-link ${pathname === "/areas" ? "active" : ""}`} onClick={handleLinkClick}>
                 Áreas
               </Link>
-              <Link href="/noticias" className={`nav-link ${pathname === "/noticias" ? "active" : ""}`} onClick={handleLinkClick}>
-                Noticias
+              <Link href="/mapas" className={`nav-link ${pathname === "/mapas" ? "active" : ""}`} onClick={handleLinkClick}>
+                Mapas
               </Link>
-              <NavDropdown
+              {/* <Link href="/noticias" className={`nav-link ${pathname === "/noticias" ? "active" : ""}`} onClick={handleLinkClick}>
+                Pagos y Deudas
+              </Link> */}
+              {/* <NavDropdown
                 title="Recursos"
                 show={dropdownOpen}
                 onToggle={() => setDropdownOpen(!dropdownOpen)}
@@ -80,8 +86,8 @@ export default function Menu() {
                   Test
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/design">Design</NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link
+              </NavDropdown> */}
+              {/* <Nav.Link
                 href="https://facebook.com"
                 target="_blank"
               >
@@ -96,7 +102,7 @@ export default function Menu() {
               <Nav.Link href="https://youtube.com" target="_blank" className="">
                 <i className={`fa-brands fa-fw fa-youtube`}></i> <span className="d-lg-none">Youtube</span>
                 <span className="sr-only">Youtube</span>
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link onClick={handleSearchModalShow}>
                 <i className="fa fa-fw fa-search"></i> <span className="d-lg-none">Buscar</span>
                 <span className="sr-only">Buscar</span>
