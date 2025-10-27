@@ -6,6 +6,8 @@ import Script from "next/script";
 import { AccessibilityProvider } from "./providers/AccessibilityProvider";
 import AccessibilityFloatingMenu from "./ui/accessibility/AccessibilityFloatingMenu";
 import Chat from "./ui/chat/Chat";
+import { GoogleTagManager } from '@next/third-parties/google'
+
 
 // thin:        100
 // extra light: 200
@@ -45,8 +47,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es"  >
+      <GoogleTagManager gtmId="GTM-KQZVWRDD" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" />
-
       <body className={`${inter.variable}`}>
         <AccessibilityProvider>
           <Header />
