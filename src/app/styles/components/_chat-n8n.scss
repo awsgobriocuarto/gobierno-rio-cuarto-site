@@ -1,0 +1,166 @@
+@import "../custom";
+
+:root {
+  --chat--color--primary: #ff3cb2;
+  --chat--color--primary-shade-50: #ff3cb2;
+  --chat--color--primary--shade-100: #ff3cb2;
+  --chat--color--secondary: #009de0;
+  --chat--color-secondary-shade-50: #009de0;
+  --chat--color-white: #ffffff;
+  --chat--color-light: #f2f4f8;
+  --chat--color-light-shade-50: #e6e9f1;
+  --chat--color-light-shade-100: #c2c5cc;
+  --chat--color-medium: #d2d4d9;
+  --chat--color-dark: #101330;
+  --chat--color-disabled: #777980;
+  --chat--color-typing: #404040;
+
+  --chat--spacing: 1rem;
+  --chat--border-radius: 0.8rem;
+  --chat--transition-duration: 0.15s;
+
+  --chat--window--width: 400px;
+  --chat--window--height: 600px;
+
+  --chat--header-height: auto;
+  --chat--header--padding: var(--chat--spacing);
+  --chat--header--background: var(--chat--color--primary);
+  --chat--header--color: var(--chat--color-light);
+  --chat--header--border-top: none;
+  --chat--header--border-bottom: none;
+  --chat--header--border-bottom: none;
+  --chat--header--border-bottom: none;
+  --chat--heading--font-size: 1.4em;
+  --chat--header--color: var(--chat--color-light);
+  --chat--subtitle--font-size: inherit;
+  --chat--subtitle--line-height: 1.4;
+
+  --chat--textarea--height: 50px;
+
+  --chat--message--font-size: 1rem;
+  --chat--message--padding: var(--chat--spacing);
+  --chat--message--border-radius: var(--chat--border-radius);
+  --chat--message-line-height: 1.8;
+  --chat--message--bot--background: var(--chat--color-white);
+  --chat--message--bot--color: var(--chat--color-dark);
+  --chat--message--bot--border: none;
+  --chat--message--user--background: var(--chat--color--secondary);
+  --chat--message--user--color: var(--chat--color-white);
+  --chat--message--user--border: none;
+  --chat--message--pre--background: rgba(0, 0, 0, 0.05);
+
+  --chat--toggle--background: var(--chat--color--primary);
+  --chat--toggle--hover--background: var(--chat--color--primary-shade-50);
+  --chat--toggle--active--background: var(--chat--color--primary--shade-100);
+  --chat--toggle--color: var(--chat--color-white);
+  --chat--toggle--size: 64px;
+}
+
+.chat-window-wrapper {}
+
+.chat-window {
+
+  background-color: #f7f8fa;
+  padding: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+
+  .chat {
+    border: 2px solid red;
+
+    &-header {
+      margin-bottom: 0;
+      gap: 0rem;
+
+      h1 {
+        margin-bottom: 0;
+        padding: 0;
+      }
+
+      p {
+        margin-bottom: 0;
+        padding: 0;
+        font-size: 1rem;
+      }
+
+    }
+
+    &-heading {
+      margin-bottom: 0;
+      padding: 0px;
+    }
+
+    &-body {
+
+      .chat-messages-list {
+        // display: flex;
+        // flex-direction: column;
+        // margin-bottom: 8px;
+      }
+
+      .chat-message {
+
+        // padding: 8px;
+        // margin-bottom: 8px;
+        p {
+          line-height: 1.5rem;
+        }
+
+        &-from-user {
+          // background-color: rgba($primary, 0.14);
+          max-width: 80%;
+          // align-self: end;
+        }
+
+        &-from-bot {
+          // background-color: rgba($info, 0.14);
+          max-width: 80%;
+          // align-self: start;
+        }
+      }
+    }
+
+    &-footer {
+      // position: absolute;
+      // bottom: 0;
+      // width: 100%;
+      // padding: 10px;
+
+      .chat-inputs {
+        // background-color: blue;
+        // display: flex;
+        // align-items: center;
+
+        .chat-input {
+          // background-color: pink;
+        }
+
+        &-controls {
+          min-width: 50px;
+        }
+
+        .chat-input-send-button {
+          // background-color: green;
+        }
+      }
+    }
+  }
+
+  &-toggle {
+    // position: fixed;
+    // bottom: 20px;
+    // right: 20px;
+    // z-index: 1000;
+    // width: 60px;
+    // height: 60px;
+    // border-radius: 50%;
+    // background-color: var(--bs-info);
+    // color: white;
+    // border: none;
+    // box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    // cursor: pointer;
+    // transition: transform 0.3s ease;
+    // font-size: 24px;
+  }
+
+}

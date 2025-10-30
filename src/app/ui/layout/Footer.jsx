@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import LogoutButton from "../auth/LogoutButton";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -64,7 +65,7 @@ export default function Footer() {
 
           <div className="col-lg-4 col-md-12">
             <h5 className="footer-title">Seguinos en redes</h5>
-            <div className="social-icons">
+            <div className="social-icons mb-3">
               <a
                 href="https://facebook.com"
                 target="_blank"
@@ -93,6 +94,7 @@ export default function Footer() {
                 <span className="sr-only">Youtube</span>
               </a>
             </div>
+            <LogoutButton />
           </div>
         </div>
 

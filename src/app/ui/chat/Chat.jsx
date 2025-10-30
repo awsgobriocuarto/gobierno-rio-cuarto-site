@@ -53,22 +53,32 @@ export default function Chat() {
     setInput("");
     setIsLoading(true);
 
+    //console.log(input, messages, userId);
+
+
     try {
-      const response = await fetch("https://n8n.rechanfles.com.ar/webhook/8c7b8835-de44-4d68-bc77-9671d751c5ec", {
+      const response = await fetch("https://n8n.rechanfles.com.ar/webhook/chatweb", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           question: input,
-          chat_history: messages,
+          // chat_history: messages,
           userId: userId,
         }),
       });
 
       if (!response.ok) throw new Error("Network response was not ok");
 
+
+
+
       const data = await response.json();
-      const botMessage = { text: data.answer, sender: "bot" };
+
+      //console.log(data[0].output);
+
+      const botMessage = { text: data[0].output, sender: "bot" };
       setMessages((prev) => [...prev, botMessage]);
+
     } catch (error) {
       console.error("Error fetching AI response:", error);
       const errorMessage = {
