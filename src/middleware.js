@@ -1,5 +1,7 @@
 // src/middleware.js
 
+'use-server'
+
 import { NextResponse } from 'next/server';
 
 // 🚨 Define tu código de acceso secreto. ¡CÁMBIALO!

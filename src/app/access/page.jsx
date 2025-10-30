@@ -18,6 +18,8 @@ export default function AccessPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("click");
+
     setError('');
 
     if (inputCode === SECRET_CODE) {
@@ -26,7 +28,7 @@ export default function AccessPage() {
         maxAge: 60 * 60 * 24, // Validez de 24 horas
         path: '/',
       });
-
+      //alert("login");
       // Redirige al home.
       router.push('/');
     } else {
@@ -38,9 +40,10 @@ export default function AccessPage() {
     <section className="mt-5 pt-5">
       <div className="container">
         <div className="row justify-content-center text-center">
-          <div className="col-md-4">
-            <h2>🔐 Acceso Restringido</h2>
-            <p>Ingresa el código temporal para acceder al sitio.</p>
+          <div className="col-lg-6">
+            <h2>🚧 ¡Estamos trabajando!</h2>
+            <p className='lead'>¡Hola! Estamos construyendo la nueva web del municipio para vos. Muy pronto estará lista.</p>
+            <p>Ingresá el código de acceso para previsualizar.</p>
 
             <form onSubmit={handleSubmit}>
               <div class="input-group mb-3">
@@ -56,7 +59,6 @@ export default function AccessPage() {
                 <button class="btn btn-primary text-white" type="button" id="button-addon2">Ingresar</button>
               </div>
             </form>
-
             {error && <p className='text-danger mt-3'>{error}</p>}
           </div>
         </div>
