@@ -41,8 +41,9 @@ export default function AccessPage() {
       <div className="container">
         <div className="row justify-content-center text-center">
           <div className="col-lg-6">
-            <h2>🔐 Acceso Restringido</h2>
-            <p>Ingresa el código temporal para acceder al sitio.</p>
+            <h2>🚧 ¡Estamos trabajando!</h2>
+            <p className='lead'>¡Hola! Estamos construyendo la nueva web del municipio para vos. Muy pronto estará lista.</p>
+            <p>Ingresá el código de acceso para previsualizar.</p>
 
             <form onSubmit={handleSubmit}>
               <div class="input-group mb-3">
@@ -58,7 +59,6 @@ export default function AccessPage() {
                 <button class="btn btn-primary text-white" type="button" id="button-addon2">Ingresar</button>
               </div>
             </form>
-
             {error && <p className='text-danger mt-3'>{error}</p>}
           </div>
         </div>
