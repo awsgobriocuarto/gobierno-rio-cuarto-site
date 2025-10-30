@@ -17,7 +17,7 @@ export default function LogoutButton() {
 
     // 2. Redirige al usuario a la página de acceso (o a donde desees).
     // El middleware lo forzará a ir a /access, pero es mejor ser explícito.
-    router.refresh();
+    router.push('/access');
   };
 
   return (

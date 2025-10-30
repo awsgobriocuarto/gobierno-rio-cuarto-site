@@ -18,6 +18,8 @@ export default function AccessPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("click");
+
     setError('');
 
     if (inputCode === SECRET_CODE) {
@@ -26,7 +28,7 @@ export default function AccessPage() {
         maxAge: 60 * 60 * 24, // Validez de 24 horas
         path: '/',
       });
-
+      //alert("login");
       // Redirige al home.
       router.push('/');
     } else {
@@ -38,7 +40,7 @@ export default function AccessPage() {
     <section className="mt-5 pt-5">
       <div className="container">
         <div className="row justify-content-center text-center">
-          <div className="col-md-4">
+          <div className="col-lg-6">
             <h2>🔐 Acceso Restringido</h2>
             <p>Ingresa el código temporal para acceder al sitio.</p>
 
