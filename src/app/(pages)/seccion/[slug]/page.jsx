@@ -41,7 +41,6 @@ export default async function SeccionDetail({ params }) {
         <div className="row">
           <div className="col-md-8">
             <DetailEntries detailEntry={detailEntry} />
-            <hr className="py-4" />
             <EntriesAreas type="program" area={detailEntry.area} title="Programas y Servicios" />
             <EntriesAreas type="other" area={detailEntry.area} title="Otros Servicios" />
           </div>

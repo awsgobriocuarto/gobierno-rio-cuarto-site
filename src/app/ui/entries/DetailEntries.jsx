@@ -25,7 +25,8 @@ export default function DetailEntries({ detailEntry }) {
     summary,
     body,
     status,
-    area
+    area,
+    links
   } = detailEntry;
 
   if (status != 1) {
@@ -54,10 +55,27 @@ export default function DetailEntries({ detailEntry }) {
             <h1 className="entries-detail--title">{title}</h1>
             <p className="entries-detail--subtitle">{summary}</p>
             <div
-              className="news-detail--body"
+              className="entries-detail--body"
               dangerouslySetInnerHTML={{ __html: body }}
             />
-            <LinkToBack variant="btn-outline-dark" />
+            <div className="row entries-detail--links">
+              {links.map((link, index) => (
+                <div key={index} className="col-md-6">
+                  <p>{link.title}</p>
+                  <a
+                    href={link.link}
+                    target={link.target}
+                    rel="noopener noreferrer"
+                    className="btn btn-info btn-lg text-white"
+                  >
+                    <span dangerouslySetInnerHTML={{ __html: link.name }} />
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            {/* <hr /> */}
+            {/* <LinkToBack variant="btn-outline-dark" /> */}
           </div>
         </div>
       </div>

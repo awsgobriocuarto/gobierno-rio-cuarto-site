@@ -1,8 +1,6 @@
 $card-height: 110px;
 
 .entries {
-  //background-color: rgba(orange, 0.2);
-  //padding: 20px;
   padding-top: 60px;
   padding-bottom: 60px;
 
@@ -86,6 +84,9 @@ $card-height: 110px;
   &-detail {
 
     position: relative;
+    margin-bottom: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #ccc;
 
     &--img {
       min-height: 100px;
@@ -113,7 +114,7 @@ $card-height: 110px;
 
     &--title {
       margin-bottom: 20px;
-      font-size: 2.4rem;
+      font-size: 2rem;
       line-height: 2.6rem;
     }
 
@@ -121,6 +122,22 @@ $card-height: 110px;
       margin-bottom: 30px;
       font-size: 1.2rem;
       line-height: 1.6rem;
+    }
+
+    &--body {
+      margin-bottom: 50px;
+    }
+
+    &--links {
+
+      p {
+        margin-bottom: 8px;
+      }
+
+      .btn {
+        margin-bottom: 30px;
+      }
+
     }
 
   }
