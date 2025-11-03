@@ -1,13 +1,9 @@
-// src/app/access/page.js
-
-'use client'; // 👈 Necesario ya que usa useState y useRouter
+'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { setCookie } from 'cookies-next';
 
-// **Mejora:** Para evitar duplicación, podrías leer el código desde una variable 
-// de entorno expuesta públicamente (NEXT_PUBLIC_SITE_ACCESS_CODE) o usar una API Route.
 const SECRET_CODE = 'web2025';
 const ACCESS_TOKEN_NAME = 'site_access_token';
 
@@ -18,7 +14,8 @@ export default function AccessPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("click");
+    console.log('click');
+
 
     setError('');
 
@@ -28,8 +25,6 @@ export default function AccessPage() {
         maxAge: 60 * 60 * 24, // Validez de 24 horas
         path: '/',
       });
-      //alert("login");
-      // Redirige al home.
       router.push('/');
     } else {
       setError('Código incorrecto. Acceso denegado.');
@@ -53,13 +48,13 @@ export default function AccessPage() {
                   onChange={(e) => setInputCode(e.target.value)}
                   placeholder="Código de Acceso"
                   className='form-control'
-                  aria-describedby="button-addon2"
+                  aria-describedby="password"
                   required
                 />
-                <button class="btn btn-primary text-white" type="button" id="button-addon2">Ingresar</button>
+                <button class="btn btn-primary text-white" type="submit" id="password">Ingresar</button>
               </div>
             </form>
-            {error && <p className='text-danger mt-3'>{error}</p>}
+            {error && <p className='text-danger mt-3'>error: {error}</p>}
           </div>
         </div>
       </div>
