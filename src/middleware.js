@@ -1,4 +1,4 @@
-// src/middleware.js
+'use serve'
 
 'use-server'
 

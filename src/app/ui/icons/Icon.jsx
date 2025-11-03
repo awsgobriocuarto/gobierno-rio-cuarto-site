@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 export default function Icon({ icon }) {
@@ -7,7 +6,8 @@ export default function Icon({ icon }) {
   const size = icon.size ? icon.size : "50";
   return (
     <>
-      <Image
+      {/* eslint-disable-next-line */}
+      <img
         src={`/images/icons/${name}-${color}.webp`}
         width={size}
         height={size}
