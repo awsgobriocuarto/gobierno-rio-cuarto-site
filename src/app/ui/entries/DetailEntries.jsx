@@ -58,21 +58,23 @@ export default function DetailEntries({ detailEntry }) {
               className="entries-detail--body"
               dangerouslySetInnerHTML={{ __html: body }}
             />
-            <div className="row entries-detail--links">
-              {links.map((link, index) => (
-                <div key={index} className="col-md-6">
-                  <p>{link.title}</p>
-                  <a
-                    href={link.link}
-                    target={link.target}
-                    rel="noopener noreferrer"
-                    className="btn btn-info btn-lg text-white"
-                  >
-                    <span dangerouslySetInnerHTML={{ __html: link.name }} />
-                  </a>
-                </div>
-              ))}
-            </div>
+            {links.length > 0 &&
+              <div className="row entries-detail--links">
+                {links.map((link, index) => (
+                  <div key={index} className="col-md-6">
+                    <p>{link.title}</p>
+                    <a
+                      href={link.link}
+                      target={link.target}
+                      rel="noopener noreferrer"
+                      className="btn btn-info btn-lg text-white"
+                    >
+                      <span dangerouslySetInnerHTML={{ __html: link.name }} />
+                    </a>
+                  </div>
+                ))}
+              </div>
+            }
 
             {/* <hr /> */}
             {/* <LinkToBack variant="btn-outline-dark" /> */}
