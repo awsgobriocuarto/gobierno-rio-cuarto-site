@@ -1,14 +1,26 @@
-import { fetchNews, fetchPosts } from '@/app/lib/DataNews';
+import { fetchPosts } from '@/app/lib/DataNews';
 import Link from 'next/link';
 import React from 'react'
 
 export default async function RelatedNews({ postId = "", area = "", page = 1, limit = 6, title = "Noticias Relacionadas" }) {
 
-  const { data } = await fetchPosts({ page, limit, area });
+  const relatedResult = await fetchPosts({ page, limit, area });
 
-  const posts = data.filter(post => post.id !== postId);
+  let posts = (relatedResult.data || []).filter(post => post.id !== postId);
 
-  //console.log(posts.length);
+  let currentTitle = title;
+
+  if (posts.length === 0) {
+    const latestResult = await fetchPosts({ page, limit, area: "" });
+    posts = (latestResult.data || []).filter(post => post.id !== postId);
+    currentTitle = "Últimas Noticias (General)"; // Cambiar el título
+
+    if (posts.length === 0) {
+      return null;
+    }
+  }
+
+  console.log(`Mostrando ${posts.length} ítems. Tipo: ${currentTitle}`);
 
   return (
     <div className='news-related'>

@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import LogoutButton from "../auth/LogoutButton";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -94,7 +93,6 @@ export default function Footer() {
                 <span className="sr-only">Youtube</span>
               </a>
             </div>
-            <LogoutButton />
           </div>
         </div>
 

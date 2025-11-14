@@ -7,6 +7,9 @@ import { AccessibilityProvider } from "./providers/AccessibilityProvider";
 import AccessibilityFloatingMenu from "./ui/accessibility/AccessibilityFloatingMenu";
 import Chat from "./ui/chat/Chat";
 import { Chatn8n } from "./ui/chat/Chatn8n";
+import { Suspense } from "react";
+
+const WEBHOOK_N8N_CHAT_STATUS = process.env.NEXT_PUBLIC_WEBHOOK_N8N_CHAT_STATUS === 'true';
 
 // thin:        100
 // extra light: 200
@@ -55,7 +58,7 @@ export default function RootLayout({ children }) {
           <Footer />
           <AccessibilityFloatingMenu />
           {/* <Chat /> */}
-          <Chatn8n />
+          {WEBHOOK_N8N_CHAT_STATUS == 1 && <Suspense><Chatn8n /></Suspense>}
         </AccessibilityProvider>
       </body>
     </html>

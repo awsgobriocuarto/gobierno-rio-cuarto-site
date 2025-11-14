@@ -27,9 +27,6 @@ export default async function AreaDetailPage({ params }) {
 
   const area = await fetchAreaBySlug(slug);
 
-  //console.log(area.name);
-
-
   if (!area) {
     return (
       <div className="container mt-5">
@@ -48,9 +45,9 @@ export default async function AreaDetailPage({ params }) {
         <div className="row">
           <div className="col-md-8">
             <HeroAreas area={area} />
-            <FormalitiesAreas area={area} />
             <EntriesAreas type="program" area={area} title="Programas y Servicios" />
             <EntriesAreas type="other" area={area} title="Otros Servicios" />
+            <FormalitiesAreas area={area} />
           </div>
           <div className="col-md-4">
             <IntitutionalAreas area={area} />

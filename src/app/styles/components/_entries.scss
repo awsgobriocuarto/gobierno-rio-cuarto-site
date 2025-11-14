@@ -5,13 +5,24 @@ $card-height: 110px;
   padding-bottom: 60px;
 
   &-list {
+    margin-bottom: 60px;
+
     a {
       text-decoration: none;
     }
 
+    h3 {
+      color: #000;
+    }
+
     .card {
       //border-radius: $border-radius;
-      border-color: rgba($primary, 1);
+      // border-color: rgba($primary, 1);
+      border: 1px solid rgba($primary, 0.5);
+
+      &:hover {
+        border: 1px solid rgba($primary, 1);
+      }
 
       &-img {
         width: 100%;
@@ -46,17 +57,17 @@ $card-height: 110px;
       }
 
       &-body {
-        background-color: $primary;
+        background-color: rgba($gray-900, 0.06);
         display: flex;
         align-items: flex-start;
         justify-content: center;
         flex-direction: column;
         min-height: $card-height;
         border-radius: 0 $border-radius $border-radius 0;
-        color: white;
+        //color: white;
 
         &:hover {
-          background-color: darken($primary, 5%);
+          background-color: rgba($gray-900, 0.12);
         }
       }
 
@@ -68,8 +79,8 @@ $card-height: 110px;
 
       &-title {
         margin-bottom: 0;
-        font-size: 1.1rem;
-        line-height: 1.3rem;
+        font-size: 1.2rem;
+        line-height: 1.4rem;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
