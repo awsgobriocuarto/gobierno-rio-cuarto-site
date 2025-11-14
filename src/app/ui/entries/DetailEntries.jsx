@@ -58,7 +58,7 @@ export default function DetailEntries({ detailEntry }) {
               className="entries-detail--body"
               dangerouslySetInnerHTML={{ __html: body }}
             />
-            {links.length > 0 &&
+            {links && links.length > 0 &&
               <div className="row entries-detail--links">
                 {links.map((link, index) => (
                   <div key={index} className="col-md-6">

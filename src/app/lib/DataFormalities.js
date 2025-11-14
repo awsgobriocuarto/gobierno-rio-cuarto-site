@@ -22,33 +22,6 @@ export async function fetchCategories() {
   return res.json();
 }
 
-// export async function fetchAreas() {
-//   const res = await fetch(`${API_URL}/areas`, API_OPTIONS);
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch areas data");
-//   }
-//   const data = await res.json();
-//   return data.data;
-// }
-
-// export async function fetchAreaBySlug(slug) {
-//   const res = await fetch(`${API_URL}/areas/${slug}`, API_OPTIONS);
-//   if (!res.ok) {
-//     throw new Error(`Failed to fetch area details for: ${slug}`);
-//   }
-//   const data = await res.json();
-
-//   return data;
-// }
-
-// export async function fetchAreasById(id) {
-//   const res = await fetch(`${API_URL}/areas/${id}`, API_OPTIONS);
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch data");
-//   }
-//   return res.json();
-// }
-
 export async function fetchFormalities(params = "") {
   const res = await fetch(`${API_URL}/tramites${params}`, API_OPTIONS);
   if (!res.ok) {

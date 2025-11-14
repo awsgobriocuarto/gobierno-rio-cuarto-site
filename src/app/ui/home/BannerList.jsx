@@ -8,7 +8,7 @@ const banners = [
     subtitle: "Atención al vecino",
     icon: "fa-phone fa-2xl",
     color: "bg-warning text-white",
-    url: "/seccion/suav",
+    url: "/seccion/0800-444-5454-sistema-unico-de-atencion-al-vecino-suav",
     target: ""
   },
   {

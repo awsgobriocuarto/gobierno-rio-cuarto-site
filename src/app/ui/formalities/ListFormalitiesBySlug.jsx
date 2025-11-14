@@ -9,11 +9,11 @@ export default async function ListFormalitiesBySlug({ area }) {
 
   const params = `?area=${area.slug}`;
   const allFormalities = await fetchFormalities(params);
-  const formalities = allFormalities.slice(0, 6);
+  const formalities = allFormalities.slice(0, 12);
 
   return (
     <div>
-      <h3>Trámites ({allFormalities.length})</h3>
+      <h3 className="text-dark">Trámites <small>({allFormalities.length})</small></h3>
       {formalities.length === 0 ? (
         <p>No hay trámites para esta área.</p>
       ) : (
@@ -27,9 +27,8 @@ export default async function ListFormalitiesBySlug({ area }) {
             ))}
           </div>
           {allFormalities.length > 6 && (
-            <Link href={`/tramites?area=${area.slug}`} className="btn btn-dark text-white">Ver mas</Link>
+            <Link href={`/tramites?area=${area.slug}`} className="btn btn-dark text-white">Ver más trámites</Link>
           )}
-
         </>
 
 
