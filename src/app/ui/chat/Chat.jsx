@@ -57,7 +57,7 @@ export default function Chat() {
 
 
     try {
-      const response = await fetch("https://n8n.rechanfles.com.ar/webhook/chatweb", {
+      const response = await fetch("https://n8n.gobiernoriocuarto.gob.ar/webhook/agente-rag", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

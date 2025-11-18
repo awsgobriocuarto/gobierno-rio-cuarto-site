@@ -1,75 +1,45 @@
-export default function AreaDetail({ area, formality }) {
+import ContactItem from "../commons/ContactItem";
+
+export default function AreaDetail({ area }) {
+  //console.log(area.contact);
+
   return (
     <section>
       <div className="card">
         <div className="card-header">
           <h6 className="mb-0">Entidad Responsable</h6>
         </div>
-        {/* <div className="card-body">
-          <h5 className="card-title">{area.name}</h5>
-          {area.parent ? (
-            <p className="card-pretitle">{area.parent.name}</p>
-          ) : (
-            ""
-          )}
-
-          {area.phone ? (
-            <>
-              <h6 className="card-subtitle">Teléfono</h6>
-              <p className="card-text">{area.phone}</p>
-            </>
-          ) : (
-            ""
-          )}
-
-          {area.email == 1 ? (
-            <>
-              <h6 className="card-subtitle">Email</h6>
-              <p className="card-text">{area.email}</p>
-            </>
-          ) : (
-            ""
-          )}
-
-          <h6 className="card-subtitle">Modalidad</h6>
-          <p className="card-text">
-            {formality.online == 1 ? "Online" : "Presencial"}
-          </p>
-
-          {area.address ? (
-            <>
-              <h6 className="card-subtitle">Dirección</h6>
-              <p className="card-text">{area.address}</p>
-              <h6 className="card-subtitle">Ubicación</h6>
-              <p className="card-map">
-                <a
-                  href={`https://maps.google.com/?q=${area.address}, Río Cuarto, Córdoba, Argentina`}
-                  target="_blank"
-                >
-                  Ver en Google Maps
-                </a>
-              </p>
-            </>
-          ) : (
-            ""
-          )}
-        </div> */}
         <div className="card-body">
           <h5>{area.name}</h5>
-          {area.contact.map((item) => (
-            <p key={item.value} className="mb-0">
-              {item.value}
-            </p>
+          {area.contact.map((item, index) => (
+            // <p key={item.value} className="mb-0">
+            //   {item.value}
+            // </p>
+            <ContactItem
+              key={item.index}
+              type={item.type}
+              value={item.value}
+              label={item.info}
+            />
           ))}
-          <hr />
-          <div>
-            <b>{area.parent.name}</b>
-          </div>
-          {area.parent.contact.map((item) => (
-            <p key={item.value} className="mb-0">
-              {item.value}
-            </p>
-          ))}
+          {area.parent && (
+            <>
+              <hr />
+              <div>
+                <b>{area.parent.name}</b>
+              </div>
+              {area.parent.contact.map((item, index) => (
+                // 
+                <ContactItem
+                  key={item.index}
+                  type={item.type}
+                  value={item.value}
+                  label={item.info}
+                />
+              ))}
+            </>
+          )}
+
         </div>
       </div>
     </section>

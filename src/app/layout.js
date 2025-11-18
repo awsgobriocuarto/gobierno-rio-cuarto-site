@@ -5,7 +5,7 @@ import Footer from "./ui/layout/Footer";
 import Script from "next/script";
 import { AccessibilityProvider } from "./providers/AccessibilityProvider";
 import AccessibilityFloatingMenu from "./ui/accessibility/AccessibilityFloatingMenu";
-import Chat from "./ui/chat/Chat";
+// import Chat from "./ui/chat/Chat";
 import { Chatn8n } from "./ui/chat/Chatn8n";
 import { Suspense } from "react";
 
@@ -58,7 +58,7 @@ export default function RootLayout({ children }) {
           <Footer />
           <AccessibilityFloatingMenu />
           {/* <Chat /> */}
-          {WEBHOOK_N8N_CHAT_STATUS == 1 && <Suspense><Chatn8n /></Suspense>}
+          <Suspense><Chatn8n /></Suspense>
         </AccessibilityProvider>
       </body>
     </html>

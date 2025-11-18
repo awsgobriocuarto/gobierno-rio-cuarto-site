@@ -1,0 +1,42 @@
+.contact {
+  &-item {
+    //background-color: yellow;
+    margin-bottom: 8px;
+
+    &--link {
+      display: block;
+      text-decoration: none;
+
+      display: flex;
+      align-items: center;
+
+      color: $gray-700;
+
+      &:hover {
+        color: #000;
+      }
+    }
+
+    &--icon {
+      margin-right: 8px;
+      font-size: 1.4rem;
+    }
+
+    &--info {
+      //background-color: red;
+      display: flex;
+      align-items: center;
+    }
+
+    &--text {
+      margin-right: 8px;
+    }
+
+    &--label {
+      color: $success;
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+  }
+}
