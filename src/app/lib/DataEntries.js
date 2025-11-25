@@ -12,6 +12,9 @@ const API_OPTIONS = {
   headers: {
     Authorization: API_TOKEN,
   },
+  next: {
+    revalidate: 60
+  }
 };
 
 export async function fetchEntries(type, area = "") {

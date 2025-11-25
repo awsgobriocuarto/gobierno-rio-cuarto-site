@@ -2,13 +2,11 @@ import Link from "next/link";
 import HeroAreas from "@/app/ui/areas/HeroAreas";
 import FormalitiesAreas from "@/app/ui/areas/FormalitiesAreas";
 import IntitutionalAreas from "@/app/ui/areas/IntitutionalAreas";
-import NewsAreas from "@/app/ui/areas/NewsAreas";
 import { fetchAreaBySlug } from "@/app/lib/DataAreas";
 import { createPageMetadata } from "@/app/lib/metadata";
 import EntriesAreas from "@/app/ui/areas/EntriesAreas";
 import RelatedNews from "@/app/ui/news/RelatedNews";
-// import ProgramsAreas from "@/app/ui/areas/ProgramsAreas";
-// import OtherAreas from "@/app/ui/areas/OtherAreas";
+
 
 
 export async function generateMetadata({ params }) {

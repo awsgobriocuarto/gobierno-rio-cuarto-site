@@ -17,6 +17,7 @@ const ICONS = {
   twitter: <i className="fab fa-fw fa-twitter"></i>,
   youtube: <i className="fab fa-fw fa-youtube"></i>,
   tiktok: <i className="fab fa-fw fa-tiktok"></i>,
+  linkedin: <i className="fab fa-fw fa-linkedin"></i>,
 };
 
 // Función de utilidad para limpiar números de teléfono
@@ -47,6 +48,7 @@ const getLinkDetails = (type, value) => {
     case 'twitter':
     case 'youtube':
     case 'tiktok':
+    case 'linkedin':
       // Aseguramos protocolo para enlaces externos
       href = value.startsWith('http') ? value : `https://${value}`;
       target = '_blank';
@@ -80,7 +82,7 @@ export default function ContactItem({ type, value, isSocial = false, label = nul
   let displayValue = value;
 
   // Lógica para mostrar el nombre de la red social en lugar de la URL completa
-  if (['facebook', 'instagram', 'twitter', 'youtube', 'tiktok'].includes(type) && !isSocial) {
+  if (['facebook', 'instagram', 'twitter', 'youtube', 'tiktok', 'linkedin'].includes(type) && !isSocial) {
     displayValue = type.charAt(0).toUpperCase() + type.slice(1);
   }
 
