@@ -9,7 +9,7 @@ export default function IntitutionalAreas({ area }) {
 
   return (
     <div className="area-institutional">
-      <h4>Organigramardopolis</h4>
+      <h4>Organigrama</h4>
       <div className="row">
         {sortedPersons.map((p) => (
           <div key={p.id} className="col-12 col-md-6">
