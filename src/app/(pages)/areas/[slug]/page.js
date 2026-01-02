@@ -7,12 +7,10 @@ import { createPageMetadata } from "@/app/lib/metadata";
 import EntriesAreas from "@/app/ui/areas/EntriesAreas";
 import RelatedNews from "@/app/ui/news/RelatedNews";
 
-
-
 export async function generateMetadata({ params }) {
   const area = await fetchAreaBySlug(params.slug);
   if (!area) {
-    return { title: 'Noticia no encontrada' };
+    return { title: "Noticia no encontrada" };
   }
   return createPageMetadata({
     title: area.name,
@@ -43,7 +41,11 @@ export default async function AreaDetailPage({ params }) {
         <div className="row">
           <div className="col-md-8">
             <HeroAreas area={area} />
-            <EntriesAreas type="program" area={area} title="Programas y Servicios" />
+            <EntriesAreas
+              type="program"
+              area={area}
+              title="Programas y Servicios"
+            />
             <EntriesAreas type="other" area={area} title="Otros Servicios" />
             <FormalitiesAreas area={area} />
           </div>
