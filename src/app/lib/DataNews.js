@@ -11,15 +11,16 @@ const API_OPTIONS = {
   headers: {
     Authorization: API_TOKEN,
   },
-  next: {
-    revalidate: 60
-  }
+  // next: {
+  //   revalidate: 60
+  // }
 };
 
 export async function fetchNews({ page = 1, limit = 9, area = "" } = {}) {
-
-
-  const res = await fetch(`${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&sort_by=published_at&sort_order=desc&status=published`, API_OPTIONS);
+  const res = await fetch(
+    `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&sort_by=published_at&sort_order=desc&status=published`,
+    API_OPTIONS
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch areas data");
@@ -29,8 +30,10 @@ export async function fetchNews({ page = 1, limit = 9, area = "" } = {}) {
 }
 
 export async function fetchPosts({ page = 1, limit = 9, area = "" } = {}) {
-
-  const res = await fetch(`${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&sort_by=published_at&sort_order=desc&status=published`, API_OPTIONS);
+  const res = await fetch(
+    `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&sort_by=published_at&sort_order=desc&status=published`,
+    API_OPTIONS
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch areas data");
@@ -40,7 +43,6 @@ export async function fetchPosts({ page = 1, limit = 9, area = "" } = {}) {
 }
 
 export async function getNewsBySlug(slug) {
-
   const res = await fetch(`${API_URL}/posts/${slug}`, API_OPTIONS);
 
   if (!res.ok) {
