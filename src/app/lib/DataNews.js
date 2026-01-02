@@ -11,9 +11,9 @@ const API_OPTIONS = {
   headers: {
     Authorization: API_TOKEN,
   },
-  // next: {
-  //   revalidate: 60
-  // }
+  next: {
+    revalidate: 60,
+  },
 };
 
 export async function fetchNews({ page = 1, limit = 9, area = "" } = {}) {
