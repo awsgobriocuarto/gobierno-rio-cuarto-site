@@ -9,14 +9,14 @@ export default function IntitutionalAreas({ area }) {
 
   return (
     <div className="area-institutional">
-      <h4>Organigrama</h4>
+      <h4>Organigramardopolis</h4>
       <div className="row">
         {sortedPersons.map((p) => (
           <div key={p.id} className="col-12 col-md-6">
             <div className="card">
               {/* eslint-disable-next-line */}
               <img
-                src={p.image_url ? p.image_url : '/images/no-image.jpg'}
+                src={p.image_url ? p.image_url : "/images/no-image.jpg"}
                 alt={p.name}
                 className="card-img-top "
               />
