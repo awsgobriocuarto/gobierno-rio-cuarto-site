@@ -58,7 +58,7 @@
       align-items: flex-start;
       justify-content: center;
       flex-direction: column;
-      min-height: $card-height;
+      max-height: $card-height;
       //border-radius: 0 $border-radius $border-radius 0;
     }
 
