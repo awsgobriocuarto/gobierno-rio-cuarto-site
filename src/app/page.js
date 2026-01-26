@@ -7,7 +7,9 @@ import ListFormalityCategories from "./ui/home/ListCategories";
 import Link from "next/link";
 import BannerList from "./ui/home/BannerList";
 
-export default function Home() {
+export const revalidate = 60; // revalida la página cada 60s
+
+export default async function Home() {
   return (
     <main>
       <Hero />
@@ -17,7 +19,9 @@ export default function Home() {
       <div className="container mb-4">
         <HeaderSection title="Últimas Noticias" />
         <ListNews limit={6} />
-        <Link href="/noticias" className="btn btn-dark mb-5">Ver más noticias</Link>
+        <Link href="/noticias" className="btn btn-dark mb-5">
+          Ver más noticias
+        </Link>
       </div>
       <ListEvents />
     </main>

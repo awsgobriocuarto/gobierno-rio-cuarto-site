@@ -13,8 +13,8 @@ const API_OPTIONS = {
     Authorization: API_TOKEN,
   },
   next: {
-    revalidate: 60
-  }
+    revalidate: 60,
+  },
 };
 
 export async function fetchEntries(type, area = "") {
@@ -25,68 +25,43 @@ export async function fetchEntries(type, area = "") {
 
   try {
     const queryParams = new URLSearchParams({ type });
-
-    if (area) {
-      queryParams.append("area", area);
-    }
+    if (area) queryParams.append("area", area);
 
     const url = `${API_URL}/entries?${queryParams.toString()}`;
 
-    const res = await fetch(url, {
-      ...API_OPTIONS,
-      next: { revalidate: 0 },
-    });
+    // Solo pasa API_OPTIONS, ya tiene el revalidate: 60
+    const res = await fetch(url, API_OPTIONS);
 
     if (!res.ok) {
-      throw new Error(
-        `Error HTTP: ${res.status} al obtener entradas de tipo '${type}'.`
-      );
+      throw new Error(`Error HTTP: ${res.status} en fetchEntries`);
     }
 
     const response = await res.json();
-
     return response?.data || [];
   } catch (error) {
-    console.error(`Error al obtener entries de tipo '${type}':`, error);
-
+    console.error(`Error al obtener entries:`, error);
     return [];
   }
 }
 
 export async function getEntryBySlug(slug) {
-  if (!slug) {
-    console.error("getEntryBySlug requiere 'type' y 'slug'.");
-    return null;
-  }
+  if (!slug) return null;
 
   try {
     const url = `${API_URL}/entries/${slug}`;
 
-    const options = {
-      ...API_OPTIONS,
-      next: { revalidate: 0 },
-    };
-
-    //console.log("Fetching SLUG URL (CORREGIDO):", url);
-
-    const res = await fetch(url, options);
+    const res = await fetch(url, API_OPTIONS);
 
     if (!res.ok) {
       if (res.status === 404) return null;
-
-      throw new Error(
-        `Error HTTP: ${res.status} al obtener tipo '${type}' con slug: ${slug}`
-      );
+      throw new Error(`Error HTTP: ${res.status} en getEntryBySlug`);
     }
 
     const response = await res.json();
-
     return response || null;
   } catch (error) {
-    console.error(
-      `Error al obtener entry de tipo '${type}' por slug (${slug}):`,
-      error
-    );
+    // Corregido: eliminada referencia a 'type' que no existe aquí
+    console.error(`Error al obtener entry por slug (${slug}):`, error);
     return null;
   }
 }
