@@ -6,6 +6,7 @@ import { fetchAreaBySlug } from "@/app/lib/DataAreas";
 import { createPageMetadata } from "@/app/lib/metadata";
 import EntriesAreas from "@/app/ui/areas/EntriesAreas";
 import RelatedNews from "@/app/ui/news/RelatedNews";
+import AreaDetail from "@/app/ui/formality/AreaDetail";
 
 export async function generateMetadata({ params }) {
   const area = await fetchAreaBySlug(params.slug);
@@ -49,8 +50,11 @@ export default async function AreaDetailPage({ params }) {
             <EntriesAreas type="other" area={area} title="Otros Servicios" />
             <FormalitiesAreas area={area} />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 ">
             <IntitutionalAreas area={area} />
+            <div className="col-md-12 mb-4">
+              <AreaDetail area={area} />
+            </div>
             <RelatedNews
               area={area.id}
               limit={6}
