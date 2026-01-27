@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import BannerCard from './BannerCard'
-import React from 'react'
+import Link from "next/link";
+import BannerCard from "./BannerCard";
+import React from "react";
 
 const banners = [
   {
@@ -8,8 +8,8 @@ const banners = [
     subtitle: "Atención al vecino",
     icon: "fa-phone fa-2xl",
     color: "bg-warning text-white",
-    url: "/seccion/0800-444-5454-sistema-unico-de-atencion-al-vecino-suav",
-    target: ""
+    url: "/seccion/boton-cta-suav-sistema-unico-de-atencion-al-vecino",
+    target: "",
   },
   {
     title: "Ojos en Alerta",
@@ -17,7 +17,7 @@ const banners = [
     icon: "fa-eye fa-2xl",
     color: "bg-info text-white",
     url: "/seccion/ojos-en-alerta",
-    target: ""
+    target: "",
   },
   {
     title: "Pagos y Deudas",
@@ -25,26 +25,30 @@ const banners = [
     icon: "fa-dollar-sign fa-2xl",
     color: "bg-success text-white",
     url: "https://economiariocuarto.gob.ar/pagos-y-deudas",
-    target: "_blank"
-  }
-]
+    target: "_blank",
+  },
+];
 
 export default function BannerList() {
   return (
     <section className="banners" data-read>
       <div className="container">
         <div className="row">
-          {banners.map(banner => (
-            <div key={BannerList.title} className='col-md-4'>
+          {banners.map((banner) => (
+            <div key={BannerList.title} className="col-md-4">
               {banner.target == "_blank" ? (
-                <a href={banner.url} target='_blank'><BannerCard banner={banner} /></a>
+                <a href={banner.url} target="_blank">
+                  <BannerCard banner={banner} />
+                </a>
               ) : (
-                <Link href={banner.url}><BannerCard banner={banner} /></Link>
+                <Link href={banner.url}>
+                  <BannerCard banner={banner} />
+                </Link>
               )}
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
