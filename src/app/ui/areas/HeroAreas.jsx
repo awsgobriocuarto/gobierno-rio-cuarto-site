@@ -15,6 +15,7 @@ export default function HeroAreas({ area }) {
 
   return (
     <section className="area-hero">
+      <h5 className="mb-4">{area.pre_name}</h5>
       <h1 className="mb-4">{area.name || "Área sin nombre"}</h1>
 
       <p

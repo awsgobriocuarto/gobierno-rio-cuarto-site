@@ -1,16 +1,16 @@
 .navbar {
-  padding: 20px;
+  padding: 5px;
   background-color: darken($primary, 0);
 
   &-brand {
     .mobile {
-      width: 140px;
+      width: 100px;
       height: auto;
       display: none;
     }
 
     .desktop {
-      width: 400px;
+      width: 350px;
       height: auto;
       display: block;
     }

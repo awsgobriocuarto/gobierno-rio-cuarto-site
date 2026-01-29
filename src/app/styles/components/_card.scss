@@ -51,7 +51,35 @@
 
     &-title {
       margin-bottom: 0;
-      font-size: 1.2rem;
+      // font-size: 1.2rem;
+    }
+  }
+}
+.buttons-areas {
+  $card-height: 90px;
+
+  a:hover {
+    .card {
+      border-color: rgba($gray-900, 0.5);
+    }
+  }
+
+  .card {
+    //border-radius: $border-radius;
+    border-color: rgba($gray-900, 0.2);
+    margin-bottom: 20px;
+
+    &-body {
+      //background-color: $gray-100;
+      display: flex;
+      align-items: center;
+      min-height: $card-height;
+      //border-radius: 0 $border-radius $border-radius 0;
+    }
+
+    &-title {
+      margin-bottom: 0;
+      // font-size: 1.2rem;
     }
   }
 }

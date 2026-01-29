@@ -19,7 +19,7 @@ export default async function ListAreas() {
           title="Áreas de Gobierno"
           subtitle="Secretarías, Entes y Organismos"
         />
-        <div className="row justify-content-center buttons">
+        <div className="row justify-content-center buttons-areas">
           <Suspense fallback={<div>Cargando...</div>}>
             {areas.map((area) => (
               <div className="col-md-4" key={area.id}>
