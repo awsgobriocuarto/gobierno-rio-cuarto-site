@@ -13,7 +13,7 @@ const banners = [
   },
   {
     title: "Ojos en Alerta",
-    subtitle: "Nos cuidamos entre todos",
+    subtitle: "Cuidemonos",
     icon: "fa-eye fa-2xl",
     color: "bg-info text-white",
     url: "/seccion/ojos-en-alerta",
@@ -21,7 +21,7 @@ const banners = [
   },
   {
     title: "Pagos y Deudas",
-    subtitle: "Mantené tus pagos al día",
+    subtitle: "Pagos al día",
     icon: "fa-dollar-sign fa-2xl",
     color: "bg-primary text-white",
     url: "https://economiariocuarto.gob.ar/pagos-y-deudas",

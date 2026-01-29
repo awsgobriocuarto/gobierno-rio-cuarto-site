@@ -1,6 +1,5 @@
 .banners {
-  padding-top: 60px;
-  padding-bottom: 20px;
+  padding-top: 50px;
 
   $card-height: 110px;
 
@@ -69,5 +68,13 @@
       margin-bottom: 0;
       font-weight: 250;
     }
+  }
+}
+
+// banner mobile
+@media (max-width: 767px) {
+  .banners {
+    padding-top: 30px;
+    padding-bottom: 20px;
   }
 }
