@@ -1,39 +1,63 @@
-// colores
 $primary: #009de0;
 $secondary: #ff7d00;
 $success: #00c96b;
 $info: #ff3cb2;
 $warning: #f2c100;
-// $danger: $red !default;
-// $light: $gray-100 !default;
-// $dark: $gray-900 !default;
 $orange: #ff7d00;
 $pink: #ff3cb2;
-
-// Prueba de bg en list areas
-$prueba: #e9f7fd;
 $gray: #f3f6f9;
+$prueba: #e9f7fd;
 
-// options
 $enable-caret: true !default;
 $enable-rounded: true !default;
 $enable-shadows: true !default;
 $enable-button-pointers: true !default;
-
-$font-size-base: 1.1rem !default;
-$h1-font-size: $font-size-base * 2.15 !default;
-$h2-font-size: $font-size-base * 1.9 !default;
-$h3-font-size: $font-size-base * 1.65 !default;
-$h4-font-size: $font-size-base * 1.4 !default;
-$h5-font-size: $font-size-base * 1.15 !default;
-$h6-font-size: $font-size-base !default;
-
-//$border-radius: 15px;
 $border-radius-card: 15px !default;
 
-// $enable-rounded:              true !default;
+$font-size-base: 1.1rem;
 
-// No sabia donde crear estas clases, las cree aca.
+@mixin aplicar-escala($factor) {
+  $base-ajustada: $font-size-base * $factor;
+
+  h1 {
+    font-size: $base-ajustada * 2.2;
+  }
+  h2 {
+    font-size: $base-ajustada * 1.9;
+  }
+  h3 {
+    font-size: $base-ajustada * 1.65;
+  }
+  h4 {
+    font-size: $base-ajustada * 1.4;
+  }
+  h5 {
+    font-size: $base-ajustada * 1.15;
+  }
+  h6 {
+    font-size: $base-ajustada * 0.825;
+  }
+  p,
+  body {
+    font-size: $base-ajustada;
+  }
+}
+
+// --- MOBILE (Smartphone) ---
+@media (max-width: 767px) {
+  @include aplicar-escala(0.8); // Reduce todo un 20% para que quepa en móviles
+}
+
+// --- TABLET ---
+@media (min-width: 768px) and (max-width: 1199px) {
+  @include aplicar-escala(0.9); // Reduce solo un 10%
+}
+
+// --- DESKTOP (Tu configuración original) ---
+@media (min-width: 1200px) {
+  @include aplicar-escala(1); // Escala 1:1 según tus variables
+}
+
 .bg-gray {
   background-color: $gray !important;
 }
