@@ -23,6 +23,14 @@ const banners = [
     title: "Pagos y Deudas",
     subtitle: "Mantené tus pagos al día",
     icon: "fa-dollar-sign fa-2xl",
+    color: "bg-primary text-white",
+    url: "https://economiariocuarto.gob.ar/pagos-y-deudas",
+    target: "_blank",
+  },
+  {
+    title: "Turno Salud",
+    subtitle: "Atencion Medica",
+    icon: "fa-plus-square fa-2xl",
     color: "bg-success text-white",
     url: "https://economiariocuarto.gob.ar/pagos-y-deudas",
     target: "_blank",
@@ -35,7 +43,7 @@ export default function BannerList() {
       <div className="container">
         <div className="row">
           {banners.map((banner) => (
-            <div key={BannerList.title} className="col-md-4">
+            <div key={BannerList.title} className="col-12 col-md-6 col-lg-3">
               {banner.target == "_blank" ? (
                 <a href={banner.url} target="_blank">
                   <BannerCard banner={banner} />
