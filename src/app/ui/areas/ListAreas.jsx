@@ -15,8 +15,11 @@ export default async function ListAreas() {
   return (
     <section className="area area-home" data-read>
       <div className="container">
-        <HeaderSection title="Áreas de Gobierno" subtitle="" />
-        <div className="row justify-content-center buttons">
+        <HeaderSection
+          title="Áreas de Gobierno"
+          subtitle="Secretarías, Entes y Organismos"
+        />
+        <div className="row justify-content-center buttons-areas">
           <Suspense fallback={<div>Cargando...</div>}>
             {areas.map((area) => (
               <div className="col-md-4" key={area.id}>

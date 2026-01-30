@@ -7,7 +7,6 @@
   }
 
   &-detail {
-
     h3,
     h4 {
       color: $primary;
@@ -16,12 +15,18 @@
   }
 
   &-section {
-    //background-color: orange;
     margin-bottom: 60px;
   }
 
   &-hero {
     margin-bottom: 60px;
+
+    &-prename {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
 
     .map-container {
       height: 100%;
@@ -37,7 +42,6 @@
     margin-bottom: 30px;
 
     h4 {
-      //text-align: center;
       margin-bottom: 30px;
     }
 

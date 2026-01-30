@@ -1,19 +1,18 @@
 import RelatedNews from "@/app/ui/news/RelatedNews";
-import { createPageMetadata } from '@/app/lib/metadata';
+import { createPageMetadata } from "@/app/lib/metadata";
 import { getEntryBySlug } from "@/app/lib/DataEntries";
 import DetailEntries from "@/app/ui/entries/DetailEntries";
 import EntriesAreas from "@/app/ui/areas/EntriesAreas";
 import NotFound from "@/app/ui/commons/NotFound";
+import Buttons from "@/app/ui/entries/Buttons";
 
 export async function generateMetadata({ params }) {
-
-  const { slug } = params
+  const { slug } = params;
 
   const entry = await getEntryBySlug(slug);
 
-
   if (!entry) {
-    return { title: 'Entrada no encontrada' };
+    return { title: "Entrada no encontrada" };
   }
   return createPageMetadata({
     title: entry.title,
@@ -28,23 +27,34 @@ export default async function SeccionDetail({ params }) {
   const detailEntry = await getEntryBySlug(slug);
 
   if (!detailEntry) {
-    return <NotFound />
+    return <NotFound />;
   }
 
   //console.log(detailEntry);
 
-
   return (
-    <main className='entries' data-read>
+    <main className="entries" data-read>
       <div className="container">
         <span className="sr-only">Detalle de la Noticia</span>
         <div className="row">
           <div className="col-md-8">
-            <DetailEntries detailEntry={detailEntry} />
-            <EntriesAreas type="program" area={detailEntry.area} title="Programas y Servicios" />
-            <EntriesAreas type="other" area={detailEntry.area} title="Otros Servicios" />
+            <DetailEntries detailEntry={detailEntry} links />
+            <EntriesAreas
+              type="program"
+              area={detailEntry.area}
+              title="Programas y Servicios"
+            />
+
+            <EntriesAreas
+              type="other"
+              area={detailEntry.area}
+              title="Otros Servicios"
+            />
           </div>
           <div className="col-md-4">
+            <div className="mb-4">
+              <Buttons links={detailEntry.links} />
+            </div>
             <RelatedNews title="Noticias Relacionadas" />
           </div>
         </div>

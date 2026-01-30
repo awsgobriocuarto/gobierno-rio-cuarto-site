@@ -1,16 +1,16 @@
 .navbar {
-  padding: 20px;
+  padding: 5px;
   background-color: darken($primary, 0);
 
   &-brand {
     .mobile {
-      width: 140px;
+      width: 100px;
       height: auto;
       display: none;
     }
 
     .desktop {
-      width: 400px;
+      width: 350px;
       height: auto;
       display: block;
     }
@@ -41,7 +41,7 @@
       text-transform: uppercase;
       font-weight: 500;
       letter-spacing: 0.01rem;
-      color: rgba(white, 0.8);
+      color: white;
 
       &.active {
         color: white;
@@ -49,7 +49,6 @@
     }
 
     .dropdown {
-
       &-menu {
         border-radius: 0;
       }
@@ -58,12 +57,10 @@
         text-transform: uppercase;
         font-size: 0.9rem;
         font-weight: 500;
-        color: $gray-800;
+        color: white;
       }
     }
-
   }
-
 }
 
 @media (max-width: 767px) {

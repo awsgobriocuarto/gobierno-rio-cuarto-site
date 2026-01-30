@@ -45,7 +45,7 @@ export default async function Formality({ params }) {
                 ))}
               </div>
 
-              <h3 className="title">{formality.title}</h3>
+              <h1 className="title">{formality.title}</h1>
               <p
                 className="formalities-detail--subtitle"
                 dangerouslySetInnerHTML={{ __html: formality.summary }}

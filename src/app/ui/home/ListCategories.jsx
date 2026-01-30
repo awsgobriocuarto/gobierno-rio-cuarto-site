@@ -5,15 +5,20 @@ import HeaderSection from "../layout/HeaderSection";
 
 export default async function ListFormalityCategories() {
   const categories = await fetchCategories();
-  //console.log("Categories:", categories);
+
   return (
     <section className="formalities formalities-categories" data-read>
       <div className="container">
         <HeaderSection title="Trámites" subtitle="Categorías principales" />
-        <div className="row justify-content-center buttons">
+        {/* Agregamos g-4 para controlar el espaciado entre las columnas */}
+        <div className="row justify-content-center buttons ">
           <Suspense fallback={<div>Cargando...</div>}>
             {categories.slice(0, 9).map((category) => (
-              <div className="col-md-4" key={category.id}>
+              /* col-md-6: 2 por fila en Tablet 
+                 col-lg-6: 2 por fila en Notebook
+                 col-xl-4: 3 por fila en Desktop (PC)
+              */
+              <div className="col-md-6 col-lg-6 col-xl-4" key={category.id}>
                 <CardCategories category={category} />
               </div>
             ))}

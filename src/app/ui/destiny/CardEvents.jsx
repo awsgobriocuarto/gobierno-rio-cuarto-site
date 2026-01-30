@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function CardNews({ post }) {
   return (
-    <div className="col-md-4 mb-4">
+    <div className="col-md-6 col-lg-4 mb-4">
       <div className="card">
         <div className="card-img-top">
           <a
@@ -36,7 +36,7 @@ export default function CardNews({ post }) {
             {new Date(post.calendars[0].end_date).toLocaleDateString("es-AR", {
               year: "numeric",
               month: "numeric",
-              day: "numeric"
+              day: "numeric",
             })}
           </span>
           <span>
@@ -45,7 +45,9 @@ export default function CardNews({ post }) {
               className=""
               target="_blank"
               rel="noopener noreferrer"
-            >Ver más</a>
+            >
+              Ver más
+            </a>
           </span>
         </div>
       </div>
