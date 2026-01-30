@@ -8,7 +8,6 @@
   }
 
   .card {
-    
     //border-radius: $border-radius;
     border-color: rgba($gray-900, 0.2);
     margin-bottom: 20px;
@@ -47,19 +46,44 @@
       display: flex;
       align-items: center;
       min-height: $card-height;
-      
-      
+
       //border-radius: 0 $border-radius $border-radius 0;
     }
 
     &-title {
       margin-bottom: 0;
       font-size: 1.2rem;
-       
-      
     }
   }
-  
+}
+
+.buttons-areas {
+  $card-height: 90px;
+
+  a:hover {
+    .card {
+      border-color: rgba($gray-900, 0.5);
+    }
+  }
+
+  .card {
+    //border-radius: $border-radius;
+    border-color: rgba($gray-900, 0.2);
+    margin-bottom: 20px;
+
+    &-body {
+      //background-color: $gray-100;
+      display: flex;
+      align-items: center;
+      min-height: $card-height;
+      //border-radius: 0 $border-radius $border-radius 0;
+    }
+
+    &-title {
+      margin-bottom: 0;
+      // font-size: 1.2rem;
+    }
+  }
 }
 
 // .card {
@@ -149,65 +173,62 @@
 
 // Estilos específicos para la card de dependencias
 .card-dependencias {
- 
+  .card-header {
+    background-color: #009de0; // Fondo en el header de dependencias
+    color: white; // Texto en blanco
+  }
 
-    .card-header {
-      background-color: #009de0;  // Fondo en el header de dependencias
-      color: white;  // Texto en blanco
-    }
+  // &-body {
+  //     // flex: auto;
+  //     min-height: 100px;
+  //     padding-top: 1px;
+  //   }
 
-    // &-body {
-    //     // flex: auto;
-    //     min-height: 100px;
-    //     padding-top: 1px;
-    //   }
+  //   &-title {
+  //     font-size: 1.25rem;
+  //     color: $gray-900;
+  //     margin-bottom: 20px;
+  //     display: -webkit-box;
+  //     -webkit-line-clamp: 3;
+  //     -webkit-box-orient: vertical;
+  //     overflow: hidden;
 
-    //   &-title {
-    //     font-size: 1.25rem;
-    //     color: $gray-900;
-    //     margin-bottom: 20px;
-    //     display: -webkit-box;
-    //     -webkit-line-clamp: 3; 
-    //     -webkit-box-orient: vertical;
-    //     overflow: hidden;
-        
-    //   }
-    //     &:hover {
-    //       color: $primary;
-    //     }
-    //   }
+  //   }
+  //     &:hover {
+  //       color: $primary;
+  //     }
+  //   }
 
-    //   &-subtitle {
-    //     font-size: 1rem;
-    //     margin-bottom: 10px;
-    //     color: $gray-700;
-    //   }
+  //   &-subtitle {
+  //     font-size: 1rem;
+  //     margin-bottom: 10px;
+  //     color: $gray-700;
+  //   }
 
-    h6 {
-      margin-bottom: 5px;
-    }
+  h6 {
+    margin-bottom: 5px;
+  }
 
-    .contact-item {
-      margin-bottom: 1px;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #ddd;
-      margin-top: 1px;
-      margin-bottom: 1px;
-    }
-    .card-body > div:first-child hr {
-      display: none;
-    }
+  .contact-item {
+    margin-bottom: 1px;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin-top: 1px;
+    margin-bottom: 1px;
+  }
+  .card-body > div:first-child hr {
+    display: none;
+  }
 
-    .card-body > div {
-      margin-bottom: 5px;
-      padding: 10px;
-      background-color: #fafafa;
-      border-radius: 5px;
-      border: 1px solid lightgrey;
-      
-    }    // .card-body hr:first-child {
-    //   display: none;
-    // }
+  .card-body > div {
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: #fafafa;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+  } // .card-body hr:first-child {
+  //   display: none;
+  // }
 }

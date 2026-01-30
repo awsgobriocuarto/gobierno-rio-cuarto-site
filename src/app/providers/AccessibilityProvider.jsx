@@ -1,177 +1,154 @@
 // providers/AccessibilityProvider.jsx
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-
-//
-// 1. ## Crea el contexto
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  useCallback,
+} from "react";
 
 const AccessibilityContext = createContext();
 
-//
-// 2. ## Crea el proveedor
-
 export const AccessibilityProvider = ({ children }) => {
-
   // ## ESTADOS ## //
-
-  // # Estado para el tamaño de la fuente
   const [fontSize, setFontSize] = useState(0);
-
-  // # Estado para el alto contraste
   const [highContrast, setHighContrast] = useState(false);
-
-  // # Estado para el espaciado de texto
   const [textSpacing, setTextSpacing] = useState(0);
-
-  // # Estado para la lectura de texto
   const [isReading, setIsReading] = useState(false);
-  const [utterances, setUtterances] = useState([]);
-
-  // # Estado para la fuente de dislexia
-  const [isDyslexiaFriendlyFontEnabled, setIsDyslexiaFriendlyFontEnabled] = useState(false);
-
-  // # Estado para el modo de mayúsculas
+  const [isDyslexiaFriendlyFontEnabled, setIsDyslexiaFriendlyFontEnabled] =
+    useState(false);
   const [isUpperCase, setIsUpperCase] = useState(false);
 
   // ## OPCIONES ## //
-
-  // $ Opciones de tamaño de fuente
-  const fontSizes = ['16px', '18px', '20px', '22px', '24px'];
-
-  // $ Opciones de espaciado de texto
-  const textSpacings = ['normal', 'medium', 'large', 'extra-large', 'super-large'];
+  const fontSizes = ["16px", "18px", "20px", "22px", "24px"];
+  const textSpacings = [
+    "normal",
+    "medium",
+    "large",
+    "extra-large",
+    "super-large",
+  ];
 
   // ## FUNCIONES ## //
 
-  {/* eslint-disable */ }
+  const cycleFontSize = () =>
+    setFontSize((prev) => (prev + 1) % fontSizes.length);
+  const toggleHighContrast = () => setHighContrast((prev) => !prev);
+  const cycleTextSpacing = () =>
+    setTextSpacing((prev) => (prev + 1) % textSpacings.length);
+  const toggleDyslexiaFriendlyFont = () =>
+    setIsDyslexiaFriendlyFontEnabled((prev) => !prev);
+  const toggleUpperCase = () => setIsUpperCase((prev) => !prev);
 
-  // & Función para ciclar el tamaño de la fuente
-  const cycleFontSize = () => {
-    setFontSize(prev => (prev + 1) % fontSizes.length);
-  };
-
-  // & Función para activar/desactivar el alto contraste
-  const toggleHighContrast = () => {
-    setHighContrast(prev => !prev);
-  };
-
-  // & Función para ciclar el espaciado
-  const cycleTextSpacing = () => {
-    setTextSpacing(prev => (prev + 1) % textSpacings.length);
-  };
-
-  // & Función para la lectura de texto
-  const toggleReading = () => {
-    // Si la lectura está activa, la cancelamos y actualizamos el estado
-    if (isReading) {
-      window.speechSynthesis.cancel();
+  // & Función recursiva para leer la cola de textos
+  // Usamos useCallback para que la referencia sea estable
+  const speakNext = useCallback((textArray, index) => {
+    // Si ya no hay más textos o el estado cambió a false, terminamos
+    if (index >= textArray.length) {
       setIsReading(false);
-      setUtterances([]); // Limpia la cola
-    } else {
-      const readableElements = document.querySelectorAll('[data-read]');
-      if (readableElements.length > 0) {
-        // Crea un array de SpeechSynthesisUtterance para cada elemento
-        const newUtterances = Array.from(readableElements).map(el => {
-          return new SpeechSynthesisUtterance(el.innerText);
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(textArray[index]);
+    utterance.lang = "es-ES"; // Opcional: define el idioma
+
+    utterance.onend = () => {
+      // Verificamos el estado actual justo antes de pasar al siguiente
+      // Usamos un timeout para la pausa solicitada
+      setTimeout(() => {
+        setIsReading((currentStatus) => {
+          if (currentStatus) {
+            speakNext(textArray, index + 1);
+          }
+          return currentStatus;
         });
+      }, 500);
+    };
 
-        setUtterances(newUtterances);
+    window.speechSynthesis.speak(utterance);
+  }, []);
+
+  // & Función principal de lectura
+  const toggleReading = () => {
+    if (isReading) {
+      // 1. Detener la síntesis de voz inmediatamente
+      window.speechSynthesis.cancel();
+      // 2. Cambiar el estado para que 'onend' sepa que no debe continuar
+      setIsReading(false);
+    } else {
+      const readableElements = document.querySelectorAll("[data-read]");
+      if (readableElements.length > 0) {
+        const texts = Array.from(readableElements).map((el) => el.innerText);
         setIsReading(true);
-
-        // Inicia la lectura de la primera frase
-        speakNextUtterance(newUtterances);
+        speakNext(texts, 0);
       }
     }
   };
 
-  // & Función para la lectura de texto (timer entre secciones)
-  const speakNextUtterance = (utterancesQueue) => {
-    if (utterancesQueue.length > 0) {
-      const currentUtterance = utterancesQueue.shift();
-      currentUtterance.onend = () => {
-        // Cuando termina de leer, espera 0.5 segundos antes de la siguiente
-        setTimeout(() => {
-          speakNextUtterance(utterancesQueue);
-        }, 500); // Pausa de 500 milisegundos (2 segundos)
-      };
-      window.speechSynthesis.speak(currentUtterance);
-    } else {
-      // Si la cola está vacía, la lectura ha terminado
-      setIsReading(false);
-    }
-  };
-
-  // & Función para activar/desactivar la fuente de dislexia
-  const toggleDyslexiaFriendlyFont = () => {
-    setIsDyslexiaFriendlyFontEnabled(prev => !prev);
-  };
-
-  // & Función para alternar el modo de mayúsculas
-  const toggleUpperCase = () => {
-    setIsUpperCase(prev => !prev);
-  };
-
   // ## EFECTOS ## //
-
-  // Efecto para aplicar el estilo al DOM
-  // Se ejecuta cada vez que 'fontSize' cambia
 
   useEffect(() => {
     document.documentElement.style.fontSize = fontSizes[fontSize];
   }, [fontSize]);
 
-  // Efecto para el alto contraste
   useEffect(() => {
-    if (highContrast) {
-      document.body.classList.add('high-contrast');
-    } else {
-      document.body.classList.remove('high-contrast');
-    }
+    document.body.classList.toggle("high-contrast", highContrast);
   }, [highContrast]);
 
-  // Efecto para el espaciado de texto
   useEffect(() => {
-    document.body.className = document.body.className.replace(/text-spacing-\S+/g, '');
-    if (textSpacings[textSpacing] !== 'normal') {
+    // Limpia clases anteriores de espaciado
+    document.body.className = document.body.className.replace(
+      /text-spacing-\S+/g,
+      "",
+    );
+    if (textSpacings[textSpacing] !== "normal") {
       document.body.classList.add(`text-spacing-${textSpacings[textSpacing]}`);
     }
   }, [textSpacing]);
 
-  // Efecto para la fuente de dislexia
   useEffect(() => {
-    if (isDyslexiaFriendlyFontEnabled) {
-      document.body.classList.add('dyslexia-friendly-font');
-    } else {
-      document.body.classList.remove('dyslexia-friendly-font');
-    }
+    document.body.classList.toggle(
+      "dyslexia-friendly-font",
+      isDyslexiaFriendlyFontEnabled,
+    );
   }, [isDyslexiaFriendlyFontEnabled]);
 
-  // Efecto para el modo de mayúsculas
   useEffect(() => {
-    if (isUpperCase) {
-      document.body.classList.add('uppercase-text');
-    } else {
-      document.body.classList.remove('uppercase-text');
-    }
+    document.body.classList.toggle("uppercase-text", isUpperCase);
   }, [isUpperCase]);
 
+  // Limpieza al desmontar el componente (detener voz si el usuario cambia de página)
+  useEffect(() => {
+    return () => window.speechSynthesis.cancel();
+  }, []);
 
-  // ## Actualiza el 'value' del contexto
-  const value = useMemo(() => ({
-    highContrast,
-    toggleHighContrast,
-    fontSize,
-    cycleFontSize,
-    textSpacing,
-    cycleTextSpacing,
-    isReading,
-    toggleReading,
-    isDyslexiaFriendlyFontEnabled,
-    toggleDyslexiaFriendlyFont,
-    isUpperCase,
-    toggleUpperCase,
-  }), [highContrast, fontSize, textSpacing, isReading, isDyslexiaFriendlyFontEnabled, isUpperCase]);
+  const value = useMemo(
+    () => ({
+      highContrast,
+      toggleHighContrast,
+      fontSize,
+      cycleFontSize,
+      textSpacing,
+      cycleTextSpacing,
+      isReading,
+      toggleReading,
+      isDyslexiaFriendlyFontEnabled,
+      toggleDyslexiaFriendlyFont,
+      isUpperCase,
+      toggleUpperCase,
+    }),
+    [
+      highContrast,
+      fontSize,
+      textSpacing,
+      isReading,
+      isDyslexiaFriendlyFontEnabled,
+      isUpperCase,
+    ],
+  );
 
   return (
     <AccessibilityContext.Provider value={value}>
@@ -180,11 +157,12 @@ export const AccessibilityProvider = ({ children }) => {
   );
 };
 
-// 3. Crea un hook personalizado para usar el contexto
 export const useAccessibility = () => {
   const context = useContext(AccessibilityContext);
   if (context === undefined) {
-    throw new Error('useAccessibility debe ser usado dentro de un AccessibilityProvider');
+    throw new Error(
+      "useAccessibility debe ser usado dentro de un AccessibilityProvider",
+    );
   }
   return context;
 };

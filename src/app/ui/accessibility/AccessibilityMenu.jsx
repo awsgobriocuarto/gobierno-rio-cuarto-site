@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useAccessibility } from "@/app/providers/AccessibilityProvider";
 
 export default function AccessibilityMenu({ menuOpen }) {
@@ -15,7 +15,6 @@ export default function AccessibilityMenu({ menuOpen }) {
     toggleUpperCase,
   } = useAccessibility();
 
-
   // if (!menuOpen) {
   //   return null;
   // }
@@ -24,10 +23,10 @@ export default function AccessibilityMenu({ menuOpen }) {
     <div
       className="accessibilityMenu"
       style={{
-        transition: 'all 0.3s ease-in-out',
+        transition: "all 0.3s ease-in-out",
         opacity: menuOpen ? 1 : 0,
-        transform: menuOpen ? 'translateY(0)' : 'translateY(1rem)',
-        pointerEvents: menuOpen ? 'auto' : 'none',
+        transform: menuOpen ? "translateY(0)" : "translateY(1rem)",
+        pointerEvents: menuOpen ? "auto" : "none",
       }}
     >
       <div className="menuHeader">
@@ -42,13 +41,13 @@ export default function AccessibilityMenu({ menuOpen }) {
         {/* Botón para el modo de mayúsculas */}
         <button className="optionButton" onClick={toggleUpperCase}>
           <i className="fa-solid fa-a"></i>
-          <span>Mayúsculas: {isUpperCase ? 'ON' : 'OFF'}</span>
+          <span>Mayúsculas: {isUpperCase ? "ON" : "OFF"}</span>
         </button>
         {/* Boton para Activar/Desactivar el Alto Contraste */}
-        <button className="optionButton" onClick={toggleHighContrast}>
+        {/* <button className="optionButton" onClick={toggleHighContrast}>
           <i className="fa-solid fa-circle-half-stroke"></i>
           <span>Alto Contraste: {highContrast ? 'ON' : 'OFF'}</span>
-        </button>
+        </button> */}
         {/* Botón para el espaciado de texto */}
         <button className="optionButton" onClick={cycleTextSpacing}>
           <i className="fa-solid fa-arrows-up-down-left-right"></i>
@@ -57,12 +56,14 @@ export default function AccessibilityMenu({ menuOpen }) {
         {/* Botón para la Lectura de Texto */}
         <button className="optionButton" onClick={toggleReading}>
           <i className="fa-solid fa-volume-high"></i>
-          <span>{isReading ? 'Detener Lectura' : 'Leer Texto'}</span>
+          <span>{isReading ? "Detener Lectura" : "Leer Texto"}</span>
         </button>
         {/* Botón para la fuente de dislexia */}
         <button className="optionButton" onClick={toggleDyslexiaFriendlyFont}>
           <i className="fa-solid fa-font"></i>
-          <span>Fuente para Dislexia: {isDyslexiaFriendlyFontEnabled ? 'ON' : 'OFF'}</span>
+          <span>
+            Fuente para Dislexia: {isDyslexiaFriendlyFontEnabled ? "ON" : "OFF"}
+          </span>
         </button>
       </div>
     </div>
