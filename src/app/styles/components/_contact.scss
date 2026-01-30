@@ -9,6 +9,7 @@
 
       display: flex;
       align-items: center;
+      overflow: hidden;
 
       color: $gray-700;
 
@@ -20,16 +21,20 @@
     &--icon {
       margin-right: 8px;
       font-size: 1.4rem;
+      flex-shrink: 0;
     }
 
     &--info {
       //background-color: red;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      min-width: 0;
     }
 
     &--text {
       margin-right: 8px;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
 
     &--label {

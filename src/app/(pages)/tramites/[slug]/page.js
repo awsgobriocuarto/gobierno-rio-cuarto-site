@@ -38,7 +38,8 @@ export default async function Formality({ params }) {
               <div className="formalities-detail--categories">
                 {formality.categories.map((category) => (
                   <span key={category.id}>
-                    <i className={`fa-solid fa-fw ${category.image}`}></i>
+                    <i className={`fa-solid  ${category.image}`}></i>
+                    
                     {category.name}
                   </span>
                 ))}
