@@ -7,11 +7,10 @@ import { Form, FormControl, Button } from "react-bootstrap";
 
 export default function SearchForm({ onSearchComplete }) {
   const searchParams = useSearchParams();
-  const currentQuery = searchParams.get('q') || "";
+  const currentQuery = searchParams.get("q") || "";
 
   const [searchTerm, setSearchTerm] = useState(currentQuery);
   const router = useRouter();
-
 
   useEffect(() => {
     if (searchTerm !== currentQuery) {
@@ -35,8 +34,8 @@ export default function SearchForm({ onSearchComplete }) {
     <Form className="search-form" onSubmit={handleSubmit}>
       <FormControl
         type="search"
-        size="lg"
-        placeholder="¡En que te podemos ayudar?"
+        size=""
+        placeholder="¿En qué te podemos ayudar?"
         aria-label="Search"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}

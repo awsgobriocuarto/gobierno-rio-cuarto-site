@@ -71,10 +71,39 @@
   }
 }
 
-// banner mobile
+/* Ajustes para mejorar jerarquía y legibilidad */
+.banner-card-row {
+  min-height: $card-height;
+}
+
+.banner-card .card-icon i {
+  /* ligeramente más grande para equilibrar el texto */
+  font-size: 1.6rem;
+}
+
+/* Título: más peso y contraste */
+.banner-card-title {
+  font-weight: 900; /* más peso */
+  font-size: 1.15rem; /* pequeño aumento */
+
+  letter-spacing: 0.2px;
+}
+
+/* Subtítulo: más legible, pero más ligero */
+.banner-card-subtitle {
+  font-weight: 300; /* más ligero */
+  font-size: 0.95rem;
+}
+
+/* Mobile tweaks */
 @media (max-width: 767px) {
-  .banners {
-    padding-top: 30px;
-    padding-bottom: 20px;
+  .banner-card .card-icon i {
+    font-size: 1.4rem;
+  }
+  .banner-card-title {
+    font-size: 1rem;
+  }
+  .banner-card-subtitle {
+    font-size: 0.9rem;
   }
 }

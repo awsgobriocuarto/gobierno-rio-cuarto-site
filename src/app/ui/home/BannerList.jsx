@@ -7,7 +7,7 @@ const banners = [
     title: "0800 444 5454",
     subtitle: "Atención al vecino",
     icon: "fa-phone fa-2xl",
-    color: "bg-warning text-white",
+    color: "bg-secondary text-white",
     url: "/seccion/boton-cta-suav-sistema-unico-de-atencion-al-vecino",
     target: "",
   },
@@ -29,14 +29,13 @@ const banners = [
   },
   {
     title: "Turno Salud",
-    subtitle: "Atencion Medica",
+    subtitle: "Atención Médica",
     icon: "fa-plus-square fa-2xl",
     color: "bg-success text-white",
     url: "https://economiariocuarto.gob.ar/pagos-y-deudas",
     target: "_blank",
   },
 ];
-
 export default function BannerList() {
   return (
     <section className="banners" data-read>

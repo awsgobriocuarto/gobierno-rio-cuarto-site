@@ -23,14 +23,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
   .hero {
     &-title {
       font-size: 1.4rem;
     }
   }
+}
+
+.hero-slides-icons {
+  position: absolute;
+  top: 8px;
+  right: 10px;
 }
