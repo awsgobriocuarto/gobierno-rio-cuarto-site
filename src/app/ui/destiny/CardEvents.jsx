@@ -1,54 +1,52 @@
-import Link from "next/link";
+export default function CardEvent({ post }) {
+  const eventDate = new Date(post.calendars[0].end_date);
+  const day = eventDate.getDate();
+  const month = eventDate
+    .toLocaleDateString("es-AR", { month: "short" })
+    .replace(".", "");
+  const eventUrl = `https://destinoriocuarto.gob.ar/evento/${post.id}/${post.slug}`;
 
-export default function CardNews({ post }) {
   return (
     <div className="col-md-6 col-lg-4 mb-4">
-      <div className="card">
-        <div className="card-img-top">
-          <a
-            href={`https://destinoriocuarto.gob.ar/evento/${post.id}/${post.slug}&utm_source=web_gobierno&utm_medium=home&utm_campaign=next_events`}
-            className=""
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      <div className="card h-100 card-event-simple">
+        <div className="position-relative">
+          <div className="date-sticker">
+            <span className="day">{day}</span>
+            <span className="month">{month}</span>
+          </div>
+
+          <a href={eventUrl} target="_blank" rel="noopener noreferrer">
             {/* eslint-disable-next-line */}
+
             <img
               src={post.image.mediumUrl}
               alt={post.title}
               className="card-img-top"
-              style={{ objectFit: "cover" }}
             />
           </a>
         </div>
+
         <div className="card-body">
-          <a
-            href={`https://destinoriocuarto.gob.ar/evento/${post.id}/${post.slug}&utm_source=web_gobierno&utm_medium=home&utm_campaign=next_events`}
-            className=""
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={eventUrl} target="_blank" rel="noopener noreferrer">
             <h3 className="card-title text-primary">{post.title}</h3>
           </a>
-          <p className="card-text">{post.summary}</p>
+          <p className="card-text text-muted small">{post.summary}</p>
         </div>
-        <div className="card-footer border-0 bg-white">
-          <span>
-            {new Date(post.calendars[0].end_date).toLocaleDateString("es-AR", {
-              year: "numeric",
-              month: "numeric",
-              day: "numeric",
-            })}
-          </span>
-          <span>
+
+        <div className="card-footer bg-white border-0">
+          <div className="footer-content">
+            <span className="event-organization">
+              {post.place.organization}
+            </span>
             <a
-              href={`https://destinoriocuarto.gob.ar/evento/${post.id}/${post.slug}`}
-              className=""
+              href={eventUrl}
               target="_blank"
               rel="noopener noreferrer"
+              className="btn-event-more"
             >
               Ver más
             </a>
-          </span>
+          </div>
         </div>
       </div>
     </div>

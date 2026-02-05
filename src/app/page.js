@@ -16,13 +16,8 @@ export default async function Home() {
       <BannerList />
       <ListFormalityCategories />
       <ListAreas />
-      <div className="container mb-4">
-        <HeaderSection title="Últimas Noticias" />
-        <ListNews limit={6} />
-        <Link href="/noticias" className="btn btn-dark mb-5">
-          Ver más noticias
-        </Link>
-      </div>
+      <ListNews limit={6} />
+
       <ListEvents />
     </main>
   );

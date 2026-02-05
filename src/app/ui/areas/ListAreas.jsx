@@ -13,16 +13,16 @@ export default async function ListAreas() {
   areas.sort((a, b) => a.order - b.order);
 
   return (
-    <section className="area area-home" data-read>
+    <section className="area area-home bg-gray" data-read>
       <div className="container">
         <HeaderSection
           title="Áreas de Gobierno"
           subtitle="Secretarías, Entes y Organismos"
         />
-        <div className="row justify-content-center buttons-areas">
+        <div className="row justify-content-center buttons-areas g-4">
           <Suspense fallback={<div>Cargando...</div>}>
             {areas.map((area) => (
-              <div className="col-md-4" key={area.id}>
+              <div className="col-12 col-sm-6 col-lg-4" key={area.id}>
                 <CardAreas area={area} />
               </div>
             ))}

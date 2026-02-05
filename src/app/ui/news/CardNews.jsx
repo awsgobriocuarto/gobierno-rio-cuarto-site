@@ -24,7 +24,7 @@ export default function CardNews({ post }) {
           <p className="card-text">{post.excerpt}</p>
         </div>
         <div className="card-footer border-0 bg-white">
-          <span>
+          <span className="text">
             {new Date(post.published_at).toLocaleDateString("es-AR", {
               year: "numeric",
               month: "numeric",
