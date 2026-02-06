@@ -103,6 +103,58 @@
     background-color: $gray-200;
     margin-bottom: 30px;
   }
+
+  // Styles for CardAreas (Option 2 - File Folder)
+  &-folder {
+    border-radius: 8px;
+    border-left: 6px solid $primary; // $primary should be defined in global scope or imports
+    background-color: #ffffff; // $white
+    transition: background-color 0.2s;
+    border: 0;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    height: 80%;
+
+    &:hover {
+      background-color: #f8f9fa;
+
+      .arrow-icon {
+        transform: translateX(4px);
+      }
+    }
+
+    .card-body {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &-title {
+      color: #333333; // $textDark
+      font-size: 1.15rem; // ~18px
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 0; // reset
+    }
+
+    &-separator {
+      height: 2px;
+      width: 40px;
+      background-color: #ff7825; // $secondary
+      margin-top: 8px;
+    }
+
+    .arrow-icon {
+      color: $primary;
+      transition: transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .area-institutional {
