@@ -4,8 +4,14 @@ import CardNews from "./CardNews";
 import HeaderSection from "../layout/HeaderSection";
 import Link from "next/link";
 
-export default async function ListNews({ page, limit, area }) {
-  const posts = await fetchNews({ page, limit, area });
+export default async function ListNews({
+  page,
+  limit,
+  area,
+  search = "",
+  showHeader = true,
+}) {
+  const posts = await fetchNews({ page, limit, area, search });
 
   if (!posts || posts.length === 0) {
     return null;
@@ -14,10 +20,13 @@ export default async function ListNews({ page, limit, area }) {
   return (
     <section data-read className="news-list">
       <div className="container">
-        <HeaderSection
-          title="Últimas Noticias"
-          subtitle="Noticias recientes y novedades del municipio"
-        />
+        {showHeader && (
+          <HeaderSection
+            title="Novedades "
+            subtitle="Noticias y anuncios de la ciudad"
+            bgImage="/images/gente3.jpg"
+          />
+        )}
 
         <div className="row">
           <Suspense fallback={<div>Cargando...</div>}>

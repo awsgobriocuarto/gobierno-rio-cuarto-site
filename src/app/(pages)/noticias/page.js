@@ -2,61 +2,61 @@ import React, { Suspense } from "react";
 import ListNews from "@/app/ui/news/ListNews";
 import Pagination from "@/app/ui/news/Pagination";
 import HeaderSection from "@/app/ui/layout/HeaderSection";
-import FormNews from "@/app/ui/news/FormNews";
+import NewsFilters from "@/app/ui/news/NewsFilters";
 import { fetchAreaBySlug, fetchAreas } from "@/app/lib/DataAreas";
 import { fetchPosts } from "@/app/lib/DataNews";
 
 export const metadata = {
-  title: 'Noticias',
-  description: 'Noticias del Gobierno de Río Cuarto',
+  title: "Noticias",
+  description: "Noticias del Gobierno de Río Cuarto",
 };
 
 export default async function News({ searchParams }) {
   const page = Number(searchParams?.page) || 1;
   const limit = 9;
   const areaSlug = searchParams?.area ? searchParams?.area : "";
+  const search = searchParams?.search ? searchParams?.search : "";
 
   const [areas, posts, areaName] = await Promise.all([
     fetchAreas(),
-    fetchPosts({ page, limit, area: areaSlug }),
+    fetchPosts({ page, limit, area: areaSlug, search }),
     // Solo se ejecuta fetchAreaBySlug si hay un filtro de área
     areaSlug ? fetchAreaBySlug(areaSlug) : Promise.resolve(null),
   ]);
 
-  const subtitle = areaName ? `${areaName.name} (${posts.total})` : `general (${posts.total})`;
+  const subtitle = areaName
+    ? `${areaName.name} (${posts.total})`
+    : `general (${posts.total})`;
 
   return (
     <main className="news news-page" data-read>
-
       <div className="container">
         <div className="row">
-          <div className="col-md-6"><HeaderSection title="Noticias" subtitle={subtitle} /></div>
-          <div className="col-md-6">
-            <div className="news-form">
-              <FormNews
-                options={areas}
-                paramName="area"
-                placeholder="Todas las noticias"
-                posts={posts}
-                subtitle={subtitle}
-              />
-            </div>
+          <div className="col-md-12">
+            <HeaderSection title="Noticias" subtitle={subtitle} />
+            <NewsFilters areas={areas} />
           </div>
         </div>
-        <div className="row justify-content-center">
+        <div className="row justify-content-center mt-5">
           <Suspense fallback={<div>Cargando noticias</div>}>
             {posts.total === 0 ? (
               <div className="news-not-found">
                 <div className="card border-primary">
                   <div className="card-body py-4">
-                    <p>No hay noticias disponibles en</p>
-                    <p className="lead">{subtitle}</p>
+                    <p>No se encontraron noticias para la búsqueda.</p>
+                    <p className="lead">{search ? `"${search}"` : ""}</p>
                   </div>
                 </div>
               </div>
             ) : (
               <>
-                <ListNews page={page} limit={limit} area={areaSlug} />
+                <ListNews
+                  page={page}
+                  limit={limit}
+                  area={areaSlug}
+                  search={search}
+                  showHeader={false}
+                />
                 <Pagination
                   currentPage={posts.current_page}
                   totalNews={posts.total}
@@ -67,6 +67,6 @@ export default async function News({ searchParams }) {
           </Suspense>
         </div>
       </div>
-    </main >
+    </main>
   );
 }

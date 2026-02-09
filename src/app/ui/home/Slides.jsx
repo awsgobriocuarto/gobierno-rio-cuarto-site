@@ -14,17 +14,29 @@ export default function Slides() {
       <Carousel controls={false} fade={true} indicators={false}>
         <Carousel.Item>
           {/* eslint-disable-next-line */}
-          <img src="/images/14.jpg" alt="" className="hero-slide-image" />
+          <img
+            src="/images/gente1.jpg"
+            alt="Vecinos en el parque"
+            className="hero-slide-image"
+          />
           <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           {/* eslint-disable-next-line */}
-          <img src="/images/12.jpg" alt="" className="hero-slide-image" />
+          <img
+            src="/images/gente2.jpg"
+            alt="Familia riocuartense"
+            className="hero-slide-image"
+          />
           <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           {/* eslint-disable-next-line */}
-          <img src="/images/plaza.jpg" alt="" className="hero-slide-image" />
+          <img
+            src="/images/gente3.jpg"
+            alt="Vecinos mayores"
+            className="hero-slide-image"
+          />
           <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
       </Carousel>

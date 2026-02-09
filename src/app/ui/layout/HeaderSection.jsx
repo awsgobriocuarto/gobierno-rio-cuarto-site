@@ -1,25 +1,44 @@
 import ListIcons from "../icons/ListIcons";
 
-const LIST_OF_ICONS = [
+const DEFAULT_ICONS = [
   { name: "circles", color: "yellow", size: "30" },
   { name: "squares", color: "pink", size: "30" },
   { name: "waves", color: "lightblue", size: "30" },
+];
+
+const WHITE_ICONS = [
+  { name: "circles", color: "white", size: "30" },
+  { name: "squares", color: "white", size: "30" },
+  { name: "waves", color: "white", size: "30" },
 ];
 
 export default function HeaderSection({
   title = "Titulo de la Seccion",
   subtitle = "",
   border = false,
+  bgImage = null, // Path a la imagen si es humanizado
 }) {
-  return (
-    <div className={`header ${border ? "header-border" : ""}`}>
-      <div className="header-icons">
-        <ListIcons icons={LIST_OF_ICONS} />
-      </div>
+  const isHumanized = !!bgImage;
+  const icons = isHumanized ? WHITE_ICONS : DEFAULT_ICONS;
 
-      <div className="header-text">
-        <h2>{title}</h2>
-        {subtitle && <p>{subtitle}</p>}
+  return (
+    <div
+      className={`header ${border ? "header-border" : ""} ${
+        isHumanized ? "header-humanized" : ""
+      }`}
+      style={isHumanized ? { backgroundImage: `url(${bgImage})` } : {}}
+    >
+      {isHumanized && <div className="header-overlay"></div>}
+
+      <div className="header-content">
+        <div className="header-icons">
+          <ListIcons icons={icons} />
+        </div>
+
+        <div className="header-text">
+          <h2>{title}</h2>
+          {subtitle && <p>{subtitle}</p>}
+        </div>
       </div>
 
       <div className="header-form"></div>

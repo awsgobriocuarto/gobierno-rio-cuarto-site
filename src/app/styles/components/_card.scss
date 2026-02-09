@@ -1,16 +1,24 @@
 .buttons {
   $card-height: 110px;
 
-  a:hover {
-    .card {
-      border-color: rgba($gray-900, 0.5);
+  a {
+    transition: transform 0.2s ease;
+    display: block;
+
+    &:hover {
+      transform: translateY(-2px); // Movimiento casi imperceptible
+      .card {
+        border-color: $primary;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); // Sombra suave
+      }
     }
   }
 
   .card {
-    //border-radius: $border-radius;
-    border-color: rgba($gray-900, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid rgba($gray-900, 0.1);
     margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 
     &-img {
       width: 100%;
@@ -60,16 +68,24 @@
 .buttons-areas {
   $card-height: 90px;
 
-  a:hover {
-    .card {
-      border-color: rgba($gray-900, 0.5);
+  a {
+    transition: transform 0.2s ease;
+    display: block;
+
+    &:hover {
+      transform: translateY(-2px);
+      .card {
+        border-color: $primary;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
     }
   }
 
   .card {
-    //border-radius: $border-radius;
-    border-color: rgba($gray-900, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid rgba($gray-900, 0.1);
     margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 
     &-body {
       //background-color: $gray-100;

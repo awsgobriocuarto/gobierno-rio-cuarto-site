@@ -9,7 +9,11 @@ export default async function ListEvents() {
   return (
     <section className="events events-list" data-read>
       <div className="container">
-        <HeaderSection title="Eventos" subtitle="Destino Río Cuarto" />
+        <HeaderSection
+          title="Disfrutá la ciudad"
+          subtitle="Eventos y actividades para vos"
+          bgImage="/images/gente2.jpg"
+        />
 
         <div className="row justify-content-center">
           <Suspense fallback={<div>Cargando...</div>}>

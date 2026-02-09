@@ -14,10 +14,11 @@
   }
 
   &-text {
+    flex: 1;
     h2 {
-      //color: $primary;
-      margin-bottom: 0px;
+      margin-bottom: 2px;
       text-transform: uppercase;
+      line-height: 1.1;
     }
 
     p {
@@ -25,6 +26,50 @@
       font-size: 1.1rem;
       color: $gray-600;
       text-transform: uppercase;
+      line-height: 1.2;
+    }
+  }
+
+  // Variante Humanizada (con imagen de fondo)
+  &-humanized {
+    position: relative;
+    padding: 30px 40px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    margin-bottom: 40px;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.75) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+      );
+      z-index: 1;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .header-text {
+      p {
+        color: rgba(255, 255, 255, 0.9);
+      }
     }
   }
 }
@@ -32,5 +77,40 @@
 @media (max-width: 767px) {
   .header {
     margin-bottom: 30px;
+
+    &-icons {
+      margin-inline-end: 12px;
+      transform: scale(0.85);
+      transform-origin: left;
+    }
+
+    &-text {
+      h2 {
+        font-size: 1.5rem !important;
+      }
+      p {
+        font-size: 0.9rem !important;
+      }
+    }
+
+    &-humanized {
+      padding: 24px 20px;
+      text-align: center;
+      justify-content: center;
+      min-height: 140px;
+
+      .header-content {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .header-icons {
+        margin-inline-end: 0;
+      }
+
+      .header-overlay {
+        background: rgba(0, 0, 0, 0.6);
+      }
+    }
   }
 }

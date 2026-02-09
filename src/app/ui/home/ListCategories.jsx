@@ -9,7 +9,11 @@ export default async function ListFormalityCategories() {
   return (
     <section className="formalities formalities-categories" data-read>
       <div className="container">
-        <HeaderSection title="Trámites" subtitle="Categorías principales" />
+        <HeaderSection
+          title="¿Qué necesitás hacer?"
+          subtitle="Trámites y servicios"
+          bgImage="/images/gente2.jpg"
+        />
         {/* Agregamos g-4 para controlar el espaciado entre las columnas */}
         <div className="row justify-content-center buttons ">
           <Suspense fallback={<div>Cargando...</div>}>

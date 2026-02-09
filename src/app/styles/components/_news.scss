@@ -6,18 +6,25 @@
     padding: 60px 0 0 0;
   }
 
-  &-form {
-    text-align: right;
-    background-color: rgba($primary, 0.2);
-    padding: 10px;
-    margin-bottom: 30px;
-    min-height: 80px;
-    display: flex;
-    align-items: center;
+  &-filters {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    border: 1px solid #e9ecef;
 
-    .form-control {
+    h5 {
       font-size: 0.9rem;
       text-transform: uppercase;
+      color: $primary;
+      margin-bottom: 15px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .form-control,
+    .form-select {
+      font-size: 1rem;
     }
   }
 
@@ -69,6 +76,7 @@
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
       }
 
@@ -85,6 +93,7 @@
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
       }
 
@@ -163,9 +172,6 @@
     &--body {
       margin-bottom: 50px;
     }
-
-    &--gallery {
-    }
   }
 
   &-related {
@@ -221,6 +227,7 @@
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         line-height: 1.4rem;
         color: #000;

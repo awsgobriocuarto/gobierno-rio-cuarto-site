@@ -16,8 +16,9 @@ export default async function ListAreas() {
     <section className="area area-home bg-gray" data-read>
       <div className="container">
         <HeaderSection
-          title="Áreas de Gobierno"
-          subtitle="Secretarías, Entes y Organismos"
+          title="GESTIONAMOS PARA VOS"
+          subtitle="Secretarías y áreas municipales"
+          bgImage="/images/gente1.jpg"
         />
         <div className="row justify-content-center buttons-areas gx-4 gy-1">
           <Suspense fallback={<div>Cargando...</div>}>

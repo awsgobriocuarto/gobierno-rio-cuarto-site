@@ -35,7 +35,7 @@ export default function SearchForm({ onSearchComplete }) {
       <FormControl
         type="search"
         size=""
-        placeholder="¿En qué te podemos ayudar?"
+        placeholder="¿Qué estas buscando? (ej: Carnet, Cedulón, Habilitación)"
         aria-label="Search"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}

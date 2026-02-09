@@ -16,10 +16,15 @@ const API_OPTIONS = {
   },
 };
 
-export async function fetchNews({ page = 1, limit = 9, area = "" } = {}) {
+export async function fetchNews({
+  page = 1,
+  limit = 9,
+  area = "",
+  search = "",
+} = {}) {
   const res = await fetch(
-    `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&sort_by=published_at&sort_order=desc&status=published`,
-    API_OPTIONS
+    `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&search=${search}&sort_by=published_at&sort_order=desc&status=published`,
+    API_OPTIONS,
   );
 
   if (!res.ok) {
@@ -29,10 +34,15 @@ export async function fetchNews({ page = 1, limit = 9, area = "" } = {}) {
   return data.data;
 }
 
-export async function fetchPosts({ page = 1, limit = 9, area = "" } = {}) {
+export async function fetchPosts({
+  page = 1,
+  limit = 9,
+  area = "",
+  search = "",
+} = {}) {
   const res = await fetch(
-    `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&sort_by=published_at&sort_order=desc&status=published`,
-    API_OPTIONS
+    `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&search=${search}&sort_by=published_at&sort_order=desc&status=published`,
+    API_OPTIONS,
   );
 
   if (!res.ok) {
