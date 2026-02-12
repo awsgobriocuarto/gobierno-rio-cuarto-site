@@ -16,7 +16,7 @@ export default function HeaderSection({
   title = "Titulo de la Seccion",
   subtitle = "",
   border = false,
-  bgImage = null, // Path a la imagen si es humanizado
+  bgImage = null,
 }) {
   const isHumanized = !!bgImage;
   const icons = isHumanized ? WHITE_ICONS : DEFAULT_ICONS;
@@ -30,16 +30,29 @@ export default function HeaderSection({
     >
       {isHumanized && <div className="header-overlay"></div>}
 
-      <div className="header-content">
-        <div className="header-icons">
-          <ListIcons icons={icons} />
-        </div>
+      {isHumanized ? (
+        <div className="header-content">
+          <div className="header-icons">
+            <ListIcons icons={icons} />
+          </div>
 
-        <div className="header-text">
-          <h2>{title}</h2>
-          {subtitle && <p>{subtitle}</p>}
+          <div className="header-text">
+            <h2>{title}</h2>
+            {subtitle && <p>{subtitle}</p>}
+          </div>
         </div>
-      </div>
+      ) : (
+        <>
+          <div className="header-icons">
+            <ListIcons icons={icons} />
+          </div>
+
+          <div className="header-text">
+            <h2>{title}</h2>
+            {subtitle && <p>{subtitle}</p>}
+          </div>
+        </>
+      )}
 
       <div className="header-form"></div>
     </div>

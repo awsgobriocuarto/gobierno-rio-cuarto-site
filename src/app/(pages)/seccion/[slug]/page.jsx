@@ -39,6 +39,7 @@ export default async function SeccionDetail({ params }) {
         <div className="row">
           <div className="col-md-8">
             <DetailEntries detailEntry={detailEntry} links />
+
             <EntriesAreas
               type="program"
               area={detailEntry.area}

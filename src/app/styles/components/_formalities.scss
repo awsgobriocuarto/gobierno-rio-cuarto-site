@@ -1,7 +1,9 @@
 .formalities {
-  $card-height: 190px;
+  // CONFIGURACIÓN DE ALTURA
+  // Usamos min-height en lugar de height fija para flexibilidad
+  $card-min-height: 130px;
+
   &-page {
-    //background-color: blue;
     padding: 60px 0;
   }
 
@@ -11,9 +13,29 @@
   }
 
   &-categories {
-    //background-color: green;
     padding-top: 60px;
     padding-bottom: 30px;
+
+    .card-category {
+      .category-icon-container {
+        font-size: 2rem;
+        color: $primary;
+        width: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .category-title-clamp {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        white-space: normal;
+      }
+    }
   }
 
   &-filters {
@@ -31,54 +53,99 @@
   &-list {
     a {
       text-decoration: none;
-      //color: white;
 
       &:hover {
-        .card {
-          background-color: rgba($primary, 0.04);
-          border-color: rgba($primary, 0.8);
+        .card-formality {
+          background-color: #f8f9fa;
+
+          .formality-arrow {
+            transform: translateX(4px);
+          }
         }
       }
     }
 
-    .card {
-      height: $card-height;
-      //background-color: orange;
-      margin-bottom: 30px;
-      border: 1px solid rgba($primary, 0.4);
+    .card-formality {
+      border-radius: 8px;
+      background-color: #ffffff;
+      border: 1px solid rgba($primary, 0.2);
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+      transition: background-color 0.2s;
+      margin-bottom: 16px;
 
-      &-header {
-        flex: 1;
-        font-size: 0.8rem;
-        border-bottom: none;
+      // --- CAMBIOS DE ALTURA ---
+      min-height: $card-min-height; // Altura mínima para consistencia visual
+      height: 100%; // Ocupar todo el espacio disponible (para igualar hermanas)
+      display: flex;
+      flex-direction: column;
+      // -------------------------
+
+      overflow: hidden;
+
+      .card-body {
+        padding: 1rem;
+        display: flex;
+        align-items: center; // Centrado verticalmente
+        justify-content: space-between;
+        gap: 12px;
+        flex-grow: 1; // El cuerpo se estira para llenar la tarjeta
+        height: 100%;
       }
 
-      &-body {
-        // flex: auto;
-        min-height: 100px;
-        padding-top: 8px;
+      .formality-icon-container {
+        font-size: 1.2rem;
+        color: $primary;
+        width: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 0;
       }
 
-      &-title {
-        font-size: 1.25rem;
-        color: $gray-900;
-        margin-bottom: 0;
+      .formality-area-badge {
+        font-size: 0.72rem;
+        color: $gray-600;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        font-weight: 500;
+        display: block;
+        margin-bottom: 4px;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        &:hover {
-          color: $primary;
-        }
       }
 
-      &-footer {
-        font-size: 0.8rem;
-        border-top: none;
+      .formality-title {
+        color: #333333;
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 0;
+        // Mantenemos el clamp por si acaso, pero ahora la tarjeta crecerá si es necesario
+        display: -webkit-box;
+        -webkit-line-clamp: 4; // Aumentado ligeramente para permitir más texto
+        line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        white-space: normal;
+        line-height: 1.2;
+      }
+
+      .formality-arrow {
+        color: $primary;
+        transition: transform 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 0;
       }
     }
   }
 
+  // ... Resto de tu código (detail, etc) sigue igual ...
   &-detail {
     &--header {
       padding-bottom: 30px;
@@ -87,9 +154,7 @@
     }
 
     &--categories {
-      //background-color: green;
       margin-bottom: 20px;
-
       span {
         display: inline-flex;
         align-items: center;
@@ -108,17 +173,7 @@
     }
 
     .card {
-      //border: none;
       margin-bottom: 30px;
-
-      &-header {
-        //padding: 0;
-      }
-
-      &-body {
-        //padding: 15px 0;
-      }
-
       &-title {
         color: $black;
         font-weight: bold;

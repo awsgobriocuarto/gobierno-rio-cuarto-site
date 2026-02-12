@@ -10,18 +10,16 @@ export default async function ListFormalityCategories() {
     <section className="formalities formalities-categories" data-read>
       <div className="container">
         <HeaderSection
-          title="¿Qué necesitás hacer?"
-          subtitle="Trámites y servicios"
+          title="¿Qué necesitás hacer?
+"
+          subtitle="Trámites y servicios
+
+"
           bgImage="/images/gente2.jpg"
         />
-        {/* Agregamos g-4 para controlar el espaciado entre las columnas */}
         <div className="row justify-content-center buttons ">
           <Suspense fallback={<div>Cargando...</div>}>
             {categories.slice(0, 9).map((category) => (
-              /* col-md-6: 2 por fila en Tablet 
-                 col-lg-6: 2 por fila en Notebook
-                 col-xl-4: 3 por fila en Desktop (PC)
-              */
               <div className="col-md-6 col-lg-6 col-xl-4" key={category.id}>
                 <CardCategories category={category} />
               </div>
