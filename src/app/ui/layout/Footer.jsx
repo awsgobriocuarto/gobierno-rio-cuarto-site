@@ -6,55 +6,74 @@ export default function Footer() {
 
   return (
     <footer className="footer-app" data-read>
-      <div className="container py-4 py-md-5">
-        <div className="row">
-          <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
-            <h5 className="footer-title">Contacto Rápido</h5>
-            <ul className="list-unstyled">
-              <li>
+      <div className="container">
+        <div className="row gy-4">
+          {/* 1. Columna Logo */}
+          <div className="col-lg-3 col-md-12 text-center text-lg-start">
+            <div className="mb-3">
+              <img
+                src="/images/logos/logo-gobierno-white.webp"
+                alt="Gobierno de Río Cuarto"
+                className="d-inline-block logo-footer"
+              />
+            </div>
+            <p className="copyright-text mb-0">
+              &copy; {currentYear} Gobierno de Río Cuarto.
+              <br />
+              Subsecretaría de Innovación.
+            </p>
+          </div>
+
+          {/* 2. Columna Contacto (Ahora col-lg-3 para equilibrar espacio) */}
+          <div className="col-lg-3 col-md-6 text-center text-lg-start">
+            <h6 className="text-white mb-3">Contacto Rápido</h6>
+            <ul className="list-unstyled mb-0">
+              <li className="mb-2">
                 <i className="fa fa-phone fa-fw me-2"></i>
-                <a href="tel:0800-444-5427" className="footer-link">
-                  0800-444-5454
+                <a href="tel:0800-444-5454" className="footer-link">
+                  0800-444-5454 (SUAV)
                 </a>
               </li>
-              <li>
+              <li className="mb-2">
                 <i className="fa fa-map-marker-alt fa-fw me-2"></i>
                 <a
                   target="_blank"
-                  href="https://www.google.com/maps/place/Municipalidad+de+R%C3%ADo+Cuarto/@-33.1232494,-64.3492356,17z/data=!3m1!4b1!4m6!3m5!1s0x95d2000dc85abea3:0x70b3a3854f9eff0b!8m2!3d-33.1232539!4d-64.3466607!16s%2Fg%2F1hg4wc6_0?entry=ttu&g_ep=EgoyMDI1MTAwNC4wIKXMDSoASAFQAw%3D%3D"
-                  className="footer-text"
+                  rel="noopener noreferrer"
+                  href="https://goo.gl/maps/tu-link-aqui"
+                  className="footer-link"
                 >
                   Pje. de la Concepción 650
                 </a>
               </li>
-              <li>
+              <li className="mb-2 d-flex align-items-center justify-content-center justify-content-lg-start">
                 <i className="fa fa-clock fa-fw me-2"></i>
-                <span className="footer-text">
-                  Lunes a Viernes de 7:00 a 13:00 hs.
+                <span className="footer-link">
+                  Lun a Vie de 7:00 a 13:00 hs.
                 </span>
               </li>
             </ul>
           </div>
 
-          <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
-            <h5 className="footer-title">Enlaces Útiles</h5>
-            <ul className="list-unstyled">
-              <li>
+          {/* 3. Columna Enlaces (Ahora col-lg-3 para separar de redes) */}
+          <div className="col-lg-3 col-md-6 text-center text-lg-start">
+            <h6 className="text-white mb-3">Enlaces Útiles</h6>
+            <ul className="list-unstyled mb-0">
+              <li className="mb-2">
                 <Link href="/tramites" className="footer-link">
                   Trámites
                 </Link>
               </li>
-              <li>
-                <Link href="/areas" className="footer-link">
+              <li className="mb-2">
+                <Link href="/#areas" className="footer-link">
                   Áreas
                 </Link>
               </li>
-              <li>
+              <li className="mb-2">
                 <Link href="/mapas" className="footer-link">
                   Mapas
                 </Link>
               </li>
-              <li>
+              <li className="mb-2">
                 <Link href="/noticias" className="footer-link">
                   Noticias
                 </Link>
@@ -62,46 +81,35 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="col-lg-4 col-md-12">
-            <h5 className="footer-title">Seguinos en redes</h5>
-            <div className="social-icons mb-3">
+          {/* 4. Columna Redes */}
+          <div className="col-lg-3 col-md-12 text-center text-lg-start">
+            <h6 className="text-white mb-3">Seguinos</h6>
+            <p className=" small-text mb-3">
+              Enterate de todas las novedades en nuestras redes.
+            </p>
+            <div className="d-flex gap-3 justify-content-center justify-content-lg-start social-icons">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link me-3"
               >
-                <i className={`fa-brands fa-fw fa-facebook`}></i>
-                <span className="sr-only">Facebook</span>
+                <i className="fa-brands fa-facebook-f"></i>
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link me-3"
               >
-                <i className={`fa-brands fa-1x fa-instagram`}></i>
-                <span className="sr-only">Instagram</span>
+                <i className="fa-brands fa-instagram"></i>
               </a>
               <a
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link"
               >
-                <i className={`fa-brands fa-fw fa-youtube`}></i>
-                <span className="sr-only">Youtube</span>
+                <i className="fa-brands fa-youtube"></i>
               </a>
             </div>
-          </div>
-        </div>
-
-        <div className="row mt-4 pt-3 footer-copyright-row">
-          <div className="col text-center text-md-start">
-            <p className="footer-copyright mb-0">
-              &copy; {currentYear} Gobierno de Río Cuarto. Desarrollado por la
-              Subsecretaria de Innovación.
-            </p>
           </div>
         </div>
       </div>

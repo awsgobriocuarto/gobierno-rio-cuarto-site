@@ -111,11 +111,11 @@
         font-weight: 500;
         display: block;
         margin-bottom: 4px;
-        display: -webkit-box;
+        /* display: -webkit-box;
         -webkit-line-clamp: 2;
         line-clamp: 2;
         -webkit-box-orient: vertical;
-        overflow: hidden;
+        overflow: hidden; */
       }
 
       .formality-title {
@@ -125,8 +125,8 @@
         margin-bottom: 0;
         // Mantenemos el clamp por si acaso, pero ahora la tarjeta crecerá si es necesario
         display: -webkit-box;
-        -webkit-line-clamp: 4; // Aumentado ligeramente para permitir más texto
-        line-clamp: 4;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         white-space: normal;

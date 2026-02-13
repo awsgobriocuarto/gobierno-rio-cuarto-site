@@ -3,7 +3,6 @@ import { fetchFormalities } from "@/app/lib/DataFormalities";
 import FormalitiesCard from "./CardFormality";
 import Link from "next/link";
 
-
 export default async function ListFormalitiesBySlug({ area }) {
   if (!area) return null;
 
@@ -13,25 +12,29 @@ export default async function ListFormalitiesBySlug({ area }) {
 
   return (
     <div>
-      <h3 className="text-dark">Trámites <small>({allFormalities.length})</small></h3>
+      <h3 className="text-dark">
+        Trámites <small>({allFormalities.length})</small>
+      </h3>
       {formalities.length === 0 ? (
         <p>No hay trámites para esta área.</p>
       ) : (
-
         <>
           <div className="row formalities-list">
             {formalities.map((formality) => (
-              <div className="col-12 col-lg-6" key={formality.id}>
+              <div className="col-12 col-md-6 mb-4" key={formality.id}>
                 <FormalitiesCard formality={formality} />
               </div>
             ))}
           </div>
           {allFormalities.length > 6 && (
-            <Link href={`/tramites?area=${area.slug}`} className="btn btn-dark text-white">Ver más trámites</Link>
+            <Link
+              href={`/tramites?area=${area.slug}`}
+              className="btn btn-dark text-white"
+            >
+              Ver más trámites
+            </Link>
           )}
         </>
-
-
       )}
     </div>
   );

@@ -4,20 +4,18 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import LogoMobile from "../../../../public/images/logos/logo-gobierno-white.webp";
 import LogoDesktop from "../../../../public/images/logos/logo-gobierno-slogan-white.webp";
 import SearchModal from "../commons/SearchModal";
 
-
 export default function Menu() {
   const pathname = usePathname();
   const [expanded, setExpanded] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showSearchModal, setShowSearchModal] = useState(false); // Estado para el modal
-
 
   const handleLinkClick = () => {
     setExpanded(false);
@@ -29,9 +27,8 @@ export default function Menu() {
 
   const handleSearchModalShow = () => setShowSearchModal(true);
   const handleSearchModalClose = () => setShowSearchModal(false);
-  Navbar
+  Navbar;
   //console.log(pathname);
-
 
   return (
     <>
@@ -58,16 +55,32 @@ export default function Menu() {
               <Link href="/tramites" className="sr-only">
                 Menu Principal
               </Link>
-              <Link href="/noticias" className={`nav-link ${pathname === "/noticias" ? "active" : ""}`} onClick={handleLinkClick}>
+              <Link
+                href="/noticias"
+                className={`nav-link ${pathname === "/noticias" ? "active" : ""}`}
+                onClick={handleLinkClick}
+              >
                 Noticias
               </Link>
-              <Link href="/tramites" className={`nav-link ${pathname === "/tramites" ? "active" : ""}`} onClick={handleLinkClick}>
+              <Link
+                href="/tramites"
+                className={`nav-link ${pathname === "/tramites" ? "active" : ""}`}
+                onClick={handleLinkClick}
+              >
                 Trámites
               </Link>
-              <Link href="/areas" className={`nav-link ${pathname === "/areas" ? "active" : ""}`} onClick={handleLinkClick}>
+              <Link
+                href="/#areas"
+                className={`nav-link ${pathname === "/areas" ? "active" : ""}`}
+                onClick={handleLinkClick}
+              >
                 Áreas
               </Link>
-              <Link href="/mapas" className={`nav-link ${pathname === "/mapas" ? "active" : ""}`} onClick={handleLinkClick}>
+              <Link
+                href="/mapas"
+                className={`nav-link ${pathname === "/mapas" ? "active" : ""}`}
+                onClick={handleLinkClick}
+              >
                 Mapas
               </Link>
               {/* <Link href="/noticias" className={`nav-link ${pathname === "/noticias" ? "active" : ""}`} onClick={handleLinkClick}>
@@ -104,14 +117,18 @@ export default function Menu() {
                 <span className="sr-only">Youtube</span>
               </Nav.Link> */}
               <Nav.Link onClick={handleSearchModalShow}>
-                <i className="fa fa-fw fa-search"></i> <span className="d-lg-none">Buscar</span>
+                <i className="fa fa-fw fa-search"></i>{" "}
+                <span className="d-lg-none">Buscar</span>
                 <span className="sr-only">Buscar</span>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <SearchModal show={showSearchModal} handleClose={handleSearchModalClose} />
+      <SearchModal
+        show={showSearchModal}
+        handleClose={handleSearchModalClose}
+      />
     </>
   );
 }

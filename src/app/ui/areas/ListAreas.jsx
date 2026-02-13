@@ -13,7 +13,7 @@ export default async function ListAreas() {
   areas.sort((a, b) => a.order - b.order);
 
   return (
-    <section className="area area-home bg-gray" data-read>
+    <section id="areas" className="area area-home bg-gray" data-read>
       <div className="container">
         <HeaderSection
           title="GESTIONAMOS PARA VOS"

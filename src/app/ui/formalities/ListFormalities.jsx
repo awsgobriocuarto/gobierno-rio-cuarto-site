@@ -50,7 +50,7 @@ export default async function FormalitiesList({ formalities }) {
 
           <div className="row">
             {groupedFormalities[categoryName].map((formality) => (
-              <div key={formality.id} className="col-md-4 mb-4">
+              <div key={formality.id} className="col-md-6 col-lg-4 mb-4">
                 <FormalitiesCard formality={formality} />
               </div>
             ))}

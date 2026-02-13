@@ -6,7 +6,6 @@ export default async function SearchResults({ results, query }) {
 
   const { entries, procedures, posts, areas, categories } = results;
 
-
   if (!results) {
     return (
       <div>
@@ -19,31 +18,55 @@ export default async function SearchResults({ results, query }) {
   return (
     <div className="search-content">
       <div className="search-header">
-        <h4>Término de búsqueda: <span>{`"${query}"`}</span></h4>
+        <h4>
+          Término de búsqueda: <span>{`"${query}"`}</span>
+        </h4>
       </div>
       <div className="search-results">
-
         {/* Trámites */}
         {procedures.data.length && procedures.data.length > 0 ? (
-          <SeachResultGroup url="/tramites/" title="Trámites" results={procedures.data} />
-        ) : ("")}
+          <SeachResultGroup
+            url="/tramites/"
+            title="Trámites"
+            results={procedures.data}
+          />
+        ) : (
+          ""
+        )}
 
-        {/* Noticias */}
-        {posts.data.length && posts.data.length > 0 ? (
-          <SeachResultGroup url="/noticias/" title="Noticias" results={posts.data} />
-        ) : ("")}
-
-        {/* Categorias de Tramites */}
         {categories.data.length && categories.data.length > 0 ? (
-          <SeachResultGroup url="/tramites?category=" title="Categorias de Tramites" results={categories.data} />
-        ) : ("")}
+          <SeachResultGroup
+            url="/tramites?category="
+            title="Categorias de Tramites"
+            results={categories.data}
+          />
+        ) : (
+          ""
+        )}
 
         {/* Entry */}
         {entries.data.length && entries.data.length > 0 ? (
-          <SeachResultGroup url="/seccion/" title="Programas y Servicios" results={entries.data} />
-        ) : ("")}
+          <SeachResultGroup
+            url="/seccion/"
+            title="Programas y Servicios"
+            results={entries.data}
+          />
+        ) : (
+          ""
+        )}
+        {/* Noticias */}
+        {posts.data.length && posts.data.length > 0 ? (
+          <SeachResultGroup
+            url="/noticias/"
+            title="Noticias"
+            results={posts.data}
+          />
+        ) : (
+          ""
+        )}
+
+        {/* Categorias de Tramites */}
       </div>
     </div>
-
   );
 }

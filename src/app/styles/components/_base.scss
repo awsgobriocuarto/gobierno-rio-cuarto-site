@@ -1,38 +1,50 @@
-html {
-  min-height: 100vh;
-  position: relative;
+// components/_base.scss
+
+// 1. Aseguramos altura completa
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; // Evita scroll horizontal accidental
 }
 
-body {
-  //background-color: rgba(pink, 0.8);
-  // Teniamos esto por alguna razon, no lo borro por las dudas
-  // padding-bottom: 100px;
-  margin-bottom: 400px;
+// 2. Contenedor Principal (Next.js usa #__next, React puro usa #root)
+// Esto crea una columna flexible que ocupa toda la pantalla
+#__next,
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
+// 3. El contenido principal debe crecer para empujar el footer
+// Asegúrate de envolver tu contenido en <main> o añadirle esta clase
+main,
+.main-content {
+  flex: 1;
+  width: 100%;
+
+  // AGREGA ESTA LÍNEA:
+  // Esto crea un espacio de seguridad invisible al final de tu contenido
+  padding-bottom: 5rem;
+}
+
+// --- Clases Utilitarias que ya tenías ---
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .icons {
   display: flex;
   flex-direction: column;
-}
-
-.button-card {
-  background-color: orange;
-}
-
-@media (max-width: 767px) {
-  body {
-    margin-bottom: 600px;
-  }
 }
