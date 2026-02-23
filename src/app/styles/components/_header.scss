@@ -95,17 +95,17 @@
 
     &-humanized {
       padding: 24px 20px;
-      text-align: center;
-      justify-content: center;
+      text-align: left;
+      justify-content: flex-start;
       min-height: 140px;
 
       .header-content {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
+        gap: 0;
       }
 
       .header-icons {
-        margin-inline-end: 0;
+        margin-inline-end: 12px;
       }
 
       .header-overlay {
