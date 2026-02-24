@@ -15,85 +15,94 @@ $card-height: 110px;
       color: #000;
     }
 
-    .card {
-      //border-radius: $border-radius;
-      // border-color: rgba($primary, 1);
-      border: 1px solid rgba($primary, 0.5);
+    .card-entry-clean {
+      border-radius: 8px;
+      background-color: #ffffff;
+      border: 1px solid rgba($primary, 0.2);
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+      margin-bottom: 16px;
+      overflow: hidden;
 
       &:hover {
-        border: 1px solid rgba($primary, 1);
-      }
+        background-color: #fcfcfc;
+        border-color: rgba($primary, 0.5);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
 
-      &-img {
-        width: 100%;
-        min-height: $card-height;
-        border-radius: $border-radius 0 0 $border-radius;
-        background-color: white;
-
-
-        img {
-          width: 100%;
-          height: $card-height;
-          object-fit: cover;
-          border-radius: $border-radius 0 0 $border-radius;
-          ;
+        .entry-arrow {
+          transform: translateX(4px);
         }
       }
 
-      &-icon {
-        background-color: white;
-        width: 100%;
-        min-height: $card-height;
-        border-radius: $border-radius 0 0 $border-radius;
+      .card-body {
+        padding: 1rem 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        height: 100%;
+        background: transparent; // override any inherited backgrounds
+      }
+
+      .entry-icon-container {
+        width: 48px;
+        height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background-color: rgba($primary, 0.05);
 
-        svg {
-          width: 50%;
-          height: 50%;
-          //color: white;
+        .entry-thumbnail {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 8px;
         }
       }
 
-      &-body {
-        background-color: rgba($gray-900, 0.06);
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        flex-direction: column;
-        min-height: $card-height;
-        border-radius: 0 $border-radius $border-radius 0;
-        //color: white;
-
-        &:hover {
-          background-color: rgba($gray-900, 0.12);
-        }
-      }
-
-      &-pretitle {
-        font-size: 0.86rem;
-        margin-bottom: 6px;
-        font-weight: 400;
-      }
-
-      &-title {
-        margin-bottom: 0;
-        font-size: 1.2rem;
-        line-height: 1.4rem;
+      .entry-content {
+        flex-grow: 1;
         overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
+
+        .entry-pretitle {
+          font-size: 0.72rem;
+          color: $gray-600;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          font-weight: 600;
+          display: block;
+          margin-bottom: 4px;
+        }
+
+        .entry-title {
+          color: #333333;
+          font-size: 1.05rem;
+          font-weight: 700;
+          margin-bottom: 0;
+          line-height: 1.3;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+
+      .entry-arrow {
+        color: $primary;
+        transition: transform 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 1rem;
       }
     }
   }
 
-
-
   &-detail {
-
     position: relative;
     margin-bottom: 60px;
     padding-bottom: 60px;
@@ -140,7 +149,6 @@ $card-height: 110px;
     }
 
     &--links {
-
       p {
         margin-bottom: 8px;
       }
@@ -148,8 +156,6 @@ $card-height: 110px;
       .btn {
         margin-bottom: 30px;
       }
-
     }
-
   }
 }

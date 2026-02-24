@@ -14,36 +14,34 @@ export default function EntriesCard({ entry }) {
 
   const iconSize = "50";
   return (
-    <Link href={`/seccion/${entry.slug}`}>
-      <div className="card mb-3">
-        <div className="row g-0">
-          <div className="col-3">
+    <Link
+      href={`/seccion/${entry.slug}`}
+      className="text-decoration-none text-dark d-block h-100"
+    >
+      <div className="card card-entry-clean h-100 transition-hover">
+        <div className="card-body">
+          <div className="entry-icon-container">
             {hasThumbnail ? (
-              <div className="card-img">
-                {/* eslint-disable-next-line */}
-                <img src={entry.thumbnail} alt="" className="rounded" />
-              </div>
+              // eslint-disable-next-line
+              <img src={entry.thumbnail} alt="" className="entry-thumbnail" />
             ) : (
-              <div className="card-icon">
-                <Icon
-                  icon={{
-                    name: iconName,
-                    color: iconColor,
-                    size: iconSize,
-                  }}
-                />
-              </div>
+              <Icon
+                icon={{
+                  name: iconName,
+                  color: iconColor,
+                  size: "26",
+                }}
+              />
             )}
           </div>
-          <div className="col-9">
-            <div className="card-body">
-              {entry.type == "other" ? (
-                <h6 className="card-pretitle">{entry.pretitle}</h6>
-              ) : (
-                ""
-              )}
-              <h5 className="card-title">{entry.title}</h5>
-            </div>
+          <div className="entry-content">
+            {entry.type === "other" && (
+              <span className="entry-pretitle">{entry.pretitle}</span>
+            )}
+            <h5 className="entry-title">{entry.title}</h5>
+          </div>
+          <div className="entry-arrow">
+            <i className="fas fa-chevron-right"></i>
           </div>
         </div>
       </div>
