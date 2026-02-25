@@ -7,7 +7,7 @@ export default function CardAreas({ area }) {
       href={`/areas/${area.slug}`}
       className="text-decoration-none w-100 h-80 d-block"
     >
-      <div className="card area-folder h-100">
+      <div className="card area-folder card-area h-100">
         <div className="card-body">
           <div className="pe-3 overflow-hidden flex-grow-1">
             <h5 className="area-folder-title">{area.name}</h5>
