@@ -59,23 +59,13 @@ export default function Footer() {
             <h6 className="text-white mb-3">Enlaces Útiles</h6>
             <ul className="list-unstyled mb-0">
               <li className="mb-2">
-                <Link href="/tramites" className="footer-link">
-                  Trámites
+                <Link href="https://concejoriocuarto.gob.ar/" className="footer-link">
+                  Concejo Deliberante
                 </Link>
               </li>
               <li className="mb-2">
-                <Link href="/#areas" className="footer-link">
-                  Áreas
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link href="/mapas" className="footer-link">
-                  Mapas
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link href="/noticias" className="footer-link">
-                  Noticias
+                <Link href="https://defensoriariocuarto.org/" className="footer-link">
+                  Defensoría del Pueblo
                 </Link>
               </li>
             </ul>
@@ -89,21 +79,21 @@ export default function Footer() {
             </p>
             <div className="d-flex gap-3 justify-content-center justify-content-lg-start social-icons">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/gobderiocuarto"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <i className="fa-brands fa-facebook-f"></i>
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/gobderiocuarto/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <i className="fa-brands fa-instagram"></i>
               </a>
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@GobiernodeR%C3%ADoCuarto"
                 target="_blank"
                 rel="noopener noreferrer"
               >
