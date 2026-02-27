@@ -1,5 +1,6 @@
 // FormalitiesList.jsx (Componente de Servidor)
 import React from "react";
+import Link from "next/link";
 import FormalitiesCard from "./CardFormality";
 
 function groupFormalitiesByCategory(formalities) {

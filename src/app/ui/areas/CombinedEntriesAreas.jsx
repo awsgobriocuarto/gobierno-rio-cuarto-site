@@ -1,5 +1,5 @@
 import { fetchEntries } from "@/app/lib/DataEntries";
-import EntriesCard from "./EntriesCard";
+import CombinedEntriesClient from "./CombinedEntriesClient";
 
 export default async function CombinedEntriesAreas({
   area,
@@ -30,13 +30,7 @@ export default async function CombinedEntriesAreas({
       <h3 className="mb-4">
         {title} <small className="text-muted">({combinedEntries.length})</small>
       </h3>
-      <div className="row g-3">
-        {combinedEntries.map((entry) => (
-          <div className="col-12 col-md-6" key={entry.id}>
-            <EntriesCard entry={entry} bg={bg} />
-          </div>
-        ))}
-      </div>
+      <CombinedEntriesClient entries={combinedEntries} bg={bg} />
     </section>
   );
 }

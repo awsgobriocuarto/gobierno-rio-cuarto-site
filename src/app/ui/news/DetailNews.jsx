@@ -23,22 +23,20 @@ export default function DetailNews({ detailNews }) {
     body,
     embedded,
     media,
-    owner_area
+    owner_area,
+    excerpt,
   } = detailNews;
 
   return (
     <article>
       <div className="news-detail--pretitle ">
         <ListIcons icons={LIST_OF_ICONS} />
-        <span>
-          {new Date(published_at).toLocaleDateString()}
-        </span>
+        <span>{new Date(published_at).toLocaleDateString()}</span>
         {`>`}
         <span>{owner_area.name}</span>
-
-
       </div>
       <h1 className="news-detail--title">{title}</h1>
+      <p className="news-detail--excerpt mt-1 mb-4">{excerpt}</p>
       {/* eslint-disable-next-line */}
       {image && <img src={image} alt={title} className="news-detail--image" />}
 

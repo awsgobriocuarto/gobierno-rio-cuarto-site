@@ -46,6 +46,33 @@
 
     .card {
       border-radius: $border-radius;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+
+      &.card-news {
+        .card-img-top {
+          border-bottom: 4px solid $success;
+        }
+
+        &:hover {
+          box-shadow: 0 8px 24px rgba($success, 0.15);
+          border-color: rgba($success, 0.3);
+          transform: translateY(-4px);
+
+          .card-title {
+            color: $success !important;
+          }
+
+          .fa-chevron-right {
+            transform: translateX(4px);
+            transition: transform 0.2s ease;
+          }
+        }
+
+        .card-title {
+          transition: color 0.2s ease;
+        }
+      }
 
       a {
         text-decoration: none;
@@ -70,8 +97,8 @@
       }
 
       &-title {
-        margin-bottom: 16px;
-        font-size: 1.4rem;
+        margin-bottom: 12px;
+        font-size: 1.25rem;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -140,7 +167,7 @@
     }
 
     &--title {
-      margin-bottom: 30px;
+      margin-bottom: 6px;
     }
 
     &--subtitle {

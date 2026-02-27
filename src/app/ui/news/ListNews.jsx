@@ -37,7 +37,10 @@ export default async function ListNews({
         </div>
 
         <div className="d-flex justify-content-center mt-4">
-          <Link href="/noticias" className="btn btn-dark mb-5">
+          <Link
+            href="/noticias"
+            className="btn btn-outline-success rounded-pill px-5 py-2 mb-5"
+          >
             Ver más noticias
           </Link>
         </div>
