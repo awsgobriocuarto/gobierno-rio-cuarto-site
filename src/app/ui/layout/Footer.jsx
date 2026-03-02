@@ -59,12 +59,12 @@ export default function Footer() {
             <h6 className="text-white mb-3">Enlaces Útiles</h6>
             <ul className="list-unstyled mb-0">
               <li className="mb-2">
-                <Link href="https://concejoriocuarto.gob.ar/" className="footer-link">
+                <Link rel="noopener noreferrer" href="https://concejoriocuarto.gob.ar/" className="footer-link">
                   Concejo Deliberante
                 </Link>
               </li>
               <li className="mb-2">
-                <Link href="https://defensoriariocuarto.org/" className="footer-link">
+                <Link rel="noopener noreferrer" href="https://defensoriariocuarto.org/" className="footer-link">
                   Defensoría del Pueblo
                 </Link>
               </li>
