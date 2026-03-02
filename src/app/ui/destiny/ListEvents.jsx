@@ -22,14 +22,16 @@ export default async function ListEvents() {
             ))}
           </Suspense>
         </div>
-        <a
-          href="https://destinoriocuarto.gob.ar"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-dark"
-        >
-          Ver más
-        </a>
+        <div className="d-flex justify-content-center mt-4 mb-3">
+          <a
+            href="https://destinoriocuarto.gob.ar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-outline-info rounded-pill px-5 py-2"
+          >
+            Ver más eventos
+          </a>
+        </div>
       </div>
     </section>
   );

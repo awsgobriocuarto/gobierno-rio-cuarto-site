@@ -1,3 +1,5 @@
+"use server";
+
 const API_BASE_URL = process.env.API_BASE_URL;
 const API_VERSION = process.env.API_VERSION;
 const API_TOKEN = process.env.API_TOKEN;

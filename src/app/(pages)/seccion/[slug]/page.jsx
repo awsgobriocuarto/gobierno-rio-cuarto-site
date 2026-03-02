@@ -2,7 +2,7 @@ import RelatedNews from "@/app/ui/news/RelatedNews";
 import { createPageMetadata } from "@/app/lib/metadata";
 import { getEntryBySlug } from "@/app/lib/DataEntries";
 import DetailEntries from "@/app/ui/entries/DetailEntries";
-import EntriesAreas from "@/app/ui/areas/EntriesAreas";
+import CombinedEntriesAreas from "@/app/ui/areas/CombinedEntriesAreas";
 import NotFound from "@/app/ui/commons/NotFound";
 import Buttons from "@/app/ui/entries/Buttons";
 
@@ -40,17 +40,7 @@ export default async function SeccionDetail({ params }) {
           <div className="col-md-8">
             <DetailEntries detailEntry={detailEntry} links />
 
-            <EntriesAreas
-              type="program"
-              area={detailEntry.area}
-              title="Programas y Servicios"
-            />
-
-            <EntriesAreas
-              type="other"
-              area={detailEntry.area}
-              title="Otros Servicios"
-            />
+            <CombinedEntriesAreas area={detailEntry.area} />
           </div>
           <div className="col-md-4">
             <div className="mb-4">

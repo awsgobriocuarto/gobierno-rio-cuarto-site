@@ -2,6 +2,7 @@ import ImageGallery from "../commons/ImageGallery";
 import ShareSocial from "../commons/ShareSocial";
 import ListIcons from "../icons/ListIcons";
 import LinkToBack from "../LinkToBack";
+import SidebarRelatedList from "./SidebarRelatedList";
 
 const LIST_OF_ICONS = [
   {
@@ -27,6 +28,8 @@ export default function DetailEntries({ detailEntry }) {
     status,
     area,
     links,
+    procedures,
+    related_entries,
   } = detailEntry;
 
   if (![1, 3].includes(status)) {
@@ -61,6 +64,24 @@ export default function DetailEntries({ detailEntry }) {
               className="entries-detail--body"
               dangerouslySetInnerHTML={{ __html: body }}
             />
+
+            <div className="row mt-0">
+              <div className="col-12 col-md-10">
+                <SidebarRelatedList
+                  title="Trámites Relacionados"
+                  items={procedures}
+                  baseUrl="/tramites"
+                  iconClass="fa-file-lines"
+                />
+
+                <SidebarRelatedList
+                  title="Otros Programas y Servicios"
+                  items={related_entries}
+                  baseUrl="/seccion"
+                  iconClass="fa-link"
+                />
+              </div>
+            </div>
 
             {/* <hr /> */}
             {/* <LinkToBack variant="btn-outline-dark" /> */}

@@ -29,6 +29,14 @@
       letter-spacing: 0.5px;
     }
 
+    &-separator {
+      height: 2px;
+      width: 40px;
+      background-color: $secondary; // #ff7825
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+
     .map-container {
       height: 100%;
 
@@ -119,6 +127,22 @@
 
       .arrow-icon {
         transform: translateX(4px);
+      }
+    }
+
+    &.card-area {
+      transition: all 0.3s ease;
+      // Use !important for borders if needed, or rely on specificity
+      &:hover {
+        background-color: #fcfcfc;
+        border: 1px solid $secondary !important;
+        border-left: 6px solid $secondary !important;
+        box-shadow: 0 4px 12px rgba(255, 120, 37, 0.15) !important;
+
+        .arrow-icon {
+          color: $secondary;
+          // transform: translateX(4px) is inherited from &-folder hover
+        }
       }
     }
 

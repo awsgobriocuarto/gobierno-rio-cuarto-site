@@ -4,7 +4,7 @@ import FormalitiesAreas from "@/app/ui/areas/FormalitiesAreas";
 import IntitutionalAreas from "@/app/ui/areas/IntitutionalAreas";
 import { fetchAreaBySlug } from "@/app/lib/DataAreas";
 import { createPageMetadata } from "@/app/lib/metadata";
-import EntriesAreas from "@/app/ui/areas/EntriesAreas";
+import CombinedEntriesAreas from "@/app/ui/areas/CombinedEntriesAreas";
 import RelatedNews from "@/app/ui/news/RelatedNews";
 import AreaDetail from "@/app/ui/formality/AreaDetail";
 
@@ -42,12 +42,7 @@ export default async function AreaDetailPage({ params }) {
         <div className="row">
           <div className="col-md-8">
             <HeroAreas area={area} />
-            <EntriesAreas
-              type="program"
-              area={area}
-              title="Programas y Servicios"
-            />
-            <EntriesAreas type="other" area={area} title="Otros Servicios" />
+            <CombinedEntriesAreas area={area} />
             <FormalitiesAreas area={area} />
           </div>
           <div className="col-md-4 ">
