@@ -16,7 +16,7 @@ export default async function Home() {
       <BannerList />
       <ListFormalityCategories />
       <ListAreas />
-      <ListNews limit={6} />
+      <ListNews limit={6} isHome={true} />
 
       <ListEvents />
     </main>

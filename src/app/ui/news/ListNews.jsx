@@ -1,15 +1,17 @@
 import React, { Suspense } from "react";
 import { fetchNews } from "@/app/lib/DataNews";
-import CardNews from "./CardNews";
+import LoadMoreNews from "./LoadMoreNews";
 import HeaderSection from "../layout/HeaderSection";
+import CardNews from "./CardNews";
 import Link from "next/link";
 
 export default async function ListNews({
-  page,
-  limit,
-  area,
+  page = 1,
+  limit = 9,
+  area = "",
   search = "",
   showHeader = true,
+  isHome = false, // Nuevo prop
 }) {
   const posts = await fetchNews({ page, limit, area, search });
 
@@ -28,22 +30,33 @@ export default async function ListNews({
           />
         )}
 
-        <div className="row">
+        {isHome ? (
+          <>
+            <div className="row">
+              {posts.map((post) => (
+                <CardNews key={post.id} post={post} />
+              ))}
+            </div>
+            <div className="d-flex justify-content-center mt-4">
+              <Link
+                href="/noticias"
+                className="btn btn-outline-success rounded-pill px-5 py-2 mb-5"
+              >
+                Ver más noticias
+              </Link>
+            </div>
+          </>
+        ) : (
           <Suspense fallback={<div>Cargando...</div>}>
-            {posts.map((post) => (
-              <CardNews key={post.id} post={post} />
-            ))}
+            <LoadMoreNews
+              key={`${area}-${search}`}
+              initialPosts={posts}
+              area={area}
+              search={search}
+              limit={limit}
+            />
           </Suspense>
-        </div>
-
-        <div className="d-flex justify-content-center mt-4">
-          <Link
-            href="/noticias"
-            className="btn btn-outline-success rounded-pill px-5 py-2 mb-5"
-          >
-            Ver más noticias
-          </Link>
-        </div>
+        )}
       </div>
     </section>
   );

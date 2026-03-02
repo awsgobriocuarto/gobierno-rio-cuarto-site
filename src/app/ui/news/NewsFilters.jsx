@@ -14,19 +14,28 @@ export default function NewsFilters({ areas }) {
     .sort((a, b) => a.order - b.order);
 
   return (
-    <div className="news-filters mt-4">
-      <div className="row">
-        <div className="col-md-6 mb-3">
-          <h5>Buscar noticias</h5>
-          <Search placeholder="Buscar por título o contenido..." />
-        </div>
-        <div className="col-md-6 mb-3">
-          <h5>Filtrar por Área</h5>
-          <Select
-            data={sortedAreas}
-            collection="area"
-            placeholder="Todas las áreas"
-          />
+    <div className="news-filters-container mt-4 mb-5">
+      <div className="card border-0 shadow-sm rounded-4 overflow-hidden">
+        <div className="card-body p-4 p-lg-5">
+          <div className="row g-4 align-items-end">
+            <div className="col-lg-6 col-md-6">
+              <label className="form-label fw-bold text-primary mb-2">
+                <i className="fas fa-search me-2"></i>Buscar noticias
+              </label>
+              <Search placeholder="Título o contenido..." />
+            </div>
+
+            <div className="col-lg-6 col-md-6">
+              <label className="form-label fw-bold text-primary mb-2">
+                <i className="fas fa-layer-group me-2"></i>Filtrar por Área
+              </label>
+              <Select
+                data={sortedAreas}
+                collection="area"
+                placeholder="Todas las áreas"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

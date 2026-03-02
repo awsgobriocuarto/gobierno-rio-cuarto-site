@@ -37,12 +37,6 @@ export default async function News({ searchParams }) {
         <div className="row">
           <div className="col-md-12">
             <HeaderSection title="Noticias" subtitle={subtitle} />
-
-            {/* Carousel de imágenes de las últimas noticias
-            {carouselPosts && carouselPosts.length > 0 && (
-              <NewsCarousel posts={carouselPosts} />
-            )} */}
-
             <NewsFilters areas={areas} />
           </div>
         </div>
@@ -58,20 +52,13 @@ export default async function News({ searchParams }) {
                 </div>
               </div>
             ) : (
-              <>
-                <ListNews
-                  page={page}
-                  limit={limit}
-                  area={areaSlug}
-                  search={search}
-                  showHeader={false}
-                />
-                <Pagination
-                  currentPage={posts.current_page}
-                  totalNews={posts.total}
-                  limit={limit}
-                />
-              </>
+              <ListNews
+                page={page}
+                limit={limit}
+                area={areaSlug}
+                search={search}
+                showHeader={false}
+              />
             )}
           </Suspense>
         </div>
