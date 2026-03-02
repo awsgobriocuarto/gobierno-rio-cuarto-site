@@ -3,8 +3,9 @@ import ListNews from "@/app/ui/news/ListNews";
 import Pagination from "@/app/ui/news/Pagination";
 import HeaderSection from "@/app/ui/layout/HeaderSection";
 import NewsFilters from "@/app/ui/news/NewsFilters";
+import NewsCarousel from "@/app/ui/news/NewsCarousel";
 import { fetchAreaBySlug, fetchAreas } from "@/app/lib/DataAreas";
-import { fetchPosts } from "@/app/lib/DataNews";
+import { fetchPosts, fetchNews } from "@/app/lib/DataNews";
 
 export const metadata = {
   title: "Noticias",
@@ -17,11 +18,13 @@ export default async function News({ searchParams }) {
   const areaSlug = searchParams?.area ? searchParams?.area : "";
   const search = searchParams?.search ? searchParams?.search : "";
 
-  const [areas, posts, areaName] = await Promise.all([
+  const [areas, posts, areaName, carouselPosts] = await Promise.all([
     fetchAreas(),
     fetchPosts({ page, limit, area: areaSlug, search }),
     // Solo se ejecuta fetchAreaBySlug si hay un filtro de área
     areaSlug ? fetchAreaBySlug(areaSlug) : Promise.resolve(null),
+    // Últimas 6 noticias para el carousel (sin filtros)
+    fetchNews({ page: 1, limit: 6 }),
   ]);
 
   const subtitle = areaName
@@ -34,6 +37,12 @@ export default async function News({ searchParams }) {
         <div className="row">
           <div className="col-md-12">
             <HeaderSection title="Noticias" subtitle={subtitle} />
+
+            {/* Carousel de imágenes de las últimas noticias */}
+            {carouselPosts && carouselPosts.length > 0 && (
+              <NewsCarousel posts={carouselPosts} />
+            )}
+
             <NewsFilters areas={areas} />
           </div>
         </div>
