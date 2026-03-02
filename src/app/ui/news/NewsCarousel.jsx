@@ -57,6 +57,7 @@ export default function NewsCarousel({ posts = [] }) {
                 ref={carouselRef}
                 id="newsCarousel"
                 className="carousel slide carousel-fade"
+                data-bs-touch="false"
             >
                 {/* Indicadores */}
                 <div className="carousel-indicators">
@@ -120,24 +121,26 @@ export default function NewsCarousel({ posts = [] }) {
                     })}
                 </div>
 
-                {/* Controles prev/next */}
+                {/* Controles prev/next – acotados al costado para no bloquear el caption */}
                 <button
-                    className="carousel-control-prev"
+                    className="carousel-control-prev news-carousel__control"
                     type="button"
                     data-bs-target="#newsCarousel"
                     data-bs-slide="prev"
                     aria-label="Anterior"
                 >
                     <span className="carousel-control-prev-icon" aria-hidden="true" />
+                    <span className="visually-hidden">Anterior</span>
                 </button>
                 <button
-                    className="carousel-control-next"
+                    className="carousel-control-next news-carousel__control"
                     type="button"
                     data-bs-target="#newsCarousel"
                     data-bs-slide="next"
                     aria-label="Siguiente"
                 >
                     <span className="carousel-control-next-icon" aria-hidden="true" />
+                    <span className="visually-hidden">Siguiente</span>
                 </button>
             </div>
         </div>

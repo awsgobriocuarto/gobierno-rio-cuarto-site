@@ -38,10 +38,10 @@ export default async function News({ searchParams }) {
           <div className="col-md-12">
             <HeaderSection title="Noticias" subtitle={subtitle} />
 
-            {/* Carousel de imágenes de las últimas noticias */}
+            {/* Carousel de imágenes de las últimas noticias
             {carouselPosts && carouselPosts.length > 0 && (
               <NewsCarousel posts={carouselPosts} />
-            )}
+            )} */}
 
             <NewsFilters areas={areas} />
           </div>
