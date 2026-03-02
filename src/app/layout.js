@@ -8,6 +8,7 @@ import AccessibilityFloatingMenu from "./ui/accessibility/AccessibilityFloatingM
 // import Chat from "./ui/chat/Chat";
 import { Chatn8n } from "./ui/chat/Chatn8n";
 import { Suspense } from "react";
+import BackArrow from "./ui/layout/BackArrow";
 
 const WEBHOOK_N8N_CHAT_STATUS = process.env.NEXT_PUBLIC_WEBHOOK_N8N_CHAT_STATUS === 'true';
 
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable}`}>
         <AccessibilityProvider>
           <Header />
+          <BackArrow />
           {children}
           <Footer />
           <AccessibilityFloatingMenu />
