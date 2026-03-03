@@ -41,17 +41,19 @@ export default function DetailEntries({ detailEntry }) {
   return (
     <article className="entries-detail">
       <div className="row">
-        <div className="col-md-3">
-          <div className="entries-detail--img">
-            {/* eslint-disable-next-line */}
-            <img
-              src={thumbnail ? thumbnail : "/images/no-image.jpg"}
-              alt=""
-              className="img-thumbnail w-100"
-            />
+        {hasThumbnail && (
+          <div className="col-md-3">
+            <div className="entries-detail--img">
+              {/* eslint-disable-next-line */}
+              <img
+                src={thumbnail}
+                alt=""
+                className="img-thumbnail w-100"
+              />
+            </div>
           </div>
-        </div>
-        <div className="col-md-9">
+        )}
+        <div className={hasThumbnail ? "col-md-9" : "col-md-12"}>
           <div className="entries-detail--content">
             <div className="entries-detail--pretitle">
               <ListIcons icons={LIST_OF_ICONS} />

@@ -11,7 +11,7 @@ export default async function CombinedEntriesAreas({
   // Fetch both types of entries concurrently
   const [programsResult, othersResult] = await Promise.all([
     fetchEntries("program", area.id),
-    fetchEntries("other", area.id),
+    // fetchEntries("other", area.id),
   ]);
 
   // Ensure they are arrays
