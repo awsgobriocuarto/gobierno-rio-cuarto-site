@@ -10,6 +10,7 @@ import Image from "next/image";
 import LogoMobile from "../../../../public/images/logos/logo-gobierno-white.webp";
 import LogoDesktop from "../../../../public/images/logos/logo-gobierno-slogan-white.webp";
 import SearchModal from "../commons/SearchModal";
+import BackArrow from "./BackArrow";
 
 export default function Menu() {
   const pathname = usePathname();
@@ -42,6 +43,7 @@ export default function Menu() {
         data-read
       >
         <Container>
+          <BackArrow />
           <Navbar.Brand as={Link} href="/" onClick={handleLinkClick}>
             <Image src={LogoMobile} className="mobile" alt="logo gobierno" />
             <Image src={LogoDesktop} className="desktop" alt="logo gobierno" />

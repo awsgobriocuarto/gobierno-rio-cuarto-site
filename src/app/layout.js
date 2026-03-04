@@ -55,7 +55,6 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable}`}>
         <AccessibilityProvider>
           <Header />
-          <BackArrow />
           {children}
           <Footer />
           <AccessibilityFloatingMenu />
