@@ -1,16 +1,23 @@
+// --- LOGO SCALING CONTROLS ---
+// You can adjust these values to control logo sizes globally
+$logo-mobile-width: 120px;
+$logo-desktop-width: 280px;
+$logo-offcanvas-primary-width: 100px;
+$logo-offcanvas-slogan-width: 250px;
+
 .navbar {
   padding: 5px;
   background-color: darken($primary, 0);
 
   &-brand {
     .mobile {
-      width: 100px;
+      width: $logo-mobile-width;
       height: auto;
       display: none;
     }
 
     .desktop {
-      width: 350px;
+      width: $logo-desktop-width;
       height: auto;
       display: block;
     }
@@ -18,6 +25,7 @@
     @media (max-width: 767px) {
       .mobile {
         display: block;
+
       }
 
       .desktop {
@@ -27,7 +35,7 @@
   }
 
   &-toggler {
-    padding: 16px;
+    padding: 10px;
     border-radius: 0;
     border: 0;
     color: white;
@@ -35,7 +43,7 @@
   }
 
   &-nav {
-    gap: 10px;
+    gap: 20px;
 
     .nav-link {
       text-transform: uppercase;
@@ -71,7 +79,7 @@
       justify-content: space-between;
       flex-direction: row !important;
       flex-wrap: wrap;
-      position: relative; // For absolute logo centering
+      position: relative;
     }
 
     &-brand {
@@ -86,15 +94,15 @@
       width: auto;
 
       .mobile {
-        width: 120px;
+        // width: $logo-mobile-width;
         margin: 0;
       }
     }
 
     &-toggler {
       order: 3;
-      margin-left: auto; // Push to right if no other items
-      padding: 10px;
+      margin-left: auto;
+      padding: 20px;
       z-index: 10;
     }
 
@@ -122,13 +130,56 @@
       }
     }
 
-    &-collapse {
-      order: 4;
-      width: 100%;
-    }
-
     &-nav {
       margin-top: 10px;
+    }
+  }
+}
+
+// Portaled Offcanvas styles (outside .navbar)
+.offcanvas {
+  background-color: #008cc8 !important; // A bit darker than primary #009de0
+  color: white;
+
+  &-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+
+    .btn-close {
+      filter: invert(1) grayscale(100%) brightness(200%);
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .slogan-logo-nav {
+      width: $logo-offcanvas-slogan-width;
+      height: auto;
+      padding-left: 5px;
+    }
+  }
+
+  .offcanvas-body {
+    padding: 20px;
+
+    .nav-link {
+      color: white !important;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      font-weight: 500;
+
+      &.active {
+        font-weight: bold;
+        color: #ff7825 !important; // Secondary color for active state
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
   }
 }

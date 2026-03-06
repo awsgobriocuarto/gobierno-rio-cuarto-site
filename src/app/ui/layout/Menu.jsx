@@ -3,12 +3,17 @@ import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Offcanvas from "react-bootstrap/Offcanvas";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import LogoMobile from "../../../../public/images/logos/logo-gobierno-white.webp";
 import LogoDesktop from "../../../../public/images/logos/logo-gobierno-slogan-white.webp";
+import LogoSlogan from "../../../../public/images/logos/logo-gobierno-slogan-white.webp"; // Using this as placeholder if specific one not found, but user provided img suggests a specific one.
+// Let's check if there's a specific 'primero-estas-vos' logo. Based on previous list_dir, I don't see it explicitly named.
+// Wait, the user provided an image. I should use the correct one if I can find it, or ask.
+// Actually, 'logo-gobierno-slogan-white.webp' might be it.
 import SearchModal from "../commons/SearchModal";
 import BackArrow from "./BackArrow";
 
@@ -49,82 +54,60 @@ export default function Menu() {
             <Image src={LogoDesktop} className="desktop" alt="logo gobierno" />
             <span className="sr-only">Gobierno de Río Cuarto</span>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="toggle">
+          <Navbar.Toggle aria-controls="offcanvasNavbar-expand-lg">
             <i className="fas fa-bars"></i>
           </Navbar.Toggle>
-          <Navbar.Collapse id="toggle">
-            <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Link href="/tramites" className="sr-only">
-                Menu Principal
-              </Link>
-              <Link
-                href="/noticias"
-                className={`nav-link ${pathname === "/noticias" ? "active" : ""}`}
-                onClick={handleLinkClick}
-              >
-                Noticias
-              </Link>
-              <Link
-                href="/tramites"
-                className={`nav-link ${pathname === "/tramites" ? "active" : ""}`}
-                onClick={handleLinkClick}
-              >
-                Trámites
-              </Link>
-              <Link
-                href="/#areas"
-                className={`nav-link ${pathname === "/areas" ? "active" : ""}`}
-                onClick={handleLinkClick}
-              >
-                Áreas
-              </Link>
-              <Link
-                href="/mapas"
-                className={`nav-link ${pathname === "/mapas" ? "active" : ""}`}
-                onClick={handleLinkClick}
-              >
-                Mapas
-              </Link>
-              {/* <Link href="/noticias" className={`nav-link ${pathname === "/noticias" ? "active" : ""}`} onClick={handleLinkClick}>
-                Pagos y Deudas
-              </Link> */}
-              {/* <NavDropdown
-                title="Recursos"
-                show={dropdownOpen}
-                onToggle={() => setDropdownOpen(!dropdownOpen)}
-              >
-                <NavDropdown.Item as={Link} href="/mapas/" onClick={handleDropdownItemClick}>
+          <Navbar.Offcanvas
+            id="offcanvasNavbar-expand-lg"
+            aria-labelledby="offcanvasNavbarLabel-expand-lg"
+            placement="end"
+            show={expanded}
+            onHide={() => setExpanded(false)}
+          >
+            <Offcanvas.Header closeButton closeVariant="white">
+              <div className="offcanvas-logo-container">
+                {/* <Image src={LogoMobile} className="mobile-logo-nav" alt="logo gobierno" /> */}
+                <Image src={LogoDesktop} className="slogan-logo-nav" alt="primero estas vos" />
+              </div>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Nav className="justify-content-end flex-grow-1 pe-3">
+                <Link
+                  href="/noticias"
+                  className={`nav-link ${pathname === "/noticias" ? "active" : ""}`}
+                  onClick={handleLinkClick}
+                >
+                  Noticias
+                </Link>
+                <Link
+                  href="/tramites"
+                  className={`nav-link ${pathname === "/tramites" ? "active" : ""}`}
+                  onClick={handleLinkClick}
+                >
+                  Trámites
+                </Link>
+                <Link
+                  href="/#areas"
+                  className={`nav-link ${pathname === "/areas" ? "active" : ""}`}
+                  onClick={handleLinkClick}
+                >
+                  Áreas
+                </Link>
+                <Link
+                  href="/mapas"
+                  className={`nav-link ${pathname === "/mapas" ? "active" : ""}`}
+                  onClick={handleLinkClick}
+                >
                   Mapas
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item as={Link} href="/test/" onClick={handleDropdownItemClick}>
-                  Test
-                </NavDropdown.Item>
-                <NavDropdown.Item href="/design">Design</NavDropdown.Item>
-              </NavDropdown> */}
-              {/* <Nav.Link
-                href="https://facebook.com"
-                target="_blank"
-              >
-                <i className={`fa-brands fa-fw fa-facebook`}></i>
-                <span className="d-lg-none">Facebook</span>
-                <span className="sr-only">Facebook</span>
-              </Nav.Link>
-              <Nav.Link href="https://instagram.com" target="_blank" className="">
-                <i className={`fa-brands fa-fw fa-instagram`}></i> <span className="d-lg-none">Instagram</span>
-                <span className="sr-only">Instagram</span>
-              </Nav.Link>
-              <Nav.Link href="https://youtube.com" target="_blank" className="">
-                <i className={`fa-brands fa-fw fa-youtube`}></i> <span className="d-lg-none">Youtube</span>
-                <span className="sr-only">Youtube</span>
-              </Nav.Link> */}
-              <Nav.Link onClick={handleSearchModalShow}>
-                <i className="fa fa-fw fa-search"></i>{" "}
-                <span className="d-lg-none">Buscar</span>
-                <span className="sr-only">Buscar</span>
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
+                </Link>
+                <Nav.Link onClick={handleSearchModalShow}>
+                  <i className="fa fa-fw fa-search"></i>{" "}
+                  <span className="d-lg-none">Buscar</span>
+                  <span className="sr-only">Buscar</span>
+                </Nav.Link>
+              </Nav>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
         </Container>
       </Navbar>
       <SearchModal

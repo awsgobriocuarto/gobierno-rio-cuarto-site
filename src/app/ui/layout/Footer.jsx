@@ -68,6 +68,11 @@ export default function Footer() {
                   Defensoría del Pueblo
                 </Link>
               </li>
+              <li className="mb-2">
+                <Link rel="noopener noreferrer" href="/contactos" className="footer-link">
+                  Guia de Contactos
+                </Link>
+              </li>
             </ul>
           </div>
 
