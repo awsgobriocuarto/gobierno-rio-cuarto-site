@@ -13,7 +13,7 @@ export default async function ListFormalitiesBySlug({ area }) {
   return (
     <div>
       <h3 className="text-dark">
-        Trámites Digitales  <small>({allFormalities.length})</small>
+        Trámites Digitales <small>({allFormalities.length})</small>
       </h3>
       {formalities.length === 0 ? (
         <p>No hay trámites para esta área.</p>
