@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import Link from "next/link";
 import HeaderSection from "../layout/HeaderSection";
 import CardAreas from "./CardAreas";
 import { fetchAreas } from "@/app/lib/DataAreas";
@@ -28,6 +29,15 @@ export default async function ListAreas() {
               </div>
             ))}
           </Suspense>
+        </div>
+        <div className="d-flex justify-content-center mt-4">
+          <Link
+            href="/areas"
+            className="btn btn-outline-warning rounded-pill px-5 py-2 mb-5"
+            style={{ borderColor: "#ff7825", color: "#ff7825" }}
+          >
+            Ver más áreas
+          </Link>
         </div>
       </div>
     </section>

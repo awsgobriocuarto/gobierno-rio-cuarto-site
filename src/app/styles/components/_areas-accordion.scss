@@ -1,0 +1,30 @@
+.areas-directory {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+  .area-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .area-section-title {
+    color: #009de0;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .area-section-divider {
+    border: none;
+    border-top: 2px solid rgba(0, 0, 0, 0.05);
+    margin: 3rem 0 1rem 0;
+  }
+
+  // Estilos específicos solo para la grilla general de Áreas, evitando afectar /areas/[slug]
+  .area-institutional {
+    .card-subtitle {
+      color: #ff7825; // Naranja Institucional
+      font-weight: 600;
+    }
+  }
+}

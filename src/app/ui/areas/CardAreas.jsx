@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function CardAreas({ area }) {
   return (
     <Link
-      href={`/areas/${area.slug}`}
+      href={area.href || `/areas/${area.slug}`}
       className="text-decoration-none w-100 h-80 d-block"
     >
       <div className="card area-folder card-area h-100">
