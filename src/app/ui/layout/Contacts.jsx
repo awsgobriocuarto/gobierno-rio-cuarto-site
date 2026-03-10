@@ -45,36 +45,31 @@ function AreaAccordion({ area, index }) {
     const hasContent = hasContact || hasChildren;
 
     return (
-        <div className={`cg-area ${open ? "cg-area--open" : ""}`}>
+        <div className={`cg-area card area-folder card-area ${open ? "cg-area--open" : ""}`}>
             <button
-                className="cg-area__header"
+                className="cg-area__header card-body"
                 onClick={() => setOpen(!open)}
                 aria-expanded={open}
                 disabled={!hasContent}
             >
-                <div className="cg-area__header-left">
-                    <div className="cg-area__icon-wrap">
-                        <i className="fas fa-building"></i>
-                    </div>
-                    <div className="cg-area__name-wrap">
-                        {area.pre_name && (
-                            <span className="cg-area__pre-name">{area.pre_name}</span>
-                        )}
-                        <span className="cg-area__name">{area.name}</span>
-                    </div>
+                <div className="pe-3 overflow-hidden flex-grow-1 text-start">
+                    {area.pre_name && (
+                        <span className="cg-area__pre-name d-block mb-1">{area.pre_name}</span>
+                    )}
+                    <h5 className="area-folder-title m-0">{area.name}</h5>
+                    <div className="area-folder-separator"></div>
                 </div>
-                <div className="cg-area__header-right">
-                    {hasChildren && (
-                        <span className="cg-area__badge">
-                            {area.children.length} dependencia
-                            {area.children.length !== 1 ? "s" : ""}
+
+                <div className="cg-area__header-right d-flex align-items-center gap-3">
+                    {hasChildren && !open && (
+                        <span className="cg-area__badge d-none d-md-inline-block">
+                            {area.children.length} {area.children.length === 1 ? "dependencia" : "dependencias"}
                         </span>
                     )}
-                    {hasContent ? (
+                    <div className={`arrow-icon ${open ? "arrow-icon--open" : ""}`}>
                         <svg
-                            className="cg-area__arrow"
-                            width="20"
-                            height="20"
+                            width="24"
+                            height="24"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
@@ -82,11 +77,9 @@ function AreaAccordion({ area, index }) {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                         >
-                            <polyline points="6 9 12 15 18 9"></polyline>
+                            <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
-                    ) : (
-                        <span className="cg-area__no-data">Sin datos</span>
-                    )}
+                    </div>
                 </div>
             </button>
 
@@ -97,14 +90,16 @@ function AreaAccordion({ area, index }) {
                             <h6 className="cg-area__contacts-title">
                                 <i className="fas fa-phone-alt me-2"></i>Contacto del área
                             </h6>
-                            {area.contact.map((item, idx) => (
-                                <ContactItem
-                                    key={idx}
-                                    type={item.type}
-                                    value={item.value}
-                                    label={item.info}
-                                />
-                            ))}
+                            <div className="cg-area__contacts-list">
+                                {area.contact.map((item, idx) => (
+                                    <ContactItem
+                                        key={idx}
+                                        type={item.type}
+                                        value={item.value}
+                                        label={item.info}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     )}
 
