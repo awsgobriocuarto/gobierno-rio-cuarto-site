@@ -3,6 +3,7 @@ import ShareSocial from "../commons/ShareSocial";
 import ListIcons from "../icons/ListIcons";
 import LinkToBack from "../LinkToBack";
 import SidebarRelatedList from "./SidebarRelatedList";
+import Buttons from "./Buttons";
 
 const LIST_OF_ICONS = [
   {
@@ -45,11 +46,7 @@ export default function DetailEntries({ detailEntry }) {
           <div className="col-md-3">
             <div className="entries-detail--img">
               {/* eslint-disable-next-line */}
-              <img
-                src={thumbnail}
-                alt=""
-                className="img-thumbnail w-100"
-              />
+              <img src={thumbnail} alt="" className="img-thumbnail w-100" />
             </div>
           </div>
         )}
@@ -66,6 +63,10 @@ export default function DetailEntries({ detailEntry }) {
               className="entries-detail--body"
               dangerouslySetInnerHTML={{ __html: body }}
             />
+
+            <div className="d-block d-md-none mb-4">
+              <Buttons links={links} />
+            </div>
 
             <div className="row mt-0">
               <div className="col-12 col-md-10">

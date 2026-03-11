@@ -67,11 +67,11 @@ $card-height: 110px;
         overflow: hidden;
 
         .entry-pretitle {
-          font-size: 0.72rem;
-          color: $gray-600;
+          font-size: 0.85rem; // Increased from 0.72rem for better readability
+          color: $gray-600; // Changed to secondary gray as requested
           text-transform: uppercase;
           letter-spacing: 0.5px;
-          font-weight: 600;
+          font-weight: 500; // Reduced boldness
           display: block;
           margin-bottom: 4px;
         }

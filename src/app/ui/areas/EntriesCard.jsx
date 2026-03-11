@@ -35,7 +35,7 @@ export default function EntriesCard({ entry }) {
             )}
           </div>
           <div className="entry-content">
-            {entry.type === "other" && (
+            {entry.pretitle && (
               <span className="entry-pretitle">{entry.pretitle}</span>
             )}
             <h5 className="entry-title">{entry.title}</h5>

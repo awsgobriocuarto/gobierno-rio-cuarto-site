@@ -4,11 +4,7 @@ export default function CardProgram({ program }) {
   //console.log(program);
 
   return (
-    <Link
-      href={`/seccion/${program.slug}`}
-      className="buttons"
-    >
-
+    <Link href={`/seccion/${program.slug}`} className="buttons">
       <div className="card bg-primary program-card d-none">
         <div className="card-body">
           {program.thumbnail && (
@@ -23,7 +19,10 @@ export default function CardProgram({ program }) {
           )}
           <div>
             <h5 className="card-title text-white mb-0">{program.title}</h5>
-            <p><small>{program.area.name}</small></p>
+
+            <p>
+              <small>{program.area.name}</small>
+            </p>
           </div>
         </div>
       </div>
@@ -42,10 +41,10 @@ export default function CardProgram({ program }) {
           </div>
           <div className="col-9">
             <div className="card-body">
-              <h5 className="card-title">
-                {program.title}
-              </h5>
-              <p><small>{program.area.name}</small></p>
+              <h5 className="card-title">{program.title}</h5>
+              <p>
+                <small>{program.area.name}</small>
+              </p>
             </div>
           </div>
         </div>

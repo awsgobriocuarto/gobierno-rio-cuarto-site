@@ -20,14 +20,18 @@ export default function DetailMap({ detailMap }) {
           />
         </div>
         <div className="col-md-8">
-          <h1 className="map-detail--title news-detail--title ">{title}</h1>
+          <h1 className="map-detail--title news-detail--title mb-4">{title}</h1>
 
           <div
             className="map-detail--body news-detail--body"
             dangerouslySetInnerHTML={{ __html: body }}
           />
           {links.map((link, index) => (
-            <div key={index} className="map-detail--link news-detail--link">
+            <div
+              key={index}
+              className="map-detail--link news-detail--link"
+              style={{ marginTop: "-1rem" }}
+            >
               <a
                 href={link.link}
                 target={link.target}

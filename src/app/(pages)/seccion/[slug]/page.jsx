@@ -43,7 +43,7 @@ export default async function SeccionDetail({ params }) {
             <CombinedEntriesAreas area={detailEntry.area} />
           </div>
           <div className="col-md-4">
-            <div className="mb-4">
+            <div className="mb-4 d-none d-md-block">
               <Buttons links={detailEntry.links} />
             </div>
             <RelatedNews title="Noticias Relacionadas" />
