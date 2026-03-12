@@ -78,7 +78,7 @@ export default function DetailEntries({ detailEntry }) {
                 />
 
                 <SidebarRelatedList
-                  title="Otros Programas y Servicios"
+                  title="Programas y Servicios Relacionados"
                   items={related_entries}
                   baseUrl="/seccion"
                   iconClass="fa-link"
