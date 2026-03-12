@@ -63,7 +63,6 @@ export default function DetailEntries({ detailEntry }) {
               className="entries-detail--body"
               dangerouslySetInnerHTML={{ __html: body }}
             />
-
             <div className="d-block d-md-none mb-4">
               <Buttons links={links} />
             </div>

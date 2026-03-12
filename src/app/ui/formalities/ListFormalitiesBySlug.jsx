@@ -3,11 +3,18 @@ import { fetchFormalities } from "@/app/lib/DataFormalities";
 import FormalitiesCard from "./CardFormality";
 import Link from "next/link";
 
-export default async function ListFormalitiesBySlug({ area }) {
+export default async function ListFormalitiesBySlug({ area, allFormalities }) {
   if (!area) return null;
 
-  const params = `?area=${area.slug}`;
-  const allFormalities = await fetchFormalities(params);
+  if (!allFormalities) {
+    const params = `?area=${area.slug}`;
+    allFormalities = await fetchFormalities(params);
+  }
+
+  if (!allFormalities || allFormalities.length === 0) {
+    return null;
+  }
+
   const formalities = allFormalities.slice(0, 12);
 
   return (
@@ -15,26 +22,20 @@ export default async function ListFormalitiesBySlug({ area }) {
       <h3 className="text-dark">
         Trámites Digitales <small>({allFormalities.length})</small>
       </h3>
-      {formalities.length === 0 ? (
-        <p>No hay trámites para esta área.</p>
-      ) : (
-        <>
-          <div className="row formalities-list">
-            {formalities.map((formality) => (
-              <div className="col-12 col-md-6 mb-4" key={formality.id}>
-                <FormalitiesCard formality={formality} />
-              </div>
-            ))}
+      <div className="row formalities-list">
+        {formalities.map((formality) => (
+          <div className="col-12 col-md-6 mb-4" key={formality.id}>
+            <FormalitiesCard formality={formality} />
           </div>
-          {allFormalities.length > 6 && (
-            <Link
-              href={`/tramites?area=${area.slug}`}
-              className="btn btn-dark text-white"
-            >
-              Ver más trámites
-            </Link>
-          )}
-        </>
+        ))}
+      </div>
+      {allFormalities.length > 6 && (
+        <Link
+          href={`/tramites?area=${area.slug}`}
+          className="btn btn-dark text-white"
+        >
+          Ver más trámites
+        </Link>
       )}
     </div>
   );
