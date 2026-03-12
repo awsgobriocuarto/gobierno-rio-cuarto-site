@@ -17,14 +17,14 @@ const API_OPTIONS = {
   },
 };
 
-export async function fetchEntries(type, area = "") {
+export async function fetchEntries(type, area = "", limit = 100) {
   if (!type) {
     console.error("fetchEntries requiere un 'type'.");
     return [];
   }
 
   try {
-    const queryParams = new URLSearchParams({ type });
+    const queryParams = new URLSearchParams({ type, per_page: limit });
     if (area) queryParams.append("area", area);
 
     const url = `${API_URL}/entries?${queryParams.toString()}`;
