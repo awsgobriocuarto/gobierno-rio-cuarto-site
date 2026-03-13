@@ -49,19 +49,23 @@ $logo-offcanvas-slogan-width: 250px;
       font-weight: 500;
       letter-spacing: 0.01rem;
       color: white;
-      position: relative;
       transition: all 0.2s ease;
+      display: inline-block;
+      padding: 0 0 10px 0; // Space for the line
 
       &.active {
         color: white !important;
-        font-weight: 700;
-        border-left: 3px solid $secondary;
-        padding-left: 12px !important;
-        margin-left: -12px; // Offset padding to keep alignment
-      }
+        font-weight: 800;
+        position: relative;
 
-      &:hover {
-        opacity: 0.8;
+        &::after {
+          content: "";
+          display: block;
+          height: 2px;
+          width: 40px;
+          background-color: $secondary; // Exact color from card separator
+          margin-top: 5px;
+        }
       }
     }
 
@@ -184,8 +188,6 @@ $logo-offcanvas-slogan-width: 250px;
       &.active {
         font-weight: bold;
         color: white !important;
-        border-left: 6px solid $secondary;
-        padding-left: 20px !important;
       }
 
       &:last-child {
