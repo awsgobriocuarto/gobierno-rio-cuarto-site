@@ -44,7 +44,7 @@ export const Chatn8n = () => {
     createChat({
       webhookUrl: agent_lalo,
       initialMessages: [
-        "¡Hola! 👋, soy el asistente de la Municipalidad de Río Cuarto. Contame, ¿en qué te puedo ayudar hoy?",
+        "¡Hola! Soy MUNI, tu asistente virtual de la Municipalidad de Río Cuarto. ¿En qué puedo ayudarte hoy?",
       ],
       defaultLanguage: "es",
       i18n: {

@@ -25,7 +25,6 @@ $logo-offcanvas-slogan-width: 250px;
     @media (max-width: 767px) {
       .mobile {
         display: block;
-
       }
 
       .desktop {
@@ -50,9 +49,23 @@ $logo-offcanvas-slogan-width: 250px;
       font-weight: 500;
       letter-spacing: 0.01rem;
       color: white;
+      transition: all 0.2s ease;
+      display: inline-block;
+      padding: 0 0 10px 0; // Space for the line
 
       &.active {
-        color: white;
+        color: white !important;
+        font-weight: 800;
+        position: relative;
+
+        &::after {
+          content: "";
+          display: block;
+          height: 2px;
+          width: 40px;
+          background-color: $secondary; // Exact color from card separator
+          margin-top: 5px;
+        }
       }
     }
 
@@ -177,7 +190,7 @@ $logo-offcanvas-slogan-width: 250px;
 
       &.active {
         font-weight: bold;
-        color: #ff7825 !important; // Secondary color for active state
+        color: white !important;
       }
 
       &:last-child {
