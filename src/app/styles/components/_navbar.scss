@@ -140,6 +140,8 @@ $logo-offcanvas-slogan-width: 250px;
 .offcanvas {
   background-color: #008cc8 !important; // A bit darker than primary #009de0
   color: white;
+  width: 50% !important;
+  min-width: 250px; // Ensure it's not TOO narrow on very small screens
 
   &-header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -155,14 +157,15 @@ $logo-offcanvas-slogan-width: 250px;
     }
 
     .slogan-logo-nav {
-      width: $logo-offcanvas-slogan-width;
+      width: 100%;
+      max-width: $logo-offcanvas-slogan-width;
       height: auto;
       padding-left: 5px;
     }
   }
 
   .offcanvas-body {
-    padding: 20px;
+    padding: 10px 20px;
 
     .nav-link {
       color: white !important;
