@@ -25,7 +25,6 @@ $logo-offcanvas-slogan-width: 250px;
     @media (max-width: 767px) {
       .mobile {
         display: block;
-
       }
 
       .desktop {
@@ -50,9 +49,19 @@ $logo-offcanvas-slogan-width: 250px;
       font-weight: 500;
       letter-spacing: 0.01rem;
       color: white;
+      position: relative;
+      transition: all 0.2s ease;
 
       &.active {
-        color: white;
+        color: white !important;
+        font-weight: 700;
+        border-left: 3px solid $secondary;
+        padding-left: 12px !important;
+        margin-left: -12px; // Offset padding to keep alignment
+      }
+
+      &:hover {
+        opacity: 0.8;
       }
     }
 
@@ -174,7 +183,9 @@ $logo-offcanvas-slogan-width: 250px;
 
       &.active {
         font-weight: bold;
-        color: #ff7825 !important; // Secondary color for active state
+        color: white !important;
+        border-left: 6px solid $secondary;
+        padding-left: 20px !important;
       }
 
       &:last-child {
