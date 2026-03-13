@@ -32,7 +32,7 @@ const banners = [
     subtitle: "Atención Médica",
     icon: "fa-plus-square fa-2xl",
     color: "bg-success text-white",
-    url: "https://economiariocuarto.gob.ar/pagos-y-deudas",
+    url: "https://wa.me/5493585710115",
     target: "_blank",
   },
 ];

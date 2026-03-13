@@ -22,7 +22,21 @@ export async function fetchCategories() {
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
-  return res.json();
+  const categories = await res.json();
+
+  // Reordenar categorías: "Pagos y Deudas" y "Más Consultados" primero
+  const priorityNames = ["Pagos y Deudas", "Más Consultados"];
+
+  return categories.sort((a, b) => {
+    const aPriority = priorityNames.indexOf(a.name);
+    const bPriority = priorityNames.indexOf(b.name);
+
+    if (aPriority !== -1 && bPriority !== -1) return aPriority - bPriority;
+    if (aPriority !== -1) return -1;
+    if (bPriority !== -1) return 1;
+
+    return 0; // Mantener orden original para los demás
+  });
 }
 
 export async function fetchFormalities(params = "") {
