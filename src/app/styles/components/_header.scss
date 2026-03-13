@@ -28,6 +28,15 @@
       text-transform: uppercase;
       line-height: 1.2;
     }
+
+    .header-description {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: $gray-700;
+      line-height: 1.6;
+      max-width: 800px;
+      font-weight: 400;
+    }
   }
 
   // Variante Humanizada (con imagen de fondo)

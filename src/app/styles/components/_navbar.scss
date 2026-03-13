@@ -52,7 +52,7 @@ $logo-offcanvas-slogan-width: 250px;
       transition: all 0.2s ease;
       display: inline-block;
       padding: 0 0 10px 0; // Space for the line
-
+      font-size: 0.9rem !important;
       &.active {
         color: white !important;
         font-weight: 800;

@@ -15,6 +15,7 @@ const WHITE_ICONS = [
 export default function HeaderSection({
   title = "Titulo de la Seccion",
   subtitle = "",
+  description = "",
   border = false,
   bgImage = null,
 }) {
@@ -39,6 +40,9 @@ export default function HeaderSection({
           <div className="header-text">
             <h2>{title}</h2>
             {subtitle && <p>{subtitle}</p>}
+            {description && (
+              <div className="header-description">{description}</div>
+            )}
           </div>
         </div>
       ) : (
@@ -50,6 +54,9 @@ export default function HeaderSection({
           <div className="header-text">
             <h2>{title}</h2>
             {subtitle && <p>{subtitle}</p>}
+            {description && (
+              <div className="header-description">{description}</div>
+            )}
           </div>
         </>
       )}

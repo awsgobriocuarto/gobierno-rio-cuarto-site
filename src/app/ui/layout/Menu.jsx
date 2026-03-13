@@ -67,17 +67,21 @@ export default function Menu() {
             <Offcanvas.Header closeButton closeVariant="white">
               <div className="offcanvas-logo-container">
                 {/* <Image src={LogoMobile} className="mobile-logo-nav" alt="logo gobierno" /> */}
-                <Image src={LogoDesktop} className="slogan-logo-nav" alt="primero estas vos" />
+                <Image
+                  src={LogoDesktop}
+                  className="slogan-logo-nav"
+                  alt="primero estas vos"
+                />
               </div>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Link
-                  href="/noticias"
-                  className={`nav-link ${pathname === "/noticias" ? "active" : ""}`}
+                  href="/#areas"
+                  className={`nav-link ${pathname === "/areas" ? "active" : ""}`}
                   onClick={handleLinkClick}
                 >
-                  Noticias
+                  Institucional
                 </Link>
                 <Link
                   href="/tramites"
@@ -87,18 +91,33 @@ export default function Menu() {
                   Trámites
                 </Link>
                 <Link
-                  href="/#areas"
-                  className={`nav-link ${pathname === "/areas" ? "active" : ""}`}
+                  href="/noticias"
+                  className={`nav-link ${pathname === "/noticias" ? "active" : ""}`}
                   onClick={handleLinkClick}
                 >
-                  Áreas
+                  Noticias
                 </Link>
+                <Link
+                  href="/#agenda"
+                  className={`nav-link ${pathname === "/agenda" ? "active" : ""}`}
+                  onClick={handleLinkClick}
+                >
+                  Agenda
+                </Link>
+
                 <Link
                   href="/mapas"
                   className={`nav-link ${pathname === "/mapas" ? "active" : ""}`}
                   onClick={handleLinkClick}
                 >
                   Mapas
+                </Link>
+                <Link
+                  href="/contactos"
+                  className={`nav-link ${pathname === "/contactos" ? "active" : ""}`}
+                  onClick={handleLinkClick}
+                >
+                  Contactos
                 </Link>
                 <Nav.Link onClick={handleSearchModalShow}>
                   <i className="fa fa-fw fa-search"></i>{" "}
