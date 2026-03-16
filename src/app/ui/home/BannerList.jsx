@@ -24,8 +24,8 @@ const banners = [
     subtitle: "Pagos al día",
     icon: "fa-dollar-sign fa-2xl",
     color: "bg-primary text-white",
-    url: "https://economiariocuarto.gob.ar/pagos-y-deudas",
-    target: "_blank",
+    url: "/tramites?category=pagos-y-deudas",
+    target: "",
   },
   {
     title: "Turno Salud",

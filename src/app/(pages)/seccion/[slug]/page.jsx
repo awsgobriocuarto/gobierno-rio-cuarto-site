@@ -42,11 +42,17 @@ export default async function SeccionDetail({ params }) {
 
             <CombinedEntriesAreas area={detailEntry.area} />
           </div>
-          <div className="col-md-4">
-            <div className="mb-4 d-none d-md-block">
-              <Buttons links={detailEntry.links} />
+
+          <div className="col-md-4 position-relative">
+            <div
+              className="sticky-top py-2"
+              style={{ top: "100px", zIndex: 10 }}
+            >
+              <div className="mb-4 d-none d-md-block">
+                <Buttons links={detailEntry.links} />
+              </div>
+              <RelatedNews title="Noticias Relacionadas" limit={3} />
             </div>
-            <RelatedNews title="Noticias Relacionadas" />
           </div>
         </div>
       </div>

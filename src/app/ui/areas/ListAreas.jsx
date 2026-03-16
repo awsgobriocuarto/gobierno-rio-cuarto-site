@@ -43,7 +43,7 @@ export default async function ListAreas() {
             href="/areas"
             className="btn btn-outline-orange rounded-pill px-5 py-2 mb-5"
           >
-            Ver más áreas
+            Organigrama Municipal{" "}
           </Link>
         </div>
       </div>
