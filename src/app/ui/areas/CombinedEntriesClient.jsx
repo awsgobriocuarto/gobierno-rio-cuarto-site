@@ -11,9 +11,11 @@ export default function CombinedEntriesClient({ entries, bg }) {
 
   return (
     <>
-      <div className="row g-3">
+      <div
+        className={`row g-3 entries-client-grid ${showAll ? "show-all" : ""}`}
+      >
         {visibleEntries.map((entry) => (
-          <div className="col-12 col-md-6" key={entry.id}>
+          <div className="col-12 col-md-6 entry-item" key={entry.id}>
             <EntriesCard entry={entry} bg={bg} />
           </div>
         ))}

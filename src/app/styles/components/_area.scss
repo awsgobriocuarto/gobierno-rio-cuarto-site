@@ -301,3 +301,52 @@
     color: #000 !important;
   }
 }
+
+/* --- MOBILE SPECIFIC LAYOUT REORDERING --- */
+@media (max-width: 767px) {
+  .area-mobile-flex {
+    display: flex;
+    flex-direction: column;
+  }
+  .area-column-left,
+  .area-column-right {
+    display: contents; /* Allows children to participate directly in the flex layout */
+  }
+
+  /* Restore padding removed by bypassing Bootstrap's .col-* structure with display: contents */
+  .area-mobile-flex > div > div[class*="area-order-"] {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+  }
+
+  .area-order-1 {
+    order: 1;
+  } /* Hero */
+  .area-order-2 {
+    order: 2;
+    margin-bottom: 2rem !important;
+    margin-top: 0 !important;
+  } /* Dependencias */
+  .area-order-3 {
+    order: 3;
+  } /* Fotos (Organigrama) */
+  .area-order-4 {
+    order: 4;
+  } /* Programas */
+  .area-order-5 {
+    order: 5;
+  } /* Tramites */
+  .area-order-6 {
+    order: 6;
+  } /* Noticias */
+
+  /* Limits items to 4 on mobile */
+  .entries-client-grid:not(.show-all) .entry-item:nth-child(n + 5) {
+    display: none !important;
+  }
+
+  .formalities-list .formality-item:nth-child(n + 5) {
+    display: none !important;
+  }
+}

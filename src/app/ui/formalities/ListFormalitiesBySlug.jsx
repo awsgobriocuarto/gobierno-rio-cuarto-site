@@ -24,18 +24,23 @@ export default async function ListFormalitiesBySlug({ area, allFormalities }) {
       </h3>
       <div className="row formalities-list">
         {formalities.map((formality) => (
-          <div className="col-12 col-md-6 mb-4" key={formality.id}>
+          <div
+            className="col-12 col-md-6 mb-4 formality-item"
+            key={formality.id}
+          >
             <FormalitiesCard formality={formality} />
           </div>
         ))}
       </div>
-      {allFormalities.length > 6 && (
-        <Link
-          href={`/tramites?area=${area.slug}`}
-          className="btn btn-dark text-white"
-        >
-          Ver más trámites
-        </Link>
+      {allFormalities.length > 4 && (
+        <div className="text-center mt-4">
+          <Link
+            href={`/tramites?area=${area.slug}`}
+            className="btn btn-outline-secondary rounded-pill px-4"
+          >
+            Ver más trámites ({allFormalities.length - 4})
+          </Link>
+        </div>
       )}
     </div>
   );

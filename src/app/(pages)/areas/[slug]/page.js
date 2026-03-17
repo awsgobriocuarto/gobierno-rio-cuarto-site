@@ -39,22 +39,32 @@ export default async function AreaDetailPage({ params }) {
   return (
     <div className="area area-detail">
       <div className="container">
-        <div className="row">
-          <div className="col-md-8">
-            <HeroAreas area={area} />
-            <CombinedEntriesAreas area={area} />
-            <FormalitiesAreas area={area} />
+        <div className="row area-mobile-flex">
+          <div className="col-md-8 area-column-left">
+            <div className="area-order-1">
+              <HeroAreas area={area} />
+            </div>
+            <div className="area-order-4">
+              <CombinedEntriesAreas area={area} />
+            </div>
+            <div className="area-order-5">
+              <FormalitiesAreas area={area} />
+            </div>
           </div>
-          <div className="col-md-4 ">
-            <IntitutionalAreas area={area} />
-            <div className="col-md-12 mb-4">
+          <div className="col-md-4 area-column-right">
+            <div className="area-order-3">
+              <IntitutionalAreas area={area} />
+            </div>
+            <div className="col-md-12 mb-4 area-order-2">
               <AreaDetail area={area} />
             </div>
-            <RelatedNews
-              area={area.id}
-              limit={6}
-              title="Noticias Relacionadas"
-            />
+            <div className="area-order-6">
+              <RelatedNews
+                area={area.id}
+                limit={6}
+                title="Noticias Relacionadas"
+              />
+            </div>
           </div>
         </div>
       </div>
