@@ -23,10 +23,22 @@ main,
 .main-content {
   flex: 1;
   width: 100%;
+  padding-top: 150px; // Compensación por navbar fijo (más aire)
+
+  // Si el primer elemento es el hero (Home), quitamos el padding superior
+  // para que la imagen de fondo llegue hasta arriba.
+  &:has(.hero) {
+    padding-top: 0;
+  }
 
   // AGREGA ESTA LÍNEA:
   // Esto crea un espacio de seguridad invisible al final de tu contenido
   padding-bottom: 5rem;
+}
+
+// Aseguramos que los enlaces del menú (anclas) no se tapen con el navbar
+[id] {
+  scroll-margin-top: 150px;
 }
 
 // --- Clases Utilitarias que ya tenías ---

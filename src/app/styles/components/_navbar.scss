@@ -5,6 +5,22 @@ $logo-desktop-width: 280px;
 $logo-offcanvas-primary-width: 100px;
 $logo-offcanvas-slogan-width: 250px;
 
+// --- NAVBAR HEIGHT COMPENSATION ---
+// Compensates for the fixed navbar so content is never hidden behind it
+:root {
+  --navbar-height: 72px;
+}
+
+body {
+  padding-top: var(--navbar-height);
+}
+
+@media (max-width: 991px) {
+  :root {
+    --navbar-height: 65px;
+  }
+}
+
 .navbar {
   padding: 5px;
   background-color: darken($primary, 0);

@@ -41,7 +41,7 @@ export default function Menu() {
       <Navbar
         collapseOnSelect
         expand="lg"
-        sticky="top"
+        fixed="top"
         variant="dark"
         expanded={expanded}
         onToggle={() => setExpanded(!expanded)}

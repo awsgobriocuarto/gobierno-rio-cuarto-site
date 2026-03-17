@@ -26,10 +26,6 @@ export default function HeroAreas({ area }) {
         }}
       ></p>
 
-      <a href="#" className="btn btn-sm btn-primary text-white mb-5">
-        Ver más
-      </a>
-
       {area.contact.length > 0 && (
         <div className="card">
           <div className="card-header">

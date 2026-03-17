@@ -14,9 +14,9 @@ export default function NewsFilters({ areas }) {
     .sort((a, b) => a.order - b.order);
 
   return (
-    <div className="news-filters-container mt-4 mb-5">
+    <div className="news-filters-container mt-0 mb-4">
       <div className="card border-0 shadow-sm rounded-4 overflow-hidden">
-        <div className="card-body p-4 p-lg-5">
+        <div className="card-body p-4">
           <div className="row g-4 align-items-end">
             <div className="col-lg-6 col-md-6">
               <label className="form-label fw-bold text-primary mb-2">

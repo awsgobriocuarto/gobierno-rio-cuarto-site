@@ -4,6 +4,10 @@
 
   &-page {
     padding: 60px 0 0 0;
+
+    .header {
+      margin-bottom: 20px;
+    }
   }
 
   &-filters-container {
@@ -51,10 +55,8 @@
   }
 
   &-load-more {
-    font-weight: 600;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
-    border-width: 2px;
 
     &:hover:not(:disabled) {
       transform: translateY(-2px);
@@ -422,7 +424,6 @@
     pointer-events: all;
   }
 
-
   // Indicadores personalizados
   .carousel-indicators {
     margin-bottom: 1rem;
@@ -454,7 +455,6 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
   margin-bottom: 2rem;
   position: relative;
-
 
   &__img {
     height: 460px;

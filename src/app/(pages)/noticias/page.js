@@ -40,7 +40,7 @@ export default async function News({ searchParams }) {
             <NewsFilters areas={areas} />
           </div>
         </div>
-        <div className="row justify-content-center mt-5">
+        <div className="row justify-content-center mt-3">
           <Suspense fallback={<div>Cargando noticias</div>}>
             {posts.total === 0 ? (
               <div className="news-not-found">

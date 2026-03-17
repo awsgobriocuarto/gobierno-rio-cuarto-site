@@ -5,397 +5,397 @@ $cg-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 
 /* ── Page layout ─────────────────────────── */
 .contacts-page {
-    padding: 60px 0 80px;
-    background-color: #f4f7f9;
+  padding: 60px 0 80px;
+  background-color: #f4f7f9;
 }
 
 .contacts-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid rgba($primary, 0.1);
+
+  &__icon {
+    width: 54px;
+    height: 54px;
+    background: $primary;
+    color: #fff;
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 48px;
-    padding-bottom: 24px;
-    border-bottom: 2px solid rgba($primary, 0.1);
+    justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
 
-    &__icon {
-        width: 54px;
-        height: 54px;
-        background: $primary;
-        color: #fff;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.6rem;
-        flex-shrink: 0;
+  &__text {
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: $primary;
+      margin-bottom: 2px;
     }
 
-    &__text {
-        h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: $primary;
-            margin-bottom: 2px;
-        }
-
-        p {
-            color: $gray-600;
-            font-size: 1rem;
-            margin: 0;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+    p {
+      color: $gray-600;
+      font-size: 1rem;
+      margin: 0;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
+  }
 }
 
 /* ── Search ──────────────────────────────── */
 .cg {
-    &-search {
-        position: relative;
-        max-width: 500px;
-        margin-bottom: 40px;
+  &-search {
+    position: relative;
+    max-width: 500px;
+    margin-bottom: 40px;
 
-        &__icon {
-            position: absolute;
-            top: 50%;
-            left: 18px;
-            transform: translateY(-50%);
-            color: $primary;
-            pointer-events: none;
-        }
-
-        &__input {
-            width: 100%;
-            padding: 14px 45px 14px 48px;
-            border: 1px solid rgba($primary, 0.15);
-            border-radius: 50px;
-            font-size: 1rem;
-            background: #fff;
-            box-shadow: $cg-shadow;
-            transition: $cg-transition;
-            outline: none;
-
-            &:focus {
-                border-color: $primary;
-                box-shadow: 0 4px 15px rgba($primary, 0.1);
-            }
-        }
-
-        &__clear {
-            position: absolute;
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-            border: none;
-            background: none;
-            color: $gray-400;
-            cursor: pointer;
-            padding: 5px;
-            transition: color 0.2s;
-
-            &:hover {
-                color: $primary;
-            }
-        }
+    &__icon {
+      position: absolute;
+      top: 50%;
+      left: 18px;
+      transform: translateY(-50%);
+      color: $primary;
+      pointer-events: none;
     }
 
-    /* ── List ─────────────────────────────── */
-    &-list {
+    &__input {
+      width: 100%;
+      padding: 14px 45px 14px 48px;
+      border: 1px solid rgba($primary, 0.15);
+      border-radius: 50px;
+      font-size: 1rem;
+      background: #fff;
+      box-shadow: $cg-shadow;
+      transition: $cg-transition;
+      outline: none;
+
+      &:focus {
+        border-color: $primary;
+        box-shadow: 0 4px 15px rgba($primary, 0.1);
+      }
+    }
+
+    &__clear {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      border: none;
+      background: none;
+      color: $gray-400;
+      cursor: pointer;
+      padding: 5px;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  /* ── List ─────────────────────────────── */
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* ── Area Accordion  */
+  &-area {
+    margin-bottom: 12px;
+    border: 0;
+    height: auto !important;
+    transition: all 0.3s ease;
+
+    &.cg-area--open {
+      background-color: #fcfcfc;
+      border: 1px solid #ff7825 !important;
+      border-left: 6px solid #ff7825 !important;
+      box-shadow: 0 4px 12px rgba(255, 120, 37, 0.15) !important;
+
+      .area-folder-title {
+        color: #000; // Keep black when open
+      }
+
+      .arrow-icon {
+        color: #ff7825;
+        transform: rotate(90deg) !important;
+      }
+
+      .area-folder-separator {
+        background-color: #ff7825; // Keep orange
+      }
+    }
+
+    &__header {
+      width: 100%;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem; // Reduced from 1.5rem 2rem
+
+      &:disabled {
+        cursor: default;
+
+        .arrow-icon {
+          display: none;
+        }
+      }
+
+      .area-folder-title {
+        font-size: 1.15rem;
+        margin-top: 4px;
+        font-weight: 700;
+        color: #333333;
+      }
+
+      .area-folder-separator {
+        height: 3px;
+        width: 50px;
+        background-color: #ff7825;
+        margin-top: 10px;
+      }
+
+      .arrow-icon {
+        svg {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+
+    &__pre-name {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: $gray-600;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      line-height: 1;
+      margin-bottom: 6px !important;
+    }
+
+    &__badge {
+      font-size: 0.85rem;
+      background: rgba($primary, 0.08);
+      color: $primary;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-weight: 600;
+      white-space: nowrap;
+
+      .cg-area--open & {
+        background: rgba($secondary, 0.1);
+        color: $secondary;
+      }
+    }
+
+    &__body {
+      padding: 0 1.5rem 1rem 1.5rem; // Further reduced bottom padding
+      background: transparent;
+      animation: cgSlideDown 0.3s ease;
+    }
+
+    &__contacts {
+      padding-top: 10px; // Further reduced
+      margin-bottom: 15px; // Further reduced
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+      &-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $gray-700;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
         display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    /* ── Area Accordion  */
-    &-area {
-        margin-bottom: 12px;
-        border: 0;
-        height: auto !important;
-        transition: all 0.3s ease;
-
-        &.cg-area--open {
-            background-color: #fcfcfc;
-            border: 1px solid #ff7825 !important;
-            border-left: 6px solid #ff7825 !important;
-            box-shadow: 0 4px 12px rgba(255, 120, 37, 0.15) !important;
-
-            .area-folder-title {
-                color: #000; // Keep black when open
-            }
-
-            .arrow-icon {
-                color: #ff7825;
-                transform: rotate(90deg) !important;
-            }
-
-            .area-folder-separator {
-                background-color: #ff7825; // Keep orange
-            }
-        }
-
-        &__header {
-            width: 100%;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.25rem 1.5rem; // Reduced from 1.5rem 2rem
-
-            &:disabled {
-                cursor: default;
-
-                .arrow-icon {
-                    display: none;
-                }
-            }
-
-            .area-folder-title {
-                font-size: 1.15rem;
-                margin-top: 4px;
-                font-weight: 700;
-                color: #333333;
-            }
-
-            .area-folder-separator {
-                height: 3px;
-                width: 50px;
-                background-color: #ff7825;
-                margin-top: 10px;
-            }
-
-            .arrow-icon {
-                svg {
-                    width: 28px;
-                    height: 28px;
-                }
-            }
-        }
-
-        &__pre-name {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            color: $gray-500;
-            font-weight: 500;
-            letter-spacing: 0.8px;
-            line-height: 1;
-            margin-bottom: 6px !important;
-        }
-
-        &__badge {
-            font-size: 0.85rem;
-            background: rgba($primary, 0.08);
-            color: $primary;
-            border-radius: 20px;
-            padding: 6px 16px;
-            font-weight: 600;
-            white-space: nowrap;
-
-            .cg-area--open & {
-                background: rgba($secondary, 0.1);
-                color: $secondary;
-            }
-        }
-
-        &__body {
-            padding: 0 1.5rem 1rem 1.5rem; // Further reduced bottom padding
-            background: transparent;
-            animation: cgSlideDown 0.3s ease;
-        }
-
-        &__contacts {
-            padding-top: 10px; // Further reduced
-            margin-bottom: 15px; // Further reduced
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-
-            &-title {
-                font-size: 0.85rem;
-                text-transform: uppercase;
-                font-weight: 600;
-                color: $gray-700;
-                letter-spacing: 1px;
-                margin-bottom: 8px;
-                display: flex;
-                align-items: center;
-
-                i {
-                    font-size: 0.85rem;
-                    margin-right: 8px;
-                    opacity: 0.7;
-                }
-
-                .cg-area--open & {
-                    color: $gray-700;
-                }
-            }
-
-            &-list {
-                display: flex;
-                flex-direction: column;
-                gap: 8px; // Reduced from 12px
-            }
-        }
-
-        &__sub {
-            padding-top: 15px; // Further reduced
-            border-top: 1px dashed rgba(0, 0, 0, 0.1);
-
-            &-title {
-                font-size: 0.85rem;
-                text-transform: uppercase;
-                font-weight: 600;
-                color: rgba($primary, 0.8);
-                letter-spacing: 1px;
-                margin-bottom: 8px; // Reduced from 12px
-                display: flex;
-                align-items: center;
-
-                i {
-                    font-size: 0.85rem;
-                    margin-right: 8px;
-                    opacity: 0.7;
-                }
-            }
-
-            &-list {
-                display: flex;
-                flex-direction: column;
-                gap: 8px; // Reduced from 12px
-            }
-        }
-    }
-
-    /* ── Sub-area Item ─────────────────────── */
-    &-sub-item {
-        border: 1px solid rgba(0, 0, 0, 0.06);
-        border-radius: 8px; // Reduced from 10px
-        overflow: hidden;
-        background: #fafafa;
-        transition: $cg-transition;
-
-        &--open {
-            border-color: rgba($secondary, 0.2);
-            background: #fff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-        }
-
-        &__header {
-            width: 100%;
-            padding: 10px 16px; // Reduced from 14px 20px
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            text-align: left;
-            transition: background 0.2s;
-
-            &:hover:not(:disabled) {
-                background: rgba(0, 0, 0, 0.02);
-            }
-
-            &:disabled {
-                opacity: 0.6;
-                cursor: default;
-            }
-        }
-
-        &__name {
-            font-size: 0.95rem; // Reduced from 1.05rem
-            font-weight: 600;
-            color: #444;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        &__chevron {
-            font-size: 0.72rem; // Reduced from 0.8rem
-            color: $primary;
-            transition: transform 0.3s;
-
-            .cg-sub-item--open & {
-                transform: rotate(90deg);
-                color: #ff7825;
-            }
-        }
-
-        &__body {
-            padding: 8px 16px 16px 38px; // Reduced from 10px 20px 20px 44px
-            border-top: 1px solid rgba(0, 0, 0, 0.03);
-            display: flex;
-            flex-direction: column;
-            gap: 6px; // Reduced from 10px
-            animation: cgFadeScale 0.2s ease;
-        }
-    }
-
-    /* ── Empty State ──────────────────────── */
-    &-empty {
-        text-align: center;
-        padding: 80px 40px;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: $cg-shadow;
-        color: $gray-400;
+        align-items: center;
 
         i {
-            font-size: 3rem;
-            display: block;
-            margin-bottom: 15px;
-            opacity: 0.3;
+          font-size: 0.85rem;
+          margin-right: 8px;
+          opacity: 0.7;
         }
+
+        .cg-area--open & {
+          color: $gray-700;
+        }
+      }
+
+      &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px; // Reduced from 12px
+      }
     }
+
+    &__sub {
+      padding-top: 15px; // Further reduced
+      border-top: 1px dashed rgba(0, 0, 0, 0.1);
+
+      &-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: rgba($primary, 0.8);
+        letter-spacing: 1px;
+        margin-bottom: 8px; // Reduced from 12px
+        display: flex;
+        align-items: center;
+
+        i {
+          font-size: 0.85rem;
+          margin-right: 8px;
+          opacity: 0.7;
+        }
+      }
+
+      &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px; // Reduced from 12px
+      }
+    }
+  }
+
+  /* ── Sub-area Item ─────────────────────── */
+  &-sub-item {
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px; // Reduced from 10px
+    overflow: hidden;
+    background: #fafafa;
+    transition: $cg-transition;
+
+    &--open {
+      border-color: rgba($secondary, 0.2);
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    &__header {
+      width: 100%;
+      padding: 10px 16px; // Reduced from 14px 20px
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s;
+
+      &:hover:not(:disabled) {
+        background: rgba(0, 0, 0, 0.02);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+    }
+
+    &__name {
+      font-size: 0.95rem; // Reduced from 1.05rem
+      font-weight: 600;
+      color: #444;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__chevron {
+      font-size: 0.72rem; // Reduced from 0.8rem
+      color: $primary;
+      transition: transform 0.3s;
+
+      .cg-sub-item--open & {
+        transform: rotate(90deg);
+        color: #ff7825;
+      }
+    }
+
+    &__body {
+      padding: 8px 16px 16px 38px; // Reduced from 10px 20px 20px 44px
+      border-top: 1px solid rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 6px; // Reduced from 10px
+      animation: cgFadeScale 0.2s ease;
+    }
+  }
+
+  /* ── Empty State ──────────────────────── */
+  &-empty {
+    text-align: center;
+    padding: 80px 40px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: $cg-shadow;
+    color: $gray-400;
+
+    i {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 15px;
+      opacity: 0.3;
+    }
+  }
 }
 
 @keyframes cgSlideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes cgFadeScale {
-    from {
-        opacity: 0;
-        transform: scale(0.98);
-    }
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
 
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* ── Responsive ───────────────────────────── */
 @media (max-width: 767px) {
-    .contacts-header {
-        &__text h1 {
-            font-size: 1.6rem;
-        }
+  .contacts-header {
+    &__text h1 {
+      font-size: 1.6rem;
+    }
+  }
+
+  .cg-area {
+    &__header {
+      padding: 1rem;
     }
 
-    .cg-area {
-        &__header {
-            padding: 1rem;
-        }
-
-        &__badge {
-            display: none;
-        }
-
-        .area-folder-title {
-            font-size: 1rem;
-            white-space: normal;
-        }
+    &__badge {
+      display: none;
     }
+
+    .area-folder-title {
+      font-size: 1rem;
+      white-space: normal;
+    }
+  }
 }

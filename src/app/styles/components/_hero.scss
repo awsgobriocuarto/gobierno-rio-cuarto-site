@@ -1,6 +1,7 @@
 .hero {
   position: relative;
   background-color: darken($primary, 35%);
+  // Se quita el padding-top de aquí para que la imagen suba hasta arriba (sin línea azul)
 
   &-slides {
     opacity: 0.5;
@@ -23,6 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 150px; // Bajamos el texto para que no lo tape el navbar
   }
 }
 
@@ -36,6 +38,6 @@
 
 .hero-slides-icons {
   position: absolute;
-  top: 8px;
+  top: 110px; // Bajamos íconos para que no los tape el navbar
   right: 10px;
 }
