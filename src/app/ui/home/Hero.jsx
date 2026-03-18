@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import Slides from "./Slides";
-import SearchForm from "../commons/SearchForm";
 import ListIcons from "../icons/ListIcons"; // agregado
+import { fetchNews } from "@/app/lib/DataNews";
 
 const HERO_ICONS = [
   { name: "circles", color: "white", size: "24" },
@@ -9,29 +9,23 @@ const HERO_ICONS = [
   { name: "waves", color: "white", size: "24" },
 ];
 
-export default function Hero() {
+export default async function Hero() {
+  let posts = [];
+  try {
+    posts = await fetchNews({ limit: 3 });
+  } catch (error) {
+    console.error("Failed to fetch news for hero carousel:", error);
+  }
+
   return (
     <section className="hero" data-read>
       <div className="hero-slides">
-        <Slides />
+        <Slides posts={posts} />
       </div>
 
       {/* overlay de íconos fuera de .hero-slides para evitar heredar opacity */}
       <div className="hero-slides-icons" aria-hidden="true">
         <ListIcons icons={HERO_ICONS} />
-      </div>
-
-      <div className="hero-search">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-12 col-md-8">
-              <h1 className="hero-title">¡Hola! ¿Cómo podemos ayudarte?</h1>
-              <Suspense>
-                <SearchForm />
-              </Suspense>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

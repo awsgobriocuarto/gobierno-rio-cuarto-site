@@ -1,43 +1,16 @@
 .hero {
   position: relative;
-  background-color: darken($primary, 35%);
-  // Se quita el padding-top de aquí para que la imagen suba hasta arriba (sin línea azul)
+  background-color: #000;
+  overflow: hidden;
 
   &-slides {
-    opacity: 0.5;
-  }
-
-  &-title {
-    color: white;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
-    text-shadow: #000 0px 0px 10px;
-    font-weight: 800;
-  }
-
-  &-search {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 150px; // Bajamos el texto para que no lo tape el navbar
-  }
-}
-
-@media (max-width: 767px) {
-  .hero {
-    &-title {
-      font-size: 1.4rem;
-    }
+    opacity: 1;
   }
 }
 
 .hero-slides-icons {
   position: absolute;
-  top: 110px; // Bajamos íconos para que no los tape el navbar
+  top: 110px;
   right: 10px;
+  z-index: 10;
 }
