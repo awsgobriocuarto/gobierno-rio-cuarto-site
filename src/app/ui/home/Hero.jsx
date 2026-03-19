@@ -4,9 +4,9 @@ import ListIcons from "../icons/ListIcons"; // agregado
 import { fetchNews } from "@/app/lib/DataNews";
 
 const HERO_ICONS = [
-  { name: "circles", color: "white", size: "24" },
-  { name: "squares", color: "white", size: "24" },
-  { name: "waves", color: "white", size: "24" },
+  { name: "circles", color: "white", size: "40" },
+  { name: "squares", color: "white", size: "40" },
+  { name: "waves", color: "white", size: "40" },
 ];
 
 export default async function Hero() {
@@ -20,7 +20,9 @@ export default async function Hero() {
   return (
     <section className="hero" data-read>
       <div className="hero-slides">
-        <Slides posts={posts} />
+        <Suspense fallback={<div>Cargando...</div>}>
+          <Slides posts={posts} />
+        </Suspense>
       </div>
 
       {/* overlay de íconos fuera de .hero-slides para evitar heredar opacity */}

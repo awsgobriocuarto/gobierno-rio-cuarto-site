@@ -19,16 +19,16 @@ export default async function ListAreas() {
         <HeaderSection
           title="GESTIONAMOS PARA VOS"
           subtitle="Secretarías y áreas municipales"
-          bgImage="/images/gente1.jpg"
+          bgImage="/images/la-muni.jpg"
         />
-        <div className="area-vision-text">
+        {/* <div className="area-vision-text">
           Somos un gobierno receptivo que pone al vecino en el centro de cada
           decisión, transformando la escucha en soluciones reales. Construimos
           una ciudad habitable e inclusiva, facilitando la participación directa
           de la comunidad en la gestión pública. Nuestra prioridad es generar
           oportunidades concretas que impulsen el desarrollo sostenible y la
           equidad social.
-        </div>
+        </div> */}
         <div className="row justify-content-center buttons-areas gx-4 gy-1">
           <Suspense fallback={<div>Cargando...</div>}>
             {areas.map((area) => (

@@ -196,6 +196,10 @@ body {
   .offcanvas-body {
     padding: 10px 20px;
 
+    @media (min-width: 992px) {
+      padding: 0;
+    }
+
     .nav-link {
       color: white !important;
       padding: 15px 0;

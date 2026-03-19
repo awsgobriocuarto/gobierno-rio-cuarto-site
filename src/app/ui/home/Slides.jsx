@@ -2,12 +2,6 @@
 import Carousel from "react-bootstrap/Carousel";
 import Link from "next/link";
 
-const HERO_ICONS = [
-  { name: "circles", color: "white", size: "28" },
-  { name: "squares", color: "white", size: "28" },
-  { name: "waves", color: "white", size: "28" },
-];
-
 export default function Slides({ posts = [] }) {
   // Use static images as fallback if no posts are passed
   const hasPosts = posts && posts.length > 0;
@@ -23,50 +17,33 @@ export default function Slides({ posts = [] }) {
         {hasPosts ? (
           posts.map((post) => (
             <Carousel.Item key={post.id}>
-              <div
-                className="row g-0"
-                style={{
-                  height: "500px",
-                  backgroundColor: "#343a40",
-                  overflow: "hidden",
-                }}
-              >
-                {/* Lado Imagen 60% */}
-                <div className="col-12 col-lg-7 h-100">
+              <div className="row g-0 hero-split-row">
+                {/* Lado Imagen - 50/50 para ver foto completa */}
+                <div className="col-12 col-md-6 h-100 hero-img-col">
                   {/* eslint-disable-next-line */}
                   <img
                     src={post.image}
                     alt={post.title}
-                    className="w-100 h-100"
-                    style={{
-                      objectFit: "cover",
-                    }}
+                    className="w-100 h-100 hero-split-image"
                   />
                 </div>
 
-                {/* Lado Texto 40% */}
-                <div className="col-12 col-lg-5 h-100 d-flex align-items-center justify-content-center p-4 p-md-5">
-                  <div className="w-100" style={{ maxWidth: "480px" }}>
+                {/* Lado Texto - 50/50 */}
+                <div className="col-12 col-md-6 h-100 d-flex align-items-center justify-content-center p-4 p-md-5 hero-text-col position-relative">
+                  <div className="w-100">
                     <h3
-                      className="text-white fw-bold mb-3"
+                      className="text-white fw-bold hero-title mb-3"
                       style={{
                         textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                        fontSize: "2.7rem",
                       }}
                     >
                       {post.title}
                     </h3>
                     {post.excerpt && (
                       <p
-                        className="text-white mb-4"
+                        className="text-white lead mb-4 hero-excerpt"
                         style={{
                           textShadow: "0 1px 3px rgba(0,0,0,0.3)",
-                          display: "-webkit-box",
-                          WebkitLineClamp: 3,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                          fontSize: "1.25rem",
-                          lineHeight: "1.4",
                         }}
                       >
                         {post.excerpt}
@@ -74,7 +51,7 @@ export default function Slides({ posts = [] }) {
                     )}
                     <Link
                       href={`/noticias/${post.slug}`}
-                      className="btn btn-outline-light rounded-pill px-5 py-8 mb-5"
+                      className="btn btn-outline-light rounded-pill px-4 py-2 mb-3"
                       style={{ fontWeight: "500" }}
                     >
                       Seguir leyendo

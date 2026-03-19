@@ -75,7 +75,7 @@ export default function Menu() {
               </div>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Nav className="justify-content-end flex-grow-1 pe-3">
+              <Nav className="ms-auto">
                 <Link
                   href="/#areas"
                   className={`nav-link ${pathname === "/areas" ? "active" : ""}`}
