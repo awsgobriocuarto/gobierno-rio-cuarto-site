@@ -1,4 +1,4 @@
-export default function IntitutionalAreas({ area }) {
+export default function IntitutionalAreas({ area, isSidebar }) {
   const persons = area.persons;
 
   if (!persons || persons.length === 0) {
@@ -9,10 +9,17 @@ export default function IntitutionalAreas({ area }) {
 
   return (
     <div className="area-institutional">
-      <h4>Organigrama</h4>
-      <div className="row">
+      {!isSidebar && <h4>Organigrama</h4>}
+      <div className={`row ${isSidebar ? "justify-content-end" : ""}`}>
         {sortedPersons.map((p) => (
-          <div key={p.id} className="col-12 col-md-6">
+          <div
+            key={p.id}
+            className={
+              isSidebar
+                ? "col-12 d-flex justify-content-end"
+                : "col-12 col-md-6"
+            }
+          >
             <div className="card">
               {/* eslint-disable-next-line */}
               <img

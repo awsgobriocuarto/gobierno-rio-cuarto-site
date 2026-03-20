@@ -1,12 +1,10 @@
 import ContactItem from "../commons/ContactItem";
 import MapEmbed from "../commons/MapEmbed";
 
-export default function HeroAreas({ area }) {
+export default function HeroAreas({ area, propouseOverride }) {
   if (!area) {
     return "No hay área para mostrar.";
   }
-
-  console.log(area.contact.length);
 
   const contact = area.contact || [];
 
@@ -22,7 +20,7 @@ export default function HeroAreas({ area }) {
       <p
         className="mb-4"
         dangerouslySetInnerHTML={{
-          __html: area.propouse || null,
+          __html: propouseOverride || area.propouse || null,
         }}
       ></p>
 

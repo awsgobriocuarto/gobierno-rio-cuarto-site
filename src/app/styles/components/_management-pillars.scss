@@ -1,0 +1,168 @@
+.management-pillars {
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    @media (max-width: 991px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 575px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .pillar-card {
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      min-height 0.3s ease;
+    cursor: default;
+
+    &.has-content {
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    &.is-active {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      border: 2px solid white;
+    }
+
+    &.tab {
+      min-height: 150px;
+    }
+
+    .pillar-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 0;
+      transition: all 0.3s ease;
+
+      i {
+        font-size: 2.5rem;
+        opacity: 0.9;
+        margin: 0;
+      }
+
+      .pillar-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin: 0;
+        line-height: 1.25;
+        color: white !important;
+        text-transform: uppercase;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .active-pillar-content {
+    border-radius: 20px;
+    color: white;
+    animation: fadeIn 0.4s ease-out;
+
+    h4 {
+      color: white;
+      text-transform: uppercase;
+      font-size: 1.4rem;
+    }
+
+    .details-text {
+      color: white !important;
+      font-size: 1.1rem;
+      line-height: 1.6;
+
+      p {
+        margin-bottom: 1.2rem;
+      }
+
+      ul {
+        padding-left: 20px;
+        margin-bottom: 1.2rem;
+      }
+    }
+
+    // Colors for the content box to match the active card
+    &.blue {
+      background-color: #6eb0e6;
+    }
+    &.orange {
+      background-color: #f7b26d;
+    }
+    &.pink {
+      background-color: #e4969c;
+    }
+    &.green {
+      background-color: #91c788;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .pillar-card {
+    &.blue {
+      background-color: #6eb0e6;
+    }
+    &.orange {
+      background-color: #f7b26d;
+    }
+    &.pink {
+      background-color: #e4969c;
+    }
+
+    &.green {
+      background-color: #91c788;
+      grid-column: 1 / -1; // Full width
+      min-height: 120px;
+      margin-top: 20px;
+
+      .pillar-content {
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+
+        .pillar-header {
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+}

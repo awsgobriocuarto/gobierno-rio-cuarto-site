@@ -1,17 +1,19 @@
 "use client";
 import Link from "next/link";
 
-export default function CardAreas({ area }) {
+export default function CardAreas({ area, isSmall }) {
   return (
     <Link
       href={area.href || `/areas/${area.slug}`}
       className="text-decoration-none w-100 h-80 d-block"
     >
-      <div className="card area-folder card-area h-100">
+      <div
+        className={`card area-folder card-area h-100 ${isSmall ? "card-small" : ""}`}
+      >
         <div className="card-body">
-          <div className="pe-3 overflow-hidden flex-grow-1">
+          <div className="pe-2 overflow-hidden flex-grow-1">
             <h5 className="area-folder-title">{area.name}</h5>
-            <div className="area-folder-separator"></div>
+            {!isSmall && <div className="area-folder-separator"></div>}
           </div>
           <div className="arrow-icon">
             <svg
