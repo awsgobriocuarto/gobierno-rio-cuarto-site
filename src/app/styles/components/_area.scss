@@ -2,6 +2,13 @@
   position: relative;
   margin-top: 60px;
 
+  &.sticky-sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    z-index: 10;
+  }
+
   &-home {
     padding-bottom: 35px;
     padding-top: 35px;
@@ -179,6 +186,33 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    // Small version for simplified list
+    &.card-small {
+      min-height: 60px;
+      height: 100% !important;
+
+      .card-body {
+        padding: 0.5rem 0.75rem;
+      }
+
+      .area-folder-title {
+        font-size: 0.8rem;
+        line-height: 1.2;
+        margin-bottom: 0;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .arrow-icon svg {
+        width: 16px;
+        height: 16px;
+      }
     }
   }
 
