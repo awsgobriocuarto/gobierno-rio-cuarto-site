@@ -15,6 +15,18 @@ export default async function ContactsPage() {
             areasList.map((area) => fetchAreaBySlug(area.slug))
         )
     ).filter(Boolean);
+
+    // Sort areas by order, forcing Intendencia to the top
+    areas.forEach((area) => {
+        if (area.order == -1) {
+            area.order = 9999;
+        }
+        if (area.name.toLowerCase().includes("intendencia")) {
+            area.order = -999;
+        }
+    });
+    areas.sort((a, b) => a.order - b.order);
+
     return (
         <main className="contacts-page">
             <div className="container">
