@@ -44,4 +44,22 @@
       text-transform: uppercase;
     }
   }
+
+  &-item--btn-wrapper {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+
+    .contact-item--link.btn {
+      padding: 0.6rem 1.5rem;
+      border-width: 2px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        background-color: $primary;
+        color: white !important;
+      }
+    }
+  }
 }

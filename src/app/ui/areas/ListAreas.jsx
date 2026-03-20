@@ -41,7 +41,7 @@ export default async function ListAreas() {
         <div className="d-flex justify-content-center mt-4">
           <Link
             href="/areas"
-            className="btn btn-outline-orange rounded-pill px-5 py-2 mb-5"
+            className="btn btn-outline-orange btn-rounded-custom px-5 py-2 mb-5"
           >
             Organigrama Municipal{" "}
           </Link>

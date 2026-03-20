@@ -31,7 +31,7 @@ export default async function ListFormalityCategories() {
         <div className="text-center mt-4 mb-4">
           <Link
             href="/tramites"
-            className="btn btn-outline-primary rounded-pill px-5 py-2"
+            className="btn btn-outline-primary btn-rounded-custom px-5 py-2"
           >
             Ver todos los Trámites
           </Link>

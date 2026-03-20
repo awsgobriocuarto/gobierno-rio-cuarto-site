@@ -40,7 +40,10 @@ export default async function SeccionDetail({ params }) {
           <div className="col-md-8">
             <DetailEntries detailEntry={detailEntry} links />
 
-            <CombinedEntriesAreas area={detailEntry.area} />
+            <CombinedEntriesAreas
+              area={detailEntry.area}
+              title="Otros programas y servicios"
+            />
           </div>
 
           <div className="col-md-4 position-relative">
