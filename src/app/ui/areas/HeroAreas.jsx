@@ -19,12 +19,14 @@ export default function HeroAreas({ area }) {
       <div className="area-hero-separator"></div>
       <h1 className="mb-4">{area.name || "Área sin nombre"}</h1>
 
-      <p
-        className="mb-4"
-        dangerouslySetInnerHTML={{
-          __html: area.propouse || null,
-        }}
-      ></p>
+      <div className="area-hero-description">
+        <p
+          className="mb-4"
+          dangerouslySetInnerHTML={{
+            __html: area.propouse || null,
+          }}
+        ></p>
+      </div>
 
       {area.contact.length > 0 && (
         <div className="card">

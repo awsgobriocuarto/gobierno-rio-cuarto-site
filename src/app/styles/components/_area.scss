@@ -8,6 +8,7 @@
   }
 
   &-detail {
+
     h3,
     h4 {
       color: $primary;
@@ -132,6 +133,7 @@
 
     &.card-area {
       transition: all 0.3s ease;
+
       // Use !important for borders if needed, or rely on specificity
       &:hover {
         background-color: #fcfcfc;
@@ -179,7 +181,31 @@
       justify-content: center;
     }
   }
+
+  &-hero-description {
+    a {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      background-color: transparent;
+      color: $primary;
+      border: 1.5px solid $primary;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $primary;
+        color: white !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
 }
+
 @media (min-width: 768px) and (max-width: 991px) {
   .area-institutional {
     .row {
@@ -241,6 +267,7 @@
     }
   }
 }
+
 @media (min-width: 992px) and (max-width: 1199px) {
   .area-institutional {
     .row {
@@ -308,13 +335,15 @@
     display: flex;
     flex-direction: column;
   }
+
   .area-column-left,
   .area-column-right {
-    display: contents; /* Allows children to participate directly in the flex layout */
+    display: contents;
+    /* Allows children to participate directly in the flex layout */
   }
 
   /* Restore padding removed by bypassing Bootstrap's .col-* structure with display: contents */
-  .area-mobile-flex > div > div[class*="area-order-"] {
+  .area-mobile-flex>div>div[class*="area-order-"] {
     padding-right: 15px;
     padding-left: 15px;
     width: 100%;
@@ -322,24 +351,36 @@
 
   .area-order-1 {
     order: 1;
-  } /* Hero */
+  }
+
+  /* Hero */
   .area-order-2 {
     order: 2;
     margin-bottom: 2rem !important;
     margin-top: 0 !important;
-  } /* Dependencias */
+  }
+
+  /* Dependencias */
   .area-order-3 {
     order: 3;
-  } /* Fotos (Organigrama) */
+  }
+
+  /* Fotos (Organigrama) */
   .area-order-4 {
     order: 4;
-  } /* Programas */
+  }
+
+  /* Programas */
   .area-order-5 {
     order: 5;
-  } /* Tramites */
+  }
+
+  /* Tramites */
   .area-order-6 {
     order: 6;
-  } /* Noticias */
+  }
+
+  /* Noticias */
 
   /* Limits items to 4 on mobile */
   .entries-client-grid:not(.show-all) .entry-item:nth-child(n + 5) {

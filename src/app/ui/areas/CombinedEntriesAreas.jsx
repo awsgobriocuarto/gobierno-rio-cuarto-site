@@ -3,7 +3,7 @@ import CombinedEntriesClient from "./CombinedEntriesClient";
 
 export default async function CombinedEntriesAreas({
   area,
-  title = "Otros Programas y Servicios",
+  title = "Programas y Servicios",
   bg = "primary",
 }) {
   if (!area || !area.id) return null;
