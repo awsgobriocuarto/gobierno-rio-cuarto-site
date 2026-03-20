@@ -53,7 +53,7 @@ export default function LoadMoreNews({ initialPosts, area, search, limit }) {
           <button
             onClick={loadMore}
             disabled={loading}
-            className="btn btn-outline-success rounded-pill px-5 py-2 news-load-more"
+            className="btn btn-outline-success btn-rounded-custom px-5 py-2 news-load-more"
           >
             {loading ? (
               <>

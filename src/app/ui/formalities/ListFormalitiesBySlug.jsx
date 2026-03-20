@@ -36,7 +36,7 @@ export default async function ListFormalitiesBySlug({ area, allFormalities }) {
         <div className="text-center mt-4">
           <Link
             href={`/tramites?area=${area.slug}`}
-            className="btn btn-outline-secondary rounded-pill px-4"
+            className="btn btn-outline-secondary btn-rounded-custom px-4 py-2"
           >
             Ver más trámites ({allFormalities.length - 4})
           </Link>

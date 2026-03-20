@@ -27,7 +27,7 @@ export default async function ListEvents() {
             href="https://destinoriocuarto.gob.ar"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-outline-info rounded-pill px-5 py-2"
+            className="btn btn-outline-info btn-rounded-custom px-5 py-2"
           >
             Ver más eventos
           </a>

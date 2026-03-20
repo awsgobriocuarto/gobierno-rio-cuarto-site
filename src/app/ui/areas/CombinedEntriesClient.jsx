@@ -24,7 +24,7 @@ export default function CombinedEntriesClient({ entries, bg }) {
       {entries.length > INITIAL_COUNT && (
         <div className="text-center mt-5">
           <button
-            className="btn btn-outline-secondary rounded-pill px-4"
+            className="btn btn-outline-secondary btn-rounded-custom px-4 py-2"
             onClick={() => setShowAll(!showAll)}
           >
             {showAll

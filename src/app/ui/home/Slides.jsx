@@ -51,7 +51,7 @@ export default function Slides({ posts = [] }) {
                     )}
                     <Link
                       href={`/noticias/${post.slug}`}
-                      className="btn btn-outline-light rounded-pill px-4 py-2 mb-3"
+                      className="btn btn-outline-light btn-rounded-custom px-4 py-2 mb-3"
                       style={{ fontWeight: "500" }}
                     >
                       Seguir leyendo
