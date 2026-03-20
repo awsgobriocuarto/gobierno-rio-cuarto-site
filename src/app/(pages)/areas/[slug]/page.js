@@ -58,10 +58,10 @@ export default async function AreaDetailPage({ params }) {
             <>
               {/* Column 1: Institutional Info (Left) - Compact Size */}
               <div className="col-md-3 area-column-right sticky-sidebar">
-                <div className="area-order-3">
+                <div className="area-order-2">
                   <IntitutionalAreas area={area} isSidebar={true} />
                 </div>
-                <div className="col-md-12 mb-4 area-order-2">
+                <div className="col-md-12 mb-4 area-order-6">
                   <AreaDetail area={area} />
                 </div>
               </div>
@@ -71,10 +71,12 @@ export default async function AreaDetailPage({ params }) {
                 <div className="area-order-1">
                   <HeroAreas area={area} propouseOverride={displayPropouse} />
                 </div>
-                <ManagementPillars
-                  sections={pillarSections}
-                  intro={displayPropouse}
-                />
+                <div className="area-order-3 mb-4">
+                  <ManagementPillars
+                    sections={pillarSections}
+                    intro={displayPropouse}
+                  />
+                </div>
                 <div className="area-order-4">
                   <CombinedEntriesAreas area={area} />
                 </div>
@@ -84,9 +86,9 @@ export default async function AreaDetailPage({ params }) {
               </div>
 
               {/* Column 3: Government Areas (Right) */}
-              <div className="col-md-3">
-                <div className="area-order-6">
-                  <GovernmentAreas isVertical={true} />
+              <div className="col-md-3 area-column-right">
+                <div className="area-order-7">
+                  <GovernmentAreas isVertical={true} excludeSlug={slug} />
                 </div>
               </div>
             </>

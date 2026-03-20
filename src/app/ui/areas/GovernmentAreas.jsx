@@ -1,8 +1,13 @@
 import { fetchAreas } from "@/app/lib/DataAreas";
 import CardAreas from "./CardAreas";
 
-export default async function GovernmentAreas({ isVertical }) {
-  const areas = await fetchAreas();
+export default async function GovernmentAreas({ isVertical, excludeSlug }) {
+  let areas = await fetchAreas();
+
+  // Filter out the excluded area if provided
+  if (excludeSlug) {
+    areas = areas.filter((area) => area.slug !== excludeSlug);
+  }
 
   // Sorting logic to match organigram order
   areas.forEach((area) => {

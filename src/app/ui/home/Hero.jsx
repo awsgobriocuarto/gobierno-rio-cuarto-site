@@ -12,7 +12,7 @@ const HERO_ICONS = [
 export default async function Hero() {
   let posts = [];
   try {
-    posts = await fetchNews({ limit: 3 });
+    posts = await fetchNews({ limit: 5 });
   } catch (error) {
     console.error("Failed to fetch news for hero carousel:", error);
   }

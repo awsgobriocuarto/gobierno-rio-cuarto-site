@@ -15,7 +15,6 @@
   }
 
   &-detail {
-
     h3,
     h4 {
       color: $primary;
@@ -377,7 +376,7 @@
   }
 
   /* Restore padding removed by bypassing Bootstrap's .col-* structure with display: contents */
-  .area-mobile-flex>div>div[class*="area-order-"] {
+  .area-mobile-flex > div > div[class*="area-order-"] {
     padding-right: 15px;
     padding-left: 15px;
     width: 100%;
@@ -414,7 +413,10 @@
     order: 6;
   }
 
-  /* Noticias */
+  /* Noticias / Areas */
+  .area-order-7 {
+    order: 7;
+  }
 
   /* Limits items to 4 on mobile */
   .entries-client-grid:not(.show-all) .entry-item:nth-child(n + 5) {

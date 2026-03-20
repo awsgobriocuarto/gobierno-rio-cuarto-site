@@ -21,10 +21,13 @@
     }
 
     .hero-text-col {
-      padding: 1.5rem 4rem 1.5rem 1.5rem !important;
+      padding: 1.5rem 4rem 4.5rem 1.5rem !important; // WAS 1.5rem
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
 
       @media (min-width: 1200px) {
-        padding: 4rem 8rem 4rem 4rem !important;
+        padding: 4rem 8rem 8rem 4rem !important; // WAS 4rem
       }
     }
 
@@ -74,15 +77,15 @@
         rgba(0, 0, 0, 0) 100%
       ) !important;
       z-index: 2;
-      padding: 2rem 1.5rem 0.5rem 1.5rem !important; // ABSOLUTE BOTTOM
+      padding: 2rem 1.5rem 1rem 1.5rem !important; // SLIGHTLY MORE BOTTOM PADDING
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: flex-end; // ENSURE BOTTOM POS
       text-align: center;
 
       .w-100 {
-        margin-bottom: 1rem !important; // AT THE VERY BOTTOM
+        margin-bottom: 1.5rem !important; // LOWERED ON MOBILE
         max-width: 90%;
       }
 

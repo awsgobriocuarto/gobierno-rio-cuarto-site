@@ -29,7 +29,7 @@ export default function Slides({ posts = [] }) {
                 </div>
 
                 {/* Lado Texto - 50/50 */}
-                <div className="col-12 col-md-6 h-100 d-flex align-items-center justify-content-center p-4 p-md-5 hero-text-col position-relative">
+                <div className="col-12 col-md-6 h-100 p-4 p-md-6 hero-text-col position-relative">
                   <div className="w-100">
                     <h3
                       className="text-white fw-bold hero-title mb-3"

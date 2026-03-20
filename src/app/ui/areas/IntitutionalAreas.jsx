@@ -10,13 +10,13 @@ export default function IntitutionalAreas({ area, isSidebar }) {
   return (
     <div className="area-institutional">
       {!isSidebar && <h4>Organigrama</h4>}
-      <div className={`row ${isSidebar ? "justify-content-end" : ""}`}>
+      <div className={`row ${isSidebar ? "justify-content-md-end" : ""}`}>
         {sortedPersons.map((p) => (
           <div
             key={p.id}
             className={
               isSidebar
-                ? "col-12 d-flex justify-content-end"
+                ? "col-12 d-md-flex justify-content-md-end"
                 : "col-12 col-md-6"
             }
           >
