@@ -35,6 +35,11 @@
       margin-right: 8px;
       word-break: break-word;
       overflow-wrap: break-word;
+
+      @media (max-width: 576px) {
+        font-size: 0.9rem;
+        word-break: break-all;
+      }
     }
 
     &--label {

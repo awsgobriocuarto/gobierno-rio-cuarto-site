@@ -1,20 +1,23 @@
 // components/_base.scss
 
-// 1. Aseguramos altura completa
-html,
-body {
+// 1. Aseguramos altura mínima completa para el body
+html {
   height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
-// 2. Contenedor Principal (Next.js usa #__next, React puro usa #root)
-// Esto crea una columna flexible que ocupa toda la pantalla
-#__next,
-#root {
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+}
+
+// 2. Quitamos dependecia de IDs antiguos que no existen en App Router
+// Si existieran, se mantienen por compatibilidad pero no restringen el scroll
+#__next,
+#root {
+  display: contents; /* Deja que los hijos participen en el flex del body */
 }
 
 // 3. El contenido principal debe crecer para empujar el footer
@@ -23,12 +26,12 @@ main,
 .main-content {
   flex: 1;
   width: 100%;
-  padding-top: 150px; // Compensación por navbar fijo (más aire)
+  padding-top: 130px; // Compensación por navbar fijo (ajustado de 150px para reducir espacio)
 
-  // Si el primer elemento es el hero (Home), quitamos el padding superior
-  // para que la imagen de fondo llegue hasta arriba.
+  // Si el primer elemento es el hero (Home), ajustamos el padding
+  // para que la imagen NO quede oculta debajo del navbar opaco.
   &:has(.hero) {
-    padding-top: 0;
+    padding-top: 72px; // Altura exacta del navbar para evitar recortes
   }
 
   // AGREGA ESTA LÍNEA:

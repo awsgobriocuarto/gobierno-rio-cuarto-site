@@ -37,7 +37,7 @@ export default async function SeccionDetail({ params }) {
       <div className="container">
         <span className="sr-only">Detalle de la Noticia</span>
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-lg-8">
             <DetailEntries detailEntry={detailEntry} links />
 
             <CombinedEntriesAreas
@@ -46,7 +46,7 @@ export default async function SeccionDetail({ params }) {
             />
           </div>
 
-          <div className="col-md-4 position-relative">
+          <div className="col-lg-4 position-relative">
             <div
               className="sticky-top py-2"
               style={{ top: "100px", zIndex: 10 }}

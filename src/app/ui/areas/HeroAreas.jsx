@@ -33,15 +33,18 @@ export default function HeroAreas({ area, propouseOverride }) {
           </div>
           <div className="card-body">
             <div className="row">
-              <div className="col-md-7 order-2">
-                {area.contact.map((item, index) => (
-                  <ContactItem
-                    key={index}
-                    type={item.type}
-                    value={item.value}
-                    label={item.info}
-                  />
-                ))}
+              <div className="col-12">
+                <div className="row row-cols-1 row-cols-md-2 g-2 g-md-3">
+                  {area.contact.map((item, index) => (
+                    <div key={index} className="col">
+                      <ContactItem
+                        type={item.type}
+                        value={item.value}
+                        label={item.info}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
               {/* <div className="col-md-5 order-1">
                 {baseAddress && (

@@ -133,7 +133,7 @@
 
 .hero-slides-icons {
   position: absolute;
-  top: 15px;
+  top: 15px; // Restaurado a 15px ya que el contenedor main ahora tiene padding
   right: 15px;
   z-index: 10;
   opacity: 1;
