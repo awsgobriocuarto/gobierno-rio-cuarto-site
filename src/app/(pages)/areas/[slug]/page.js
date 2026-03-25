@@ -51,13 +51,13 @@ export default async function AreaDetailPage({ params }) {
   }
 
   return (
-    <div className="area area-detail">
+    <main className="area area-detail">
       <div className="container">
         <div className="row area-mobile-flex">
           {slug === "intendencia" ? (
             <>
               {/* Column 1: Institutional Info (Left) - Compact Size */}
-              <div className="col-md-3 area-column-right sticky-sidebar">
+              <div className="col-lg-3 area-column-right sticky-sidebar">
                 <div className="area-order-2">
                   <IntitutionalAreas area={area} isSidebar={true} />
                 </div>
@@ -67,7 +67,7 @@ export default async function AreaDetailPage({ params }) {
               </div>
 
               {/* Column 2: Main Content (Middle) - Restored width */}
-              <div className="col-md-6 area-column-left">
+              <div className="col-lg-6 area-column-left">
                 <div className="area-order-1">
                   <HeroAreas area={area} propouseOverride={displayPropouse} />
                 </div>
@@ -86,7 +86,7 @@ export default async function AreaDetailPage({ params }) {
               </div>
 
               {/* Column 3: Government Areas (Right) */}
-              <div className="col-md-3 area-column-right">
+              <div className="col-lg-3 area-column-right">
                 <div className="area-order-7">
                   <GovernmentAreas isVertical={true} excludeSlug={slug} />
                 </div>
@@ -95,7 +95,7 @@ export default async function AreaDetailPage({ params }) {
           ) : (
             <>
               {/* Default Layout: Content on Left, Photo on Right */}
-              <div className="col-md-8 area-column-left">
+              <div className="col-lg-8 area-column-left">
                 <div className="area-order-1">
                   <HeroAreas area={area} propouseOverride={displayPropouse} />
                 </div>
@@ -106,7 +106,7 @@ export default async function AreaDetailPage({ params }) {
                   <FormalitiesAreas area={area} />
                 </div>
               </div>
-              <div className="col-md-4 area-column-right">
+              <div className="col-lg-4 area-column-right">
                 <div className="area-order-3">
                   <IntitutionalAreas area={area} />
                 </div>
@@ -125,6 +125,6 @@ export default async function AreaDetailPage({ params }) {
           )}
         </div>
       </div>
-    </div>
+    </main>
   );
 }

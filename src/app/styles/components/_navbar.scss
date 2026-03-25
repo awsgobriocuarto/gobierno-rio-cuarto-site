@@ -11,9 +11,9 @@ $logo-offcanvas-slogan-width: 250px;
   --navbar-height: 72px;
 }
 
-body {
-  padding-top: var(--navbar-height);
-}
+// body {
+//   padding-top: var(--navbar-height);
+// }
 
 @media (max-width: 991px) {
   :root {

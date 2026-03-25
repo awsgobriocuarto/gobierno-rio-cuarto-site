@@ -45,14 +45,15 @@
     }
 
     &.tab {
-      min-height: 150px;
+      min-height: 220px; // Aumentado para asegurar uniformidad en tablet (2 columnas)
+      height: 100%;
     }
 
     .pillar-header {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 15px;
+      gap: 20px;
       margin-bottom: 0;
       transition: all 0.3s ease;
 
@@ -66,12 +67,12 @@
         font-size: 0.95rem;
         font-weight: 700;
         margin: 0;
-        line-height: 1.25;
+        line-height: 1.3;
         color: white !important;
         text-transform: uppercase;
         display: -webkit-box;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
+        -webkit-line-clamp: 3; // Permitir 3 líneas para evitar cortes bruscos
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
