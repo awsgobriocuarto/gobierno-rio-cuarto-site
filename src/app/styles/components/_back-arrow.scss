@@ -38,8 +38,8 @@
     }
 }
 
-// En mobile lo posicionamos más abajo y más pequeño para no tapar contenido
-@media (max-width: 767px) {
+// En tablets y mobile lo posicionamos en la barra de navegación o más abajo
+@media (max-width: 1399px) {
     .back-arrow {
         top: auto;
         bottom: 90px;

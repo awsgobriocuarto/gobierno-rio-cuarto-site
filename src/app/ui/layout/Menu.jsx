@@ -40,7 +40,7 @@ export default function Menu() {
     <>
       <Navbar
         collapseOnSelect
-        expand="lg"
+        expand="xxl"
         fixed="top"
         variant="dark"
         expanded={expanded}

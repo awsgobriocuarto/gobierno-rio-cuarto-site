@@ -15,7 +15,7 @@ $logo-offcanvas-slogan-width: 250px;
 //   padding-top: var(--navbar-height);
 // }
 
-@media (max-width: 991px) {
+@media (max-width: 1399px) {
   :root {
     --navbar-height: 65px;
   }
@@ -100,7 +100,7 @@ $logo-offcanvas-slogan-width: 250px;
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1399px) {
   .navbar {
     .container {
       display: flex !important;
