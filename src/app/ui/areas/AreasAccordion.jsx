@@ -21,11 +21,11 @@ export default function AreasAccordion({ areasData }) {
             <h2 className="area-section-title">{area.name}</h2>
 
             <div className="area-institutional">
-              <div className="row">
+              <div className="row justify-content-center">
                 {sortedPersons.map((p) => (
                   <div
                     key={p.id}
-                    className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4"
+                    className="col-10 col-sm-6 col-md-4 col-lg-3 mb-4"
                   >
                     <div className="card h-100">
                       <img
@@ -33,21 +33,11 @@ export default function AreasAccordion({ areasData }) {
                         alt={p.name}
                         className="card-img-top"
                       />
-                      <div className="card-body d-flex flex-column">
-                        <h3 className="card-title">{p.name}</h3>
-                        <h4 className="card-subtitle">{p.position}</h4>
-                      </div>
-                      <div className="card-footer">
-                        {p.curriculum && (
-                          <a
-                            href={p.curriculum}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="cv-link"
-                          >
-                            CV
-                          </a>
-                        )}
+                      <div className="card-body d-flex flex-column text-center">
+                        <h3 className="card-title text-center">{p.name}</h3>
+                        <h4 className="card-subtitle text-center">
+                          {p.position}
+                        </h4>
                       </div>
                     </div>
                   </div>
