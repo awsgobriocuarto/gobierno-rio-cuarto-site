@@ -70,9 +70,9 @@ export default function AreasAccordion({ areasData }) {
     return <p>No hay autoridades disponibles.</p>;
   }
 
-  const validAreas = areasData.filter(
-    (area) => area.persons && area.persons.length > 0,
-  );
+  const validAreas = areasData
+    .filter((area) => area.slug !== "emos") // Ocultar EMOS del organigrama (comentar para mostrar)
+    .filter((area) => area.persons && area.persons.length > 0);
 
   return (
     <div className="oa-list">
