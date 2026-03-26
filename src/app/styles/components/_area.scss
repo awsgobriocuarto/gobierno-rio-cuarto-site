@@ -428,3 +428,107 @@
     display: none !important;
   }
 }
+
+// Org Chart Accordion
+.accordion-org {
+  .org-accordion-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .org-accordion-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background-color: #f8f9fa;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #eef0f2;
+    }
+
+    &.open {
+      background-color: #fff;
+      border-bottom: 1px solid #e0e0e0;
+    }
+  }
+
+  .org-accordion-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #222;
+    flex: 1;
+  }
+
+  .org-accordion-count {
+    font-size: 0.8rem;
+    color: #888;
+    white-space: nowrap;
+  }
+
+  .org-accordion-icon {
+    font-size: 0.85rem;
+    color: #888;
+    transition: transform 0.25s ease;
+
+    &.rotated {
+      transform: rotate(180deg);
+    }
+  }
+
+  .org-accordion-body {
+    padding: 20px;
+    background-color: #fff;
+  }
+
+  // Each staff member row
+  .org-staff-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+    transition: background-color 0.2s ease;
+    height: 100%;
+
+    &:hover {
+      background-color: #eef0f2;
+    }
+  }
+
+  .org-staff-photo {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .org-staff-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .org-staff-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin: 0 0 3px 0;
+    color: #1a1a1a;
+    line-height: 1.2;
+  }
+
+  .org-staff-position {
+    font-size: 0.78rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.3;
+  }
+}

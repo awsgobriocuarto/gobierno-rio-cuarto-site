@@ -16,7 +16,7 @@ export default async function ListFormalityCategories() {
           subtitle="Trámites y servicios
 
 "
-          bgImage="/images/gente2.jpg"
+          bgImage="/images/tramite.jpg"
         />
         <div className="row justify-content-center buttons ">
           <Suspense fallback={<div>Cargando...</div>}>

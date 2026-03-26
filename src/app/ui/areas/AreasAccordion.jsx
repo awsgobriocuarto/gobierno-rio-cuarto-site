@@ -1,54 +1,84 @@
 "use client";
 
+import { useState } from "react";
+import Link from "next/link";
+
+function OrgAreaCard({ area }) {
+  // If the area is Intendencia, open it by default
+  const [open, setOpen] = useState(area.slug === "intendencia");
+  const sortedPersons = [...area.persons].sort((a, b) => a.order - b.order);
+
+  return (
+    <div className={`oa-item${open ? " oa-item--open" : ""}`}>
+      <button
+        className="oa-header"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+      >
+        <div className="oa-header__left">
+          <span className="oa-header__title">{area.name}</span>
+          <span className="oa-header__separator" />
+        </div>
+        <div className="oa-header__right">
+          <Link
+            href={`/areas/${area.slug}`}
+            className="oa-area-link"
+            onClick={(e) => e.stopPropagation()}
+          >
+            Ir al área
+          </Link>
+          <svg
+            className={`oa-header__arrow${open ? " oa-header__arrow--open" : ""}`}
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </div>
+      </button>
+
+      {/* Always in DOM, toggled via display to prevent React DOM errors */}
+      <div className="oa-body" style={{ display: open ? "block" : "none" }}>
+        <div className="oa-staff-grid">
+          {sortedPersons.map((p) => (
+            <div key={p.id} className="oa-staff-card">
+              <img
+                src={p.image_url || "/images/no-image.jpg"}
+                alt={p.name}
+                className="oa-staff-photo"
+              />
+              <div className="oa-staff-info">
+                <span className="oa-staff-name">{p.name}</span>
+                <span className="oa-staff-role">{p.position}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function AreasAccordion({ areasData }) {
   if (!areasData || areasData.length === 0) {
     return <p>No hay autoridades disponibles.</p>;
   }
 
+  const validAreas = areasData.filter(
+    (area) => area.persons && area.persons.length > 0,
+  );
+
   return (
-    <div className="areas-directory">
-      {areasData.map((area, index) => {
-        // Skip areas with no persons
-        if (!area.persons || area.persons.length === 0) return null;
-
-        // Sort persons by order
-        const sortedPersons = [...area.persons].sort(
-          (a, b) => a.order - b.order,
-        );
-
-        return (
-          <div className="area-section" key={area.id || index}>
-            <h2 className="area-section-title">{area.name}</h2>
-
-            <div className="area-institutional">
-              <div className="row justify-content-center">
-                {sortedPersons.map((p) => (
-                  <div
-                    key={p.id}
-                    className="col-10 col-sm-6 col-md-4 col-lg-3 mb-4"
-                  >
-                    <div className="card h-100">
-                      <img
-                        src={p.image_url ? p.image_url : "/images/no-image.jpg"}
-                        alt={p.name}
-                        className="card-img-top"
-                      />
-                      <div className="card-body d-flex flex-column text-center">
-                        <h3 className="card-title text-center">{p.name}</h3>
-                        <h4 className="card-subtitle text-center">
-                          {p.position}
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <hr className="area-section-divider" />
-          </div>
-        );
-      })}
+    <div className="oa-list">
+      {validAreas.map((area, index) => (
+        <OrgAreaCard key={area.id || index} area={area} />
+      ))}
     </div>
   );
 }

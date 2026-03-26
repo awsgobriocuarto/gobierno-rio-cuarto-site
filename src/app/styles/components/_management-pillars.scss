@@ -6,6 +6,11 @@
 
     @media (max-width: 991px) {
       grid-template-columns: repeat(2, 1fr);
+
+      .pillar-card {
+        height: 180px; // Fuerza altura igual para todos los cuadros en tablet
+        min-height: unset;
+      }
     }
 
     @media (max-width: 575px) {
@@ -144,7 +149,14 @@
 
     &.green {
       background-color: #91c788;
-      grid-column: 1 / -1; // Full width
+      grid-column: 1 / -1;
+
+      @media (max-width: 991px) {
+        grid-column: auto;
+        min-height: 220px;
+        margin-top: 0;
+      }
+
       min-height: 120px;
       margin-top: 20px;
 

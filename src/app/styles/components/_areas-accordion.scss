@@ -1,30 +1,176 @@
-.areas-directory {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+// Org Chart Accordion — custom standalone styles (no Bootstrap card inheritance)
+.oa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
-  .area-section {
-    margin-bottom: 1.5rem;
+.oa-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &--open {
+    border-color: #ff7825;
+    border-left: 5px solid #ff7825;
+    box-shadow: 0 3px 10px rgba(255, 120, 37, 0.12);
+  }
+}
+
+.oa-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+
+  &__left {
+    flex: 1;
+    min-width: 0;
   }
 
-  .area-section-title {
-    color: #009de0;
+  &__title {
+    display: block;
+    font-size: 1rem;
     font-weight: 700;
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    margin-top: 2rem;
+    color: #222;
+    line-height: 1.3;
   }
 
-  .area-section-divider {
-    border: none;
-    border-top: 2px solid rgba(0, 0, 0, 0.05);
-    margin: 3rem 0 1rem 0;
+  &__separator {
+    display: block;
+    height: 3px;
+    width: 36px;
+    background-color: #ff7825;
+    margin-top: 6px;
+    border-radius: 2px;
   }
 
-  // Estilos específicos solo para la grilla general de Áreas, evitando afectar /areas/[slug]
-  .area-institutional {
-    .card-subtitle {
-      color: #ff7825; // Naranja Institucional
-      font-weight: 600;
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .oa-area-link {
+    font-size: 0.8rem;
+    color: #fff;
+    background: #009de0;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+      background 0.2s ease,
+      transform 0.1s ease;
+
+    &:hover {
+      background: #0084bd;
+      color: #fff;
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+
+    @media (max-width: 450px) {
+      padding: 4px 10px;
+      font-size: 0.75rem;
     }
   }
+
+  &__arrow {
+    color: #aaa;
+    transition:
+      transform 0.25s ease,
+      color 0.2s ease;
+    flex-shrink: 0;
+
+    &--open {
+      transform: rotate(90deg);
+      color: #ff7825;
+    }
+  }
+}
+
+.oa-body {
+  padding: 4px 18px 16px 18px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+// Staff grid inside body
+.oa-staff-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+
+  @media (max-width: 1199px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 479px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.oa-staff-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 6px;
+  background: #f8f9fa;
+  text-align: center;
+
+  &:hover {
+    background: #eef0f3;
+  }
+}
+
+.oa-staff-photo {
+  width: 100%;
+  max-width: 256px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.oa-staff-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.oa-staff-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.oa-staff-role {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.2;
+  margin-top: 4px;
 }

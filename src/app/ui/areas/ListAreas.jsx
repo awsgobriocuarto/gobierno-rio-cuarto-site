@@ -19,7 +19,8 @@ export default async function ListAreas() {
         <HeaderSection
           title="GESTIONAMOS PARA VOS"
           subtitle="Secretarías y áreas municipales"
-          bgImage="/images/la-muni.jpg"
+          bgImage="/images/muni-barrio.jpg"
+          bgPosition="center 25%"
         />
         {/* <div className="area-vision-text">
           Somos un gobierno receptivo que pone al vecino en el centro de cada

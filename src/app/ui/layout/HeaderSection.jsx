@@ -18,6 +18,7 @@ export default function HeaderSection({
   description = "",
   border = false,
   bgImage = null,
+  bgPosition = "center",
 }) {
   const isHumanized = !!bgImage;
   const icons = isHumanized ? WHITE_ICONS : DEFAULT_ICONS;
@@ -27,7 +28,14 @@ export default function HeaderSection({
       className={`header ${border ? "header-border" : ""} ${
         isHumanized ? "header-humanized" : ""
       }`}
-      style={isHumanized ? { backgroundImage: `url(${bgImage})` } : {}}
+      style={
+        isHumanized
+          ? {
+              backgroundImage: `url(${bgImage})`,
+              backgroundPosition: bgPosition,
+            }
+          : {}
+      }
     >
       {isHumanized && <div className="header-overlay"></div>}
 
