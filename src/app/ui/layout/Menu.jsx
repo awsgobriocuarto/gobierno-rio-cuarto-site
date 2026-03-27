@@ -31,7 +31,10 @@ export default function Menu() {
     setDropdownOpen(false);
   };
 
-  const handleSearchModalShow = () => setShowSearchModal(true);
+  const handleSearchModalShow = () => {
+    setShowSearchModal(true);
+    setExpanded(false);
+  };
   const handleSearchModalClose = () => setShowSearchModal(false);
   Navbar;
   //console.log(pathname);
