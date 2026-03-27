@@ -26,7 +26,7 @@ export default async function ListNews({
           <HeaderSection
             title="Novedades "
             subtitle="Noticias y anuncios de la ciudad"
-            bgImage="/images/gente3.jpg"
+            bgImage="/images/Cicloturismo_42.jpg"
           />
         )}
 

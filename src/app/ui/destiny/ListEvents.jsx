@@ -12,7 +12,8 @@ export default async function ListEvents() {
         <HeaderSection
           title="Disfrutá la ciudad"
           subtitle="Eventos y actividades para vos"
-          bgImage="/images/gente2.jpg"
+          bgImage="/images/eventos2.jpg"
+          bgPosition="center 50%"
         />
 
         <div className="row justify-content-center">

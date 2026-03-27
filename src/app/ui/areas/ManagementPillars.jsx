@@ -85,18 +85,24 @@ export default function ManagementPillars({ sections, intro }) {
 
       {/* Row of Tab-style cards */}
       <div className="pillars-grid tabs-style">
-        {mainPillars.map((pillar, index) => {
-          const isActive = activeIndex === index;
+        {PILLARS.map((pillar, index) => {
+          const isMotto = pillar.fullWidth;
+          const isActive = isMotto
+            ? activeIndex === "motto"
+            : activeIndex === index;
+          const clickHandler = isMotto
+            ? handleMottoToggle
+            : () => handleToggle(index);
 
           return (
             <div
               key={index}
-              className={`pillar-card tab ${pillar.color} ${
-                isActive ? "is-active" : ""
-              } has-content`}
-              onClick={() => handleToggle(index)}
+              className={`pillar-card ${pillar.fullWidth ? "full-width" : "tab"} ${
+                pillar.color
+              } ${isActive ? "is-active" : ""} has-content`}
+              onClick={clickHandler}
             >
-              <div className="pillar-content">
+              <div className="pillar-content w-100">
                 <div className="pillar-header">
                   <i className={`fa-solid ${pillar.icon}`}></i>
                   <h3 className="pillar-title">{pillar.title}</h3>
@@ -107,30 +113,8 @@ export default function ManagementPillars({ sections, intro }) {
         })}
       </div>
 
-      {/* Expansion Box (if a tab is clicked) */}
-      {typeof activeIndex === "number" && activeContent && <RenderContent />}
-
-      {/* Motto Pillar (Green full width) */}
-      <div className="pillars-grid mt-4">
-        {mottoPillar && (
-          <div
-            className={`pillar-card full-width ${mottoPillar.color} has-content ${
-              activeIndex === "motto" ? "is-active" : ""
-            }`}
-            onClick={handleMottoToggle}
-          >
-            <div className="pillar-content w-100">
-              <div className="pillar-header">
-                <i className={`fa-solid ${mottoPillar.icon}`}></i>
-                <h3 className="pillar-title">{mottoPillar.title}</h3>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Expansion Box (if motto is clicked) */}
-      {activeIndex === "motto" && activeContent && <RenderContent />}
+      {/* Expansion Box (if a tab or motto is clicked) */}
+      {activeIndex !== null && activeContent && <RenderContent />}
     </section>
   );
 }

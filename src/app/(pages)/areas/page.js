@@ -45,11 +45,10 @@ export default async function AreasPage() {
 
   return (
     <main>
-      <HeaderSection
-        title="AUTORIDADES"
-        subtitle="Organigrama"
-        bgImage="/images/gente1.jpg"
-      />
+      <div className="container">
+        <HeaderSection title="Autoridades" subtitle="Organigrama" />
+      </div>
+
       <section className="container mt-4 mb-5">
         <AreasAccordion areasData={areasData} />
       </section>

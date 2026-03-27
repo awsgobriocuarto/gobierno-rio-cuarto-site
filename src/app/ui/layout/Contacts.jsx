@@ -149,13 +149,15 @@ export default function ContactGuide({ areas }) {
       </div>
     );
   }
-  const filtered = areas.filter(
-    (area) =>
-      area.name.toLowerCase().includes(search.toLowerCase()) ||
-      area.children.some((child) =>
-        child.name.toLowerCase().includes(search.toLowerCase()),
-      ),
-  );
+  const filtered = areas
+    .filter((area) => area.slug !== "intendencia") // Ocultar Intendencia de contactos
+    .filter(
+      (area) =>
+        area.name.toLowerCase().includes(search.toLowerCase()) ||
+        area.children.some((child) =>
+          child.name.toLowerCase().includes(search.toLowerCase()),
+        ),
+    );
 
   return (
     <div className="cg">

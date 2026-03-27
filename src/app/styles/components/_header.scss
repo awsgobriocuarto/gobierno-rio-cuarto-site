@@ -42,16 +42,17 @@
   // Variante Humanizada (con imagen de fondo)
   &-humanized {
     position: relative;
-    padding: 30px 40px;
-    border-radius: 15px;
+    padding: 40px 60px;
+    border-radius: 20px;
     overflow: hidden;
     background-size: cover;
     background-position: center;
     color: #fff;
-    margin-bottom: 40px;
-    min-height: 160px;
+    margin-bottom: 50px;
+    min-height: 220px;
     display: flex;
     align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
     .header-overlay {
       position: absolute;
@@ -61,8 +62,8 @@
       height: 100%;
       background: linear-gradient(
         90deg,
-        rgba(0, 0, 0, 0.75) 0%,
-        rgba(0, 0, 0, 0.3) 100%
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(0, 0, 0, 0.2) 100%
       );
       z-index: 1;
     }
@@ -76,8 +77,14 @@
     }
 
     .header-text {
+      h2 {
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
       p {
-        color: rgba(255, 255, 255, 0.9);
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
       }
     }
   }
@@ -103,10 +110,10 @@
     }
 
     &-humanized {
-      padding: 24px 20px;
+      padding: 30px 25px;
       text-align: left;
       justify-content: flex-start;
-      min-height: 140px;
+      min-height: 180px;
 
       .header-content {
         flex-direction: row;
@@ -118,7 +125,20 @@
       }
 
       .header-overlay {
-        background: rgba(0, 0, 0, 0.6);
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.65) 0%,
+          rgba(0, 0, 0, 0.35) 100%
+        );
+      }
+
+      .header-text {
+        h2 {
+          font-size: 1.8rem !important;
+        }
+        p {
+          font-size: 1rem !important;
+        }
       }
     }
   }
