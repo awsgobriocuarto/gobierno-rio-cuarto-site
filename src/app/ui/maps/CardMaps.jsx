@@ -5,7 +5,7 @@ export default function CardMaps({ map }) {
 
   return (
     <div className="col-lg-6 col-xl-4 mb-4 ">
-      <div className="card">
+      <div className="card card-map h-100">
         <div className="card-img-top">
           <Link href={mapUrl} className="">
             {/* eslint-disable-next-line */}
@@ -19,18 +19,19 @@ export default function CardMaps({ map }) {
         </div>
 
         <div className="card-body">
-          <Link href={mapUrl} className="">
-            <h3 className="card-title text-primary">{map.title}</h3>
+          <Link href={mapUrl} className="text-decoration-none">
+            <h3 className="card-title text-dark">{map.title}</h3>
           </Link>
           <p className="card-text">{map.summary}</p>
         </div>
 
-        <div className="card-footer border-0 bg-white">
-          <span>
-            <Link href={mapUrl} className="">
-              Ver más
-            </Link>
-          </span>
+        <div className="card-footer border-0 bg-white d-flex justify-content-end">
+          <Link
+            href={mapUrl}
+            className="text-primary text-decoration-none fw-bold d-flex align-items-center"
+          >
+            Ver más <i className="fas fa-chevron-right ms-2" style={{ fontSize: '0.8rem' }}></i>
+          </Link>
         </div>
       </div>
     </div>

@@ -36,7 +36,7 @@ export default function DetailMap({ detailMap }) {
                 href={link.link}
                 target={link.target}
                 rel="noopener noreferrer"
-                className="btn btn-primary btn-lg text-white mb-3"
+                className="btn btn-dark btn-lg text-white mb-3"
               >
                 {link.name}
               </a>
