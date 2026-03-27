@@ -44,7 +44,7 @@ export default function DetailNews({ detailNews }) {
 
       <p className="news-detail--description">{description}</p>
 
-      <ShareSocial />
+      <ShareSocial title={title} text={excerpt} />
 
       <hr />
 
