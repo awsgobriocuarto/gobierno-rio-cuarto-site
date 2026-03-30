@@ -78,7 +78,7 @@
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 3;
-      line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
       }
 
@@ -93,7 +93,7 @@
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 3;
-      line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
       }
 
@@ -147,12 +147,7 @@
     }
 
     &--subtitle {
-      margin-bottom: 30px;
-      font-size: 1.4rem;
-      line-height: 2.6rem;
-      color: $primary;
-      border-left: 4px solid $primary;
-      padding-left: 15px;
+      font-size: 1.3rem;
     }
 
     &--image {
@@ -171,6 +166,5 @@
     &--body {
       margin-bottom: 50px;
     }
-
   }
 }

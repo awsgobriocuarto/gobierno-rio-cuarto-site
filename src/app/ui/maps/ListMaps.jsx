@@ -20,7 +20,7 @@ export default async function ListMaps({ area }) {
     "Densidad poblacional",
     "Edificaciones",
     "Espacios verdes y plazas",
-    "Presupuesto Participativo",
+    "Presupuesto Participativo (Sectores)",
     "Puntos verdes",
     "Recolección de Residuos",
     "Unidades Geomorfológicas",

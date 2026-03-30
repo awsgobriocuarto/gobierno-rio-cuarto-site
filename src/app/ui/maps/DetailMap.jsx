@@ -5,7 +5,7 @@ export default function DetailMap({ detailMap }) {
     return <div>No se pudo cargar el mapa.</div>;
   }
 
-  const { title, thumbnail, body, links } = detailMap;
+  const { title, thumbnail, body, summary, links } = detailMap;
 
   return (
     <article className="map-detail-article">
@@ -21,7 +21,7 @@ export default function DetailMap({ detailMap }) {
         </div>
         <div className="col-md-8">
           <h1 className="map-detail--title news-detail--title mb-4">{title}</h1>
-
+          <p className="map-detail--subtitle  mb-4">{summary}</p>
           <div
             className="map-detail--body news-detail--body"
             dangerouslySetInnerHTML={{ __html: body }}
