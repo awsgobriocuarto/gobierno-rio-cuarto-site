@@ -12,7 +12,19 @@ const HERO_ICONS = [
 export default async function Hero() {
   let posts = [];
   try {
-    posts = await fetchNews({ limit: 5 });
+    const highlightedPosts = await fetchNews({ limit: 5, highlighted: true });
+    posts = [...highlightedPosts];
+
+    if (posts.length < 5) {
+      const remainingCount = 5 - posts.length;
+      const latestPosts = await fetchNews({ limit: 10 });
+
+      const extraPosts = latestPosts.filter(
+        (p) => !posts.some((h) => h.id === p.id),
+      );
+
+      posts = [...posts, ...extraPosts].slice(0, 5);
+    }
   } catch (error) {
     console.error("Failed to fetch news for hero carousel:", error);
   }
@@ -25,7 +37,6 @@ export default async function Hero() {
         </Suspense>
       </div>
 
-      {/* overlay de íconos fuera de .hero-slides para evitar heredar opacity */}
       <div className="hero-slides-icons" aria-hidden="true">
         <ListIcons icons={HERO_ICONS} />
       </div>

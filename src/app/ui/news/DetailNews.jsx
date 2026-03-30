@@ -40,7 +40,14 @@ export default function DetailNews({ detailNews }) {
       <h1 className="news-detail--title">{title}</h1>
       <p className="news-detail--excerpt mt-1 mb-4">{excerpt}</p>
       {/* eslint-disable-next-line */}
-      {image && <img src={image} alt={title} className="news-detail--image" />}
+      {image && (
+        <img
+          src={image}
+          alt={title}
+          className="news-detail--image w-100"
+          style={{ height: "auto" }}
+        />
+      )}
 
       <p className="news-detail--description">{description}</p>
 

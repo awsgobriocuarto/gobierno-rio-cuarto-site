@@ -23,11 +23,15 @@ export async function fetchNews({
   limit = 9,
   area = "",
   search = "",
+  highlighted = null,
 } = {}) {
-  const res = await fetch(
-    `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&search=${search}&sort_by=published_at&sort_order=desc&status=published`,
-    API_OPTIONS,
-  );
+  let url = `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&search=${search}&sort_by=published_at&sort_order=desc&status=published`;
+
+  if (highlighted !== null) {
+    url += `&highlighted=${highlighted}`;
+  }
+
+  const res = await fetch(url, API_OPTIONS);
 
   if (!res.ok) {
     throw new Error("Failed to fetch areas data");
@@ -41,11 +45,15 @@ export async function fetchPosts({
   limit = 9,
   area = "",
   search = "",
+  highlighted = null,
 } = {}) {
-  const res = await fetch(
-    `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&search=${search}&sort_by=published_at&sort_order=desc&status=published`,
-    API_OPTIONS,
-  );
+  let url = `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&search=${search}&sort_by=published_at&sort_order=desc&status=published`;
+
+  if (highlighted !== null) {
+    url += `&highlighted=${highlighted}`;
+  }
+
+  const res = await fetch(url, API_OPTIONS);
 
   if (!res.ok) {
     throw new Error("Failed to fetch areas data");
