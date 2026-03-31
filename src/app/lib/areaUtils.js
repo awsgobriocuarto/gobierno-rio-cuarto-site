@@ -13,6 +13,7 @@ export function parseAreaPropouse(htmlContent) {
     "CIUDAD HABITABLE Y SUSTENTABLE",
     "CIUDAD CENTRADA EN LAS PERSONAS",
     "CIUDAD DE OPORTUNIDADES",
+    "UN GOBIERNO CERCANO, PARTICIPATIVO Y EFICIENTE",
   ];
 
   let intro = htmlContent;

@@ -23,7 +23,7 @@ const PILLARS = [
   },
   {
     title: "Un Gobierno Cercano, Participativo y Eficiente",
-    key: null,
+    key: "UN GOBIERNO CERCANO, PARTICIPATIVO Y EFICIENTE",
     color: "green",
     icon: "fa-handshake",
     fullWidth: true,
@@ -54,7 +54,7 @@ export default function ManagementPillars({ sections, intro }) {
     activeTitle = p.title;
     activeColor = p.color;
   } else if (activeIndex === "motto") {
-    activeContent = intro;
+    activeContent = sections ? sections[mottoPillar.key] : null;
     activeTitle = mottoPillar.title;
     activeColor = mottoPillar.color;
   }
