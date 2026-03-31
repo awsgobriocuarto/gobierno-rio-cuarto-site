@@ -454,21 +454,49 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
   margin-bottom: 2rem;
   position: relative;
+  background-color: #000;
+
+  .carousel-inner,
+  &--single {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+  }
+
+  .carousel-item {
+    width: 100%;
+    height: 100%;
+  }
 
   &__img {
-    height: 460px;
-    width: 100%;
-    object-fit: cover;
-
-    @media (max-width: 767px) {
-      height: 240px;
-    }
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    background-color: transparent !important;
   }
 
   &__control {
-    width: 64px !important;
-    background-color: rgba(0, 0, 0, 0.35);
+    width: 45px !important;
+    height: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1 !important;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
     transition: background-color 0.2s ease;
+
+    &.carousel-control-prev {
+      left: 15px;
+    }
+    &.carousel-control-next {
+      right: 15px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: brightness(2) contrast(1.5);
+      width: 25px;
+      height: 25px;
+    }
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.6);
@@ -532,5 +560,91 @@
         border-radius: 4px;
       }
     }
+  }
+}
+
+// ── Lightbox de imágenes en el detalle de noticia ─────────────────────────
+.news-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 10000;
+    line-height: 1;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__img {
+    max-height: 90vh;
+    max-width: 90vw;
+    object-fit: contain;
+    user-select: none;
+    cursor: default;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+  }
+
+  &__control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    &--prev {
+      left: 20px;
+    }
+
+    &--next {
+      right: 20px;
+    }
+  }
+
+  &__counter {
+    position: absolute;
+    bottom: 25px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 4px 16px;
+    border-radius: 20px;
   }
 }

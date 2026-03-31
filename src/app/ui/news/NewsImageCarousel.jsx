@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 export default function NewsImageCarousel({ imageGallery = [] }) {
     const carouselRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(0);
 
     // Normaliza cada elemento: soporta string URL u objeto { large, small, url, alt }
     const slides = imageGallery
@@ -44,14 +46,39 @@ export default function NewsImageCarousel({ imageGallery = [] }) {
     // Con una sola imagen mostramos solo la imagen, sin controles
     if (slides.length === 1) {
         return (
-            <div className="news-img-carousel news-img-carousel--single">
-                {/* eslint-disable-next-line */}
-                <img
-                    src={slides[0].src}
-                    alt={slides[0].alt}
-                    className="news-img-carousel__img"
-                />
-            </div>
+            <>
+                <div className="news-img-carousel news-img-carousel--single">
+                    <img
+                        src={slides[0].src}
+                        alt={slides[0].alt}
+                        className="news-img-carousel__img"
+                        style={{ cursor: "zoom-in" }}
+                        onClick={() => {
+                            setLightboxIndex(0);
+                            setLightboxOpen(true);
+                        }}
+                    />
+                </div>
+                {lightboxOpen && (
+                    <div className="news-lightbox" onClick={() => setLightboxOpen(false)}>
+                        <button 
+                            className="news-lightbox__close"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setLightboxOpen(false);
+                            }}
+                        >
+                            &times;
+                        </button>
+                        <img 
+                            src={slides[0].src} 
+                            alt={slides[0].alt || "Imagen expandida"}
+                            className="news-lightbox__img"
+                            onClick={(e) => e.stopPropagation()}
+                        />
+                    </div>
+                )}
+            </>
         );
     }
 
@@ -89,6 +116,11 @@ export default function NewsImageCarousel({ imageGallery = [] }) {
                                 src={slide.src}
                                 alt={slide.alt || `Imagen ${idx + 1}`}
                                 className="d-block w-100 news-img-carousel__img"
+                                style={{ cursor: "zoom-in" }}
+                                onClick={() => {
+                                    setLightboxIndex(idx);
+                                    setLightboxOpen(true);
+                                }}
                             />
                             {slide.alt && (
                                 <div className="carousel-caption news-img-carousel__caption">
@@ -126,6 +158,51 @@ export default function NewsImageCarousel({ imageGallery = [] }) {
                     {activeIndex + 1} / {slides.length}
                 </div>
             </div>
+
+            {/* Lightbox Overlay */}
+            {lightboxOpen && (
+                <div className="news-lightbox" onClick={() => setLightboxOpen(false)}>
+                    <button 
+                        className="news-lightbox__close"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setLightboxOpen(false);
+                        }}
+                    >
+                        &times;
+                    </button>
+
+                    <img 
+                        src={slides[lightboxIndex].src} 
+                        alt={slides[lightboxIndex].alt || "Imagen expandida"}
+                        className="news-lightbox__img"
+                        onClick={(e) => e.stopPropagation()}
+                    />
+                    
+                    <button
+                        className="news-lightbox__control news-lightbox__control--prev"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setLightboxIndex((prev) => (prev - 1 + slides.length) % slides.length);
+                        }}
+                    >
+                        &#10094;
+                    </button>
+                    <button
+                        className="news-lightbox__control news-lightbox__control--next"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setLightboxIndex((prev) => (prev + 1) % slides.length);
+                        }}
+                    >
+                        &#10095;
+                    </button>
+                    
+                    <div className="news-lightbox__counter">
+                        {lightboxIndex + 1} / {slides.length}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
