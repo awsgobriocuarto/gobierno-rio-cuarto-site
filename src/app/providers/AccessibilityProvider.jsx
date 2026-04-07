@@ -43,52 +43,73 @@ export const AccessibilityProvider = ({ children }) => {
     setIsDyslexiaFriendlyFontEnabled((prev) => !prev);
   const toggleUpperCase = () => setIsUpperCase((prev) => !prev);
 
-  // & Función recursiva para leer la cola de textos
-  // Usamos useCallback para que la referencia sea estable
-  const speakNext = useCallback((textArray, index) => {
-    // Si ya no hay más textos o el estado cambió a false, terminamos
-    if (index >= textArray.length) {
-      setIsReading(false);
-      return;
-    }
-
-    const utterance = new SpeechSynthesisUtterance(textArray[index]);
-    utterance.lang = "es-ES"; // Opcional: define el idioma
-
-    utterance.onend = () => {
-      // Verificamos el estado actual justo antes de pasar al siguiente
-      // Usamos un timeout para la pausa solicitada
-      setTimeout(() => {
-        setIsReading((currentStatus) => {
-          if (currentStatus) {
-            speakNext(textArray, index + 1);
-          }
-          return currentStatus;
-        });
-      }, 500);
-    };
-
+  // & Habla el texto dado, cancelando cualquier lectura previa
+  const speakText = useCallback((text) => {
+    window.speechSynthesis.cancel();
+    if (!text || !text.trim()) return;
+    const utterance = new SpeechSynthesisUtterance(text.trim());
+    utterance.lang = "es-ES";
     window.speechSynthesis.speak(utterance);
   }, []);
 
-  // & Función principal de lectura
+  // & Modo hover: activa/desactiva el lector de texto al pasar el mouse
   const toggleReading = () => {
-    if (isReading) {
-      // 1. Detener la síntesis de voz inmediatamente
-      window.speechSynthesis.cancel();
-      // 2. Cambiar el estado para que 'onend' sepa que no debe continuar
-      setIsReading(false);
-    } else {
-      const readableElements = document.querySelectorAll("[data-read]");
-      if (readableElements.length > 0) {
-        const texts = Array.from(readableElements).map((el) => el.innerText);
-        setIsReading(true);
-        speakNext(texts, 0);
+    setIsReading((prev) => {
+      if (prev) {
+        window.speechSynthesis.cancel();
       }
-    }
+      return !prev;
+    });
   };
 
   // ## EFECTOS ## //
+
+  // & Efecto de escucha para el modo hover del lector
+  useEffect(() => {
+    if (!isReading) return;
+
+    let hoverTimeout = null;
+    let lastTarget = null;
+
+    const handleMouseOver = (e) => {
+      // 1. Buscamos la etiqueta de texto más cercana al cursor
+      const target = e.target.closest(
+        "h1, h2, h3, h4, h5, h6, p, a, button, li, span, label, th, td, img",
+      );
+
+      if (!target) return;
+
+      // 2. Comprobamos que esa etiqueta se encuentre dentro de un área marcada como [data-read]
+      if (!target.closest("[data-read]")) return;
+
+      // 3. Si el usuario se está moviendo dentro de la misma etiqueta, la ignoramos.
+      if (target === lastTarget) return;
+      lastTarget = target;
+
+      // 4. Esperar antes de leer. Previene que explote el audio al cruzar muchos elementos muy rápido
+      clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => {
+        const textToRead =
+          target.tagName.toLowerCase() === "img"
+            ? target.alt
+            : target.innerText || target.textContent;
+
+        if (textToRead && textToRead.trim()) {
+          speakText(textToRead);
+        }
+      }, 350); // Ajuste clave para navegadores menos permisivos con el spam (Firefox/Brave)
+    };
+
+    document.body.addEventListener("mouseover", handleMouseOver);
+    document.body.style.cursor = "help";
+
+    return () => {
+      document.body.removeEventListener("mouseover", handleMouseOver);
+      document.body.style.cursor = "";
+      clearTimeout(hoverTimeout);
+      window.speechSynthesis.cancel();
+    };
+  }, [isReading, speakText]);
 
   useEffect(() => {
     document.documentElement.style.fontSize = fontSizes[fontSize];
