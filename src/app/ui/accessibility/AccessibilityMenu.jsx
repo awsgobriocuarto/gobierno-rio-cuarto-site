@@ -53,10 +53,12 @@ export default function AccessibilityMenu({ menuOpen }) {
           <i className="fa-solid fa-arrows-up-down-left-right"></i>
           <span>Espaciado de Texto</span>
         </button>
-        {/* Botón para la Lectura de Texto */}
+        {/* Botón para la Lectura de Texto (modo hover) */}
         <button className="optionButton" onClick={toggleReading}>
-          <i className="fa-solid fa-volume-high"></i>
-          <span>{isReading ? "Detener Lectura" : "Leer Texto"}</span>
+          <i
+            className={`fa-solid ${isReading ? "fa-volume-xmark" : "fa-volume-high"}`}
+          ></i>
+          <span>{isReading ? "Detener Lector" : "Leer al pasar el mouse"}</span>
         </button>
         {/* Botón para la fuente de dislexia */}
         <button className="optionButton" onClick={toggleDyslexiaFriendlyFont}>
