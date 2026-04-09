@@ -242,6 +242,27 @@
     &--body {
       margin-bottom: 50px;
     }
+
+    &--video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; // 16:9
+      height: 0;
+      overflow: hidden;
+      border-radius: $border-radius;
+      margin-bottom: 1.5rem;
+
+      iframe,
+      object,
+      embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        border: 0;
+      }
+    }
   }
 
   &-related {
@@ -589,7 +610,7 @@
     z-index: 10000;
     line-height: 1;
     transition: transform 0.2s ease;
-    
+
     &:hover {
       transform: scale(1.1);
     }
