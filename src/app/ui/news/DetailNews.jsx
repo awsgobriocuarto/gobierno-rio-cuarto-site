@@ -63,10 +63,7 @@ export default function DetailNews({ detailNews }) {
       {embedded && (
         <div className="news-detail--embedded">
           <h3 className="news-detail--subtitle">Multimedia</h3>
-          <div
-            className="news-detail--video-wrapper"
-            dangerouslySetInnerHTML={{ __html: embedded }}
-          />
+          <div dangerouslySetInnerHTML={{ __html: embedded }} />
         </div>
       )}
 

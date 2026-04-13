@@ -81,17 +81,26 @@ export default function ShareSocial({ title = "", text = "" }) {
         className={`btn-share${copySuccess ? " btn-share--copied" : ""}`}
         title="Compartir esta noticia"
       >
-        <i className={`fa-solid ${copySuccess ? "fa-check" : "fa-share-nodes"}`}></i>
+        <i
+          className={`fa-solid ${copySuccess ? "fa-check" : "fa-share-nodes"}`}
+        ></i>
         {copySuccess ? "¡Enlace copiado!" : "Compartir esta noticia"}
       </button>
 
       {/* Modal Personalizado para Escritorio */}
       {showModal && (
-        <div className="share-modal-overlay" onClick={() => setShowModal(false)}>
+        <div
+          className="share-modal-overlay"
+          onClick={() => setShowModal(false)}
+        >
           <div className="share-modal" onClick={(e) => e.stopPropagation()}>
             <div className="share-modal--header">
               <h4>Compartir articulo</h4>
-              <button className="btn-close" onClick={() => setShowModal(false)} aria-label="Cerrar">
+              <button
+                className="btn-close"
+                onClick={() => setShowModal(false)}
+                aria-label="Cerrar"
+              >
                 <i className="fa-solid fa-xmark"></i>
               </button>
             </div>
@@ -102,7 +111,11 @@ export default function ShareSocial({ title = "", text = "" }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i className="fa-brands fa-whatsapp" style={{ color: "#25D366" }}></i> WhatsApp
+                <i
+                  className="fa-brands fa-whatsapp"
+                  style={{ color: "#25D366" }}
+                ></i>{" "}
+                WhatsApp
               </a>
               <a
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
@@ -110,7 +123,11 @@ export default function ShareSocial({ title = "", text = "" }) {
                 rel="noopener noreferrer"
                 className="btn-share-option"
               >
-                <i className="fa-brands fa-facebook-f" style={{ color: "#1877F2" }}></i> Facebook
+                <i
+                  className="fa-brands fa-facebook-f"
+                  style={{ color: "#1877F2" }}
+                ></i>{" "}
+                Facebook
               </a>
               <a
                 href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodeURIComponent(title)}`}
@@ -118,10 +135,20 @@ export default function ShareSocial({ title = "", text = "" }) {
                 rel="noopener noreferrer"
                 className="btn-share-option"
               >
-                <i className="fa-brands fa-x-twitter" style={{ color: "#000000" }}></i> X (Twitter)
+                <i
+                  className="fa-brands fa-x-twitter"
+                  style={{ color: "#000000" }}
+                ></i>{" "}
+                X (Twitter)
               </a>
-              <button onClick={handleCopyClick} className="btn-share-option btn-copy-link">
-                <i className="fa-solid fa-link" style={{ color: "#6c757d" }}></i>{" "}
+              <button
+                onClick={handleCopyClick}
+                className="btn-share-option btn-copy-link"
+              >
+                <i
+                  className="fa-solid fa-link"
+                  style={{ color: "#6c757d" }}
+                ></i>{" "}
                 {copySuccess ? "¡Enlace copiado!" : "Copiar enlace"}
               </button>
             </div>
