@@ -28,6 +28,17 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba($primary, 0.25);
     }
+
+    &--copied {
+      background-color: #198754;
+      border-color: #198754;
+      color: #fff;
+
+      &:hover {
+        background-color: #157347;
+        box-shadow: 0 6px 16px rgba(#198754, 0.3);
+      }
+    }
   }
 
   .social-links {
