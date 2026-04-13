@@ -4,9 +4,11 @@
  * @param {string} params.title - El título de la página.
  * @param {string} params.description - La descripción de la página.
  * @param {string} [params.imageUrl] - La URL de la imagen para Open Graph (opcional).
+ * @param {string} [params.url] - La URL canónica de la página (relativa o absoluta).
+ * @param {string} [params.type] - El tipo de contenido Open Graph (por defecto "website").
  * @returns {object} El objeto de metadatos para Next.js.
  */
-export function createPageMetadata({ title, description, imageUrl }) {
+export function createPageMetadata({ title, description, imageUrl, url, type = "website" }) {
   // Si no hay imagen, usa la imagen por defecto definida en el layout.
   const openGraphImage = imageUrl ? [{ url: imageUrl }] : undefined;
 
@@ -17,6 +19,8 @@ export function createPageMetadata({ title, description, imageUrl }) {
       title,
       description,
       images: openGraphImage,
+      type,
+      ...(url && { url }),
     },
   };
 }

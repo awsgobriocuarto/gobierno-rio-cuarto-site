@@ -12,6 +12,8 @@ export async function generateMetadata({ params }) {
     title: post.title,
     description: post.excerpt,
     imageUrl: post.image,
+    url: `/noticias/${params.slug}`,
+    type: "article",
   });
 }
 
