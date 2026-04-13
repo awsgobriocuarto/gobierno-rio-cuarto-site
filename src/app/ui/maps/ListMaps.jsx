@@ -21,7 +21,7 @@ export default async function ListMaps({ area }) {
     "Edificaciones",
     "Espacios verdes y plazas",
     "Presupuesto Participativo (Sectores)",
-    "Mapa de Puntos Verdes",
+    "Puntos verdes",
     "Recolección de Residuos",
     "Unidades Geomorfológicas",
   ];

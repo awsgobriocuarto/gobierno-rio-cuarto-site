@@ -12,7 +12,7 @@ export default function ShareSocial({ title = "", text = "" }) {
 
   const encodedUrl = encodeURIComponent(currentUrl);
   const encodedShareText = encodeURIComponent(
-    title ? `${title} ${currentUrl}` : currentUrl,
+    title ? `${title} ${currentUrl}` : currentUrl
   );
 
   const fallbackCopy = () => {
@@ -66,33 +66,49 @@ export default function ShareSocial({ title = "", text = "" }) {
     <div className="share-social">
       <button
         onClick={handleShare}
-        className="btn-share"
+        className={`btn-share${copySuccess ? " btn-share--copied" : ""}`}
         title="Compartir esta noticia"
       >
-        <i
-          className={`fa-solid ${copySuccess ? "fa-check" : "fa-share-nodes"}`}
-        ></i>
+        <i className={`fa-solid ${copySuccess ? "fa-check" : "fa-share-nodes"}`}></i>
         {copySuccess ? "¡Enlace copiado!" : "Compartir"}
       </button>
 
       <div className="social-links">
         <a
-          rel="noopener "
-          href="https://www.facebook.com/gobderiocuarto"
+          href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
           className="btn-social"
           target="_blank"
-          aria-label="Facebook Municipalidad"
+          rel="noopener noreferrer"
+          aria-label="Compartir en Facebook"
         >
-          <i className={`fa-brands fa-facebook-f`}></i>
+          <i className="fa-brands fa-facebook-f"></i>
         </a>
         <a
-          rel="noopener noreferrer"
-          href="https://twitter.com/gobderiocuarto"
+          href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodeURIComponent(title)}`}
           className="btn-social"
           target="_blank"
-          aria-label="Twitter Municipalidad"
+          rel="noopener noreferrer"
+          aria-label="Compartir en Twitter"
         >
-          <i className={`fa-brands fa-twitter`}></i>
+          <i className="fa-brands fa-x-twitter"></i>
+        </a>
+        {/* <a
+          href={`https://www.instagram.com/gobderiocuarto`}
+          className="btn-social"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram Municipalidad"
+        >
+          <i className="fa-brands fa-instagram"></i>
+        </a> */}
+        <a
+          href={`https://api.whatsapp.com/send?text=${encodedShareText}`}
+          className="btn-social"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Compartir por WhatsApp"
+        >
+          <i className="fa-brands fa-whatsapp"></i>
         </a>
       </div>
     </div>
