@@ -12,7 +12,7 @@ export default function ShareSocial({ title = "", text = "" }) {
 
   const encodedUrl = encodeURIComponent(currentUrl);
   const encodedShareText = encodeURIComponent(
-    title ? `${title} ${currentUrl}` : currentUrl
+    title ? `${title} ${currentUrl}` : currentUrl,
   );
 
   const fallbackCopy = () => {
@@ -78,42 +78,33 @@ export default function ShareSocial({ title = "", text = "" }) {
       <button
         type="button"
         onClick={handleShare}
-        className={`btn-share${copySuccess ? " btn-share--copied" : ""}`}
+        className="btn-share"
         title="Compartir esta noticia"
       >
-        <i className={`fa-solid ${copySuccess ? "fa-check" : "fa-share-nodes"}`}></i>
+        <i
+          className={`fa-solid ${copySuccess ? "fa-check" : "fa-share-nodes"}`}
+        ></i>
         {copySuccess ? "¡Enlace copiado!" : "Compartir"}
       </button>
 
       <div className="social-links">
         <a
-          href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-          onClick={(e) => openPopup(e, `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`)}
+          rel="noopener "
+          href="https://www.facebook.com/gobderiocuarto"
           className="btn-social"
           target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Compartir en Facebook"
+          aria-label="Facebook Municipalidad"
         >
-          <i className="fa-brands fa-facebook-f"></i>
+          <i className={`fa-brands fa-facebook-f`}></i>
         </a>
         <a
-          href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodeURIComponent(title)}`}
-          onClick={(e) => openPopup(e, `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodeURIComponent(title)}`)}
+          rel="noopener noreferrer"
+          href="https://twitter.com/gobderiocuarto"
           className="btn-social"
           target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Compartir en Twitter"
+          aria-label="Twitter Municipalidad"
         >
-          <i className="fa-brands fa-x-twitter"></i>
-        </a>
-        <a
-          href={`https://api.whatsapp.com/send?text=${encodedShareText}`}
-          className="btn-social"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Compartir por WhatsApp"
-        >
-          <i className="fa-brands fa-whatsapp"></i>
+          <i className={`fa-brands fa-twitter`}></i>
         </a>
       </div>
     </div>
