@@ -1,13 +1,6 @@
 import React, { Suspense } from "react";
 import Slides from "./Slides";
-import ListIcons from "../icons/ListIcons"; // agregado
 import { fetchNews } from "@/app/lib/DataNews";
-
-const HERO_ICONS = [
-  { name: "circles", color: "white", size: "40" },
-  { name: "squares", color: "white", size: "40" },
-  { name: "waves", color: "white", size: "40" },
-];
 
 export default async function Hero() {
   let posts = [];
@@ -35,10 +28,6 @@ export default async function Hero() {
         <Suspense fallback={<div>Cargando...</div>}>
           <Slides posts={posts} />
         </Suspense>
-      </div>
-
-      <div className="hero-slides-icons" aria-hidden="true">
-        <ListIcons icons={HERO_ICONS} />
       </div>
     </section>
   );
