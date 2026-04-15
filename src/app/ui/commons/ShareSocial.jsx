@@ -74,7 +74,7 @@ export default function ShareSocial({ title = "", text = "" }) {
       <button
         type="button"
         onClick={handleShare}
-        className="btn-share"
+        className={`btn-share${copySuccess ? " btn-share--copied" : ""}`}
         title="Compartir esta noticia"
       >
         <i
@@ -94,9 +94,10 @@ export default function ShareSocial({ title = "", text = "" }) {
           }
           className="btn-social"
           target="_blank"
-          aria-label="Facebook Municipalidad"
+          rel="noopener noreferrer"
+          aria-label="Compartir en Facebook"
         >
-          <i className={`fa-brands fa-facebook-f`}></i>
+          <i className="fa-brands fa-facebook-f"></i>
         </a>
         <a
           href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodeURIComponent(title)}`}
@@ -108,7 +109,8 @@ export default function ShareSocial({ title = "", text = "" }) {
           }
           className="btn-social"
           target="_blank"
-          aria-label="Twitter Municipalidad"
+          rel="noopener noreferrer"
+          aria-label="Compartir en Twitter"
         >
           <i className="fa-brands fa-x-twitter"></i>
         </a>
