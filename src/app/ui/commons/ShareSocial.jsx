@@ -34,7 +34,9 @@ export default function ShareSocial({ title = "", text = "" }) {
     document.body.removeChild(textarea);
   };
 
-  const handleShare = async () => {
+  const handleShare = async (e) => {
+    e.preventDefault();
+
     if (navigator.share) {
       try {
         await navigator.share({
@@ -62,9 +64,19 @@ export default function ShareSocial({ title = "", text = "" }) {
     fallbackCopy();
   };
 
+  const openPopup = (e, url) => {
+    e.preventDefault();
+    window.open(
+      url,
+      "shareWindow",
+      "toolbar=0,status=0,width=626,height=436"
+    );
+  };
+
   return (
     <div className="share-social">
       <button
+        type="button"
         onClick={handleShare}
         className={`btn-share${copySuccess ? " btn-share--copied" : ""}`}
         title="Compartir esta noticia"
@@ -76,6 +88,7 @@ export default function ShareSocial({ title = "", text = "" }) {
       <div className="social-links">
         <a
           href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+          onClick={(e) => openPopup(e, `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`)}
           className="btn-social"
           target="_blank"
           rel="noopener noreferrer"
@@ -85,6 +98,7 @@ export default function ShareSocial({ title = "", text = "" }) {
         </a>
         <a
           href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodeURIComponent(title)}`}
+          onClick={(e) => openPopup(e, `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodeURIComponent(title)}`)}
           className="btn-social"
           target="_blank"
           rel="noopener noreferrer"
@@ -92,15 +106,6 @@ export default function ShareSocial({ title = "", text = "" }) {
         >
           <i className="fa-brands fa-x-twitter"></i>
         </a>
-        {/* <a
-          href={`https://www.instagram.com/gobderiocuarto`}
-          className="btn-social"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram Municipalidad"
-        >
-          <i className="fa-brands fa-instagram"></i>
-        </a> */}
         <a
           href={`https://api.whatsapp.com/send?text=${encodedShareText}`}
           className="btn-social"
