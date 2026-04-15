@@ -34,7 +34,9 @@ export default function ShareSocial({ title = "", text = "" }) {
     document.body.removeChild(textarea);
   };
 
-  const handleShare = async () => {
+  const handleShare = async (e) => {
+    e.preventDefault();
+
     if (navigator.share) {
       try {
         await navigator.share({
@@ -62,9 +64,19 @@ export default function ShareSocial({ title = "", text = "" }) {
     fallbackCopy();
   };
 
+  const openPopup = (e, url) => {
+    e.preventDefault();
+    window.open(
+      url,
+      "shareWindow",
+      "toolbar=0,status=0,width=626,height=436"
+    );
+  };
+
   return (
     <div className="share-social">
       <button
+        type="button"
         onClick={handleShare}
         className="btn-share"
         title="Compartir esta noticia"
