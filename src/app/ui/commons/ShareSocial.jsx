@@ -73,11 +73,6 @@ export default function ShareSocial({ title = "", text = "" }) {
     setShowModal(true);
   };
 
-  const openPopup = (e, url) => {
-    e.preventDefault();
-    window.open(url, "shareWindow", "toolbar=0,status=0,width=626,height=436");
-  };
-
   return (
     <div className="share-social">
       <button
@@ -111,14 +106,16 @@ export default function ShareSocial({ title = "", text = "" }) {
               </a>
               <a
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-                onClick={(e) => openPopup(e, `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-share-option"
               >
                 <i className="fa-brands fa-facebook-f" style={{ color: "#1877F2" }}></i> Facebook
               </a>
               <a
                 href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodeURIComponent(title)}`}
-                onClick={(e) => openPopup(e, `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodeURIComponent(title)}`)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-share-option"
               >
                 <i className="fa-brands fa-x-twitter" style={{ color: "#000000" }}></i> X (Twitter)
