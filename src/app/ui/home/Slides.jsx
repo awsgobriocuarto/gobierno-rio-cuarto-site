@@ -1,16 +1,25 @@
 "use client";
+import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Link from "next/link";
+import ListIcons from "../icons/ListIcons";
+
+const HERO_ICONS = [
+  { name: "circles", color: "white", size: "20" },
+  { name: "squares", color: "white", size: "20" },
+  { name: "waves", color: "white", size: "20" },
+];
 
 export default function Slides({ posts = [] }) {
-  // Use static images as fallback if no posts are passed
   const hasPosts = posts && posts.length > 0;
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <div className="hero-slides-wrapper">
-      {/* overlay MOVIDO a Hero.jsx para que NO herede la opacidad de .hero-slides */}
       <Carousel
-        controls={hasPosts && posts.length > 1}
+        activeIndex={activeIndex}
+        onSelect={setActiveIndex}
+        controls={false}
         fade={true}
         indicators={false}
       >
@@ -18,7 +27,7 @@ export default function Slides({ posts = [] }) {
           posts.map((post) => (
             <Carousel.Item key={post.id}>
               <div className="row g-0 hero-split-row">
-                {/* Lado Imagen - 50/50 para ver foto completa */}
+                {/* Columna imagen */}
                 <div className="col-12 col-md-6 h-100 hero-img-col">
                   {/* eslint-disable-next-line */}
                   <img
@@ -28,66 +37,78 @@ export default function Slides({ posts = [] }) {
                   />
                 </div>
 
-                {/* Lado Texto - 50/50 */}
-                <div className="col-12 col-md-6 h-100 p-4 p-md-6 hero-text-col position-relative">
-                  <div className="w-100">
+                {/* Columna texto */}
+                <div className="col-12 col-md-6 h-100 p-4 p-md-6 hero-text-col position-relative bg-primary">
+                  {/* Iconos en la esquina superior derecha del panel celeste */}
+                  <div className="hero-slides-icons" aria-hidden="true">
+                    <ListIcons icons={HERO_ICONS} />
+                  </div>
+                  <div className="w-100 hero-text-content">
+                    {post.owner_area.name && (
+                      <p
+                        className="hero-owner-area"
+                        style={{
+                          fontSize: "0.7rem",
+                          fontWeight: "600",
+                          letterSpacing: "0.12em",
+                          textTransform: "uppercase",
+                          color: "rgb(0, 0, 0)",
+                          marginBottom: "0.5rem",
+                        }}
+                      >
+                        {post.owner_area.name}
+                      </p>
+                    )}
                     <h3
-                      className="text-white fw-bold hero-title mb-3"
-                      style={{
-                        textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                      }}
+                      className="fw-bold hero-title mb-3"
+                      style={{ color: "#ffffff" }}
                     >
                       {post.title}
                     </h3>
                     {post.excerpt && (
                       <p
-                        className="text-white lead mb-4 hero-excerpt"
+                        className="mb-4 hero-excerpt"
                         style={{
-                          textShadow: "0 1px 3px rgba(0,0,0,0.3)",
+                          color: "rgb(255, 255, 255)",
+                          fontSize: "1.1rem",
+                          lineHeight: "1.2",
+                          fontWeight: "600",
                         }}
                       >
                         {post.excerpt}
                       </p>
                     )}
-                    <Link
-                      href={`/noticias/${post.slug}`}
-                      className="btn btn-outline-light btn-rounded-custom px-4 py-2 mb-3"
-                      style={{ fontWeight: "500" }}
-                    >
-                      Seguir leyendo
-                    </Link>
+                    <div className="hero-cta-row w-100 mt-3">
+                      <Link
+                        href={`/noticias/${post.slug}`}
+                        className="btn btn-light btn-rounded-custom d-inline-flex align-items-center px-4 py-2"
+                        style={{ fontWeight: "600", color: "#009de0" }}
+                      >
+                        Seguir leyendo
+                      </Link>
+                      {posts.length > 1 && (
+                        <div
+                          className="hero-indicators"
+                          aria-label="Indicadores de noticias"
+                        >
+                          {posts.map((_, i) => (
+                            <button
+                              key={i}
+                              className={`hero-indicator${i === activeIndex ? " active" : ""}`}
+                              onClick={() => setActiveIndex(i)}
+                              aria-label={`Ir a noticia ${i + 1}`}
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
             </Carousel.Item>
           ))
         ) : (
-          <>
-            <Carousel.Item>
-              {/* eslint-disable-next-line */}
-              <img
-                src="/images/gente1.jpg"
-                alt="Vecinos en el parque"
-                className="hero-slide-image"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              {/* eslint-disable-next-line */}
-              <img
-                src="/images/gente2.jpg"
-                alt="Familia riocuartense"
-                className="hero-slide-image"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              {/* eslint-disable-next-line */}
-              <img
-                src="/images/gente3.jpg"
-                alt="Vecinos mayores"
-                className="hero-slide-image"
-              />
-            </Carousel.Item>
-          </>
+          <></>
         )}
       </Carousel>
     </div>

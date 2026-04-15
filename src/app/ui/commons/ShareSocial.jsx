@@ -14,7 +14,7 @@ export default function ShareSocial({ title = "", text = "" }) {
 
   const encodedUrl = encodeURIComponent(currentUrl);
   const encodedShareText = encodeURIComponent(
-    title ? `${title} ${currentUrl}` : currentUrl
+    title ? `${title} ${currentUrl}` : currentUrl,
   );
 
   const fallbackCopy = () => {
@@ -75,11 +75,7 @@ export default function ShareSocial({ title = "", text = "" }) {
 
   const openPopup = (e, url) => {
     e.preventDefault();
-    window.open(
-      url,
-      "shareWindow",
-      "toolbar=0,status=0,width=626,height=436"
-    );
+    window.open(url, "shareWindow", "toolbar=0,status=0,width=626,height=436");
   };
 
   return (
