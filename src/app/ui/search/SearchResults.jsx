@@ -15,29 +15,35 @@ export default async function SearchResults({ results, query }) {
 
   const { entries, procedures, posts, areas, categories } = results;
 
-  const hasResults =
-    procedures?.data?.length > 0 ||
-    categories?.data?.length > 0 ||
-    entries?.data?.length > 0 ||
-    posts?.data?.length > 0;
+  const totalResults =
+    (procedures?.data?.length || 0) +
+    (categories?.data?.length || 0) +
+    (entries?.data?.length || 0) +
+    (posts?.data?.length || 0);
+
+  const hasResults = totalResults > 0;
 
   // Lógica para mostrar resultados de búsqueda
   return (
     <div className="search-content">
       <div className="search-header">
-        <h4>
-          Término de búsqueda: <span>{`"${query}"`}</span>
-        </h4>
+        <p className="search-header-label">Resultados para</p>
+        <div className="search-header-query">
+          <i className="fa-solid fa-magnifying-glass search-header-icon"></i>
+          <span className="search-header-term">{query}</span>
+        </div>
+        {hasResults && (
+          <p className="search-header-count">
+            {totalResults} resultado{totalResults !== 1 ? "s" : ""} encontrado{totalResults !== 1 ? "s" : ""}
+          </p>
+        )}
       </div>
 
       {!hasResults && (
-        <div className="my-5">
-          <h5 className="mb-3">
-            No se encontraron resultados para tu búsqueda.
-          </h5>
-          <p className="text-muted">
-            Intenta con otros términos o revisa la ortografía.
-          </p>
+        <div className="search-empty">
+          <i className="fa-solid fa-circle-xmark search-empty-icon"></i>
+          <h5>No se encontraron resultados para tu búsqueda.</h5>
+          <p>Intenta con otros términos o revisá la ortografía.</p>
         </div>
       )}
 
@@ -54,7 +60,7 @@ export default async function SearchResults({ results, query }) {
         {categories?.data?.length > 0 ? (
           <SeachResultGroup
             url="/tramites?category="
-            title="Categorias de Tramites"
+            title="Categorías de Trámites"
             results={categories.data}
           />
         ) : null}

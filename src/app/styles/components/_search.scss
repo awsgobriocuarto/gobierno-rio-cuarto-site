@@ -1,3 +1,78 @@
+// --- Sección buscador home ---
+.home-search-section {
+  padding: 3.5rem 0 3rem;
+
+  .home-search-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $primary;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .home-search-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 767px) {
+      font-size: 1.6rem;
+    }
+  }
+
+  // El HeaderSection tiene margin-bottom: 60px globalmente — lo reducimos acá
+  .header {
+    margin-bottom: 1.25rem;
+
+    .header-text h2,
+    .header-text p {
+      text-transform: none;
+    }
+  }
+
+  .home-search-tags {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .home-search-tags-label {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: 500;
+    margin-right: 0.25rem;
+  }
+
+  .home-search-tag {
+    display: inline-block;
+    padding: 0.3rem 0.85rem;
+    border-radius: 20px;
+    border: 1.5px solid rgba($primary, 0.35);
+    color: $primary;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      border-color 0.2s;
+
+    &:hover {
+      background-color: $primary;
+      color: #fff;
+      border-color: $primary;
+    }
+  }
+}
+
+// --- Página de resultados de búsqueda ---
 .search {
   &-page {
     //background-color: orange;
@@ -9,35 +84,232 @@
   }
 
   &-header {
-    //background-color: red;
-    margin-bottom: 30px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 2px solid #f0f0f0;
+  }
 
-    h4 {
-      font-weight: 700;
-      font-size: 1.4rem;
+  &-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #888;
+
+    .search-empty-icon {
+      font-size: 2.5rem;
+      color: #ddd;
+      margin-bottom: 1rem;
+      display: block;
     }
 
-    span {
-      color: $secondary;
-      font-weight: 700;
+    h5 {
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      margin: 0;
     }
   }
 
   &-results {
-    //background-color: green;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
   }
+}
 
-  &-group {
-    //background-color: red;
-    margin-bottom: 30px;
+// --- Grupo de resultados ---
+.search-group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  padding: 0.4rem 0.5rem 0.6rem;
+  border-bottom: 2px solid #f0f0f0;
+  border-radius: 6px 6px 0 0;
+  width: 100%;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s;
+
+  &:hover {
+    background-color: #f5f5f5;
 
     h5 {
-      margin-bottom: 20px;
-      font-weight: 700;
+      color: #000;
     }
   }
 
-  &-item {
-    //background-color: blue;
+  &:active {
+    background-color: #ebebeb;
   }
+
+  i:first-child {
+    font-size: 1rem;
+  }
+
+  h5 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #333;
+    transition: color 0.15s;
+  }
+}
+
+.search-group-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-group-count {
+  background-color: #f0f0f0;
+  color: #555;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 20px;
+}
+
+.search-group-chevron {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #aaa;
+  transition: transform 0.2s ease;
+}
+
+.search-group-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+// --- Item de resultado ---
+.search-item-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+
+  &:hover .search-item-inner {
+    background-color: #f8fafc;
+    border-left-width: 4px;
+  }
+
+  &:hover .search-item-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+}
+
+.search-item-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid;
+  border-radius: 0 8px 8px 0;
+  background-color: #fff;
+  transition:
+    background-color 0.15s,
+    border-left-width 0.15s;
+}
+
+.search-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-item-title {
+  display: block;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+
+  @media (max-width: 767px) {
+    font-size: 0.95rem;
+  }
+}
+
+.search-item-excerpt {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  @media (max-width: 767px) {
+    font-size: 0.875rem;
+  }
+}
+
+.search-item-arrow {
+  font-size: 0.75rem;
+  color: #aaa;
+  opacity: 0;
+  flex-shrink: 0;
+  transition:
+    opacity 0.15s,
+    transform 0.15s;
+}
+
+// --- Header de resultados ---
+.search-header-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #aaa;
+  margin: 0 0 0.6rem;
+}
+
+.search-header-query {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.search-header-icon {
+  font-size: 1.1rem;
+  color: $primary;
+  flex-shrink: 0;
+}
+
+.search-header-term {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  line-height: 1.2;
+  word-break: break-word;
+
+  @media (max-width: 767px) {
+    font-size: 1.35rem;
+  }
+}
+
+.search-header-count {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 500;
 }

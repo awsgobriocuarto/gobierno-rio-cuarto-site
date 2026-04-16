@@ -7,7 +7,7 @@ export default function SearchModal({ show, handleClose }) {
   return (
     <Modal show={show} onHide={handleClose} size="lg" centered>
       <Modal.Header closeButton>
-        <Modal.Title>Buscar</Modal.Title>
+        <Modal.Title>¿Qué estás buscando?</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Search onSearchComplete={handleClose} />

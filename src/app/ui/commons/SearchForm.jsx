@@ -35,13 +35,13 @@ export default function SearchForm({ onSearchComplete }) {
       <FormControl
         type="search"
         size=""
-        placeholder="¿Qué estas buscando? (ej: Carnet, Cedulón, Habilitación)"
+        placeholder="Buscar..."
         aria-label="Search"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <Button variant="primary" type="submit" className="text-white" size="lg">
-        Buscar
+      <Button variant="primary" type="submit" className="text-white" size="lg" aria-label="Buscar">
+        <i className="fa fa-search"></i>
       </Button>
     </Form>
   );
