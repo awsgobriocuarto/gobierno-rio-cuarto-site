@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -36,6 +36,18 @@ export default function Menu() {
     setExpanded(false);
   };
   const handleSearchModalClose = () => setShowSearchModal(false);
+
+  useEffect(() => {
+    const XXL_BREAKPOINT = 1400;
+    const handleResize = () => {
+      if (window.innerWidth >= XXL_BREAKPOINT) {
+        setExpanded(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   Navbar;
   //console.log(pathname);
 
