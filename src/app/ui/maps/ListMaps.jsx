@@ -24,6 +24,7 @@ export default async function ListMaps({ area }) {
     "Puntos verdes",
     "Recolección de Residuos",
     "Unidades Geomorfológicas",
+    "VECINALES",
   ];
 
   const sortMaps = (mapsList, orderList) => {
