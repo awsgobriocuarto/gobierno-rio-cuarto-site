@@ -15,6 +15,7 @@
   }
 
   &-detail {
+
     h3,
     h4 {
       color: $primary;
@@ -188,7 +189,7 @@
 
     &-tagline {
       overflow: hidden;
-      font-size: 0.68rem;
+      font-size: 0.88rem;
       color: #999;
       margin-top: 7px;
       margin-bottom: 0;
@@ -426,7 +427,7 @@
   }
 
   /* Restore padding removed by bypassing Bootstrap's .col-* structure with display: contents */
-  .area-mobile-flex > div > div[class*="area-order-"] {
+  .area-mobile-flex>div>div[class*="area-order-"] {
     padding-right: 15px;
     padding-left: 15px;
     width: 100%;
