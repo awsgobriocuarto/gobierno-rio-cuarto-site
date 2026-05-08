@@ -67,6 +67,7 @@
 
 .buttons-areas {
   $card-height: 90px;
+  align-items: flex-start;
 
   a {
     transition: transform 0.2s ease;
