@@ -28,11 +28,11 @@ const banners = [
     target: "",
   },
   {
-    title: "Turno Salud",
-    subtitle: "Atención Médica",
-    icon: "fa-plus-square fa-2xl",
+    title: "Turnos",
+    subtitle: "Reserva e Inscripción",
+    icon: "fa-calendar-check fa-2xl",
     color: "bg-success text-white",
-    url: "/seccion/turnos-online-de-salud",
+    url: "/turnos/",
     target: "",
   },
 ];

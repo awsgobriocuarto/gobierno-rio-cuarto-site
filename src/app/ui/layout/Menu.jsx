@@ -136,7 +136,7 @@ export default function Menu() {
                 </Link>
                 <Nav.Link onClick={handleSearchModalShow}>
                   <i className="fa fa-fw fa-search"></i>{" "}
-                  <span className="d-lg-none">Buscar</span>
+                  <span className="d-xxl-none">Buscar</span>
                   <span className="sr-only">Buscar</span>
                 </Nav.Link>
               </Nav>
