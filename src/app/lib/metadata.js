@@ -8,7 +8,11 @@
  * @param {string} [params.type] - El tipo de contenido Open Graph (por defecto "website").
  * @returns {object} El objeto de metadatos para Next.js.
  */
+const DEFAULT_OG_IMAGE = "/images/og-default.png";
+
 export function createPageMetadata({ title, description, imageUrl, url, type = "website" }) {
+  const image = imageUrl || DEFAULT_OG_IMAGE;
+
   return {
     title,
     description,
@@ -16,16 +20,14 @@ export function createPageMetadata({ title, description, imageUrl, url, type = "
       title,
       description,
       type,
+      images: [{ url: image }],
       ...(url && { url }),
-      ...(imageUrl && { images: [{ url: imageUrl }] }),
     },
-    ...(imageUrl && {
-      twitter: {
-        card: "summary_large_image",
-        title,
-        description,
-        images: [imageUrl],
-      },
-    }),
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
   };
 }

@@ -8,17 +8,17 @@ import FormalityInfo from "@/app/ui/formality/FormalityInfo";
 import FormalityMedia from "@/app/ui/formality/FormalityMedia";
 import Banners from "@/app/ui/commons/Banners";
 import LinkToBack from "@/app/ui/LinkToBack";
+import { createPageMetadata } from "@/app/lib/metadata";
 
 export async function generateMetadata({ params }) {
-  // read route params
   const { slug } = await params;
-
-  // fetch data
   const formality = await fetchFormalitiesBySlug(slug);
 
-  return {
+  return createPageMetadata({
     title: formality.title,
-  };
+    description: formality.description || formality.excerpt || formality.summary || "",
+    url: `/tramites/${slug}`,
+  });
 }
 
 export default async function Formality({ params }) {

@@ -41,9 +41,9 @@ export const metadata = {
       "Portal oficial del Gobierno de Río Cuarto. Encuentra noticias, trámites, programas y más.",
     images: [
       {
-        url: "/images/logos/logo-gobierno.webp",
-        width: 800,
-        height: 375,
+        url: "/images/og-default.png",
+        width: 1200,
+        height: 630,
         alt: "Gobierno de Río Cuarto",
       },
     ],
@@ -54,7 +54,7 @@ export const metadata = {
     title: "Gobierno de Río Cuarto",
     description:
       "Portal oficial del Gobierno de Río Cuarto. Encuentra noticias, trámites, programas y más.",
-    images: ["/images/logos/logo-gobierno.webp"],
+    images: ["/images/og-default.png"],
   },
   title: {
     default: "Gobierno de Río Cuarto | Portal Oficial",
