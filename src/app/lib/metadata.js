@@ -9,17 +9,15 @@
  * @returns {object} El objeto de metadatos para Next.js.
  */
 export function createPageMetadata({ title, description, imageUrl, url, type = "website" }) {
-  const openGraphImage = imageUrl ? [{ url: imageUrl }] : undefined;
-
   return {
     title,
     description,
     openGraph: {
       title,
       description,
-      images: openGraphImage,
       type,
       ...(url && { url }),
+      ...(imageUrl && { images: [{ url: imageUrl }] }),
     },
     ...(imageUrl && {
       twitter: {
