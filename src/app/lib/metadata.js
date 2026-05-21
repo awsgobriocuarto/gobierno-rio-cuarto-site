@@ -9,11 +9,10 @@
  * @returns {object} El objeto de metadatos para Next.js.
  */
 export function createPageMetadata({ title, description, imageUrl, url, type = "website" }) {
-  // Si no hay imagen, usa la imagen por defecto definida en el layout.
   const openGraphImage = imageUrl ? [{ url: imageUrl }] : undefined;
 
   return {
-    title, // El `template` del layout se encargará de añadir "| Gobierno Municipal"
+    title,
     description,
     openGraph: {
       title,
@@ -22,5 +21,13 @@ export function createPageMetadata({ title, description, imageUrl, url, type = "
       type,
       ...(url && { url }),
     },
+    ...(imageUrl && {
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: [imageUrl],
+      },
+    }),
   };
 }

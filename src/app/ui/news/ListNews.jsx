@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { fetchNews } from "@/app/lib/DataNews";
+import { fetchNews, fetchHomeNews } from "@/app/lib/DataNews";
 import LoadMoreNews from "./LoadMoreNews";
 import HeaderSection from "../layout/HeaderSection";
 import CardNews from "./CardNews";
@@ -11,9 +11,11 @@ export default async function ListNews({
   area = "",
   search = "",
   showHeader = true,
-  isHome = false, // Nuevo prop
+  isHome = false,
 }) {
-  const posts = await fetchNews({ page, limit, area, search });
+  const posts = isHome
+    ? await fetchHomeNews(limit)
+    : await fetchNews({ page, limit, area, search });
 
   if (!posts || posts.length === 0) {
     return null;
