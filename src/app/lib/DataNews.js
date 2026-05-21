@@ -62,6 +62,32 @@ export async function fetchPosts({
   return data;
 }
 
+export async function fetchHomeNews(limit = 6) {
+  const baseParams = `sort_by=published_at&sort_order=desc&status=published`;
+
+  const homeRes = await fetch(
+    `${API_URL}/posts?home=true&per_page=${limit}&${baseParams}`,
+    API_OPTIONS
+  );
+
+  if (homeRes.ok) {
+    const homeData = await homeRes.json();
+    const homePosts = homeData.data || [];
+    if (homePosts.length > 0) {
+      return homePosts.slice(0, limit);
+    }
+  }
+
+  const latestRes = await fetch(
+    `${API_URL}/posts?per_page=${limit}&page=1&${baseParams}`,
+    API_OPTIONS
+  );
+
+  if (!latestRes.ok) return [];
+  const latestData = await latestRes.json();
+  return latestData.data || [];
+}
+
 export async function getNewsBySlug(slug) {
   const res = await fetch(`${API_URL}/posts/${slug}`, API_OPTIONS);
 

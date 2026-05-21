@@ -33,7 +33,7 @@ export default function DetailNews({ detailNews }) {
     <article>
       <div className="news-detail--pretitle ">
         <ListIcons icons={LIST_OF_ICONS} />
-        <span>{new Date(published_at).toLocaleDateString()}</span>
+        <span>{new Date(published_at).toLocaleDateString("es-AR", { day: "2-digit", month: "2-digit", year: "numeric" })}</span>
         {`>`}
         <span>{owner_area.name}</span>
       </div>
