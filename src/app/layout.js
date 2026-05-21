@@ -30,7 +30,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = "https://riocuarto.gob.ar";
+const SITE_URL = "https://www.riocuarto.gob.ar";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
