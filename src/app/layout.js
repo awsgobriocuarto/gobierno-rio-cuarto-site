@@ -92,6 +92,18 @@ export default function RootLayout({ children }) {
 
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" />
 
+      <Script id="openpanel-init" strategy="afterInteractive">{`
+        window.op=window.op||function(){var n=[];return new Proxy(function(){arguments.length&&n.push([].slice.call(arguments))},{get:function(t,r){return"q"===r?n:function(){n.push([r].concat([].slice.call(arguments)))}},has:function(t,r){return"q"===r}});}();
+        window.op('init', {
+          apiUrl: 'https://open-panel.leandrodev.com.ar/api',
+          clientId: '5af2d56d-b3cb-435b-95cf-840d122c74f6',
+          trackScreenViews: true,
+          trackOutgoingLinks: true,
+          trackAttributes: true,
+        });
+      `}</Script>
+      <Script src="https://openpanel.dev/op1.js" strategy="afterInteractive" />
+
       <body className={`${inter.variable}`}>
         <noscript>
           <iframe
