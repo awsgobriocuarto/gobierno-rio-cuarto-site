@@ -4,8 +4,8 @@ import React from "react";
 
 const banners = [
   {
-    title: "0800 444 5454",
-    subtitle: "Atención al vecino",
+    title: "SUAV",
+    subtitle: "0800 444 5454",
     icon: "fa-phone fa-2xl",
     color: "bg-info text-white",
     url: "/seccion/boton-cta-suav-sistema-unico-de-atencion-al-vecino",
