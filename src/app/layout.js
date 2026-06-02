@@ -6,7 +6,8 @@ import Script from "next/script";
 import { AccessibilityProvider } from "./providers/AccessibilityProvider";
 import AccessibilityFloatingMenu from "./ui/accessibility/AccessibilityFloatingMenu";
 // import Chat from "./ui/chat/Chat";
-import { Chatn8n } from "./ui/chat/Chatn8n";
+// import { Chatn8n } from "./ui/chat/Chatn8n";
+import MuniChatWidget from "./ui/chat/MuniChatWidget";
 import { Suspense } from "react";
 import BackArrow from "./ui/layout/BackArrow";
 
@@ -120,9 +121,8 @@ export default function RootLayout({ children }) {
           <Footer />
           <AccessibilityFloatingMenu />
           {/* <Chat /> */}
-          <Suspense>
-            <Chatn8n />
-          </Suspense>
+          {/* <Suspense><Chatn8n /></Suspense> */}
+          <MuniChatWidget widgetUrl="https://chat.leandrodev.com.ar/widget" />
         </AccessibilityProvider>
       </body>
     </html>
