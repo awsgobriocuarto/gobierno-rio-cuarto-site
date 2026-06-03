@@ -46,11 +46,16 @@ export async function fetchPosts({
   area = "",
   search = "",
   highlighted = null,
+  highlighted_area = null,
 } = {}) {
   let url = `${API_URL}/posts?per_page=${limit}&page=${page}&area=${area}&search=${search}&sort_by=published_at&sort_order=desc&status=published`;
 
   if (highlighted !== null) {
     url += `&highlighted=${highlighted}`;
+  }
+
+  if (highlighted_area !== null) {
+    url += `&highlighted_area=${highlighted_area}`;
   }
 
   const res = await fetch(url, API_OPTIONS);
