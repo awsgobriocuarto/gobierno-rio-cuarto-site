@@ -276,6 +276,8 @@
     &--subtitle {
       margin-bottom: 20px;
       line-height: 2rem;
+      padding-bottom: 12px;
+      border-bottom: 2px solid $primary;
     }
 
     //background-color: orange;
@@ -326,6 +328,8 @@
         -webkit-box-orient: vertical;
         line-height: 1.4rem;
         color: #000;
+        font-weight: 600;
+        font-size: 0.95rem;
       }
 
       &-subtitle {

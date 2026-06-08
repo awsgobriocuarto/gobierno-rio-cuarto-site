@@ -4,7 +4,7 @@ import React from "react";
 
 const banners = [
   {
-    title: "SUAV",
+    title: "Atención al Vecino",
     subtitle: "0800 444 5454",
     icon: "fa-phone fa-2xl",
     color: "bg-info text-white",
