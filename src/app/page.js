@@ -20,7 +20,7 @@ export default async function Home() {
       <ListAreas />
       <ListNews limit={6} isHome={true} />
 
-      <ListEvents />
+      {/* <ListEvents /> */}
     </main>
   );
 }
