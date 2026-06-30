@@ -1,25 +1,29 @@
 export default function CardEvent({ post }) {
-  const eventDate = new Date(post.calendars[0].end_date);
-  const day = eventDate.getDate();
+  const calendar = post.calendars?.[0];
+  const eventDate = calendar ? new Date(calendar.end_date) : null;
+  const day = eventDate?.getDate();
   const month = eventDate
-    .toLocaleDateString("es-AR", { month: "short" })
+    ?.toLocaleDateString("es-AR", { month: "short" })
     .replace(".", "");
-  const eventUrl = `https://destinoriocuarto.gob.ar/evento/${post.id}/${post.slug}`;
+  const canonicalPath = post.canonical_url.replace("/propuestas/", "/experiencias/");
+  const eventUrl = `https://www.destinoriocuarto.gob.ar${canonicalPath}`;
 
   return (
     <div className="col-md-6 col-lg-4 mb-4">
       <div className="card h-100 card-event-simple">
         <div className="position-relative">
-          <div className="date-sticker">
-            <span className="day">{day}</span>
-            <span className="month">{month}</span>
-          </div>
+          {eventDate && (
+            <div className="date-sticker">
+              <span className="day">{day}</span>
+              <span className="month">{month}</span>
+            </div>
+          )}
 
           <a href={eventUrl} target="_blank" rel="noopener noreferrer">
             {/* eslint-disable-next-line */}
 
             <img
-              src={post.image.mediumUrl}
+              src={post.cover.medium}
               alt={post.title}
               className="card-img-top"
             />
@@ -30,13 +34,13 @@ export default function CardEvent({ post }) {
           <a href={eventUrl} target="_blank" rel="noopener noreferrer">
             <h3 className="card-title text-primary">{post.title}</h3>
           </a>
-          <p className="card-text text-muted small">{post.summary}</p>
+          <p className="card-text text-muted small">{post.excerpt}</p>
         </div>
 
         <div className="card-footer bg-white border-0">
           <div className="footer-content">
             <span className="event-organization">
-              {post.place.organization}
+              {post.organization?.name || post.categories?.[0]?.name || ""}
             </span>
             <a
               href={eventUrl}

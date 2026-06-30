@@ -4,21 +4,23 @@ import CardEvents from "./CardEvents";
 import HeaderSection from "../layout/HeaderSection";
 
 export default async function ListEvents() {
-  const { data } = await fetchDestiny({ paginate: 6 });
-  //console.log("Eventos:", data);
+  const { featured_events, suggested_experiences } = await fetchDestiny();
+
+  const items = [...(featured_events || []), ...(suggested_experiences || [])].slice(0, 6);
+
   return (
     <section id="agenda" className="events events-list" data-read>
       <div className="container">
         <HeaderSection
           title="Disfrutá la ciudad"
-          subtitle="Eventos y actividades para vos"
+          subtitle="Eventos y experiencias para vos"
           bgImage="/images/eventos2.jpg"
           bgPosition="center 50%"
         />
 
         <div className="row justify-content-center">
           <Suspense fallback={<div>Cargando...</div>}>
-            {data.map((item) => (
+            {items.map((item) => (
               <CardEvents key={item.id} post={item} />
             ))}
           </Suspense>
