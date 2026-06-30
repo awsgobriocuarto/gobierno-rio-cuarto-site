@@ -1,9 +1,9 @@
 export default function CardEvent({ post }) {
   const calendar = post.calendars?.[0];
-  const eventDate = calendar ? new Date(calendar.end_date) : null;
+  const eventDate = calendar ? new Date(calendar.start_date.slice(0, 10) + "T00:00:00") : null;
   const day = eventDate?.getDate();
   const month = eventDate
-    ?.toLocaleDateString("es-AR", { month: "short" })
+    ?.toLocaleDateString("default", { month: "short" })
     .replace(".", "");
   const canonicalPath = post.canonical_url.replace("/propuestas/", "/experiencias/");
   const eventUrl = `https://www.destinoriocuarto.gob.ar${canonicalPath}`;
