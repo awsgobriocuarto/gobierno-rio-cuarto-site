@@ -39,7 +39,7 @@ export default function Footer() {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://goo.gl/maps/tu-link-aqui"
+                  href="https://maps.app.goo.gl/2yDnQgKKv4fV4rXp6"
                   className="footer-link"
                 >
                   Pje. de la Concepción 650
