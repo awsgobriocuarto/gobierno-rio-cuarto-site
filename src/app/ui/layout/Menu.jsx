@@ -113,11 +113,12 @@ export default function Menu() {
                   Noticias
                 </Link>
                 <Link
-                  href="/#agenda"
-                  className={`nav-link ${pathname === "/agenda" ? "active" : ""}`}
+                  href="https://economiariocuarto.gob.ar/transparencia"
+                  className={`nav-link ${pathname === "/transparencia" ? "active" : "" ? target="_blank" : ""}`}
                   onClick={handleLinkClick}
+                  target="_blank"
                 >
-                  Agenda
+                  Transparencia
                 </Link>
 
                 <Link
