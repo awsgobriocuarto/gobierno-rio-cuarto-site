@@ -3,6 +3,7 @@ import FormalitiesList from "@/app/ui/formalities/ListFormalities";
 import FormalitiesFilters from "@/app/ui/formalities/FilterFormality";
 import HeaderSection from "@/app/ui/layout/HeaderSection";
 import { fetchFormalities } from "@/app/lib/DataFormalities";
+import PromoModal from "@/app/ui/commons/PromoModal";
 
 export default async function Formalities({ searchParams }) {
   // Asegúrate de que searchParams sea un objeto plano de strings
@@ -19,10 +20,12 @@ export default async function Formalities({ searchParams }) {
   const formalities = await fetchFormalities(params);
 
   const subtitle = `${formalities.length} trámites encontrados`;
+  const isPagosYDeudas = cleanedSearchParams.category === "pagos-y-deudas";
 
   return (
     <Suspense>
       <main className="formalities formalities-page" data-read>
+        {isPagosYDeudas && <PromoModal section="pagos-y-deudas" />}
         <div className="container">
           <HeaderSection title="Trámites" subtitle={subtitle} />
           <div className="row justify-content-center">

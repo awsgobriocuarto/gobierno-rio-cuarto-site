@@ -1,6 +1,7 @@
 import HeaderSection from "@/app/ui/layout/HeaderSection";
 import Link from "next/link";
 import { fetchSearch } from "@/app/lib/DataSearch";
+import PromoModal from "@/app/ui/commons/PromoModal";
 
 export const metadata = {
   title: "Turnos",
@@ -54,6 +55,7 @@ export default async function Turnos() {
 
   return (
     <main className="turnos-page">
+      <PromoModal section="turnos" />
       <div className="container">
         <div className="row">
           <div className="col-md-6">
