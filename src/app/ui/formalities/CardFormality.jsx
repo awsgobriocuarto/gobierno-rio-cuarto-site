@@ -1,9 +1,10 @@
 import Link from "next/link";
 
+export const EXTERNAL_LINK_CATEGORY = "Pagos y Deudas";
+
 export default function FormalitiesCard({ formality }) {
-  // Si el trámite es de "Pagos y Deudas" y tiene URL externa, redirigir directamente
   const isPagosYDeudas = formality.categories?.some(
-    (cat) => cat.name === "Pagos y Deudas"
+    (cat) => cat.name === EXTERNAL_LINK_CATEGORY
   );
   const hasExternalUrl = formality.online == 1 && formality.url;
   const directLink = isPagosYDeudas && hasExternalUrl;
