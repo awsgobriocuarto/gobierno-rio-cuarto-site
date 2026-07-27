@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.19.2"
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Correr tests
+        run: npm test
+
+      - name: Verificar build
+        run: npm run build
+        env:
+          # Variables necesarias para que Next.js compile sin errores.
+          # Los fetchers las usan en runtime, pero Next.js las necesita presentes al buildear.
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          API_VERSION: ${{ secrets.API_VERSION }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+          API_BASE_URL_DESTINO: ${{ secrets.API_BASE_URL_DESTINO }}
