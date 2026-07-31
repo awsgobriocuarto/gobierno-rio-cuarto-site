@@ -4,8 +4,8 @@ import FormalitiesFilters from "@/app/ui/formalities/FilterFormality";
 import HeaderSection from "@/app/ui/layout/HeaderSection";
 import { fetchFormalities } from "@/app/lib/DataFormalities";
 import PromoModal from "@/app/ui/commons/PromoModal";
-import RedLinkModal from "@/app/ui/commons/RedLinkModal";
-import { isRedLinkActive } from "@/app/lib/redlinkWindow";
+// import RedLinkModal from "@/app/ui/commons/RedLinkModal";
+// import { isRedLinkActive } from "@/app/lib/redlinkWindow";
 
 export default async function Formalities({ searchParams }) {
   // Asegúrate de que searchParams sea un objeto plano de strings
@@ -27,12 +27,8 @@ export default async function Formalities({ searchParams }) {
   return (
     <Suspense>
       <main className="formalities formalities-page" data-read>
-        {isPagosYDeudas &&
-          (isRedLinkActive() ? (
-            <RedLinkModal section="pagos-y-deudas" />
-          ) : (
-            <PromoModal section="pagos-y-deudas" />
-          ))}
+        {/* isPagosYDeudas && isRedLinkActive() ? <RedLinkModal section="pagos-y-deudas" /> : */}
+        {isPagosYDeudas && <PromoModal section="pagos-y-deudas" />}
         <div className="container">
           <HeaderSection title="Trámites" subtitle={subtitle} />
           <div className="row justify-content-center">
