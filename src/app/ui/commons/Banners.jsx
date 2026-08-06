@@ -17,7 +17,7 @@ export default function Banners({
             <div>
               <a
                 className={`btn btn-${buttonColor} text-white text-uppercase`}
-                href=""
+                href={buttonUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >{buttonText}</a>

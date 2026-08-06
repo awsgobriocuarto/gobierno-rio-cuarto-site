@@ -154,7 +154,7 @@ export default async function Formality({ params }) {
               title="Requisitos para hacer trámites Online"
               text="Para poder realizar los trámites de manera online necesitas tener CiDinivel 2"
               buttonColor="primary"
-              buttonUrl="https://prensa.cba.gov.ar/informacion-general/ciudadano-digital-el-paso-a-paso-para-obtener-cidi-nivel-2/"
+              buttonUrl="https://cidi.cba.gov.ar/portal-publico/acceso"
               buttonText="Obtener CiDI Nivel 2"
               variant=""
             />
