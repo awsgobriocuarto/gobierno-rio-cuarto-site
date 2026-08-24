@@ -202,6 +202,27 @@
   gap: 0.5rem;
 }
 
+.search-group-more {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.6rem 0 0;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  i {
+    font-size: 0.75rem;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 // --- Item de resultado ---
 .search-item-link {
   text-decoration: none;

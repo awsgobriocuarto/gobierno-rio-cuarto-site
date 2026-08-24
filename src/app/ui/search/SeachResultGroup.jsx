@@ -25,6 +25,8 @@ const GROUP_CONFIG = {
   },
 };
 
+const INITIAL_VISIBLE = 10;
+
 export default function SeachResultGroup({ url, title, results }) {
   const config = GROUP_CONFIG[title] || {
     icon: "fa-circle",
@@ -32,6 +34,12 @@ export default function SeachResultGroup({ url, title, results }) {
     color: "#009de0",
   };
   const [isOpen, setIsOpen] = useState(true);
+  const [showAll, setShowAll] = useState(false);
+
+  const hasMore = results.length > INITIAL_VISIBLE;
+  const visibleResults = showAll
+    ? results
+    : results.slice(0, INITIAL_VISIBLE);
 
   return (
     <div className="search-group">
@@ -53,16 +61,33 @@ export default function SeachResultGroup({ url, title, results }) {
         </div>
       </button>
       {isOpen && (
-        <ul className="search-group-list">
-          {results.map((result) => (
-            <SearchResultItem
-              key={result.id}
-              result={result}
-              url={url}
-              color={config.color}
-            />
-          ))}
-        </ul>
+        <>
+          <ul className="search-group-list">
+            {visibleResults.map((result) => (
+              <SearchResultItem
+                key={result.id}
+                result={result}
+                url={url}
+                color={config.color}
+              />
+            ))}
+          </ul>
+          {hasMore && (
+            <button
+              type="button"
+              className="search-group-more"
+              style={{ color: config.color }}
+              onClick={() => setShowAll(!showAll)}
+            >
+              {showAll
+                ? "Ver menos"
+                : `Ver ${results.length - INITIAL_VISIBLE} más`}
+              <i
+                className={`fa-solid fa-chevron-${showAll ? "up" : "down"}`}
+              ></i>
+            </button>
+          )}
+        </>
       )}
     </div>
   );
