@@ -3,11 +3,12 @@ import SearchForm from "../commons/SearchForm";
 import HeaderSection from "../layout/HeaderSection";
 
 const QUICK_SEARCHES = [
-  "Carnet",
-  "Cedulón",
+  "Atención al vecino",
   "Habilitación",
+  "Carnet",
   "Turnos",
-  "Multas",
+  "Libre deuda",
+  "Registro Civil",
 ];
 
 export default function HomeSearch() {
@@ -19,7 +20,7 @@ export default function HomeSearch() {
             <HeaderSection
               className="home-search-header"
               title="¡Hola! ¿Cómo podemos ayudarte?"
-              subtitle="Usa palabras claves: Carnet, Cedulón, Habilitación, Turnos, Multas..."
+              subtitle="Usa palabras claves: Atención al vecino, Habilitación, Carnet, Turnos, Libre deuda, Registro Civil..."
             />
             <Suspense>
               <SearchForm />
