@@ -58,7 +58,7 @@ export default async function Turnos() {
   return (
     <main className="turnos-page">
       {/* isRedLinkActive() ? <RedLinkModal section="turnos" /> : */}
-      <PromoModal section="turnos" />
+      {/* <PromoModal section="turnos" /> */}
       <div className="container">
         <div className="row">
           <div className="col-md-6">

@@ -28,7 +28,7 @@ export default async function Formalities({ searchParams }) {
     <Suspense>
       <main className="formalities formalities-page" data-read>
         {/* isPagosYDeudas && isRedLinkActive() ? <RedLinkModal section="pagos-y-deudas" /> : */}
-        {isPagosYDeudas && <PromoModal section="pagos-y-deudas" />}
+        {/* {isPagosYDeudas && <PromoModal section="pagos-y-deudas" />} */}
         <div className="container">
           <HeaderSection title="Trámites" subtitle={subtitle} />
           <div className="row justify-content-center">
