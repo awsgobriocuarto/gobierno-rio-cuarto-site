@@ -33,6 +33,7 @@ export default async function ListFormalityCategories() {
           <Link
             href="/tramites"
             className="btn btn-outline-primary btn-rounded-custom px-5 py-2"
+            data-track="all_formalities_click"
           >
             Ver todos los Trámites
           </Link>
