@@ -44,11 +44,20 @@ export default function BannerList() {
           {banners.map((banner) => (
             <div key={BannerList.title} className="col-12 col-md-6 col-lg-3">
               {banner.target == "_blank" ? (
-                <a href={banner.url} target="_blank">
+                <a
+                  href={banner.url}
+                  target="_blank"
+                  data-track="home_banner_click"
+                  data-banner={banner.title}
+                >
                   <BannerCard banner={banner} />
                 </a>
               ) : (
-                <Link href={banner.url}>
+                <Link
+                  href={banner.url}
+                  data-track="home_banner_click"
+                  data-banner={banner.title}
+                >
                   <BannerCard banner={banner} />
                 </Link>
               )}

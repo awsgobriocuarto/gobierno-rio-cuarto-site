@@ -3,6 +3,7 @@
 import { useState } from "react";
 import CardNews from "./CardNews";
 import { fetchNews } from "@/app/lib/DataNews";
+import { track } from "@/app/lib/track";
 
 export default function LoadMoreNews({ initialPosts, area, search, limit }) {
   const [posts, setPosts] = useState(initialPosts);
@@ -15,6 +16,7 @@ export default function LoadMoreNews({ initialPosts, area, search, limit }) {
 
     setLoading(true);
     const nextPage = page + 1;
+    track("news_load_more", { page: nextPage });
 
     try {
       const newPosts = await fetchNews({

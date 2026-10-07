@@ -239,11 +239,30 @@
       font-weight: 600;
     }
 
+    &--excerpt {
+      font-size: 1.15em;
+      line-height: 1.6;
+      color: $gray-800;
+    }
+
     &--body {
       margin-bottom: 50px;
+      line-height: 1.7;
+      color: $gray-800;
 
       iframe {
         max-width: 100%;
+      }
+
+      p {
+        margin-bottom: 1.2rem;
+      }
+
+      ul,
+      ol,
+      li {
+        font-size: inherit;
+        line-height: inherit;
       }
     }
 

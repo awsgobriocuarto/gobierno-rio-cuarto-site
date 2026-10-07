@@ -7,7 +7,12 @@ export default function CardMaps({ map }) {
     <div className="col-lg-6 col-xl-4 mb-4 ">
       <div className="card card-map h-100">
         <div className="card-img-top">
-          <Link href={mapUrl} className="">
+          <Link
+            href={mapUrl}
+            className=""
+            data-track="map_card_click"
+            data-map={map.slug}
+          >
             {/* eslint-disable-next-line */}
             <img
               src={map.thumbnail ? map.thumbnail : "/images/no-image.jpg"}
@@ -19,7 +24,12 @@ export default function CardMaps({ map }) {
         </div>
 
         <div className="card-body">
-          <Link href={mapUrl} className="text-decoration-none">
+          <Link
+            href={mapUrl}
+            className="text-decoration-none"
+            data-track="map_card_click"
+            data-map={map.slug}
+          >
             <h3 className="card-title text-dark">{map.title}</h3>
           </Link>
           <p className="card-text">{map.summary}</p>
@@ -29,6 +39,8 @@ export default function CardMaps({ map }) {
           <Link
             href={mapUrl}
             className="text-primary text-decoration-none fw-bold d-flex align-items-center"
+            data-track="map_card_click"
+            data-map={map.slug}
           >
             Ver más <i className="fas fa-chevron-right ms-2" style={{ fontSize: '0.8rem' }}></i>
           </Link>

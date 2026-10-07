@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContactItem from "../commons/ContactItem";
+import { track } from "@/app/lib/track";
 
 function SubAreaAccordion({ child, index }) {
   const [open, setOpen] = useState(false);
@@ -10,7 +11,10 @@ function SubAreaAccordion({ child, index }) {
     <div className={`cg-sub-item ${open ? "cg-sub-item--open" : ""}`}>
       <button
         className="cg-sub-item__header"
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          if (!open) track("contacts_area_open", { area: child.name, level: "sub" });
+          setOpen(!open);
+        }}
         aria-expanded={open}
         disabled={!hasContact}
       >
@@ -50,7 +54,10 @@ function AreaAccordion({ area, index }) {
     >
       <button
         className="cg-area__header card-body"
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          if (!open) track("contacts_area_open", { area: area.name, level: "area" });
+          setOpen(!open);
+        }}
         aria-expanded={open}
         disabled={!hasContent}
       >
@@ -138,6 +145,14 @@ function AreaAccordion({ area, index }) {
 
 export default function ContactGuide({ areas }) {
   const [search, setSearch] = useState("");
+
+  // Registra lo que buscan una vez que dejan de escribir
+  useEffect(() => {
+    const query = search.trim().toLowerCase();
+    if (query.length < 3) return;
+    const timer = setTimeout(() => track("contacts_search", { query }), 800);
+    return () => clearTimeout(timer);
+  }, [search]);
 
   if (!areas || areas.length === 0) {
     return (

@@ -16,6 +16,8 @@ export default function FormalityMedia({ media }) {
                 className="btn btn-sm btn-primary"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-track="formality_download"
+                data-file={file.name}
               >
                 Descargar
               </a>

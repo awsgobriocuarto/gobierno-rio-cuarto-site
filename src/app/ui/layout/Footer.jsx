@@ -83,6 +83,8 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   href="/contactos"
                   className="footer-link"
+                  data-track="footer_click"
+                  data-label="guia_contactos"
                 >
                   Guia de Contactos
                 </Link>

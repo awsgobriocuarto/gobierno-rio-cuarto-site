@@ -32,6 +32,8 @@ export default function HomeSearch() {
                   key={q}
                   href={`/buscar?q=${encodeURIComponent(q)}`}
                   className="home-search-tag"
+                  data-track="home_quick_search_click"
+                  data-query={q}
                 >
                   {q}
                 </a>

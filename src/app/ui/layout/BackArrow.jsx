@@ -12,6 +12,8 @@ export default function BackArrow() {
         <button
             className="back-arrow"
             type="button"
+            data-track="back_click"
+            data-source="arrow"
             onClick={() => router.back()}
             aria-label="Volver atrás"
             title="Volver atrás"

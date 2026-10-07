@@ -37,6 +37,9 @@ export default function DetailMap({ detailMap }) {
                 target={link.target}
                 rel="noopener noreferrer"
                 className="btn btn-dark btn-lg text-white mb-3"
+                data-track="map_link_click"
+                data-map={title}
+                data-label={link.name}
               >
                 {link.name}
               </a>

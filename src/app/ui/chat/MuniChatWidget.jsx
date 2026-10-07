@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { track } from "@/app/lib/track";
 
 export default function MuniChatWidget({
   widgetUrl,
@@ -32,13 +33,16 @@ export default function MuniChatWidget({
 
       switch (event.data) {
         case "chat-opened":
+          track("chat_open", { page: window.location.pathname });
           setIsOpen(true);
           setIsHintClosed(true);
           break;
         case "chat-closed":
+          track("chat_close", { page: window.location.pathname });
           setIsOpen(false);
           break;
         case "chat-hint-closed":
+          track("chat_hint_closed", { page: window.location.pathname });
           setIsHintClosed(true);
           break;
       }

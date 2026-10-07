@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
+import { track } from "@/app/lib/track";
 
 const WAIT_BETWEEN_CHANGE = 500;
 
@@ -12,8 +13,8 @@ export default function Search({ placeholder }) {
 
   const handleSearch = useDebouncedCallback((term) => {
     const params = new URLSearchParams(searchParams);
-    console.log("Search:", term);
     if (term) {
+      track("filter_search", { scope: pathname, query: term.trim().toLowerCase() });
       params.delete("filter");
       params.set("search", term);
     } else {

@@ -31,6 +31,7 @@ export default async function ListEvents() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-outline-info btn-rounded-custom px-5 py-2"
+            data-track="events_more_click"
           >
             Ver más eventos
           </a>

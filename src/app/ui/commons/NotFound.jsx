@@ -1,9 +1,11 @@
 import Link from "next/link";
 import SearchForm from "./SearchForm";
+import TrackEvent from "./TrackEvent";
 
 export default function NotFound() {
   return (
     <main className="main-content not-found">
+      <TrackEvent name="page_not_found" />
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6">

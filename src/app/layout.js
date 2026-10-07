@@ -10,6 +10,7 @@ import AccessibilityFloatingMenu from "./ui/accessibility/AccessibilityFloatingM
 import MuniChatWidget from "./ui/chat/MuniChatWidget";
 import { Suspense } from "react";
 import BackArrow from "./ui/layout/BackArrow";
+import GlobalTracker from "./ui/commons/GlobalTracker";
 
 const WEBHOOK_N8N_CHAT_STATUS =
   process.env.NEXT_PUBLIC_WEBHOOK_N8N_CHAT_STATUS === "true";
@@ -124,6 +125,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
           <AccessibilityFloatingMenu />
+          <GlobalTracker />
           {/* <Chat /> */}
           {/* <Suspense><Chatn8n /></Suspense> */}
           <MuniChatWidget widgetUrl="https://chat.leandrodev.com.ar/widget" />

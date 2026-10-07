@@ -20,6 +20,8 @@ export default function Banners({
                 href={buttonUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-track="banner_click"
+                data-banner={buttonText}
               >{buttonText}</a>
             </div>
           )}

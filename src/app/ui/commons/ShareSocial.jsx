@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { track } from "@/app/lib/track";
 
 export default function ShareSocial({ title = "", text = "" }) {
   const [currentUrl, setCurrentUrl] = useState("");
@@ -52,6 +53,7 @@ export default function ShareSocial({ title = "", text = "" }) {
 
   const handleShareClick = async (e) => {
     e.preventDefault();
+    track("share_click", { page: window.location.pathname });
 
     // Si es un dispositivo móvil, preferimos usar el menú nativo del celular
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);

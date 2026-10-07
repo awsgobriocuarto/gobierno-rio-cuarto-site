@@ -53,6 +53,10 @@ export default function FormalitiesCard({ formality }) {
         target="_blank"
         rel="noopener noreferrer"
         className="text-decoration-none w-100 d-block h-100"
+        data-track="formality_card_click"
+        data-formality={formality.slug}
+        data-direct="true"
+        data-category={formality.categories?.[0]?.name}
       >
         {cardContent}
       </a>
@@ -63,6 +67,10 @@ export default function FormalitiesCard({ formality }) {
     <Link
       href={`/tramites/${formality.slug}`}
       className="text-decoration-none w-100 d-block h-100"
+      data-track="formality_card_click"
+      data-formality={formality.slug}
+      data-direct="false"
+      data-category={formality.categories?.[0]?.name}
     >
       {cardContent}
     </Link>

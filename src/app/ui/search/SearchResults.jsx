@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SeachResultGroup from "./SeachResultGroup";
+import TrackEvent from "../commons/TrackEvent";
 
 export default async function SearchResults({ results, query }) {
   //console.log("results:", results);
@@ -22,10 +23,12 @@ export default async function SearchResults({ results, query }) {
     (posts?.data?.length || 0);
 
   const hasResults = totalResults > 0;
+  const trackName = hasResults ? "search_results" : "search_no_results";
 
   // Lógica para mostrar resultados de búsqueda
   return (
     <div className="search-content">
+      <TrackEvent name={trackName} props={{ query, total: totalResults }} />
       <div className="search-header">
         <p className="search-header-label">Resultados para</p>
         <div className="search-header-query">
@@ -97,6 +100,8 @@ export default async function SearchResults({ results, query }) {
             <Link
               href="/contactos"
               className="btn btn-outline-primary shadow-sm"
+              data-track="search_help_click"
+              data-query={query}
             >
               Guía de Contactos
             </Link>

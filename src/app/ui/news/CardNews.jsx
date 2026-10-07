@@ -5,7 +5,12 @@ export default function CardNews({ post }) {
     <div className="col-md-6 col-lg-4 mb-4">
       <div className="card card-news h-100">
         <div className="card-img-top">
-          <Link href={`/noticias/${post.slug}`} className="">
+          <Link
+            href={`/noticias/${post.slug}`}
+            className=""
+            data-track="news_card_click"
+            data-post={post.slug}
+          >
             {/* eslint-disable-next-line */}
             <img
               key={post.image}
@@ -20,6 +25,8 @@ export default function CardNews({ post }) {
           <Link
             href={`/noticias/${post.slug}`}
             className="text-decoration-none"
+            data-track="news_card_click"
+            data-post={post.slug}
           >
             <h3 className="card-title text-dark">{post.title}</h3>
           </Link>
@@ -40,6 +47,8 @@ export default function CardNews({ post }) {
             <Link
               href={`/noticias/${post.slug}`}
               className="text-primary text-decoration-none font-weight-bold d-flex align-items-center"
+              data-track="news_card_click"
+              data-post={post.slug}
             >
               Ver más{" "}
               <i

@@ -93,6 +93,8 @@ export default function Menu() {
               <Nav className="ms-auto">
                 <Link
                   href="/#areas"
+                  data-track="nav_click"
+                  data-label="institucional"
                   className={`nav-link ${pathname === "/areas" ? "active" : ""}`}
                   onClick={handleLinkClick}
                 >
@@ -100,6 +102,8 @@ export default function Menu() {
                 </Link>
                 <Link
                   href="/tramites"
+                  data-track="nav_click"
+                  data-label="tramites"
                   className={`nav-link ${pathname === "/tramites" ? "active" : ""}`}
                   onClick={handleLinkClick}
                 >
@@ -107,6 +111,8 @@ export default function Menu() {
                 </Link>
                 <Link
                   href="/noticias"
+                  data-track="nav_click"
+                  data-label="noticias"
                   className={`nav-link ${pathname === "/noticias" ? "active" : ""}`}
                   onClick={handleLinkClick}
                 >
@@ -114,6 +120,8 @@ export default function Menu() {
                 </Link>
                 <Link
                   href="https://economiariocuarto.gob.ar/transparencia"
+                  data-track="nav_click"
+                  data-label="transparencia"
                   className={`nav-link ${pathname === "/transparencia" ? "active" : "" ? target="_blank" : ""}`}
                   onClick={handleLinkClick}
                   target="_blank"
@@ -123,6 +131,8 @@ export default function Menu() {
 
                 <Link
                   href="/mapas"
+                  data-track="nav_click"
+                  data-label="mapas"
                   className={`nav-link ${pathname === "/mapas" ? "active" : ""}`}
                   onClick={handleLinkClick}
                 >
@@ -130,12 +140,17 @@ export default function Menu() {
                 </Link>
                 <Link
                   href="/contactos"
+                  data-track="nav_click"
+                  data-label="contactos"
                   className={`nav-link ${pathname === "/contactos" ? "active" : ""}`}
                   onClick={handleLinkClick}
                 >
                   Contactos
                 </Link>
-                <Nav.Link onClick={handleSearchModalShow}>
+                <Nav.Link
+                  onClick={handleSearchModalShow}
+                  data-track="search_open"
+                >
                   <i className="fa fa-fw fa-search"></i>{" "}
                   <span className="d-xxl-none">Buscar</span>
                   <span className="sr-only">Buscar</span>

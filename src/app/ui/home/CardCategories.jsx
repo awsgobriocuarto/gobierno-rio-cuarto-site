@@ -6,6 +6,8 @@ export default function CardCategories({ category }) {
     <Link
       href={`/tramites?category=${category.slug}`}
       className="text-decoration-none w-100 h-80 d-block"
+      data-track="category_click"
+      data-category={category.slug}
     >
       <div className="card area-folder card-category h-100">
         <div className="card-body">

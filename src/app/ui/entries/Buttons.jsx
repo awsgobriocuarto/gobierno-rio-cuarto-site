@@ -14,6 +14,8 @@ export default function Buttons({ links }) {
               href={link.link}
               target={link.target}
               rel="noopener noreferrer"
+              data-track="entry_button_click"
+              data-label={link.title || link.link}
               className="btn btn-info btn-lg text-white w-100" // w-100 para ancho completo
             >
               <span dangerouslySetInnerHTML={{ __html: link.name }} />

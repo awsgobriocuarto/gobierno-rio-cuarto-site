@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Form, FormControl, Button } from "react-bootstrap";
+import { track } from "@/app/lib/track";
 
 export default function SearchForm({ onSearchComplete }) {
   const searchParams = useSearchParams();
@@ -23,6 +24,11 @@ export default function SearchForm({ onSearchComplete }) {
     e.preventDefault();
 
     if (searchTerm.trim()) {
+      track("search_submit", {
+        query: searchTerm.trim().toLowerCase(),
+        source: onSearchComplete ? "modal" : "page",
+        location: window.location.pathname,
+      });
       router.push(`/buscar?q=${encodeURIComponent(searchTerm)}`);
       if (onSearchComplete) {
         onSearchComplete();

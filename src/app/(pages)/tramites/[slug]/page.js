@@ -8,6 +8,7 @@ import FormalityInfo from "@/app/ui/formality/FormalityInfo";
 import FormalityMedia from "@/app/ui/formality/FormalityMedia";
 import Banners from "@/app/ui/commons/Banners";
 import LinkToBack from "@/app/ui/LinkToBack";
+import TrackEvent from "@/app/ui/commons/TrackEvent";
 import { createPageMetadata } from "@/app/lib/metadata";
 
 export async function generateMetadata({ params }) {
@@ -31,6 +32,15 @@ export default async function Formality({ params }) {
   }
   return (
     <main className="formalities formalities-page formalities-detail">
+      <TrackEvent
+        name="formality_view"
+        props={{
+          formality: slug,
+          area: formality.area.slug,
+          category: formality.categories?.[0]?.name,
+          online: formality.online == 1,
+        }}
+      />
       <div className="container">
         <div className="row justify-content-between">
           <div className="col-md-8">
@@ -60,6 +70,9 @@ export default async function Formality({ params }) {
                       href={formality.url}
                       className="btn btn-lg btn-primary text-white"
                       target="_blank"
+                      data-track="formality_online_click"
+                      data-formality={slug}
+                      data-area={formality.area.slug}
                     >
                       Iniciar trámite online
                     </a>

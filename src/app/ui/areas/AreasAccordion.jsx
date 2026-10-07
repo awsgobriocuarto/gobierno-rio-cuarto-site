@@ -23,6 +23,8 @@ function OrgAreaCard({ area }) {
           <Link
             href={`/areas/${area.slug}`}
             className="oa-area-link"
+            data-track="area_card_click"
+            data-area={area.slug}
             onClick={(e) => e.stopPropagation()}
           >
             Ir al área
