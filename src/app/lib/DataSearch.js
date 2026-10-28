@@ -23,7 +23,7 @@ const API_OPTIONS = {
 
 export async function fetchSearch(query = "") {
   const res = await fetch(
-    `${API_URL}/search?search=${query}&perPage=8`,
+    `${API_URL}/search?search=${query}&perPage=50`,
     API_OPTIONS
   );
 

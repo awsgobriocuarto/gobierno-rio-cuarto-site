@@ -9,16 +9,26 @@ export default async function RelatedNews({
   limit = 6,
   title = "Noticias Relacionadas",
 }) {
-  const relatedResult = await fetchPosts({ page, limit, area });
-
-  let posts = (relatedResult.data || []).filter((post) => post.id !== postId);
-
+  let posts = [];
   let currentTitle = title;
 
+  // 1. Si hay área, intentar primero con highlighted_area=true
+  if (area) {
+    const highlightedResult = await fetchPosts({ page, limit, area, highlighted_area: true });
+    posts = (highlightedResult.data || []).filter((post) => post.id !== postId);
+  }
+
+  // 2. Si no hay destacadas, caer al comportamiento original (todas las del área)
+  if (posts.length === 0) {
+    const relatedResult = await fetchPosts({ page, limit, area });
+    posts = (relatedResult.data || []).filter((post) => post.id !== postId);
+  }
+
+  // 3. Si el área no tiene noticias, mostrar las últimas generales
   if (posts.length === 0) {
     const latestResult = await fetchPosts({ page, limit, area: "" });
     posts = (latestResult.data || []).filter((post) => post.id !== postId);
-    currentTitle = "Últimas Noticias (General)"; // Cambiar el título
+    currentTitle = "Últimas Noticias (General)";
 
     if (posts.length === 0) {
       return null;

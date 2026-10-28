@@ -14,7 +14,7 @@ export default function CardEvents({ post }) {
           <div className="card-img-top-container overflow-hidden rounded-top">
             {/* eslint-disable-next-line */}
             <img
-              src={post.image.mediumUrl}
+              src={post.cover.medium}
               alt={post.title}
               className="card-img-top"
               style={{ objectFit: "cover" }}
@@ -24,7 +24,7 @@ export default function CardEvents({ post }) {
           <div className="card-body d-flex flex-column p-4 border-top border-primary border-5">
             <h5 className="card-title fw-bold text-dark mb-3">{post.title}</h5>
             <p className="card-text text-muted flex-grow-1 mb-3">
-              {post.summary}
+              {post.excerpt}
             </p>
             <div className="mt-auto pt-3 border-top border-light-subtle">
               <span className="text-primary fw-bold">Ver más</span>

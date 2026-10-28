@@ -4,7 +4,13 @@ import React from "react";
 export default function SearchResultItem({ result, url, color }) {
   return (
     <li className="search-item">
-      <Link href={`${url}${result.slug}`} className="search-item-link">
+      <Link
+        href={`${url}${result.slug}`}
+        className="search-item-link"
+        data-track="search_result_click"
+        data-section={url}
+        data-result={result.slug}
+      >
         <div className="search-item-inner" style={{ borderLeftColor: color }}>
           <div className="search-item-body">
             <span className="search-item-title">{result.title}</span>

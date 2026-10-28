@@ -4,8 +4,8 @@ import React from "react";
 
 const banners = [
   {
-    title: "0800 444 5454",
-    subtitle: "Atención al vecino",
+    title: "Atención al Vecino",
+    subtitle: "0800 444 5454",
     icon: "fa-phone fa-2xl",
     color: "bg-info text-white",
     url: "/seccion/boton-cta-suav-sistema-unico-de-atencion-al-vecino",
@@ -44,11 +44,20 @@ export default function BannerList() {
           {banners.map((banner) => (
             <div key={BannerList.title} className="col-12 col-md-6 col-lg-3">
               {banner.target == "_blank" ? (
-                <a href={banner.url} target="_blank">
+                <a
+                  href={banner.url}
+                  target="_blank"
+                  data-track="home_banner_click"
+                  data-banner={banner.title}
+                >
                   <BannerCard banner={banner} />
                 </a>
               ) : (
-                <Link href={banner.url}>
+                <Link
+                  href={banner.url}
+                  data-track="home_banner_click"
+                  data-banner={banner.title}
+                >
                   <BannerCard banner={banner} />
                 </Link>
               )}

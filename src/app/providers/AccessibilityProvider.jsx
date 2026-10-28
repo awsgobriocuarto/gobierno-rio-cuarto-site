@@ -9,6 +9,7 @@ import {
   useState,
   useCallback,
 } from "react";
+import { track } from "../lib/track";
 
 const AccessibilityContext = createContext();
 
@@ -34,14 +35,32 @@ export const AccessibilityProvider = ({ children }) => {
 
   // ## FUNCIONES ## //
 
-  const cycleFontSize = () =>
-    setFontSize((prev) => (prev + 1) % fontSizes.length);
-  const toggleHighContrast = () => setHighContrast((prev) => !prev);
-  const cycleTextSpacing = () =>
-    setTextSpacing((prev) => (prev + 1) % textSpacings.length);
-  const toggleDyslexiaFriendlyFont = () =>
-    setIsDyslexiaFriendlyFontEnabled((prev) => !prev);
-  const toggleUpperCase = () => setIsUpperCase((prev) => !prev);
+  // Cada opción reporta a OpenPanel para saber si la herramienta se usa
+  const trackOption = (option, value) =>
+    track("a11y_option", { option, value: String(value) });
+
+  const cycleFontSize = () => {
+    const next = (fontSize + 1) % fontSizes.length;
+    setFontSize(next);
+    trackOption("font_size", fontSizes[next]);
+  };
+  const toggleHighContrast = () => {
+    setHighContrast(!highContrast);
+    trackOption("high_contrast", !highContrast);
+  };
+  const cycleTextSpacing = () => {
+    const next = (textSpacing + 1) % textSpacings.length;
+    setTextSpacing(next);
+    trackOption("text_spacing", textSpacings[next]);
+  };
+  const toggleDyslexiaFriendlyFont = () => {
+    setIsDyslexiaFriendlyFontEnabled(!isDyslexiaFriendlyFontEnabled);
+    trackOption("dyslexia_font", !isDyslexiaFriendlyFontEnabled);
+  };
+  const toggleUpperCase = () => {
+    setIsUpperCase(!isUpperCase);
+    trackOption("uppercase", !isUpperCase);
+  };
 
   // & Habla el texto dado, cancelando cualquier lectura previa
   const speakText = useCallback((text) => {
@@ -60,6 +79,7 @@ export const AccessibilityProvider = ({ children }) => {
       }
       return !prev;
     });
+    trackOption("reader", !isReading);
   };
 
   // ## EFECTOS ## //

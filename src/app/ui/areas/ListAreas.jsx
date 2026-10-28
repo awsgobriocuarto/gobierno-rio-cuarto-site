@@ -43,6 +43,7 @@ export default async function ListAreas() {
           <Link
             href="/areas"
             className="btn btn-outline-orange btn-rounded-custom px-5 py-2 mb-5"
+            data-track="org_chart_click"
           >
             Organigrama Municipal{" "}
           </Link>

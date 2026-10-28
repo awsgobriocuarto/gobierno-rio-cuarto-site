@@ -9,7 +9,13 @@ export const metadata = {
 
 export default async function AreasPage() {
   // Fetch the basic list of areas
-  const basicAreas = await fetchAreas();
+  let basicAreas;
+  try {
+    basicAreas = await fetchAreas();
+  } catch (err) {
+    console.error("Error fetching areas list:", err);
+    basicAreas = null;
+  }
 
   if (!basicAreas || basicAreas.length === 0) {
     return (
@@ -29,7 +35,10 @@ export default async function AreasPage() {
 
   const detailedAreasResponses = await Promise.all(detailedAreasPromises);
 
-  const areasData = detailedAreasResponses.filter(Boolean);
+  // Discard entries that failed to fetch or came back without the fields we need
+  const areasData = detailedAreasResponses.filter(
+    (area) => area && typeof area.name === "string",
+  );
 
   // Re-sort them by order as ListAreas did, but force "Intendencia" to the top
   areasData.forEach((area) => {

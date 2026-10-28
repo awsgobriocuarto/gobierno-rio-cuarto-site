@@ -34,7 +34,12 @@ export default function Pagination({ currentPage, totalNews, limit }) {
       key={page}
       className={`page-item ${currentPage === page ? "active" : ""}`}
     >
-      <Link className="page-link" href={`${pathname}?page=${page}`}>
+      <Link
+        className="page-link"
+        href={`${pathname}?page=${page}`}
+        data-track="pagination_click"
+        data-page={page}
+      >
         {label || padNumber(page)}
       </Link>
     </li>
@@ -49,6 +54,8 @@ export default function Pagination({ currentPage, totalNews, limit }) {
             className="page-link"
             href={`${pathname}?page=${currentPage - 1}`}
             aria-label="Página anterior"
+            data-track="pagination_click"
+            data-page={currentPage - 1}
           >
             <span aria-hidden="true">&laquo;</span>
           </Link>
@@ -89,6 +96,8 @@ export default function Pagination({ currentPage, totalNews, limit }) {
             className="page-link"
             href={`${pathname}?page=${currentPage + 1}`}
             aria-label="Página siguiente"
+            data-track="pagination_click"
+            data-page={currentPage + 1}
           >
             <span aria-hidden="true">&raquo;</span>
           </Link>

@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { track } from "@/app/lib/track";
 
 export default function DateFilter() {
     const searchParams = useSearchParams();
@@ -21,6 +22,12 @@ export default function DateFilter() {
 
     const handleDateChange = (newYear, newMonth, newDay) => {
         const params = new URLSearchParams(searchParams);
+
+        track("filter_date", {
+            year: newYear || undefined,
+            month: newMonth || undefined,
+            day: newDay || undefined,
+        });
 
         if (newYear) params.set("year", newYear);
         else params.delete("year");

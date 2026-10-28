@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import AccessibilityButton from './AccessibilityButton';
 import AccessibilityMenu from './AccessibilityMenu';
+import { track } from '@/app/lib/track';
 
 
 export default function AccessibilityFloatingMenu() {
@@ -10,7 +11,7 @@ export default function AccessibilityFloatingMenu() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-
+    track('a11y_menu_toggle', { open: !menuOpen });
   };
 
   return (

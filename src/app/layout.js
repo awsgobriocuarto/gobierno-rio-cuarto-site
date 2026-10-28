@@ -6,9 +6,11 @@ import Script from "next/script";
 import { AccessibilityProvider } from "./providers/AccessibilityProvider";
 import AccessibilityFloatingMenu from "./ui/accessibility/AccessibilityFloatingMenu";
 // import Chat from "./ui/chat/Chat";
-import { Chatn8n } from "./ui/chat/Chatn8n";
+// import { Chatn8n } from "./ui/chat/Chatn8n";
+import MuniChatWidget from "./ui/chat/MuniChatWidget";
 import { Suspense } from "react";
 import BackArrow from "./ui/layout/BackArrow";
+import GlobalTracker from "./ui/commons/GlobalTracker";
 
 const WEBHOOK_N8N_CHAT_STATUS =
   process.env.NEXT_PUBLIC_WEBHOOK_N8N_CHAT_STATUS === "true";
@@ -30,7 +32,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = "https://riocuarto.gob.ar";
+const SITE_URL = "https://www.riocuarto.gob.ar";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -41,9 +43,9 @@ export const metadata = {
       "Portal oficial del Gobierno de Río Cuarto. Encuentra noticias, trámites, programas y más.",
     images: [
       {
-        url: "/images/logos/logo-gobierno.webp",
-        width: 800,
-        height: 375,
+        url: "/images/og-default.png",
+        width: 1200,
+        height: 630,
         alt: "Gobierno de Río Cuarto",
       },
     ],
@@ -54,7 +56,7 @@ export const metadata = {
     title: "Gobierno de Río Cuarto",
     description:
       "Portal oficial del Gobierno de Río Cuarto. Encuentra noticias, trámites, programas y más.",
-    images: ["/images/logos/logo-gobierno.webp"],
+    images: ["/images/og-default.png"],
   },
   title: {
     default: "Gobierno de Río Cuarto | Portal Oficial",
@@ -88,9 +90,25 @@ export default function RootLayout({ children }) {
             })(window,document,'script','dataLayer','${gtmId}');
           `}
         </Script>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
       </head>
 
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" />
+
+      <Script id="openpanel-init" strategy="afterInteractive">{`
+        window.op=window.op||function(){var n=[];return new Proxy(function(){arguments.length&&n.push([].slice.call(arguments))},{get:function(t,r){return"q"===r?n:function(){n.push([r].concat([].slice.call(arguments)))}},has:function(t,r){return"q"===r}});}();
+        window.op('init', {
+          apiUrl: 'https://open-panel.leandrodev.com.ar/api',
+          clientId: '5af2d56d-b3cb-435b-95cf-840d122c74f6',
+          trackScreenViews: true,
+          trackOutgoingLinks: true,
+          trackAttributes: true,
+        });
+      `}</Script>
+      <Script src="https://openpanel.dev/op1.js" strategy="afterInteractive" />
 
       <body className={`${inter.variable}`}>
         <noscript>
@@ -107,10 +125,10 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
           <AccessibilityFloatingMenu />
+          <GlobalTracker />
           {/* <Chat /> */}
-          <Suspense>
-            <Chatn8n />
-          </Suspense>
+          {/* <Suspense><Chatn8n /></Suspense> */}
+          <MuniChatWidget widgetUrl="https://chat.leandrodev.com.ar/widget" />
         </AccessibilityProvider>
       </body>
     </html>

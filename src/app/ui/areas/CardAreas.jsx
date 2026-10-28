@@ -34,6 +34,8 @@ export default function CardAreas({ area, isSmall }) {
     <Link
       href={area.href || `/areas/${area.slug}`}
       className="text-decoration-none w-100 h-80 d-block"
+      data-track="area_card_click"
+      data-area={area.slug}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >

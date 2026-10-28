@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { track } from "@/app/lib/track";
 
 export default function Select({
   data = [],
@@ -14,6 +15,7 @@ export default function Select({
 
   const handleSelect = (value) => {
     if (value && value != "") {
+      track("filter_select", { scope: pathname, filter: collection, value });
       params.set(collection, value);
     } else {
       params.delete(collection);

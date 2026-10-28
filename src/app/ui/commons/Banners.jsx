@@ -17,9 +17,11 @@ export default function Banners({
             <div>
               <a
                 className={`btn btn-${buttonColor} text-white text-uppercase`}
-                href=""
+                href={buttonUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-track="banner_click"
+                data-banner={buttonText}
               >{buttonText}</a>
             </div>
           )}

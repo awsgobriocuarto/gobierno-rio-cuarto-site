@@ -1,9 +1,10 @@
 import Link from "next/link";
 
+export const EXTERNAL_LINK_CATEGORY = "Pagos y Deudas";
+
 export default function FormalitiesCard({ formality }) {
-  // Si el trámite es de "Pagos y Deudas" y tiene URL externa, redirigir directamente
   const isPagosYDeudas = formality.categories?.some(
-    (cat) => cat.name === "Pagos y Deudas"
+    (cat) => cat.name === EXTERNAL_LINK_CATEGORY
   );
   const hasExternalUrl = formality.online == 1 && formality.url;
   const directLink = isPagosYDeudas && hasExternalUrl;
@@ -52,6 +53,10 @@ export default function FormalitiesCard({ formality }) {
         target="_blank"
         rel="noopener noreferrer"
         className="text-decoration-none w-100 d-block h-100"
+        data-track="formality_card_click"
+        data-formality={formality.slug}
+        data-direct="true"
+        data-category={formality.categories?.[0]?.name}
       >
         {cardContent}
       </a>
@@ -62,6 +67,10 @@ export default function FormalitiesCard({ formality }) {
     <Link
       href={`/tramites/${formality.slug}`}
       className="text-decoration-none w-100 d-block h-100"
+      data-track="formality_card_click"
+      data-formality={formality.slug}
+      data-direct="false"
+      data-category={formality.categories?.[0]?.name}
     >
       {cardContent}
     </Link>

@@ -111,6 +111,9 @@ export default function NewsCarousel({ posts = [] }) {
                                     <Link
                                         href={`/noticias/${post.slug}`}
                                         className="btn btn-success news-carousel__btn btn-rounded-custom px-4 py-2"
+                                        data-track="news_carousel_click"
+                                        data-slide={idx + 1}
+                                        data-post={post.slug}
                                     >
                                         Leer noticia
                                         <i className="fas fa-chevron-right ms-2" style={{ fontSize: "0.8rem" }} />

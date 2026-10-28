@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Link from "next/link";
 import ListIcons from "../icons/ListIcons";
+import { track } from "@/app/lib/track";
 
 const HERO_ICONS = [
   { name: "circles", color: "white", size: "20" },
@@ -13,18 +14,57 @@ const HERO_ICONS = [
 export default function Slides({ posts = [] }) {
   const hasPosts = posts && posts.length > 0;
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const wrapperRef = useRef(null);
+  const changeSource = useRef("auto");
+  const viewedSlides = useRef(new Set());
+
+  // El hero cuenta como "visto" cuando al menos la mitad está en pantalla
+  useEffect(() => {
+    const node = wrapperRef.current;
+    if (!node || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.5 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  // Una impresión por slide y por carga de página, solo si estaba a la vista
+  useEffect(() => {
+    if (!isVisible || !hasPosts) return;
+    const post = posts[activeIndex];
+    if (!post || viewedSlides.current.has(post.id)) return;
+    viewedSlides.current.add(post.id);
+    track("hero_slide_view", {
+      slide: activeIndex + 1,
+      post: post.slug,
+      source: changeSource.current,
+    });
+  }, [isVisible, activeIndex, hasPosts, posts]);
+
+  const handleSelect = (index, event) => {
+    changeSource.current = event ? "swipe" : "auto";
+    setActiveIndex(index);
+  };
+
+  const handleIndicator = (index) => {
+    changeSource.current = "indicator";
+    setActiveIndex(index);
+  };
 
   return (
-    <div className="hero-slides-wrapper">
+    <div className="hero-slides-wrapper" ref={wrapperRef}>
       <Carousel
         activeIndex={activeIndex}
-        onSelect={setActiveIndex}
+        onSelect={handleSelect}
         controls={false}
         fade={true}
         indicators={false}
       >
         {hasPosts ? (
-          posts.map((post) => (
+          posts.map((post, postIndex) => (
             <Carousel.Item key={post.id}>
               <div className="row g-0 hero-split-row">
                 {/* Columna imagen */}
@@ -83,6 +123,9 @@ export default function Slides({ posts = [] }) {
                         href={`/noticias/${post.slug}`}
                         className="btn btn-light btn-rounded-custom d-inline-flex align-items-center px-4 py-2"
                         style={{ fontWeight: "600", color: "#009de0" }}
+                        data-track="hero_slide_click"
+                        data-slide={postIndex + 1}
+                        data-post={post.slug}
                       >
                         Seguir leyendo
                       </Link>
@@ -95,8 +138,10 @@ export default function Slides({ posts = [] }) {
                             <button
                               key={i}
                               className={`hero-indicator${i === activeIndex ? " active" : ""}`}
-                              onClick={() => setActiveIndex(i)}
+                              onClick={() => handleIndicator(i)}
                               aria-label={`Ir a noticia ${i + 1}`}
+                              data-track="hero_indicator_click"
+                              data-slide={i + 1}
                             />
                           ))}
                         </div>

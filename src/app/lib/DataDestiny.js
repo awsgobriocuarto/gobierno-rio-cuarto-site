@@ -1,28 +1,20 @@
 // app/lib/DataDestiny.js
 const API_URL = process.env.API_BASE_URL_DESTINO;
 
-export async function fetchDestiny({
-  paginate = 9,
-  query = null,
-  page = null,
-} = {}) {
-  const apiUrl = `${API_URL}/events?paginate=${paginate}${
-    query ? `&query=${query}` : ""
-  }${page ? `&page=${page}` : ""}`;
-
+export async function fetchDestiny() {
   try {
-    const res = await fetch(apiUrl, {
-      // ESTA ES LA PARTE CLAVE QUE TE FALTA
+    const res = await fetch(API_URL, {
       next: { revalidate: 60 },
     });
 
     if (!res.ok) {
-      throw new Error(`Error al obtener eventos: ${res.status}`);
+      throw new Error(`Error al obtener datos de destino: ${res.status}`);
     }
 
-    return await res.json();
+    const json = await res.json();
+    return json.data;
   } catch (error) {
     console.error("Error en fetchDestiny: ", error);
-    return { data: [] }; // Retorna una estructura segura para evitar errores en el map
+    return { featured_events: [], suggested_experiences: [], relevant_activities: [] };
   }
 }
