@@ -15,7 +15,7 @@ const SOCIAL_NETWORKS = {
   "tiktok.com": "tiktok",
   "linkedin.com": "linkedin",
 };
-const IGNORED_IFRAME_HOSTS = ["chatgob.leandrodev.com.ar"];
+const IGNORED_IFRAME_HOSTS = ["chat.leandrodev.com.ar"];
 const MAX_ERRORS_PER_PAGE = 5;
 
 const hostOf = (href) => {
