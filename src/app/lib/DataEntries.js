@@ -29,7 +29,7 @@ export async function fetchEntries(type, area = "", limit = 100) {
 
     const url = `${API_URL}/entries?${queryParams.toString()}`;
 
-    // Solo pasa API_OPTIONS, ya tiene el revalidate: 60
+    // Solo pasa API_OPTIONS, ya tene el revalidate: 60
     const res = await fetch(url, API_OPTIONS);
 
     if (!res.ok) {
