@@ -128,7 +128,7 @@ export default function RootLayout({ children }) {
           <GlobalTracker />
           {/* <Chat /> */}
           {/* <Suspense><Chatn8n /></Suspense> */}
-          <MuniChatWidget widgetUrl="https://chat.leandrodev.com.ar/widget" />
+          <MuniChatWidget widgetUrl="https://chatgob.leandrodev.com.ar/widget" />
         </AccessibilityProvider>
       </body>
     </html>
