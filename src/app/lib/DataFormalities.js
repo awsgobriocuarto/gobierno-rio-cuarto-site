@@ -20,7 +20,7 @@ const API_OPTIONS = {
 export async function fetchCategories() {
   const res = await fetch(`${API_URL}/categories`, API_OPTIONS);
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    throw new Error(`Failed to fetch data (${res.status} ${res.url})`);
   }
   const categories = await res.json();
 
@@ -42,7 +42,7 @@ export async function fetchCategories() {
 export async function fetchFormalities(params = "") {
   const res = await fetch(`${API_URL}/tramites${params}`, API_OPTIONS);
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    throw new Error(`Failed to fetch data (${res.status} ${res.url})`);
   }
   return res.json();
 }
@@ -50,7 +50,7 @@ export async function fetchFormalities(params = "") {
 export async function fetchFormalitiesBySlug(slug = "") {
   const res = await fetch(`${API_URL}/tramites/${slug}`, API_OPTIONS);
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    throw new Error(`Failed to fetch data (${res.status} ${res.url})`);
   }
   return res.json();
 }

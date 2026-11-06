@@ -12,7 +12,12 @@ export const metadata = {
 };
 
 export default async function Turnos() {
-  const results = await fetchSearch("Turnos");
+  let results = null;
+  try {
+    results = await fetchSearch("Turnos");
+  } catch (error) {
+    console.error("Error al obtener turnos:", error);
+  }
 
   const ORDER_KEYWORDS = [
     "licencia",

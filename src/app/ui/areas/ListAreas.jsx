@@ -5,7 +5,12 @@ import CardAreas from "./CardAreas";
 import { fetchAreas } from "@/app/lib/DataAreas";
 
 export default async function ListAreas() {
-  const areas = await fetchAreas();
+  let areas = [];
+  try {
+    areas = await fetchAreas();
+  } catch (error) {
+    console.error("Error al obtener áreas del home:", error);
+  }
   areas.map((area) => {
     if (area.order == -1) {
       area.order = 9999;

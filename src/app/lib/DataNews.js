@@ -34,7 +34,7 @@ export async function fetchNews({
   const res = await fetch(url, API_OPTIONS);
 
   if (!res.ok) {
-    throw new Error("Failed to fetch areas data");
+    throw new Error(`Failed to fetch areas data (${res.status} ${res.url})`);
   }
   const data = await res.json();
   return data.data;
@@ -61,7 +61,7 @@ export async function fetchPosts({
   const res = await fetch(url, API_OPTIONS);
 
   if (!res.ok) {
-    throw new Error("Failed to fetch areas data");
+    throw new Error(`Failed to fetch areas data (${res.status} ${res.url})`);
   }
   const data = await res.json();
   return data;
@@ -97,7 +97,7 @@ export async function getNewsBySlug(slug) {
   const res = await fetch(`${API_URL}/posts/${slug}`, API_OPTIONS);
 
   if (!res.ok) {
-    throw new Error(`Failed to fetch area details for: ${slug}`);
+    throw new Error(`Failed to fetch area details for: ${slug} (${res.status})`);
   }
   const data = await res.json();
 

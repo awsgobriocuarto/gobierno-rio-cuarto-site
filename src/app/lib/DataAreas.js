@@ -22,7 +22,7 @@ const API_OPTIONS = {
 export async function fetchAreas() {
   const res = await fetch(`${API_URL}/areas`, API_OPTIONS);
   if (!res.ok) {
-    throw new Error("Failed to fetch areas data");
+    throw new Error(`Failed to fetch areas data (${res.status} ${res.url})`);
   }
   const data = await res.json();
   return data.data;
@@ -35,7 +35,7 @@ export async function fetchAreaBySlug(slug) {
 
   const res = await fetch(`${API_URL}/areas/${slug}`, API_OPTIONS);
   if (!res.ok) {
-    throw new Error(`Failed to fetch area details for: ${slug}`);
+    throw new Error(`Failed to fetch area details for: ${slug} (${res.status})`);
   }
   const data = await res.json();
 

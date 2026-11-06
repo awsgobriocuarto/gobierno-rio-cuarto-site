@@ -9,7 +9,12 @@ export const metadata = createPageMetadata({
 });
 
 export default async function ContactsPage() {
-    const areasList = await fetchAreas();
+    let areasList = [];
+    try {
+        areasList = await fetchAreas();
+    } catch (error) {
+        console.error("Error al obtener áreas de contactos:", error);
+    }
     const areas = (
         await Promise.all(
             areasList.map((area) => fetchAreaBySlug(area.slug))

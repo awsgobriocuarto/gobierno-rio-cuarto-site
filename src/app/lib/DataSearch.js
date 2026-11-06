@@ -28,7 +28,7 @@ export async function fetchSearch(query = "") {
   );
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    throw new Error(`Failed to fetch data (${res.status} ${res.url})`);
   }
 
   return res.json();
